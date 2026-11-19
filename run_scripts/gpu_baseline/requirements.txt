@@ -1,0 +1,9 @@
+# GPU baseline environment, as used for the RTX 3090 (driver 535.247.01, Python 3.10.17):
+#   python3.10 -m venv ~/venvs/gpu-bench && . ~/venvs/gpu-bench/bin/activate
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+#   pip install -r run_scripts/gpu_baseline/requirements.txt
+# torch is installed first from the CUDA 12.1 index: the driver supports CUDA up to 12.2.
+nvidia-ml-py==13.615.71
+onnx==1.23.2
+numpy==2.2.6
+tensorrt-cu12==10.16.1.11

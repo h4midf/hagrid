@@ -1,0 +1,81 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "bert-base",
+  "model": "bert-base-w3",
+  "cap": 2097152,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/bert-base/cap_2097152.json",
+  "latency_ns": 15152746.183410015,
+  "macros": 2096640,
+  "rram_macros": 781056,
+  "sram_macros": 1315584,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 21840,
+  "added_tiles": 0,
+  "mesh": [
+    148,
+    148
+  ],
+  "pes": 262080,
+  "routers": 5460,
+  "units": {
+    "total": {
+      "quantize": 11192,
+      "vec_el_mul": 1875,
+      "vec_add": 156,
+      "dequantize": 6121,
+      "rsqrt": 2,
+      "softmax_exp_pwl16_standalone": 76,
+      "softmax_max_reduce_tree": 14,
+      "softmax_q8_8_reciprocal": 14,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 14,
+      "reduce_tree_n16": 3587,
+      "reduce_tree_n8": 2579,
+      "gelu": 1464,
+      "reduce_tree_n64": 372
+    },
+    "max_per_tile": {
+      "quantize": 75,
+      "vec_el_mul": 16,
+      "vec_add": 9,
+      "dequantize": 3,
+      "rsqrt": 2,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n16": 1,
+      "reduce_tree_n8": 1,
+      "gelu": 1,
+      "reduce_tree_n64": 1
+    },
+    "chip_pool": {
+      "vec_add": 26,
+      "vec_el_mul": 194,
+      "rsqrt": 2,
+      "gelu": 122,
+      "quantize": 1578,
+      "dequantize": 811,
+      "softmax_max_reduce_tree": 2,
+      "softmax_exp_pwl16_standalone": 13,
+      "softmax_q8_8_reciprocal": 2,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 2,
+      "reduce_tree_n64": 31,
+      "reduce_tree_n16": 353,
+      "reduce_tree_n8": 512
+    }
+  },
+  "traffic": {
+    "edge_bits": 63495733248,
+    "bus_bits": 70667993088,
+    "flit_hops": 3285614592,
+    "correction_bits": 6115295232,
+    "flit_hops_by_kind": {
+      "edge_bits": 3285614592,
+      "correction_bits": 0
+    }
+  }
+}

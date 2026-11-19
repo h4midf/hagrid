@@ -1,0 +1,70 @@
+{
+  "target": "1fefet1c/default",
+  "model": "bert-large",
+  "cap": 2097152,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/bert-large/cap_2097152.json",
+  "latency_ns": 14227049.209009932,
+  "arrays": 2097152,
+  "added_arrays": 1440,
+  "arrays_per_tile": 96,
+  "tiles": 21861,
+  "added_tiles": 15,
+  "mesh": [
+    148,
+    148
+  ],
+  "pes": 262324,
+  "routers": 5466,
+  "units": {
+    "total": {
+      "quantize": 1273232,
+      "vec_el_mul": 4495,
+      "vec_add": 1577,
+      "dequantize": 393198,
+      "softmax_max_reduce_tree": 1381,
+      "softmax_exp_pwl16_standalone": 1098,
+      "softmax_q8_8_reciprocal": 1381,
+      "rsqrt": 6,
+      "reduce_tree_n1024": 13,
+      "reduce_tree_n256": 1380,
+      "reduce_tree_n8": 532101,
+      "gelu": 153000,
+      "reduce_tree_n32": 49050
+    },
+    "max_per_tile": {
+      "quantize": 5161,
+      "vec_el_mul": 52,
+      "vec_add": 24,
+      "dequantize": 75,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "rsqrt": 6,
+      "reduce_tree_n1024": 13,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n8": 96,
+      "gelu": 75,
+      "reduce_tree_n32": 24
+    },
+    "chip_pool": {
+      "vec_add": 904,
+      "vec_el_mul": 2975,
+      "rsqrt": 6,
+      "gelu": 6375,
+      "quantize": 1161936,
+      "dequantize": 220753,
+      "softmax_max_reduce_tree": 1366,
+      "softmax_exp_pwl16_standalone": 1083,
+      "softmax_q8_8_reciprocal": 1366,
+      "reduce_tree_n1024": 13,
+      "reduce_tree_n256": 1353,
+      "reduce_tree_n32": 695,
+      "reduce_tree_n8": 25472
+    }
+  },
+  "traffic": {
+    "edge_bits": 85568520192,
+    "bus_bits": 87615340544,
+    "flit_hops": 6445596672
+  }
+}

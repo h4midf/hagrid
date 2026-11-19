@@ -1,0 +1,78 @@
+{
+  "target": "1fefet1c/default",
+  "model": "gpt2",
+  "cap": 33554432,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/gpt2/cap_33554432.json",
+  "latency_ns": 3456398.3834553408,
+  "arrays": 21095424,
+  "added_arrays": 0,
+  "arrays_per_tile": 96,
+  "tiles": 219744,
+  "added_tiles": 0,
+  "mesh": [
+    469,
+    469
+  ],
+  "pes": 2636928,
+  "routers": 54936,
+  "units": {
+    "total": {
+      "vec_el_mul": 190878,
+      "vec_add": 73016,
+      "rsqrt": 1171,
+      "absmax_tree": 47260,
+      "quantize_per_token_token_scale": 149586,
+      "quantize_per_token_quant_mant_round": 119261,
+      "vec_select": 167,
+      "softmax_max_reduce_tree": 4751,
+      "softmax_exp_pwl16_standalone": 7416,
+      "softmax_q8_8_reciprocal": 4751,
+      "reduce_tree_n1024": 2366,
+      "reduce_tree_n256": 4750,
+      "reduce_tree_n8": 41038162,
+      "quantize": 91537,
+      "gelu": 31763115,
+      "reduce_tree_n32": 7940978
+    },
+    "max_per_tile": {
+      "vec_el_mul": 6920,
+      "vec_add": 3458,
+      "rsqrt": 1171,
+      "absmax_tree": 2560,
+      "quantize_per_token_token_scale": 2253,
+      "quantize_per_token_quant_mant_round": 4605,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 2366,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n8": 512,
+      "quantize": 91,
+      "gelu": 512,
+      "reduce_tree_n32": 128
+    },
+    "chip_pool": {
+      "vec_add": 4922,
+      "vec_el_mul": 9268,
+      "rsqrt": 1171,
+      "gelu": 3145728,
+      "quantize": 8643,
+      "absmax_tree": 3512,
+      "vec_select": 22,
+      "quantize_per_token_token_scale": 14164,
+      "quantize_per_token_quant_mant_round": 8372,
+      "softmax_max_reduce_tree": 683,
+      "softmax_exp_pwl16_standalone": 1062,
+      "softmax_q8_8_reciprocal": 683,
+      "reduce_tree_n1024": 2366,
+      "reduce_tree_n32": 784066,
+      "reduce_tree_n8": 2359296
+    }
+  },
+  "traffic": {
+    "edge_bits": 88118329344,
+    "bus_bits": 90852753408,
+    "flit_hops": 21495346176
+  }
+}

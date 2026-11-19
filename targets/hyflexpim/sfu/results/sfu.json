@@ -1,0 +1,142 @@
+[
+  {
+    "unit": "sfu_fp16_add",
+    "params": {
+      "instances_per_lane": 2
+    },
+    "method": "FP16 add and (second instance) subtract",
+    "area_um2_45nm": 1217.48,
+    "area_um2_28nm": 426.12,
+    "delay_ps": 388.91,
+    "leakage_uW": 25.9125,
+    "dynamic_mW_est": 0.3811,
+    "total_cells": 827,
+    "notes": "110 flops"
+  },
+  {
+    "unit": "sfu_fp16_mul",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "FP16 multiply",
+    "area_um2_45nm": 1561.69,
+    "area_um2_28nm": 546.59,
+    "delay_ps": 402.72,
+    "leakage_uW": 33.9754,
+    "dynamic_mW_est": 0.6286,
+    "total_cells": 1259,
+    "notes": "77 flops"
+  },
+  {
+    "unit": "sfu_fp16_div",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "FP16 divide, restoring, 1 bit per stage",
+    "area_um2_45nm": 3404.53,
+    "area_um2_28nm": 1191.59,
+    "delay_ps": 423.54,
+    "leakage_uW": 67.8439,
+    "dynamic_mW_est": 0.7259,
+    "total_cells": 1753,
+    "notes": "472 flops"
+  },
+  {
+    "unit": "sfu_fp16_sqrt",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "FP16 square root, restoring, 1 bit per stage",
+    "area_um2_45nm": 2425.92,
+    "area_um2_28nm": 849.07,
+    "delay_ps": 351.3,
+    "leakage_uW": 48.8733,
+    "dynamic_mW_est": 0.5239,
+    "total_cells": 1190,
+    "notes": "333 flops"
+  },
+  {
+    "unit": "sfu_fp16_max",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "FP16 max (one max-search step)",
+    "area_um2_45nm": 213.86,
+    "area_um2_28nm": 74.85,
+    "delay_ps": 387.77,
+    "leakage_uW": 5.2231,
+    "dynamic_mW_est": 0.1142,
+    "total_cells": 198,
+    "notes": "0 flops"
+  },
+  {
+    "unit": "sfu_fp16_to_int8",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "FP16 -> int8",
+    "area_um2_45nm": 316.27,
+    "area_um2_28nm": 110.7,
+    "delay_ps": 415.59,
+    "leakage_uW": 7.697,
+    "dynamic_mW_est": 0.1712,
+    "total_cells": 265,
+    "notes": "0 flops"
+  },
+  {
+    "unit": "sfu_int8_to_fp16",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "int8 -> FP16 (exp range reduction)",
+    "area_um2_45nm": 146.3,
+    "area_um2_28nm": 51.2,
+    "delay_ps": 236.76,
+    "leakage_uW": 3.6131,
+    "dynamic_mW_est": 0.0836,
+    "total_cells": 104,
+    "notes": "0 flops"
+  },
+  {
+    "unit": "sfu_fp16_ldexp",
+    "params": {
+      "instances_per_lane": 1
+    },
+    "method": "FP16 x 2^n (exp range reduction)",
+    "area_um2_45nm": 149.49,
+    "area_um2_28nm": 52.32,
+    "delay_ps": 259.24,
+    "leakage_uW": 3.9157,
+    "dynamic_mW_est": 0.0814,
+    "total_cells": 100,
+    "notes": "0 flops"
+  },
+  {
+    "unit": "sfu_lane",
+    "params": {},
+    "method": "one SFU lane: every unit, outputs registered",
+    "area_um2_45nm": 13809.39,
+    "area_um2_28nm": 4833.29,
+    "delay_ps": 449.37,
+    "leakage_uW": 280.3292,
+    "dynamic_mW_est": 3.5104,
+    "total_cells": 8182,
+    "notes": "1594 flops",
+    "sfu_65nm": {
+      "lanes": 256,
+      "area_mm2": 5.332173931427845,
+      "dynamic_mW": 1146.6681196654886,
+      "leakage_mW": 93.12716650403624,
+      "power_mW": 1239.7952861695248,
+      "stage_ps": 933.9363948271407,
+      "max_freq_MHz": 1070.7367284739844,
+      "meets_clock": true,
+      "factors": {
+        "area": 1.5083073488141057,
+        "delay": 1.5981936013606801,
+        "energy": 1.275972066557462,
+        "power": 1.2976814194040134
+      }
+    }
+  }
+]

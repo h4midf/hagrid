@@ -1,0 +1,83 @@
+{
+  "sram_macro": {
+    "area_um2": 7598.580641008764,
+    "logic_area_um2": 5075.7106410087645,
+    "array_area_um2": 2522.87,
+    "power_mW": 0.16400563348899416,
+    "logic_power_mW": 0.06952737329091417,
+    "array_power_mW": 0.09447826019807999
+  },
+  "rram_macro": {
+    "area_um2": 69177.40039954557,
+    "power_mW_by_rows_on": {
+      "8": 5.666678638126267,
+      "16": 7.815715597716285,
+      "32": 9.100140977347259
+    }
+  },
+  "one_macro": {
+    "area_ratio": 0.10984195123149901,
+    "area_ratio_from_fig6_layout": 0.08601022053023288,
+    "power_ratio_by_rows_on": {
+      "8": 0.028942109472299977,
+      "16": 0.020984084110854267,
+      "32": 0.018022317884662343
+    }
+  },
+  "networks": {
+    "ResNet-20 CIFAR-10": {
+      "macro_count_ratio": 0.23880597014925373,
+      "area_pct": {
+        "paper": 3.7,
+        "ours": 2.6230913726925134,
+        "from_fig6_layout": 2.0539754156473524
+      },
+      "power_pct": {
+        "paper": 0.5,
+        "ours_by_rows_on": {
+          "8": 0.6911548530698501,
+          "16": 0.5011124563786092,
+          "32": 0.4303837106785037
+        }
+      },
+      "implied_one_macro_area_ratio": 0.15493750000000003,
+      "implied_one_macro_power_ratio": 0.0209375
+    },
+    "VGG-16 CIFAR-10": {
+      "macro_count_ratio": 0.2344582593250444,
+      "area_pct": {
+        "paper": 2.3,
+        "ours": 2.5753352686603677,
+        "from_fig6_layout": 2.01658065896816
+      },
+      "power_pct": {
+        "paper": 0.3,
+        "ours_by_rows_on": {
+          "8": 0.6785716608070332,
+          "16": 0.4919891834161214,
+          "32": 0.422548128024055
+        }
+      },
+      "implied_one_macro_area_ratio": 0.09809848484848485,
+      "implied_one_macro_power_ratio": 0.012795454545454546
+    },
+    "MobileNet-v2 ImageNet": {
+      "macro_count_ratio": 1.4307692307692308,
+      "area_pct": {
+        "paper": 20,
+        "ours": 15.715848406968318,
+        "from_fig6_layout": 12.30607770663332
+      },
+      "power_pct": {
+        "paper": 2.6,
+        "ours_by_rows_on": {
+          "8": 4.14094797065215,
+          "16": 3.0023381881683795,
+          "32": 2.578577789651689
+        }
+      },
+      "implied_one_macro_area_ratio": 0.13978494623655915,
+      "implied_one_macro_power_ratio": 0.01817204301075269
+    }
+  }
+}

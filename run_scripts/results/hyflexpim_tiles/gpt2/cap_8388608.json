@@ -1,0 +1,73 @@
+{
+  "target": "hyflexpim/default",
+  "model": "gpt2",
+  "cap": 8388608,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/gpt2/cap_8388608.json",
+  "latency_ns": 334358.48596915486,
+  "analog_arrays": 7297152,
+  "digital_arrays": 1048588,
+  "analog_modules": 14253,
+  "digital_modules": 4097,
+  "pus": 594,
+  "units": {
+    "total": {
+      "vec_el_mul": 53599,
+      "vec_add": 9719,
+      "rsqrt": 6,
+      "absmax_tree": 530,
+      "quantize_per_token_token_scale": 606,
+      "quantize_per_token_quant_mant_round": 20697,
+      "vec_select": 68,
+      "softmax_max_reduce_tree": 136,
+      "softmax_exp_pwl16_standalone": 2861,
+      "softmax_q8_8_reciprocal": 136,
+      "reduce_tree_n1024": 8,
+      "reduce_tree_n256": 135,
+      "reduce_tree_n16": 36491,
+      "quantize": 5612,
+      "gelu": 17546,
+      "reduce_tree_n64": 4186
+    },
+    "max_per_pu": {
+      "vec_el_mul": 2419,
+      "vec_add": 730,
+      "rsqrt": 6,
+      "absmax_tree": 30,
+      "quantize_per_token_token_scale": 46,
+      "quantize_per_token_quant_mant_round": 4193,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 8,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 8,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n16": 212,
+      "quantize": 195,
+      "gelu": 223,
+      "reduce_tree_n64": 53
+    },
+    "chip_pool": {
+      "vec_add": 2156,
+      "vec_el_mul": 16094,
+      "rsqrt": 6,
+      "gelu": 1614,
+      "quantize": 1412,
+      "absmax_tree": 99,
+      "vec_select": 27,
+      "quantize_per_token_token_scale": 147,
+      "quantize_per_token_quant_mant_round": 4981,
+      "softmax_max_reduce_tree": 49,
+      "softmax_exp_pwl16_standalone": 1381,
+      "softmax_q8_8_reciprocal": 49,
+      "reduce_tree_n1024": 8,
+      "reduce_tree_n256": 45,
+      "reduce_tree_n64": 384,
+      "reduce_tree_n16": 3565
+    }
+  },
+  "traffic": {
+    "local_bits": 104711664732.15419,
+    "inner_bus_bits": 21007559.05113042,
+    "global_bus_bits": 2713009884.7947125
+  }
+}

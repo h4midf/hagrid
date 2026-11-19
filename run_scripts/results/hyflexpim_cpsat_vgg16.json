@@ -1,0 +1,139 @@
+{
+  "target": "hyflexpim/default",
+  "model": "vgg16",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "da0db8e61e027ec1",
+  "min_feasible_array_cap": 81316,
+  "max_cap": 9539712,
+  "points": {
+    "131072": {
+      "cap": 131072,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 185931.72556477122,
+      "greedy_arrays": 127680,
+      "greedy_wall_s": 0.3224940299987793,
+      "segment_stationary_caps": [
+        48000,
+        2880,
+        72656
+      ],
+      "status": "OPTIMAL",
+      "latency": 185931.72556477122,
+      "arrays": 127680,
+      "analog_arrays": 127680,
+      "analog_stationary_arrays": 127680,
+      "digital_arrays": 0,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 169093.522,
+          "bound_ns": 169093.522,
+          "solve_wall_s": 4.318938
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 78427.00000000001,
+          "bound_ns": 78427.00000000001,
+          "solve_wall_s": 0.0028020000000000002
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 2515.0,
+          "bound_ns": 2515.0,
+          "solve_wall_s": 0.002346
+        }
+      ],
+      "solve_wall_s": 4.324086,
+      "wall_s": 4.567873954772949,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/vgg16/cap_131072.json"
+    },
+    "1048576": {
+      "cap": 1048576,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 24419.34764962245,
+      "greedy_arrays": 844560,
+      "greedy_wall_s": 0.3442211151123047,
+      "segment_stationary_caps": [
+        721920,
+        23040,
+        72656
+      ],
+      "status": "OPTIMAL",
+      "latency": 24419.34764962245,
+      "arrays": 844560,
+      "analog_arrays": 844560,
+      "analog_stationary_arrays": 844560,
+      "digital_arrays": 0,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 17916.0,
+          "bound_ns": 17916.0,
+          "solve_wall_s": 0.140054
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 10427.0,
+          "bound_ns": 10427.0,
+          "solve_wall_s": 0.006200000000000001
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 2515.0,
+          "bound_ns": 2515.0,
+          "solve_wall_s": 0.002367
+        }
+      ],
+      "solve_wall_s": 0.148621,
+      "wall_s": 0.28946399688720703,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/vgg16/cap_1048576.json"
+    },
+    "16777216": {
+      "cap": 16777216,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 14686.311499999998,
+      "greedy_arrays": 9529200,
+      "greedy_wall_s": 0.41947317123413086,
+      "segment_stationary_caps": [
+        8843520,
+        282240,
+        72656
+      ],
+      "status": "OPTIMAL",
+      "latency": 14686.311499999998,
+      "arrays": 9529200,
+      "analog_arrays": 9529200,
+      "analog_stationary_arrays": 9529200,
+      "digital_arrays": 0,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 8316.0,
+          "bound_ns": 8316.0,
+          "solve_wall_s": 0.144928
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 827.0,
+          "bound_ns": 827.0,
+          "solve_wall_s": 0.006503
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 2515.0,
+          "bound_ns": 2515.0,
+          "solve_wall_s": 0.0023350000000000003
+        }
+      ],
+      "solve_wall_s": 0.153766,
+      "wall_s": 0.29998779296875,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/vgg16/cap_16777216.json"
+    }
+  }
+}

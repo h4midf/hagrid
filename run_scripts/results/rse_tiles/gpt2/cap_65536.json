@@ -1,0 +1,92 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "gpt2",
+  "model": "gpt2-w3",
+  "cap": 65536,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/gpt2/cap_65536.json",
+  "latency_ns": 1005093443.5562583,
+  "macros": 65288,
+  "rram_macros": 22176,
+  "sram_macros": 43112,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 681,
+  "added_tiles": 0,
+  "mesh": [
+    27,
+    26
+  ],
+  "pes": 8161,
+  "routers": 171,
+  "units": {
+    "total": {
+      "vec_el_mul": 321,
+      "vec_add": 85,
+      "rsqrt": 2,
+      "absmax_tree": 45,
+      "quantize_per_token_token_scale": 45,
+      "quantize_per_token_quant_mant_round": 45,
+      "vec_select": 5,
+      "softmax_max_reduce_tree": 5,
+      "softmax_exp_pwl16_standalone": 5,
+      "softmax_q8_8_reciprocal": 5,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 5,
+      "reduce_tree_n32": 0,
+      "reduce_tree_n16": 142,
+      "reduce_tree_n8": 30,
+      "quantize": 19,
+      "gelu": 48,
+      "reduce_tree_n64": 12
+    },
+    "max_per_tile": {
+      "vec_el_mul": 51,
+      "vec_add": 10,
+      "rsqrt": 2,
+      "absmax_tree": 6,
+      "quantize_per_token_token_scale": 6,
+      "quantize_per_token_quant_mant_round": 6,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n32": 0,
+      "reduce_tree_n16": 1,
+      "reduce_tree_n8": 1,
+      "quantize": 1,
+      "gelu": 1,
+      "reduce_tree_n64": 1
+    },
+    "chip_pool": {
+      "vec_add": 16,
+      "vec_el_mul": 71,
+      "rsqrt": 2,
+      "gelu": 4,
+      "quantize": 8,
+      "absmax_tree": 10,
+      "vec_select": 1,
+      "quantize_per_token_token_scale": 10,
+      "quantize_per_token_quant_mant_round": 10,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n64": 1,
+      "reduce_tree_n32": 1,
+      "reduce_tree_n16": 47
+    }
+  },
+  "traffic": {
+    "edge_bits": 168145649664,
+    "bus_bits": 183110664192,
+    "flit_hops": 1413512192,
+    "correction_bits": 12230590464,
+    "flit_hops_by_kind": {
+      "edge_bits": 1413512192,
+      "correction_bits": 0
+    }
+  }
+}

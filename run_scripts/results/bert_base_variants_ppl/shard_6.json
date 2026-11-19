@@ -1,0 +1,41 @@
+{
+  "n_eval": 32,
+  "seed": 3,
+  "calib_windows": 32,
+  "calib_seed": 1,
+  "float_ppl": 10.215022429633148,
+  "int8_torch_ppl": {
+    "qkv_fc1_fc2": 10.865159694705728,
+    "fc1_fc2": 10.874004750126801
+  },
+  "prep": "dump/bert_base_sweep_prep.pt",
+  "plan": "run_scripts/results/bert_base_variants_plan.json",
+  "shard": 6,
+  "num_shards": 10,
+  "variants": {
+    "qkv_fc1_fc2_vec_el_mul__dw32__sm-exact_ge-exact_ln-sole__q-lut_dq-mant_round_zp24": {
+      "model": "bert-base",
+      "flags": {
+        "data_width": 32,
+        "sm_impl": "exact",
+        "gelu_impl": "exact",
+        "relu_impl": "exact",
+        "silu_impl": "exact",
+        "elu_impl": "exact",
+        "leaky_relu_impl": "exact",
+        "ln_impl": "sole",
+        "ln_lanes": 4,
+        "rms_norm_impl": "lut",
+        "smooth_impl": "vec_el_mul",
+        "reduce_impl": "tree",
+        "argmax_width": 512,
+        "quantize_impl": "lut",
+        "dequantize_impl": "mant_round_zp",
+        "smooth": "qkv_fc1_fc2",
+        "dequantize_mantissa_width": 24
+      },
+      "same_computation": [],
+      "ppl": 11.347654822363126
+    }
+  }
+}

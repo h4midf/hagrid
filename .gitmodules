@@ -1,0 +1,27 @@
+[submodule "targets/hd-cim/NeuroSim"]
+	path = targets/hd-cim/NeuroSim
+	url = https://github.com/neurosim/NeuroSim.git
+[submodule "targets/hd-cim/NVSim"]
+	path = targets/hd-cim/NVSim
+	url = https://github.com/SEAL-UCSB/NVSim.git
+[submodule "targets/hd-cim/cacti"]
+	path = targets/hd-cim/cacti
+	url = https://github.com/HewlettPackard/cacti.git
+[submodule "targets/hepga/NeuroSim"]
+	path = targets/hepga/NeuroSim
+	url = https://github.com/neurosim/NeuroSim.git
+[submodule "targets/hepga/BookSim"]
+	path = targets/hepga/BookSim
+	url = https://github.com/booksim/booksim2.git
+[submodule "targets/tlnvsram/NeuroSim"]
+	path = targets/tlnvsram/NeuroSim
+	url = https://github.com/neurosim/NeuroSim.git
+[submodule "targets/tlnvsram/NVSim"]
+	path = targets/tlnvsram/NVSim
+	url = https://github.com/SEAL-UCSB/NVSim.git
+[submodule "targets/tlnvsram/cacti"]
+	path = targets/tlnvsram/cacti
+	url = https://github.com/HewlettPackard/cacti.git
+[submodule "targets/rram-sram-ensemble/NeuroSim"]
+	path = targets/rram-sram-ensemble/NeuroSim
+	url = https://github.com/neurosim/NeuroSim.git

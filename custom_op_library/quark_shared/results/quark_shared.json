@@ -1,0 +1,137 @@
+[
+  {
+    "unit": "quark_appro_exp",
+    "params": {
+      "W": 32,
+      "FRAC": 20
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 7704.42,
+    "area_um2_28nm": 2696.55,
+    "delay_ps": 3876.11,
+    "leakage_uW": 97.783,
+    "dynamic_mW_est": 2.2324,
+    "total_cells": 4663,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_appro_ln",
+    "params": {
+      "W": 32,
+      "FRAC": 20
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 8490.45,
+    "area_um2_28nm": 2971.66,
+    "delay_ps": 5958.81,
+    "leakage_uW": 143.2058,
+    "dynamic_mW_est": 3.3573,
+    "total_cells": 6493,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_recip",
+    "params": {
+      "W": 32,
+      "FRAC": 20
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 25517.65,
+    "area_um2_28nm": 8931.18,
+    "delay_ps": 9609.32,
+    "leakage_uW": 114.1124,
+    "dynamic_mW_est": 2.1821,
+    "total_cells": 4188,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_appro_exp",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 1491.2,
+    "area_um2_28nm": 521.92,
+    "delay_ps": 1793.9,
+    "leakage_uW": 31.2528,
+    "dynamic_mW_est": 0.7408,
+    "total_cells": 1540,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_appro_ln",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 1533.22,
+    "area_um2_28nm": 536.63,
+    "delay_ps": 2836.14,
+    "leakage_uW": 31.839,
+    "dynamic_mW_est": 0.7742,
+    "total_cells": 1553,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_recip",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 4047.46,
+    "area_um2_28nm": 1416.61,
+    "delay_ps": 4693.8,
+    "leakage_uW": 64.4952,
+    "dynamic_mW_est": 1.4476,
+    "total_cells": 3139,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_shared_div",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 7715.06,
+    "area_um2_28nm": 2700.27,
+    "delay_ps": 8145.43,
+    "leakage_uW": 107.8851,
+    "dynamic_mW_est": 2.2185,
+    "total_cells": 4563,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_softmax_row8",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 26572.34,
+    "area_um2_28nm": 9300.32,
+    "delay_ps": 9007.32,
+    "leakage_uW": 248.428,
+    "dynamic_mW_est": 6.3761,
+    "total_cells": 10988,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  },
+  {
+    "unit": "quark_gelu",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "QUARK (ICCAD 2025) shared log/exp circuit",
+    "area_um2_45nm": 9159.18,
+    "area_um2_28nm": 3205.71,
+    "delay_ps": 8764.65,
+    "leakage_uW": 156.4953,
+    "dynamic_mW_est": 3.5414,
+    "total_cells": 7133,
+    "notes": "verified bit-exact (test_quark_*.py) against the already-validated Python reference in run_scripts/measure_accuracy/quark_bert_large.py; see paper/approximate/selected_approximate.md idea 3"
+  }
+]

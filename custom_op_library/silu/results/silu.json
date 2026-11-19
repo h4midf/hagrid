@@ -1,0 +1,36 @@
+[
+  {
+    "unit": "silu",
+    "params": {
+      "W": 32,
+      "segments": 16,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear exp + one division",
+    "area_um2_45nm": 12923.08,
+    "area_um2_28nm": 4523.08,
+    "delay_ps": 21429.16,
+    "leakage_uW": 117.3944,
+    "dynamic_mW_est": 2.0555,
+    "total_cells": 5060,
+    "notes": "validated: mean abs err 9e-6, max abs err 5.4e-5 vs true SiLU (see approximation_error.py)"
+  },
+  {
+    "unit": "silu",
+    "params": {
+      "W": 16,
+      "segments": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear exp + one division",
+    "area_um2_45nm": 2221.63,
+    "area_um2_28nm": 777.57,
+    "delay_ps": 4780.1,
+    "leakage_uW": 47.9303,
+    "dynamic_mW_est": 1.0932,
+    "total_cells": 2287,
+    "notes": "validated: mean abs err 3.9e-3, max abs err 3.7e-2 vs true SiLU (see approximation_error.py)"
+  }
+]

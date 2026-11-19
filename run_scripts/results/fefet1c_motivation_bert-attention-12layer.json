@@ -1,0 +1,230 @@
+{
+  "target": "1fefet1c/default",
+  "model": "bert-attention-12layer",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "00e6e349e7c0c2c7",
+  "min_feasible_array_cap": 6912,
+  "max_cap": 3538944,
+  "points": {
+    "8192": {
+      "cap": 8192,
+      "greedy": {
+        "latency": 578281844.9890326,
+        "arrays": 7632,
+        "stationary_arrays": 7632,
+        "wmu_peak_arrays": 6720,
+        "feasible": true,
+        "wall_s": 3.986538887023926,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/greedy/cap_8192.json"
+      },
+      "listsched": {
+        "latency": 2140169152.1639702,
+        "arrays": 8064,
+        "stationary_arrays": 8064,
+        "wmu_peak_arrays": 7824,
+        "feasible": true,
+        "wall_s": 3.797879934310913,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/listsched/cap_8192.json"
+      },
+      "cpsat": {
+        "latency": 579884215.8311754,
+        "arrays": 6912,
+        "stationary_arrays": 6912,
+        "wmu_peak_arrays": 6720,
+        "feasible": true,
+        "wall_s": 3.03641676902771,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/cpsat/cap_8192.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          636
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 49756263.0,
+            "bound_ns": 49756263.0,
+            "solve_wall_s": 0.292818
+          }
+        ]
+      }
+    },
+    "32768": {
+      "cap": 32768,
+      "greedy": {
+        "latency": 146214807.10227934,
+        "arrays": 30528,
+        "stationary_arrays": 30528,
+        "wmu_peak_arrays": 26880,
+        "feasible": true,
+        "wall_s": 4.448724031448364,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/greedy/cap_32768.json"
+      },
+      "listsched": {
+        "latency": 285479171.9063949,
+        "arrays": 31824,
+        "stationary_arrays": 31824,
+        "wmu_peak_arrays": 31296,
+        "feasible": true,
+        "wall_s": 3.5562989711761475,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/listsched/cap_32768.json"
+      },
+      "cpsat": {
+        "latency": 146480900.23321977,
+        "arrays": 27648,
+        "stationary_arrays": 27648,
+        "wmu_peak_arrays": 26880,
+        "feasible": true,
+        "wall_s": 3.063328981399536,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/cpsat/cap_32768.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          2544
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 12265575.0,
+            "bound_ns": 12265575.0,
+            "solve_wall_s": 0.08887300000000001
+          }
+        ]
+      }
+    },
+    "262144": {
+      "cap": 262144,
+      "greedy": {
+        "latency": 20487757.637391806,
+        "arrays": 253440,
+        "stationary_arrays": 253440,
+        "wmu_peak_arrays": 215040,
+        "feasible": true,
+        "wall_s": 5.035150051116943,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/greedy/cap_262144.json"
+      },
+      "listsched": {
+        "latency": 37309389.801333345,
+        "arrays": 246912,
+        "stationary_arrays": 234144,
+        "wmu_peak_arrays": 246912,
+        "feasible": true,
+        "wall_s": 3.7089462280273438,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/listsched/cap_262144.json"
+      },
+      "cpsat": {
+        "latency": 20825175.869949944,
+        "arrays": 248832,
+        "stationary_arrays": 248832,
+        "wmu_peak_arrays": 217344,
+        "feasible": true,
+        "wall_s": 4.175278902053833,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/cpsat/cap_262144.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          21120
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 1858803.0,
+            "bound_ns": 1858803.0,
+            "solve_wall_s": 1.112428
+          }
+        ]
+      }
+    },
+    "1048576": {
+      "cap": 1048576,
+      "greedy": {
+        "latency": 6839060.378129949,
+        "arrays": 1032192,
+        "stationary_arrays": 1032192,
+        "wmu_peak_arrays": 915456,
+        "feasible": true,
+        "wall_s": 4.928752183914185,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/greedy/cap_1048576.json"
+      },
+      "listsched": {
+        "latency": 11144128.609333336,
+        "arrays": 999168,
+        "stationary_arrays": 400896,
+        "wmu_peak_arrays": 999168,
+        "feasible": true,
+        "wall_s": 3.6405069828033447,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/listsched/cap_1048576.json"
+      },
+      "cpsat": {
+        "latency": 5888754.169241923,
+        "arrays": 1009152,
+        "stationary_arrays": 1009152,
+        "wmu_peak_arrays": 870528,
+        "feasible": true,
+        "wall_s": 3.17153000831604,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/cpsat/cap_1048576.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          86016
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 540078.0,
+            "bound_ns": 540078.0,
+            "solve_wall_s": 0.392817
+          }
+        ]
+      }
+    },
+    "4194304": {
+      "cap": 4194304,
+      "greedy": {
+        "latency": 2902070.5928071463,
+        "arrays": 3612672,
+        "stationary_arrays": 3133440,
+        "wmu_peak_arrays": 3612672,
+        "feasible": true,
+        "wall_s": 4.235151290893555,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/greedy/cap_4194304.json"
+      },
+      "listsched": {
+        "latency": 2901691.178005423,
+        "arrays": 3612672,
+        "stationary_arrays": 3538944,
+        "wmu_peak_arrays": 3612672,
+        "feasible": true,
+        "wall_s": 2.944592237472534,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/listsched/cap_4194304.json"
+      },
+      "cpsat": {
+        "latency": 2902070.5928071463,
+        "arrays": 3612672,
+        "stationary_arrays": 3096576,
+        "wmu_peak_arrays": 3612672,
+        "feasible": true,
+        "wall_s": 2.1497981548309326,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_motivation/cpsat/cap_4194304.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          261120
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 210297.0,
+            "bound_ns": 210297.0,
+            "solve_wall_s": 0.09323400000000001
+          }
+        ]
+      }
+    }
+  }
+}

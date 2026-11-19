@@ -1,0 +1,91 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "gpt2",
+  "model": "gpt2-w3",
+  "cap": 134217728,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/gpt2/cap_134217728.json",
+  "latency_ns": 1430156.159693218,
+  "macros": 99090432,
+  "rram_macros": 21233664,
+  "sram_macros": 77856768,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 1032192,
+  "added_tiles": 0,
+  "mesh": [
+    1016,
+    1016
+  ],
+  "pes": 12386304,
+  "routers": 258048,
+  "units": {
+    "total": {
+      "vec_el_mul": 3905901,
+      "vec_add": 169974,
+      "rsqrt": 1030,
+      "absmax_tree": 38438,
+      "quantize_per_token_token_scale": 34694,
+      "quantize_per_token_quant_mant_round": 185615,
+      "softmax_exp_pwl16_standalone": 22961,
+      "reduce_tree_n1024": 2061,
+      "reduce_tree_n16": 6614068,
+      "reduce_tree_n8": 446628,
+      "reduce_tree_n32": 724090,
+      "quantize": 58260,
+      "gelu": 3799354,
+      "reduce_tree_n64": 933239,
+      "softmax_max_reduce_tree": 2052,
+      "softmax_q8_8_reciprocal": 2052,
+      "reduce_tree_n256": 2052,
+      "vec_select": 517
+    },
+    "max_per_tile": {
+      "vec_el_mul": 63492,
+      "vec_add": 33216,
+      "rsqrt": 1030,
+      "absmax_tree": 1238,
+      "quantize_per_token_token_scale": 1104,
+      "quantize_per_token_quant_mant_round": 20764,
+      "softmax_exp_pwl16_standalone": 1,
+      "reduce_tree_n1024": 2061,
+      "reduce_tree_n16": 112,
+      "reduce_tree_n8": 3,
+      "reduce_tree_n32": 1,
+      "quantize": 1,
+      "gelu": 112,
+      "reduce_tree_n64": 28,
+      "softmax_max_reduce_tree": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n256": 1,
+      "vec_select": 1
+    },
+    "chip_pool": {
+      "vec_add": 88273,
+      "vec_el_mul": 2565448,
+      "rsqrt": 1030,
+      "gelu": 3145728,
+      "quantize": 4855,
+      "absmax_tree": 14346,
+      "vec_select": 517,
+      "quantize_per_token_token_scale": 14270,
+      "quantize_per_token_quant_mant_round": 97797,
+      "softmax_max_reduce_tree": 2052,
+      "softmax_exp_pwl16_standalone": 22961,
+      "softmax_q8_8_reciprocal": 2052,
+      "reduce_tree_n1024": 2061,
+      "reduce_tree_n256": 78,
+      "reduce_tree_n64": 786341,
+      "reduce_tree_n16": 3932160
+    }
+  },
+  "traffic": {
+    "edge_bits": 168145649664,
+    "bus_bits": 183110664192,
+    "flit_hops": 37571532800,
+    "correction_bits": 12230590464,
+    "flit_hops_by_kind": {
+      "edge_bits": 37571532800,
+      "correction_bits": 0
+    }
+  }
+}

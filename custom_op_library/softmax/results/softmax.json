@@ -1,0 +1,178 @@
+[
+  {
+    "unit": "softmax_row8",
+    "params": {
+      "row_width": 8,
+      "in": "8-bit score",
+      "out": "Q8.8"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear (RMSL)",
+    "area_um2_45nm": 8396.29,
+    "area_um2_28nm": 2938.7,
+    "delay_ps": 8192.24,
+    "leakage_uW": 183.1057,
+    "dynamic_mW_est": 4.1224,
+    "total_cells": 8759,
+    "notes": "exp via bit-shift (integer power-of-2) + 16-seg PWL (fractional); one reciprocal + 8 multiplies for normalization"
+  },
+  {
+    "unit": "e2softmax_row8",
+    "params": {},
+    "method": "log2-quantized exponent (4-bit) + ALDivision (shift+2-way mux, no divider)",
+    "area_um2_45nm": 2574.88,
+    "area_um2_28nm": 901.21,
+    "delay_ps": 2545.9,
+    "leakage_uW": 55.4876,
+    "dynamic_mW_est": 1.3005,
+    "total_cells": 2725,
+    "notes": "SOLE (ICCAD 2023); verified clean on bert-large-uncased: 7.61 ppl / 61.84% top-1 vs 7.36/61.18% baseline; see paper/approximate/selected_approximate.md idea 2"
+  },
+  {
+    "unit": "ibert_softmax_row8",
+    "params": {},
+    "method": "range-reduced quadratic-poly exp (I-BERT, ICML 2021), real division for normalization",
+    "area_um2_45nm": 14655.54,
+    "area_um2_28nm": 5129.44,
+    "delay_ps": 9468.69,
+    "leakage_uW": 305.5812,
+    "dynamic_mW_est": 7.4689,
+    "total_cells": 15229,
+    "notes": "verified clean on bert-large-uncased: 7.3568 ppl / 61.18% top-1 vs 7.3563/61.18% baseline; see paper/approximate/selected_approximate.md idea 5"
+  },
+  {
+    "unit": "gqa_lut_exp8",
+    "params": {
+      "W": 32,
+      "FRAC": 20
+    },
+    "method": "8-entry genetic piecewise-linear LUT (GQA-LUT, DAC'24), output-clamped-to-0 below domain floor",
+    "area_um2_45nm": 4714.85,
+    "area_um2_28nm": 1650.2,
+    "delay_ps": 2778.46,
+    "leakage_uW": 101.5014,
+    "dynamic_mW_est": 2.2846,
+    "total_cells": 4800,
+    "notes": "verified clean on bert-large-uncased: 8.2769 ppl / 59.21% top-1 vs 7.3563/61.18% baseline; see paper/approximate/selected_approximate.md idea 7"
+  },
+  {
+    "unit": "gqa_lut_exp8",
+    "params": {
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "8-entry genetic piecewise-linear LUT (GQA-LUT, DAC'24), output-clamped-to-0 below domain floor",
+    "area_um2_45nm": 1066.39,
+    "area_um2_28nm": 373.24,
+    "delay_ps": 1182.55,
+    "leakage_uW": 22.1631,
+    "dynamic_mW_est": 0.5447,
+    "total_cells": 1102,
+    "notes": "verified clean on bert-large-uncased: 8.2769 ppl / 59.21% top-1 vs 7.3563/61.18% baseline; see paper/approximate/selected_approximate.md idea 7"
+  },
+  {
+    "unit": "gqa_lut_softmax_row8",
+    "params": {},
+    "method": "8-entry genetic piecewise-linear exp LUT (GQA-LUT, DAC'24), real division for normalization",
+    "area_um2_45nm": 4852.9,
+    "area_um2_28nm": 1698.52,
+    "delay_ps": 6988.13,
+    "leakage_uW": 108.0222,
+    "dynamic_mW_est": 2.3447,
+    "total_cells": 5024,
+    "notes": "verified clean on bert-large-uncased: 8.2769 ppl / 59.21% top-1 vs 7.3563/61.18% baseline; see paper/approximate/selected_approximate.md idea 7"
+  },
+  {
+    "unit": "max_reduce_tree",
+    "params": {
+      "N": 512,
+      "W": 32
+    },
+    "method": "comparator-tree max reduction, real bert-large row width",
+    "area_um2_45nm": 120151.93,
+    "area_um2_28nm": 42053.18,
+    "delay_ps": 7251.68,
+    "leakage_uW": 2672.1626,
+    "dynamic_mW_est": 61.1827,
+    "total_cells": 132335,
+    "notes": "shared stage 1 of every non-lut softmax variant's own real row-pipeline decomposition (global max over the real 512-wide row, before any per-element exp stage)"
+  },
+  {
+    "unit": "max_reduce_tree",
+    "params": {
+      "N": 256,
+      "W": 32
+    },
+    "method": "comparator-tree max reduction, HyFlexPIM's own stated SFU width",
+    "area_um2_45nm": 59820.21,
+    "area_um2_28nm": 20937.07,
+    "delay_ps": 6356.8,
+    "leakage_uW": 1330.6767,
+    "dynamic_mW_est": 30.4102,
+    "total_cells": 65931,
+    "notes": "the one shared row-pipeline tile width used across all three targets: HyFlexPIM's own paper (Sec. 3, Fig. 5 discussion) states 'we configured each SFU to process 256 inputs per cycle to balance the throughput of GEMV operations' -- neither 1FeFET-1C's nor RRAM-SRAM-Ensemble's own paper ever addresses softmax/GELU/attention at all, so this is the only real, paper-sourced nonlinear-op hardware width available to standardize on; any row_width is now handled as ceil(row_width/256) passes of this one circuit, not a bespoke per-model N"
+  },
+  {
+    "unit": "exp_pwl16_standalone",
+    "params": {},
+    "method": "standalone per-element extraction of softmax_row8.v's own exp_pwl16 (base-2-decompose + 16-segment PWL)",
+    "area_um2_45nm": 1167.47,
+    "area_um2_28nm": 408.62,
+    "delay_ps": 1359.6,
+    "leakage_uW": 25.2772,
+    "dynamic_mW_est": 0.5562,
+    "total_cells": 1180,
+    "notes": "\"exact\" row-pipeline's own per-element exp stage, instantiated once per real row element (512x)"
+  },
+  {
+    "unit": "q8_8_reciprocal",
+    "params": {
+      "SUM_W": 20
+    },
+    "method": "65536/sum reciprocal, one shared instance per row",
+    "area_um2_45nm": 1270.68,
+    "area_um2_28nm": 444.74,
+    "delay_ps": 6118.41,
+    "leakage_uW": 28.2216,
+    "dynamic_mW_est": 0.6183,
+    "total_cells": 1308,
+    "notes": "\"exact\"/\"gqa_lut\"/\"ibert\" row-pipelines' own shared normalize-reciprocal stage (SUM_W=20 covers the real max row sum at N=512)"
+  },
+  {
+    "unit": "log2exp_standalone",
+    "params": {},
+    "method": "standalone per-element extraction of e2softmax_row8.v's own log2exp_q8_8 (SOLE Eq.8) plus its own inline reconstruction step",
+    "area_um2_45nm": 326.12,
+    "area_um2_28nm": 114.14,
+    "delay_ps": 876.65,
+    "leakage_uW": 7.366,
+    "dynamic_mW_est": 0.1516,
+    "total_cells": 334,
+    "notes": "\"sole\" row-pipeline's own per-element exp stage, instantiated once per real row element (512x)"
+  },
+  {
+    "unit": "aldivision_standalone",
+    "params": {
+      "SUM_W": 24
+    },
+    "method": "standalone, width-parameterized extraction of e2softmax_row8.v's own ALDivision (shift+2-way mux, no divider)",
+    "area_um2_45nm": 206.15,
+    "area_um2_28nm": 72.15,
+    "delay_ps": 697.03,
+    "leakage_uW": 4.6005,
+    "dynamic_mW_est": 0.1038,
+    "total_cells": 220,
+    "notes": "\"sole\" row-pipeline's own per-element normalize stage (SUM_W=24 covers the real max row sum at N=512)"
+  },
+  {
+    "unit": "ibert_exp_pwl_standalone",
+    "params": {},
+    "method": "standalone per-element extraction of ibert_softmax_row8.v's own ibert_exp_pwl (I-BERT range-reduced quadratic-poly exp)",
+    "area_um2_45nm": 2856.57,
+    "area_um2_28nm": 999.8,
+    "delay_ps": 2879.86,
+    "leakage_uW": 58.3045,
+    "dynamic_mW_est": 1.461,
+    "total_cells": 3007,
+    "notes": "\"ibert\" row-pipeline's own per-element exp stage, instantiated once per real row element (512x)"
+  }
+]

@@ -1,0 +1,3295 @@
+{
+ "meta": {
+  "generated": "2026-11-13T06:23:42",
+  "git_commit": "104c022",
+  "git_dirty": true,
+  "script": "plot/mapping_latency.py",
+  "sources": [
+   {
+    "path": "dump/gpu_baseline/latency_rtx3090.json"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_resnet50.json",
+    "target": "1fefet1c",
+    "model": "resnet50",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 6260,
+    "max_cap": 1082432
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_resnet50.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/resnet50/cap_8192.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "cap": 8192,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/resnet50/cap_131072.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "cap": 131072,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/resnet50/cap_2097152.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "cap": 2097152,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_mobilenet-v2.json",
+    "target": "1fefet1c",
+    "model": "mobilenet-v2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 1276,
+    "max_cap": 301056
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_mobilenet-v2.json",
+    "target": "1fefet1c/default",
+    "model": "mobilenet-v2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_vgg16.json",
+    "target": "1fefet1c",
+    "model": "vgg16",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 33804,
+    "max_cap": 3931392
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_vgg16.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vgg16/cap_65536.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "cap": 65536,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vgg16/cap_524288.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "cap": 524288,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vgg16/cap_4194304.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "cap": 4194304,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_vit-base.json",
+    "target": "1fefet1c",
+    "model": "vit-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 20736,
+    "max_cap": 4084992
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_vit-base.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vit-base/cap_32768.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "cap": 32768,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vit-base/cap_262144.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "cap": 262144,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vit-base/cap_4194304.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "cap": 4194304,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_vit-large.json",
+    "target": "1fefet1c",
+    "model": "vit-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 73728,
+    "max_cap": 14524416
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_vit-large.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vit-large/cap_131072.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "cap": 131072,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vit-large/cap_1048576.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "cap": 1048576,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/vit-large/cap_16777216.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "cap": 16777216,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_bert-base.json",
+    "target": "1fefet1c",
+    "model": "bert-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 20736,
+    "max_cap": 10616832
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_bert-base.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/bert-base/cap_32768.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "cap": 32768,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/bert-base/cap_524288.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "cap": 524288,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/bert-base/cap_16777216.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "cap": 16777216,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_bert-large.json",
+    "target": "1fefet1c",
+    "model": "bert-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 73728,
+    "max_cap": 37748736
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_bert-large.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/bert-large/cap_131072.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "cap": 131072,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/bert-large/cap_2097152.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "cap": 2097152,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/bert-large/cap_67108864.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "cap": 67108864,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_offload_policy_gpt2.json",
+    "target": "1fefet1c",
+    "model": "gpt2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "35dbda70f5452830",
+    "min_feasible_array_cap": 20736,
+    "max_cap": 21233664
+   },
+   {
+    "path": "run_scripts/results/fefet1c_listsched_gpt2.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f9b49c3e8013cfa6"
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/gpt2/cap_32768.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "cap": 32768,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/gpt2/cap_1048576.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "cap": 1048576,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/fefet1c_cpsat/gpt2/cap_33554432.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "cap": 33554432,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_resnet50.json",
+    "target": "hyflexpim/default",
+    "model": "resnet50",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 15058,
+    "max_cap": 2482544
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_resnet50.json",
+    "target": "hyflexpim/default",
+    "model": "resnet50",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_mobilenet-v2.json",
+    "target": "hyflexpim/default",
+    "model": "mobilenet-v2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 8531,
+    "max_cap": 2221660
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_mobilenet-v2.json",
+    "target": "hyflexpim/default",
+    "model": "mobilenet-v2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_vgg16.json",
+    "target": "hyflexpim/default",
+    "model": "vgg16",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 81316,
+    "max_cap": 9539712
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_vgg16.json",
+    "target": "hyflexpim/default",
+    "model": "vgg16",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_vit-base.json",
+    "target": "hyflexpim/default",
+    "model": "vit-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 50014,
+    "max_cap": 39656106
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_vit-base.json",
+    "target": "hyflexpim/default",
+    "model": "vit-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_vit-large.json",
+    "target": "hyflexpim/default",
+    "model": "vit-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 177450,
+    "max_cap": 74696102
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_vit-large.json",
+    "target": "hyflexpim/default",
+    "model": "vit-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_bert-base.json",
+    "target": "hyflexpim/default",
+    "model": "bert-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 50018,
+    "max_cap": 226928649
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_bert-base.json",
+    "target": "hyflexpim/default",
+    "model": "bert-base",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_bert-large.json",
+    "target": "hyflexpim/default",
+    "model": "bert-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 177458,
+    "max_cap": 359284748
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_bert-large.json",
+    "target": "hyflexpim/default",
+    "model": "bert-large",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_offload_policy_gpt2.json",
+    "target": "hyflexpim/default",
+    "model": "gpt2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "44db34679eec3a7b",
+    "min_feasible_array_cap": 50030,
+    "max_cap": 856510482
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_listsched_gpt2.json",
+    "target": "hyflexpim/default",
+    "model": "gpt2",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "3a7320c8dca75b7d"
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_resnet50.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "resnet50-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 8661,
+    "max_cap": 1419450
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_resnet50.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "resnet50-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_mobilenet-v2.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "mobilenet-v2-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 5894,
+    "max_cap": 870468
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_mobilenet-v2.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "mobilenet-v2-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_vgg16.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 67600,
+    "max_cap": 7611904
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_vgg16.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vgg16/cap_131072.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "cap": 131072,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vgg16/cap_1048576.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "cap": 1048576,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vgg16/cap_8388608.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "cap": 8388608,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_vit-base.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 49368,
+    "max_cap": 10384344
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_vit-base.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vit-base/cap_65536.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "cap": 65536,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vit-base/cap_1048576.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "cap": 1048576,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vit-base/cap_16777216.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "cap": 16777216,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_vit-large.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 168144,
+    "max_cap": 32984736
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_vit-large.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vit-large/cap_262144.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "cap": 262144,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vit-large/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "cap": 2097152,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/vit-large/cap_33554432.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "cap": 33554432,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_bert-base.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 80532,
+    "max_cap": 49549392
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_bert-base.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/bert-base/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "cap": 2097152,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/bert-base/cap_67108864.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "cap": 67108864,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_bert-large.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 174864,
+    "max_cap": 100668864
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_bert-large.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/bert-large/cap_262144.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "cap": 262144,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/bert-large/cap_4194304.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "cap": 4194304,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/bert-large/cap_134217728.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "cap": 134217728,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_offload_policy_gpt2.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "f795df646b2e43ec",
+    "min_feasible_array_cap": 62472,
+    "max_cap": 99098640
+   },
+   {
+    "path": "run_scripts/results/rse_listsched_gpt2.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "policy": "matmul_matvec_i8_rest_digital",
+    "code_fingerprint": "291a1b8135128a35"
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/gpt2/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "cap": 2097152,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   },
+   {
+    "path": "run_scripts/results/rse_cpsat/gpt2/cap_134217728.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "cap": 134217728,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "exact",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    }
+   }
+  ],
+  "hfp_cpsat_refresh": {
+   "generated": "2026-11-13T14:12:52",
+   "git_commit": "a5b2677",
+   "git_dirty": true,
+   "script": "plot/mapping_latency.py",
+   "sources": [
+    {
+     "path": "run_scripts/results/hyflexpim_cpsat_vgg16.json",
+     "target": "hyflexpim/default",
+     "model": "vgg16",
+     "policy": "matmul_matvec_i8_rest_digital",
+     "code_fingerprint": "da0db8e61e027ec1",
+     "min_feasible_array_cap": 81316,
+     "max_cap": 9539712
+    },
+    {
+     "path": "run_scripts/results/hyflexpim_cpsat_vit-base.json",
+     "target": "hyflexpim/default",
+     "model": "vit-base",
+     "policy": "matmul_matvec_i8_rest_digital",
+     "code_fingerprint": "da0db8e61e027ec1",
+     "min_feasible_array_cap": 50014,
+     "max_cap": 39656106
+    },
+    {
+     "path": "run_scripts/results/hyflexpim_cpsat_bert-base.json",
+     "target": "hyflexpim/default",
+     "model": "bert-base",
+     "policy": "matmul_matvec_i8_rest_digital",
+     "code_fingerprint": "da0db8e61e027ec1",
+     "min_feasible_array_cap": 50018,
+     "max_cap": 226928649
+    }
+   ]
+  },
+  "gpu_mobile_refresh": {
+   "generated": "2026-11-15T03:18:03",
+   "git_commit": "a5b2677",
+   "git_dirty": true,
+   "script": "plot/mapping_latency.py",
+   "sources": [
+    {
+     "path": "dump/gpu_baseline/latency_rtx3060_laptop.json"
+    }
+   ]
+  }
+ },
+ "data": {
+  "targets": {
+   "fefet1c": {
+    "resnet50": [
+     {
+      "cap": 8192,
+      "listsched": {
+       "latency_ns": 15344011.093643544,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 2461101.2084760945,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 2461038.3204378174,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/resnet50/cap_8192.json"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     },
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 15306506.524725903,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 521986.337793447,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 520175.0044601137,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/resnet50/cap_131072.json"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 447750.3491852562,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 447750.3491852562,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 447750.3491852562,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/resnet50/cap_2097152.json"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     }
+    ],
+    "mobilenet-v2": [
+     {
+      "cap": 2048,
+      "listsched": {
+       "latency_ns": 30095329.722153325,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 2418916.887668399,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     },
+     {
+      "cap": 32768,
+      "listsched": {
+       "latency_ns": 7972951.327263269,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 493086.37529897277,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     },
+     {
+      "cap": 524288,
+      "listsched": {
+       "latency_ns": 421749.0,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 421749.0,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     }
+    ],
+    "vgg16": [
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 55429737.32640003,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 1035815.0834434961,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 1035815.0834434961,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vgg16/cap_65536.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     },
+     {
+      "cap": 524288,
+      "listsched": {
+       "latency_ns": 3759241.0484235026,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 193732.59791965096,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 193732.59791965096,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vgg16/cap_524288.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 131840.0,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 131840.0,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 131840.0,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vgg16/cap_4194304.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     }
+    ],
+    "vit-base": [
+     {
+      "cap": 32768,
+      "listsched": {
+       "latency_ns": 57822702.77781473,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 33532977.786902595,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 33643143.7869026,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vit-base/cap_32768.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     },
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 11165035.111920005,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 8543768.462502122,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 8601840.462502122,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vit-base/cap_262144.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 5705724.530800001,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 5705724.530800001,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 5705724.530800001,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vit-base/cap_4194304.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     }
+    ],
+    "vit-large": [
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 154935048.12446603,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 30879956.288270645,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 32247154.60951996,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vit-large/cap_131072.json"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     },
+     {
+      "cap": 1048576,
+      "listsched": {
+       "latency_ns": 30551504.578763593,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 13139490.0652808,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 12798151.061599996,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vit-large/cap_1048576.json"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     },
+     {
+      "cap": 16777216,
+      "listsched": {
+       "latency_ns": 11426396.850699998,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 11426396.850699998,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 11426386.850699998,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/vit-large/cap_16777216.json"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     }
+    ],
+    "bert-base": [
+     {
+      "cap": 32768,
+      "listsched": {
+       "latency_ns": 283787289.1204401,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 147608871.77958962,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 148449497.45889884,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/bert-base/cap_32768.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     },
+     {
+      "cap": 524288,
+      "listsched": {
+       "latency_ns": 21204991.094741274,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 13125962.590915287,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 13203676.590915287,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/bert-base/cap_524288.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     },
+     {
+      "cap": 16777216,
+      "listsched": {
+       "latency_ns": 5718823.392000001,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 5718823.392000001,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 5718823.392000001,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/bert-base/cap_16777216.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     }
+    ],
+    "bert-large": [
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 193662568.5427574,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 194191194.5427574,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 203759298.9273622,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/bert-large/cap_131072.json"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 21271622.784000006,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 20363537.784000006,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 20338064.78400001,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/bert-large/cap_2097152.json"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     },
+     {
+      "cap": 67108864,
+      "listsched": {
+       "latency_ns": 11415652.784000006,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 11415652.784000006,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 11415652.784000006,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/bert-large/cap_67108864.json"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     }
+    ],
+    "gpt2": [
+     {
+      "cap": 32768,
+      "listsched": {
+       "latency_ns": 2123604956.4451098,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 577200764.2918388,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 577200783.2137587,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/gpt2/cap_32768.json"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     },
+     {
+      "cap": 1048576,
+      "listsched": {
+       "latency_ns": 39086256.429035135,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 21571875.43357238,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 21571875.43357238,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/gpt2/cap_1048576.json"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     },
+     {
+      "cap": 33554432,
+      "listsched": {
+       "latency_ns": 5967647.114399999,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 5967647.114399999,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 5967647.114399999,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/fefet1c_cpsat/gpt2/cap_33554432.json"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     }
+    ]
+   },
+   "hyflexpim": {
+    "resnet50": [
+     {
+      "cap": 16384,
+      "listsched": {
+       "latency_ns": 2604471.7891178373,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 756213.7518322866,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     },
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 2589410.627092303,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 61847.449773168715,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 43362.690072307705,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 43362.690072307705,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     }
+    ],
+    "mobilenet-v2": [
+     {
+      "cap": 16384,
+      "listsched": {
+       "latency_ns": 731321.587338821,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 398925.0371766908,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     },
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 49270.15902567426,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 60445.6734169418,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 45840.72680000002,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 45840.72680000002,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     }
+    ],
+    "vgg16": [
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 10069241.619100006,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 185931.72556477122,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 185931.72556477122,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_vgg16.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     },
+     {
+      "cap": 1048576,
+      "listsched": {
+       "latency_ns": 670762.2907525301,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 24419.34764962245,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 24419.34764962245,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_vgg16.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     },
+     {
+      "cap": 16777216,
+      "listsched": {
+       "latency_ns": 14686.311499999998,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 14686.311499999998,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 14686.311499999998,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_vgg16.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     }
+    ],
+    "vit-base": [
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 18920395.388979994,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 2245509.802723249,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 2331253.3368124347,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_vit-base.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 2097120.1960830234,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 471525.60853474616,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 379074.8044700002,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_vit-base.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     },
+     {
+      "cap": 67108864,
+      "listsched": {
+       "latency_ns": 287608.70674,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 287608.70674,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 287608.70674,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_vit-base.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     }
+    ],
+    "vit-large": [
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 197917555.0700599,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 4389434.039905017,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 4346356.832089666,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 3147126.1494403686,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     },
+     {
+      "cap": 134217728,
+      "listsched": {
+       "latency_ns": 591264.4278300001,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 591264.4278300001,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     }
+    ],
+    "bert-base": [
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 125974517.50619991,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 5409775.222466326,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 5728140.133628405,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_bert-base.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 5113101.936227662,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 609970.6352386405,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 413244.67507613025,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_bert-base.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     },
+     {
+      "cap": 268435456,
+      "listsched": {
+       "latency_ns": 278437.25090000004,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 278437.25090000004,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 278437.25090000004,
+       "status": "OPTIMAL",
+       "feasible": true,
+       "source": "run_scripts/results/hyflexpim_cpsat_bert-base.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     }
+    ],
+    "bert-large": [
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 1332929453.5766997,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 10275765.86316,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     },
+     {
+      "cap": 8388608,
+      "listsched": {
+       "latency_ns": 10199050.457691994,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 4742461.680663742,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     },
+     {
+      "cap": 536870912,
+      "listsched": {
+       "latency_ns": 581590.0292999998,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 581590.0292999998,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     }
+    ],
+    "gpt2": [
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 500608097.51007867,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 125882630.01290971,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     },
+     {
+      "cap": 8388608,
+      "listsched": {
+       "latency_ns": 10256862.003895104,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 669558.2465212971,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     },
+     {
+      "cap": 1073741824,
+      "listsched": {
+       "latency_ns": 292824.64268000005,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 292824.64268000005,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 0,
+       "status": null,
+       "feasible": null,
+       "source": null,
+       "placeholder": true,
+       "display_infeasible": true,
+       "note": "No feasible result obtained; marker requested by user"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     }
+    ]
+   },
+   "rse": {
+    "resnet50": [
+     {
+      "cap": 16384,
+      "listsched": {
+       "latency_ns": 2519380.2036354146,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 247047.39882778778,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     },
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 2517812.4105776325,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 78743.0020546725,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 56649.73872,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 56649.73872,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 655100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 636600.0
+      }
+     }
+    ],
+    "mobilenet-v2": [
+     {
+      "cap": 8192,
+      "listsched": {
+       "latency_ns": 24436062.26107546,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 11944825.432187593,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     },
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 13873798.021683186,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 4407978.310624985,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     },
+     {
+      "cap": 1048576,
+      "listsched": {
+       "latency_ns": 1399536.2309645729,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 1399536.2309645729,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 464400.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 395300.0
+      }
+     }
+    ],
+    "vgg16": [
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 3292929.8254622566,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 234278.37552216792,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 234278.37552216792,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vgg16/cap_131072.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     },
+     {
+      "cap": 1048576,
+      "listsched": {
+       "latency_ns": 855762.2065629214,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 35610.18298578393,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 35610.18298578393,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vgg16/cap_1048576.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     },
+     {
+      "cap": 8388608,
+      "listsched": {
+       "latency_ns": 23086.606263703707,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 23086.606263703707,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 23086.606263703707,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vgg16/cap_8388608.json"
+      },
+      "gpu": {
+       "latency_ns": 409100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 855400.0
+      }
+     }
+    ],
+    "vit-base": [
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 371161941.2923529,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 50417428.6889327,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 52037587.85582093,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vit-base/cap_65536.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     },
+     {
+      "cap": 1048576,
+      "listsched": {
+       "latency_ns": 32230159.75879482,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 13756053.356494779,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 4884229.393498532,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vit-base/cap_1048576.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     },
+     {
+      "cap": 16777216,
+      "listsched": {
+       "latency_ns": 1612471.9637153742,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 1612471.9637153742,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 1612471.9637153742,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vit-base/cap_16777216.json"
+      },
+      "gpu": {
+       "latency_ns": 1414100.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 2498600.0
+      }
+     }
+    ],
+    "vit-large": [
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 506327249.72612846,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 67707449.85019614,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 70783177.45114128,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vit-large/cap_262144.json"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 67483813.09598695,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 48814758.366860844,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 13442179.897456426,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vit-large/cap_2097152.json"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     },
+     {
+      "cap": 33554432,
+      "listsched": {
+       "latency_ns": 3240893.273005124,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 3240893.273005124,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 3240893.273005124,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/vit-large/cap_33554432.json"
+      },
+      "gpu": {
+       "latency_ns": 3884300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 6985500.0
+      }
+     }
+    ],
+    "bert-base": [
+     {
+      "cap": 131072,
+      "listsched": {
+       "latency_ns": 1003769823.717019,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 127758227.26618986,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 67136143.54665497,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 36877145.72560791,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 9512899.794551292,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/bert-base/cap_2097152.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     },
+     {
+      "cap": 67108864,
+      "listsched": {
+       "latency_ns": 1455078.392,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 1455078.392,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 1455078.392,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/bert-base/cap_67108864.json"
+      },
+      "gpu": {
+       "latency_ns": 2841900.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 5722100.0
+      }
+     }
+    ],
+    "bert-large": [
+     {
+      "cap": 262144,
+      "listsched": {
+       "latency_ns": 2608893053.58897,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 338714662.1807839,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 340080516.1355799,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/bert-large/cap_262144.json"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     },
+     {
+      "cap": 4194304,
+      "listsched": {
+       "latency_ns": 170151055.51661664,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 87030627.69027638,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 87259161.69027638,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/bert-large/cap_4194304.json"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     },
+     {
+      "cap": 134217728,
+      "listsched": {
+       "latency_ns": 3223627.783999999,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 3223627.783999999,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 3223627.783999999,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/bert-large/cap_134217728.json"
+      },
+      "gpu": {
+       "latency_ns": 7231300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 16728500.0
+      }
+     }
+    ],
+    "gpt2": [
+     {
+      "cap": 65536,
+      "listsched": {
+       "latency_ns": 2011195729.3698838,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 2002477487.9503746,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": null,
+       "status": "INFEASIBLE",
+       "feasible": false,
+       "source": "user-confirmed"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     },
+     {
+      "cap": 2097152,
+      "listsched": {
+       "latency_ns": 144150334.40293795,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 60107153.189983115,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 17649316.36466796,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/gpt2/cap_2097152.json"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     },
+     {
+      "cap": 134217728,
+      "listsched": {
+       "latency_ns": 1644648.1144000003,
+       "status": null,
+       "feasible": true
+      },
+      "greedy": {
+       "latency_ns": 1644648.1144000003,
+       "status": null,
+       "feasible": true
+      },
+      "cpsat": {
+       "latency_ns": 1644648.1144000003,
+       "status": null,
+       "feasible": null,
+       "source": "run_scripts/results/rse_cpsat/gpt2/cap_134217728.json"
+      },
+      "gpu": {
+       "latency_ns": 7552300.0
+      },
+      "gpu_mobile": {
+       "latency_ns": 17429400.0
+      }
+     }
+    ]
+   }
+  },
+  "gpu_source": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/dump/gpu_baseline/latency_rtx3090.json",
+  "gpu_configuration": "trt_int8",
+  "gpu_provenance": {
+   "source_branch": "origin/ali/gpu-results",
+   "source_commit": "c085726678b3bdb6a21fcf9f2892bf49e32cb195",
+   "source_path": "run_scripts/results/gpu_baseline/benchmark_halide.json",
+   "device": "NVIDIA GeForce RTX 3090",
+   "batch_size": 1
+  },
+  "gpu_mobile_source": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/dump/gpu_baseline/latency_rtx3060_laptop.json",
+  "gpu_mobile_configuration": "trt_int8",
+  "gpu_mobile_provenance": {
+   "source_path": "dump/gpu_baseline/rtx3060_laptop_run_all.log",
+   "device": "NVIDIA GeForce RTX 3060 Laptop GPU (12 GB, 85 W power limit)",
+   "batch_size": 1,
+   "environment": {
+    "torch": "2.5.1+cu121",
+    "tensorrt": "10.16.1.11",
+    "python": "3.12.15",
+    "kernels_commit": "f414226",
+    "host": "Vast.ai instance C.60632502",
+    "measured": "2026-11-14"
+   }
+  }
+ }
+}

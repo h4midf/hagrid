@@ -1,0 +1,260 @@
+{
+  "_description": "Design point of the default RRAM-SRAM ensemble target: Krishnan et al., 'Hybrid RRAM/SRAM In-Memory Computing for Robust DNN Acceleration', IEEE TCAD vol. 41 no. 11, Nov. 2022 (paper/related works/HybridCIM/RRAM-SRAM-Ensemble.pdf). Every value has its source in _provenance. 'reported_results' are the paper's outputs, kept only to check our models against, never used as inputs. 'not_in_paper' lists what the paper does not give; each must come from a cited source or our own simulation before it is used.",
+
+  "architecture": "rram_imc_with_parallel_sram_mac",
+  "process": {
+    "node_nm": 65,
+    "foundry": "SUNY",
+    "supplies_V": [1.2, 3.3]
+  },
+  "clock": {
+    "freq_MHz": 100
+  },
+
+  "rram_macro": {
+    "array": {
+      "rows": 64,
+      "cols": 64
+    },
+    "cell": {
+      "type": "1T1R",
+      "device_w_nm": 100,
+      "device_l_nm": 100,
+      "stack": "TiN / 6 nm HfO2 / 6 nm PVD Ti oxygen exchange layer / TiN",
+      "max_bits_per_cell": 3,
+      "levels": 8,
+      "lrs_levels": 6,
+      "hrs_levels": 2,
+      "compliance_current_uA": [30, 40, 60, 90, 120, 160, 260, 460],
+      "level_state": ["LRS", "LRS", "LRS", "LRS", "LRS", "LRS", "HRS", "HRS"],
+      "resistance_kohm_approx_fig8": [20, 15, 11, 8, 7, 6, 60, 40],
+      "set_reset_pulse_V": [1.0, 1.2],
+      "set_reset_pulse_us": 10,
+      "variation_sigma_avg": 0.3,
+      "variation_sigma_max": {"HRS": 0.6, "LRS": 0.2},
+      "bitwise_variation_sigma": {
+        "1bit": [0.1035],
+        "2bit": [0.1035, 0.2760],
+        "3bit": [0.1035, 0.2760, 0.2259, 0.3549]
+      },
+      "variation_distribution": "log-normal"
+    },
+    "readout": {
+      "column_mux": 8,
+      "readout_circuits": 8,
+      "adc_type": "flash",
+      "adc_bits": 3,
+      "current_to_voltage": "pMOS header (resistive divider with the selected column)",
+      "cycles_per_mac": 8
+    },
+    "input": {
+      "scheme": "bit-serial",
+      "dac": false
+    },
+    "periphery": [
+      "WL driver and level shifter",
+      "RRAM decoder (FSM: write, compute, input states)",
+      "64-to-1 BL and SL mux (programming)",
+      "8-to-1 column mux (transmission gates)",
+      "pMOS headers",
+      "shift and add circuit",
+      "input / output buffer"
+    ],
+    "write": {
+      "scheme": "one cell at a time, selected by WL, BL and SL"
+    }
+  },
+
+  "sram_macro": {
+    "array": {
+      "rows": 32,
+      "cols": 64
+    },
+    "read_word_bits": 16,
+    "column_mux": 4,
+    "column_sets": 16,
+    "pe_count": 16,
+    "pe_contents": ["multiplier", "adder", "2:1 mux", "weight / activation input DFFs with enables", "output DFF with enable"],
+    "dataflow": "output stationary",
+    "input": {
+      "scheme": "bit-serial"
+    },
+    "control": "FSM: idle, load, compute, finish"
+  },
+
+  "ensemble": {
+    "shifter": "programmable right shift of the SRAM macro output relative to the RRAM macro output",
+    "shift_scales_bits": [0, 1, 2, 3],
+    "combine": "adder of RRAM macro output and shifted SRAM macro output",
+    "output_buffer": true
+  },
+
+  "precisions": {
+    "rram_weight_bits": [1, 2, 3],
+    "sram_weight_bits": [1, 2, 3],
+    "activation_bits_max": 6,
+    "rram_weight_equals_rram_output": true,
+    "sram_weight_equals_sram_output": true
+  },
+
+  "model_assumptions": {
+    "_description": "Our own choices, NOT from the paper: what it takes to run int8 models, including dynamic matmuls, on this chip.",
+    "rram_bits_per_cell": 3,
+    "sram_macro": {
+      "read_bits_per_pe": 1,
+      "load_overlaps_compute": false,
+      "write_word_bits": 16
+    },
+    "dynamic_matmuls_on": "sram_macro",
+    "rram_mac_rows_on": 16,
+    "sram_macros_per_rram_macro": 1,
+    "sram_correction_weight_pct": {
+      "resnet50": 0.3,
+      "mobilenet-v2": 63.4,
+      "vgg16": 1.1,
+      "vit-base": 20,
+      "vit-large": 20,
+      "bert-base": 20,
+      "bert-large": 20,
+      "gpt2": 20,
+      "bert-attention-12layer": 20
+    },
+    "readout": {
+      "vdd_V": 1.2,
+      "read_V": 1.2,
+      "header_over_min_cell_resistance": 0.1,
+      "ladder_segment_kohm": 10,
+      "ladder_tap_decoupling_fF": 100
+    },
+    "sram_logic": {
+      "weight_bits": 3,
+      "accumulator_bits": 9,
+      "input_buffer_bits": 64,
+      "cacti_cell": "itrs-lstp",
+      "access_bytes": 2,
+      "clock_gated": true
+    },
+    "logic_devices": {
+      "ioff_A_per_um": 9.12e-12
+    },
+    "sram_array": {
+      "pull_down_w_nm": 200,
+      "access_w_nm": 130,
+      "pull_up_w_nm": 130,
+      "cell_width_um": 1.2,
+      "cell_height_um": 0.45,
+      "word_line_pulse_ns": 4,
+      "precharge_w_nm": 500,
+      "write_driver_w_nm": 520
+    },
+    "column_mux": {
+      "nmos_w_nm": 4000,
+      "pmos_w_nm": 8000
+    },
+    "array_layout": {
+      "cell_pitch_um": 3.9,
+      "wire_fF_per_um": 0.2
+    },
+    "thick_oxide": {
+      "tox_nm": 7,
+      "vth_V": 0.9,
+      "l_nm": 340
+    },
+    "wl": {
+      "high_V": 3.3,
+      "access_w_nm": 3000,
+      "level_shifter_nmos_w_nm": 8000,
+      "level_shifter_pmos_w_nm": 420,
+      "level_shifter_pmos_l_nm": 1000,
+      "driver_nmos_w_nm": 4000,
+      "driver_pmos_w_nm": 8000
+    }
+  },
+
+  "reported_results": {
+    "sram_over_rram_area_pct": {"ResNet-20 CIFAR-10": 3.7, "VGG-16 CIFAR-10": 2.3, "MobileNet-v2 ImageNet": 20},
+    "sram_over_rram_power_pct": {"ResNet-20 CIFAR-10": 0.5, "VGG-16 CIFAR-10": 0.3, "MobileNet-v2 ImageNet": 2.6},
+    "rram_macro_power_share_header_and_adc_pct": 90,
+    "fig6_layout_px": {"rram_array_and_decoder": 261100, "read_out_circuit": 30470, "mac_engine": 22278, "sram_memory_array": 2800},
+    "memory_MB": {
+      "ResNet-20 CIFAR-10": {"sram": 0.004, "rram": 0.067, "overhead_pct": 6.5},
+      "VGG-16 CIFAR-10": {"sram": 0.22, "rram": 5.63, "overhead_pct": 4},
+      "ResNet-18 ImageNet": {"sram": 0.2, "rram": 4.32, "overhead_pct": 4.7},
+      "MobileNet-v2 ImageNet": {"sram": 0.31, "rram": 1.3, "overhead_pct": 24}
+    },
+    "accuracy_table3": {
+      "ResNet-20 CIFAR-10": {"rram_bits": 2, "sram_bits": 1, "activation_bits": 3, "shift": 1, "sram_pruning_pct": 87.8, "accuracy_pct": 90.73, "vat_only_pct": 87.40},
+      "VGG-16 CIFAR-10": {"rram_bits": 3, "sram_bits": 3, "activation_bits": 6, "shift": 0, "sram_pruning_pct": 98.9, "accuracy_pct": 92.75, "vat_only_pct": 91.06},
+      "ResNet-18 ImageNet": {"rram_bits": 3, "sram_bits": 2, "activation_bits": 5, "shift": 2, "sram_pruning_pct": 99.7, "accuracy_pct": 69.21, "vat_only_pct": 63.79},
+      "MobileNet-v2 ImageNet": {"rram_bits": 3, "sram_bits": 2, "activation_bits": 5, "shift": 2, "sram_pruning_pct": 36.6, "accuracy_pct": 61.6, "vat_only_pct": 36.60}
+    },
+    "fp32_baseline_accuracy_pct": {"ResNet-20 CIFAR-10": 91.32, "VGG-16 CIFAR-10": 93.04, "ResNet-18 ImageNet": 69.57, "MobileNet-v2 ImageNet": 71.87}
+  },
+
+  "not_in_paper": [
+    "absolute area of any block (only SRAM-over-RRAM ratios, Fig. 12)",
+    "absolute energy or power of any block",
+    "1T1R access transistor size and the cell layout area",
+    "flash ADC circuit (comparators, references, encoder) and its area / energy",
+    "pMOS header size",
+    "WL driver, level shifter, mux, decoder circuits",
+    "SRAM cell type and size",
+    "PE multiplier / adder bit widths built on the chip",
+    "read voltage on the crossbar",
+    "exact resistance per level (Fig. 8 gives box plots only)"
+  ],
+
+  "_provenance": {
+    "architecture": "Sec. III, Fig. 2: an RRAM IMC macro and an SRAM macro compute in parallel; the SRAM output is shifted by a programmable shifter and added to the RRAM output",
+    "process.node_nm, process.foundry": "Abstract, Sec. III-D: test chip in the 65-nm SUNY process",
+    "process.supplies_V": "Sec. V-F: 'the total current drawn by each supply voltage (1.2 V and 3.3 V)'",
+    "clock.freq_MHz": "Sec. III-D: 'the test-chip is designed for an operating frequency of 100 MHz'; Sec. V: post-layout at 100 MHz",
+    "rram_macro.array": "Sec. III-D-1: 'a 64 x 64 IMC crossbar array of 1T1R cells'; Sec. V: crossbar size 64 x 64 in all experiments",
+    "rram_macro.cell.device_w_nm, device_l_nm, stack": "Sec. IV-A: 'Each RRAM device has a size of 100 nm x 100 nm and utilizes a device stack comprised of a 6-nm HfO2 mem-resistive switching layer, a 6-nm PVD Ti oxygen exchange layer (OEL), and TiN electrodes (top and bottom)'",
+    "rram_macro.cell.max_bits_per_cell, levels, lrs_levels, hrs_levels": "Sec. IV-A, Fig. 8: 'up to 8 distinct levels with 6 LRS and 2 HRS states'; 'can support up to 3-bit data'",
+    "rram_macro.cell.compliance_current_uA, level_state": "Fig. 8 x-axis: compliance currents 30 to 160 uA (LRS) and 260, 460 uA (HRS)",
+    "rram_macro.cell.resistance_kohm_approx_fig8": "Fig. 8 box-plot medians read off the figure (approximate, about +-2 kOhm); not a stated number",
+    "rram_macro.cell.set_reset_pulse_V, set_reset_pulse_us": "Sec. IV-A: 'Pulses with a magnitude of 1-1.2 V and width of 10 us are used for the set/reset operation'",
+    "rram_macro.cell.variation_sigma_avg, variation_sigma_max": "Sec. I: average variation sigma of 0.3; Sec. IV-A: HRS up to 0.6 sigma, LRS up to 0.2 sigma, average 0.3 across the wafer (Fig. 7)",
+    "rram_macro.cell.bitwise_variation_sigma": "Table I: average variation per bit for 1-, 2- and 3-bit data (levels taken in pairs, lowest resistance first)",
+    "rram_macro.cell.variation_distribution": "Sec. IV-B-1: RRAM variations added 'using the log-normal distribution' bit-wise following Table I",
+    "rram_macro.readout": "Sec. III-D-1: 'an 8-to-1 column multiplexer'; 'The read-out circuit within the RRAM macro utilizes a flash ADC with a 3-bit resolution and a pMOS header'; 'eight read-out circuit instances are utilized across the 64 columns'; '8 cycles are required to perform the MAC operations with the 64 x 64 IMC crossbar array'",
+    "rram_macro.input": "Sec. III-A: 'instead of employing a DAC, we perform bit-serial computing over multiple cycles for multibit activations'",
+    "rram_macro.periphery": "Sec. III-A, III-D-1, Fig. 3: ADC, pMOS header, BL/SL/column multiplexers, WL driver and level shifter, RRAM decoder (FSM with write, compute and input states), shift and add circuit, input/output buffers; 'A 64-to-1 BL and SL multiplexer are utilized for the programming of RRAM cells'",
+    "rram_macro.write": "Sec. III-D-1: 'During the write state, the RRAM cells can be programmed one-by-one by choosing a specific WL, BL, and SL'",
+    "sram_macro.array, read_word_bits": "Sec. III-D-2: 'The SRAM memory consists of a 32 x 64 SRAM cells with a read-out word size of 16 bits'",
+    "sram_macro.column_mux, column_sets, pe_count": "Sec. III-D-2: 'The SRAM memory with 64 columns is divided into 16 sets, with each column multiplexer servicing four columns'; 'an array of 16 PEs'",
+    "sram_macro.pe_contents, dataflow": "Fig. 4 PE diagram (multiplier, 2:1 mux, adder, wgt_en / act_en / add_en / out_en registers); Sec. III-B: 'Each PE utilizes an output stationary computation flow'",
+    "sram_macro.input": "Sec. III-D-2: 'we perform the computation of multibit inputs with bit-serial processing'",
+    "sram_macro.control": "Sec. III-D-2: 'The FSM consists of four main states, namely, idle, load, compute, and finish'",
+    "ensemble": "Sec. III-C, Fig. 5: SRAM output right-shifted 0 to 3 bits relative to the RRAM output; Fig. 2: adder and output buffer; Table II: shifter scales 0-bit to 3-bit. The test chip implements the shifter off chip (Sec. I, III-D)",
+    "precisions": "Sec. V: up to 3-bit RRAM weight and activation precision, 3-bit SRAM precision, 6-bit overall activation precision; W_RRAM = A_RRAM and W_SRAM = A_SRAM",
+    "model_assumptions.rram_bits_per_cell": "Our choice: the paper's maximum (Sec. IV-A), so an int8 weight takes ceil(8 / 3) = 3 cells. The paper's own weights are 1 to 3 bits",
+    "model_assumptions.sram_macro.read_bits_per_pe": "Our reading: the 16-bit read word (Sec. III-D-2) goes 1 bit to each of the 16 PEs, so a 3-bit weight takes 3 reads. The paper does not give the PE load schedule or cycle counts",
+    "model_assumptions.sram_macro.load_overlaps_compute": "As the validated macro logic runs (periphery/rtl/rse_sram_logic*.v, whose area and power match Fig. 12): a weight's W reads, then one cycle adding it for the current input bit, so W + 1 cycles per weight per input bit; the next weight's reads do not overlap the add",
+    "model_assumptions.sram_macro.write_word_bits": "Our assumption: a write port as wide as the read word. The test chip loads the SRAM through its scan chain, too slow for run-time data",
+    "model_assumptions.dynamic_matmuls_on": "Our extension: the paper never mentions dynamic matmuls; the SRAM holds only stored correction weights there. Its SRAM and PEs are physically able to run them",
+    "model_assumptions.sram_macros_per_rram_macro": "The most SRAM correction macros a weight matrix gets per RRAM macro holding it: 1, the test chip's pairing (one SRAM macro beside the RRAM macro, Sec. III, Fig. 2 and 6). Each matrix gets as many as keep pace with its RRAM macros (xdsl_ensemble_timing.correction_plan), up to this, and never fewer than hold its correction weights; with fewer than pace needs, the SRAM side is the slower one and sets the op's round. They are stationary, paired with the RRAM macros, and written once before inference like the RRAM weights",
+    "model_assumptions.rram_mac_rows_on": "Rows on per RRAM MAC (input bits at 1) for its energy: the operating point report.py compares with the paper (about the 16% input-bit density measured on real data, periphery/power_sram_logic_real.py). A LUT read has one row on",
+    "model_assumptions.sram_correction_weight_pct": "Per app, the correction weights the SRAM keeps and computes, as a share of every layer's weights. CNNs: 100% minus the paper's SRAM pruning ratio (Table III, reported_results.accuracy_table3.sram_pruning_pct), the weights its structured pruning keeps: resnet50 takes ResNet-18 ImageNet's 0.3% (99.7% pruned; the paper has no ResNet-50), vgg16 VGG-16 CIFAR-10's 1.1% (98.9% pruned; the paper has no ImageNet VGG-16), mobilenet-v2 MobileNet-v2 ImageNet's 63.4% (36.6% pruned, as printed; the same table gives 36.6 as its VAT-only accuracy). Not Fig. 11(b)'s memory overhead (reported_results.memory_MB), which is larger than the kept weights by more than their precision explains (ResNet-18: 4.7% of the RRAM memory against 0.3% of the weights at 2 of 3 bits) and is not what the SRAM computes. Transformers: not in the paper; 20% is HyFlexPIM's share of weights protected against MLC RRAM noise on BERT, GPT-2 and ViT (Song et al., ISCA 2025, the slc_rate_pct of targets/hyflexpim); bert-attention-12layer (bert-base's attention layers, kernels/bert_attention_only.py) takes the same 20%",
+    "model_assumptions.readout.vdd_V": "The ADC and mux logic supply: the chip's 1.2 V (Sec. V-F names 1.2 V and 3.3 V)",
+    "model_assumptions.readout.read_V": "The supply above the pMOS header. Not in the paper; see spice/readout/sweep_read_voltage.py for what other values do",
+    "model_assumptions.readout.header_over_min_cell_resistance": "Our reading of Sec. III-D-1, 'the resistance is much lower than the minimum resistance from the IMC crossbar array (with only one row turned on)': 10x lower",
+    "model_assumptions.readout.ladder_segment_kohm": "Our choice: the flash ADC's reference ladder is not in the paper. 10 kOhm settles comparator kickback well within a 10 ns cycle",
+    "model_assumptions.readout.ladder_tap_decoupling_fF": "Our choice, from simulation: without decoupling, comparator clock kickback moves a tap by over 200 mV and the codes are wrong; 100 fF per tap gives correct codes",
+    "model_assumptions.sram_logic": "Our design of what Sec. III-D-2 and Fig. 4 name without sizes: 3-bit signed weights (the paper's maximum, Sec. V), 42 per PE in its 128 bits; a 9-bit accumulator holds 42 x 4; a 64-bit input buffer for one bit of the 64 inputs the RRAM macro also gets; CACTI LSTP devices, the class at the chip's 1.2 V (LOP is 0.8 V), see model_assumptions.logic_devices; one 16-bit word per access; clock_gated is our reading of Sec. III-D-2, 'PE control is generated to enable the D flip-flops', with Fig. 4's wgt_en / act_en / add_en / out_en, as gating each register bank's clock (the paper does not say whether an enable gates the clock or muxes the data)",
+    "model_assumptions.logic_devices": "The process is IBM 65 nm 10LPe (AVS 2019 abstract, Hazra et al.), a low-power process. ioff_A_per_um is ITRS 65 nm LSTP at 300 K and 1.2 V (targets/hyflexpim/CACTI/technology.cc), and agrees with the 0.01 nA/um reported for IBM's 65 nm low-power technology. No CMOS10LPe datasheet was available",
+    "model_assumptions.sram_array.write_driver_w_nm": "Our sizing (the paper gives no write path; the test chip loads the SRAM through its scan chain): one NMOS per column behind the column mux, 4x the access transistor, so it pulls a bitline low through the mux against the cell's pull-up; spice/sram/characterize_sram_array.py checks that each write flips the cell",
+    "model_assumptions.sram_array": "Our design: the paper gives only 32 x 64 with a 16-bit read word and a 4-to-1 column mux (Sec. III-D-2). 6T sizes and cell dimensions typical of a 65 nm cell (about 0.54 um^2). A clock-timed read, word line on for most of the first half cycle, so the bitlines swing fully: the FSM runs off the 100 MHz clock and the paper describes no self-timed sensing, and these bitlines are so short that a small-swing read would need a pulse under 50 ps. Cell type and size are in the paper's not_in_paper list",
+    "model_assumptions.column_mux": "Our sizing: Sec. III-D-1 says only that the transmission gates are 'sized carefully to reduce the overall resistance'",
+    "model_assumptions.array_layout": "cell_pitch_um measured from the layout of the same group's 8x8 1T1R array in the same 65 nm platform (paper/devices2, 2022 SUNY thesis, Fig. 5-3b): the array spans about 0.29 of a probe-pad pitch over 8 columns, and rows are 1.19x the column pitch, so with a 100 um pad pitch a cell is about 3.6 x 4.3 um, geometric mean 3.9 um. The 100 um pitch is our reading, from pads about 60% of their pitch; no scale is printed. Cross-checks: the cell's transistor is then about 2.8 um wide, matching the 3 um fitted electrically (model_assumptions.wl), and this paper's Fig. 6 gives an upper bound of about 5.2 um (crossbar block 372 x 325 px, scaled by the SRAM array's drawn area taken as its CACTI area, block includes routing). wire_fF_per_um is our estimate, a typical metal value",
+    "reported_results.fig6_layout_px": "Measured from Fig. 6 (600 dpi render of the paper's page), the drawn area inside each annotation box, except read_out_circuit, the box interior. No scale bar in the paper: only ratios are direct",
+    "model_assumptions.thick_oxide": "Our model of the high-voltage devices: PTM has no I/O transistor, so spice/thick_model.py takes PTM 65 nm with a thicker oxide, longer channel and gate tunneling off (tox_nm, l_nm typical of I/O devices, not from a source). vth_V is fitted, with access_w_nm, to the measured NFET of this platform (paper/devices2, Hazra dissertation, Fig. 2-5b: I_ON at VDS 2.5 V of about 40, 120, 235, 372, 525 uA for VGS 1.0 to 1.8 V): 9% RMS error. Only W/L is pinned by the data, since l_nm is assumed",
+    "model_assumptions.wl": "access_w_nm fitted to measured data (see model_assumptions.thick_oxide): the fit then predicts 1.91 mA at VGS 3.3 V against the dissertation's stated 2 mA maximum on current, which was not used in the fit. high_V: the paper gives a level shifter and a 3.3 V supply (Sec. III-D-1, V-F). The shifter and driver sizes are our design",
+    "reported_results.sram_over_rram_area_pct, sram_over_rram_power_pct": "Sec. V-F, Fig. 12: 3.7% / 0.5% (ResNet-20), 2.3% / 0.3% (VGG-16), 20% / 2.6% (MobileNet-v2); ResNet-18 is plotted but not stated in the text",
+    "reported_results.rram_macro_power_share_header_and_adc_pct": "Sec. V-F: 'The pMOS header and ADC account for 90% of the power of the RRAM macro'",
+    "reported_results.memory_MB": "Sec. V-F, Fig. 11(b)",
+    "reported_results.accuracy_table3": "Table III (SRAM pruned with a group size of 4); ResNet-18 and MobileNet-v2 are top-1",
+    "reported_results.fp32_baseline_accuracy_pct": "Sec. V-D"
+  }
+}

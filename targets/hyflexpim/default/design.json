@@ -1,0 +1,320 @@
+{
+  "_description": "Design point of the default HyFlexPIM target: Song, Bhatnagar, Xia, Kim, Rosing, Kang, 'Hybrid SLC-MLC RRAM Mixed-Signal Processing-in-Memory Architecture for Transformer Acceleration via Gradient Redistribution', ISCA 2025, doi 10.1145/3695053.3731109 (paper/related works/HybridCIM/HyFlexPIM.pdf). Every value has its source in _provenance. 'paper_cost_sources' records where the paper says its own area / power numbers come from, kept to explain gaps, never used as inputs. 'reported_results' are the paper's outputs, kept only to check our models against, never used as inputs. 'not_in_paper' lists what the paper does not give; each must come from a cited source or our own simulation before it is used.",
+
+  "architecture": "analog_rram_pim_with_digital_rram_pim",
+  "process": {
+    "node_nm": 65
+  },
+  "clock": {
+    "analog_cycle_ns": 100,
+    "sfu_freq_MHz": 1000
+  },
+
+  "chip": {
+    "processing_units": 24,
+    "layers_per_pu": 1,
+    "max_sequence_length": 8192,
+    "io": "one data / address / command IO",
+    "global_bus": {"standard": "PCIe 6.0", "bandwidth_GB_per_s": 128},
+    "inner_unit_bus": {"type": "on-chip interconnect (OCI)", "bandwidth_GB_per_s": 1000},
+    "control_bus": true
+  },
+
+  "processing_unit": {
+    "analog_modules": 24,
+    "digital_modules": 8
+  },
+
+  "rram_device": {
+    "cell_type": "1T1M",
+    "r_on_kohm": 6,
+    "on_off_ratio": 150,
+    "set_V": 1.62,
+    "reset_V": 3.63,
+    "set_reset_voltages_for": "1-bit cells",
+    "access": "column-parallel read and write",
+    "mlc_write": "iterative pulses through the WL with verify-read until the target conductance",
+    "endurance_cycles": 1e8
+  },
+
+  "analog_module": {
+    "arrays": 512,
+    "array": {
+      "rows": 64,
+      "cols": 128
+    },
+    "bits_per_cell": [1, 2],
+    "slc_weight_layout": "one weight bit per column, a weight's bits in adjacent columns",
+    "mlc_weight_layout": "two consecutive weight bits per 2-bit cell",
+    "input": {
+      "scheme": "bit-serial, one input bit per WL per cycle",
+      "wl_driver": "1-bit DAC",
+      "wl_drivers_per_array": 64
+    },
+    "readout": {
+      "sample_and_hold_per_array": 128,
+      "adcs_per_array": 1,
+      "columns_per_adc": 128,
+      "column_select": "multiplexer, columns converted one after another",
+      "adc_type": "SAR, binary search, capacitive DAC",
+      "adc_bits": {"slc": 6, "mlc": 7},
+      "adc_reconfiguration": "6-bit mode bypasses the comparison of the largest capacitor C7 (the MSB)",
+      "adc_capacitors": "C_k = 2^(k-1) C0 for k = 1..7",
+      "adc_bits_rule": "log2(rows) + bits_per_cell - 1",
+      "adc_sample_rate_GSps": 1.28,
+      "pipelining": "the crossbar starts its next read while the ADC converts the held values"
+    },
+    "registers": {
+      "input_register_bytes": 64,
+      "output_register_bytes": 128,
+      "input_register_holds": "control signals of the bit line and WL selectors"
+    },
+    "shift_and_add": "digital; weights 1x, 4x, 16x, ... per column for 2-bit cells, by bit position for 1-bit cells, and by input bit",
+    "excluded_from_table2": ["conventional read circuitry", "write driver"]
+  },
+
+  "digital_module": {
+    "arrays": 256,
+    "array": {
+      "rows": 1024,
+      "cols": 1024
+    },
+    "bits_per_cell": 1,
+    "operation": "NOR (stateful logic, as FloatPIM)",
+    "nor_columns": 3,
+    "nor_columns_for": "two input operand bits and one output bit",
+    "int8_mul_nor_ops": 64,
+    "add_nor_ops_per_bit": 13,
+    "row_processing_cycles": {"write": 4, "read": 1},
+    "registers": {
+      "input_register_bytes": 1024,
+      "output_register_bytes": 1024
+    },
+    "table2_counts": {"wl_drivers": "1024 x 256", "shift_and_add": 1024, "sample_and_hold": 1024},
+    "adc": false,
+    "sfu": {
+      "per": "digital module",
+      "inputs_per_cycle": 256,
+      "functions": ["max search", "subtraction", "exponentiation (Taylor series)", "addition", "division", "multiplication", "square root"],
+      "arithmetic": "floating point, fully pipelined; results converted to integer afterwards",
+      "nonlinear_ops": ["softmax", "layer normalization", "GELU"],
+      "synthesis": {"node_nm": 65, "library": "65 nm general-purpose standard cells", "freq_MHz": 1000, "tool": "Cadence Genus 19.1"}
+    },
+    "stores": ["Q, K, V", "intermediate results"]
+  },
+
+  "mapping": {
+    "analog": ["W_Q, W_K, W_V", "projection (FC)", "FFN1", "FFN2"],
+    "analog_factors": "each weight matrix stored as its two SVD factors, V x Sigma and U^T",
+    "digital": ["Q x K^T", "x V"],
+    "digital_cell_mode": "SLC only (no MLC writes for data generated at run time)",
+    "sfu": ["softmax", "layer normalization", "GELU"],
+    "partial_sums": "accumulated in the digital module from the analog sub-arrays",
+    "svd_rank": "hard threshold D_h1 x D_h2 / (D_h1 + D_h2), same MAC count and parameter count as the unfactored matrix",
+    "slc_selection": "singular values with the top k% gradient magnitude go to SLC, the rest to MLC",
+    "slc_rates_pct": [0, 5, 10, 30, 40, 50, 100],
+    "slc_rate_pct": 20,
+    "scaling": {
+      "long_sequences_or_wide_layers": "several PUs per layer (tensor parallelism), partial sums aggregated in the SFU over the global bus",
+      "fewer_layers_than_pus": "several PUs per layer (tensor parallelism)",
+      "more_layers_than_pus": "several chips (pipeline parallelism)"
+    }
+  },
+
+  "precisions": {
+    "linear_weight_bits": 8,
+    "linear_activation_bits": 8,
+    "qkv_bits": 8,
+    "x_v_operand_bits": 12,
+    "nonlinear": "FP16",
+    "mlc_bits_per_cell": 2
+  },
+
+  "accuracy_model": {
+    "noise": "W_noisy = W * (1 + eta), eta Gaussian, same size as W, on all linear layers",
+    "noise_sigma_source": "reverse-calculated to match a 4.04% bit error rate after one day, measured on 3 million MLC RRAM cells (Fan et al. [15])",
+    "adc_quantization": true,
+    "bit_serial_shift_add_order": true,
+    "simulator_code": "https://github.com/songchangeun96/HyFlexPIM"
+  },
+
+  "fine_tuning": {
+    "optimizer": "AdamW",
+    "epochs": [1, 3],
+    "table1": {
+      "BERT-Base": {"batch_size": 32, "learning_rate": 2e-5},
+      "BERT-Large": {"batch_size": 32, "learning_rate": 5e-6},
+      "GPT-2": {"batch_size": 2, "learning_rate": 2e-5},
+      "Llama3": {"batch_size": 2, "learning_rate": 2e-5},
+      "ViT-Base": {"batch_size": 10, "learning_rate": 5e-6}
+    },
+    "max_sequence_length": {"GLUE": 128, "GPT-2 WikiText-2": 1024, "Llama3 PTB": 100},
+    "vit_input": {"resolution": 224, "patch": 16, "dataset": "CIFAR-10"}
+  },
+
+  "paper_cost_sources": {
+    "node_scaling": "Stillmaker and Baas 2017 [59] (paper/devices/stillmaker_baas_2017_scaling.pdf), every value scaled to 65 nm",
+    "rram_array_area_power": "ASADI [31] (paper/devices/asadi.pdf) and Wan et al. 2020 [63] (paper/devices/33.1_A_74_TMACS_W_CMOS-RRAM_Neurosynaptic_Core_...pdf)",
+    "rram_array_behavior": "modified NVSim [13], used to validate behavior",
+    "shift_add_ir_or": "ASADI [31] and ISAAC [54] (paper/devices/isaac_shafiee2016.pdf)",
+    "wl_driver": "1-bit DAC of ASADI [31] and Saberi et al. 2011 [51] (paper/devices/saberi2011_cdac.pdf)",
+    "adc": "Kull et al. 2013 [29], 8-bit 1.2 GS/s SAR in 32 nm SOI (paper/devices/kull2013_sar_adc.pdf)",
+    "sample_and_hold": "Kull et al. [29] and ISAAC [53]",
+    "sfu": "own synthesis, 65 nm standard cells, 1 GHz, Cadence Genus 19.1",
+    "rram_on_resistance_on_off": "Yu et al. 2021 [79] (paper/devices/rram_cim_yu2021.pdf)",
+    "rram_set_reset_V": "Hung et al. 2021 [21] (paper/devices/hung2021_4mb_cim.pdf)",
+    "baseline_sram_energy": "ARM Artisan memory compiler, 65 nm high-density single-port SRAM r0p0, 1 GHz [6]",
+    "baseline_dram_energy": "Wang et al. 2024 (Beacon) [68]"
+  },
+
+  "reported_results": {
+    "table2_analog_module": {
+      "components": {
+        "rram_array": {"area_mm2": 0.048, "area_pct": 9.6, "power_mW": 60.78, "power_pct": 6.5, "count": 512, "size": "64x128", "bits_per_cell": "1-b/2-b"},
+        "ir": {"area_mm2": 0.00065, "area_pct": 0.1, "power_mW": 0.13, "power_pct": 0.01, "size_each_bytes": 64},
+        "or": {"area_mm2": 0.00129, "area_pct": 0.3, "power_mW": 0.53, "power_pct": 0.1, "size_each_bytes": 128},
+        "wl_drv": {"area_mm2": 0.02, "area_pct": 3.7, "power_mW": 297.71, "power_pct": 32, "resolution_bits": 1, "count": "64x512"},
+        "adc": {"area_mm2": 0.30, "area_pct": 64.2, "power_mW": 512.00, "power_pct": 55, "resolution_bits": "6-b/7-b", "count": 512},
+        "s_and_a": {"area_mm2": 0.10, "area_pct": 22, "power_mW": 59.54, "power_pct": 6.4, "count": 512},
+        "s_and_h": {"area_mm2": 6e-5, "area_pct": 0.01, "power_mW": 12e-6, "power_pct": 0.001, "count": 512}
+      },
+      "module_sum": {"area_mm2": 0.47, "power_mW": 930.69},
+      "total": {"modules": 24, "area_mm2": 11.24, "power_mW": 22336.59}
+    },
+    "table2_digital_module": {
+      "components": {
+        "rram_array": {"area_mm2": 2.86, "area_pct": 35.8, "power_mW": 3890.02, "power_pct": 59.6, "count": 256, "size": "1024x1024", "bits_per_cell": "1-b"},
+        "ir": {"area_mm2": 0.0031, "area_pct": 0.04, "power_mW": 0.76, "power_pct": 0.01, "size_each_bytes": 1024},
+        "or": {"area_mm2": 0.0032, "area_pct": 0.04, "power_mW": 1.65, "power_pct": 0.03, "size_each_bytes": 1024},
+        "wl_drv": {"area_mm2": 0.14, "area_pct": 1.8, "power_mW": 2381.64, "power_pct": 36.5, "resolution_bits": 1, "count": "1024x256"},
+        "s_and_a": {"area_mm2": 0.21, "area_pct": 2.6, "power_mW": 119.08, "power_pct": 1.8, "count": 1024},
+        "s_and_h": {"area_mm2": 13e-5, "area_pct": 0.002, "power_mW": 23e-6, "power_pct": 0.0, "count": 1024},
+        "sfu": {"area_mm2": 4.79, "area_pct": 59.8, "power_mW": 138.89, "power_pct": 2.1, "inputs": 256}
+      },
+      "module_sum": {"area_mm2": 8.01, "power_mW": 6532.05},
+      "total": {"modules": 8, "area_mm2": 64.05, "power_mW": 52256.41}
+    },
+    "timing": {
+      "analog_cycle_ns": 100,
+      "bitlines_converted_per_cycle": 128,
+      "adc_sample_rate_GSps": 1.28,
+      "sfu_matching_throughput_ops": 273,
+      "sfu_matching_formula": "256 x 1024 / (64 x 3) / 5",
+      "inter_pu_partial_sum_kB_max": 3,
+      "inter_pu_partial_sum_latency_cycles": 24,
+      "inter_chip_hidden_output_kB": [0.75, 2],
+      "inter_chip_latency_cycles": [6, 16]
+    },
+    "reconfigurable_slc_mlc_overhead_pct_max": {"area": 1, "energy": 1},
+    "mlc_vs_slc": {
+      "throughput": "2x",
+      "analog_computation_energy": "0.5x",
+      "adc_energy": "not higher than SLC (one more bit, half the conversions)",
+      "higher_level_mlc_bit_error_rate_vs_slc": "7x for 3-bit / 4-bit MLC"
+    },
+    "accuracy": {
+      "all_2bit_mlc_bert_base_mrpc_drop_pct": 40,
+      "truncation_without_fine_tuning": {"BERT-Large MRPC drop_pct": 16, "BERT-Large RTE drop_pct": 20, "GPT-2 loss": "more than 2x"},
+      "bert_base_slc_5pct_drop_below_1pct": ["MRPC", "QNLI", "STS-B"],
+      "bert_base_slc_10_30pct_drop_below_1pct": ["CoLA", "QQP", "SST-2", "RTE"],
+      "bert_large_slc_5pct_drop_below_1pct": ["QNLI", "QQP", "STS-B", "RTE"],
+      "bert_large_slc_10_30pct_drop_below_1pct": ["CoLA", "MRPC", "SST-2"],
+      "decoder_slc_20pct_loss_increase_below_pct": 10,
+      "vit_base_cifar10_slc_5pct_drop_below_pct": 1,
+      "figure12": "per-task accuracy / loss vs SLC rate (plotted, not stated in the text)"
+    },
+    "comparisons": {
+      "vs_asadi_dagger": {"linear_energy_efficiency_max": 1.24, "end_to_end_speedup": [1.1, 1.86], "area_efficiency": 1.9, "slc_20pct_linear_energy_efficiency_avg": 1.23, "slc_20pct_speedup_avg": 1.79},
+      "vs_asadi": {"end_to_end_energy_efficiency_max": {"BERT-Large": 1.67, "GPT-2": 1.44}},
+      "vs_sprint": {"linear_energy_reduction_max": 5.4, "end_to_end_energy_efficiency_max_n128": {"GLUE": 4.94, "WikiText-2": 4.69}, "speedup_max": {"GLUE": 10.6, "WikiText-2": 46}, "slc_20pct_linear_energy_reduction_avg": 5.34, "slc_20pct_speedup_avg": {"GLUE": 10.1, "WikiText-2": 44}},
+      "vs_nmp": {"linear_energy_efficiency_max": 3.31, "end_to_end_energy_efficiency": {"GLUE": 4.94, "WikiText-2": 4.69}},
+      "vs_non_pim": {"linear_energy_efficiency_max": 6.6, "end_to_end_energy_efficiency": {"GLUE": 6.15, "WikiText-2": 5.82}}
+    },
+    "scalability": {
+      "gpt2_two_pus_per_layer_throughput": 1.99,
+      "llama3_quad_vs_dual_chip_throughput": 1.96,
+      "llama3_octa_vs_dual_chip_throughput": 3.65,
+      "llama3_min_chips": 2,
+      "llama3_pus_per_layer": 2
+    },
+    "endurance": "lasts beyond 3-5 years at 10K inference requests per day"
+  },
+
+  "not_in_paper": [
+    "absolute latency, throughput or energy of any workload (every system result is normalized to a baseline)",
+    "1T1M access transistor size and the cell layout area",
+    "read voltage on the WLs / bitlines, and the supply voltage(s)",
+    "resistance (conductance) of each 2-bit MLC level",
+    "MLC write: pulse amplitude, width, step and the number of verify iterations; its latency and energy",
+    "SLC write latency and energy (only the SET / RESET voltages are given)",
+    "RRAM read (crossbar settling) time inside the 100 ns cycle",
+    "the Gaussian noise sigma of eta (only the 4.04% BER it was fitted to)",
+    "digital module clock period, so the time of one NOR / row cycle",
+    "NOR operation energy and the NOR cell circuit (inputs, output initialization)",
+    "why the digital module has 1024 S&H and S&A units but no ADC, and what reads its rows",
+    "SAR ADC circuit: unit capacitor C0, comparator, SAR logic, reference voltages, supply; its energy per conversion",
+    "sample-and-hold circuit",
+    "WL driver (1-bit DAC) circuit",
+    "shift-and-add bit widths and accumulator width",
+    "SFU FP16 datapath: Taylor series order, divider and square-root design, pipeline depth, latency per function",
+    "how partial sums are accumulated inside the digital module (cycles, energy)",
+    "inner unit bus and global bus energy per byte, width and area; control bus",
+    "conventional read circuitry and write drivers (excluded from Table 2)",
+    "chip-level control, IO and global bus area / power",
+    "how K^T is laid out in the digital arrays for Q x K^T",
+    "output register use in the analog module beyond its 128 B size"
+  ],
+
+  "_provenance": {
+    "architecture": "Abstract, Sec. 3.1: digital RRAM PIM for high-precision, write-intensive operations (attention), analog RRAM PIM with reconfigurable SLC / MLC for static weights (linear layers)",
+    "process.node_nm": "Sec. 5.3: baselines 'scaled to the same 65nm process technology'; Sec. 5.4: 'All values have been scaled to a 65 nm technology node based on [59]'",
+    "clock.analog_cycle_ns": "Sec. 5.4: 'During the following 100 ns cycle, these analog values are sequentially input into a single 1.28 GSps ADC unit, while the crossbar initiates its next read operation in a pipelined manner'",
+    "clock.sfu_freq_MHz": "Sec. 5.4: 'synthesize SFU at 1 GHz operating frequency with Cadence Genus 19.1'",
+    "chip.processing_units, layers_per_pu, io, global_bus": "Sec. 3.1, Fig. 5(a): '24 Processing Units (PUs)', 'a single input and output (IO)', 'a global bus to communicate with each PU', 'Each PU is dedicated to the computation of a single layer'; Fig. 5(a) labels the global bus 'PCIe-6.0 128GB/s'; Sec. 5.4: 'PCIe-6.0 interface with 128 GB/s bandwidth for outer-PU communication [55]'",
+    "chip.max_sequence_length": "Sec. 5.4: 'The HyFlexPIM is configured to handle the MSL of 8192'",
+    "chip.inner_unit_bus": "Sec. 3.1: 'Each module is interconnected via inner unit shared bus'; Sec. 5.4: 'Inter-PU data transfer is facilitated by a 1000 GB/s On-Chip Interconnect (OCI) [26]'; Fig. 5(b) labels it 'Inner Unit Shared Bus (OCI)'. The text says inter-PU but the figure puts the OCI inside the PU; recorded as the bus inside the PU",
+    "chip.control_bus": "Fig. 5(a): 'Control Bus'",
+    "processing_unit": "Sec. 3.1: the PU 'comprises eight digital RRAM PIM modules for attention and non-linear operations and 24 analog RRAM PIM modules'; Fig. 5(b); Table 2 'Total' rows: 24 analog and 8 digital modules",
+    "rram_device.cell_type": "Sec. 5.4: 'The analog modules utilize 1-bit (SLC) or 2-bit (MLC) one transistor and one memristor (1T1M) RRAM cells, while the digital modules use only 1-bit 1T1M RRAM arrays'",
+    "rram_device.r_on_kohm, on_off_ratio": "Sec. 5.4: 'the RRAM features an on-state resistance (RON) of 6 kOhm with an on/off ratio of 150 [79]'. R_off = 900 kOhm follows; it is not stated",
+    "rram_device.set_V, reset_V, set_reset_voltages_for, access": "Sec. 5.4: 'RRAM arrays read/write data in a column-parallel manner, with SET/RESET voltages of 1.62/3.63 V for 1-bit cells [21]'. The sentence is ASADI's (Sec. VI, same wording). The source, Hung et al. 2021 [21] (paper/devices/hung2021_4mb_cim.pdf, Methods), gives one range for both: 'the set and reset voltages ranged within ~1.62-3.63 V'",
+    "rram_device.mlc_write": "Sec. 3.2: 'the varying levels of resistance for MLC are written by iteratively applying pulses through the WL based on the desired resistance level [49]'; Sec. 3.3: MLC writing 'requires iterative verify-read and write operations to reach the exact target conductance'",
+    "rram_device.endurance_cycles": "Sec. 5.2: 'typical RRAM endurance of 10^8 cycles [18]'",
+    "analog_module.arrays, array": "Sec. 3.1: 'An analog PIM module (Figure 5 (c)) consists of 512 RRAM arrays, each of which includes 64x128 bitcells'; Sec. 5.4: '512 arrays of 64x128 (1KB) RRAM'; Table 2",
+    "analog_module.bits_per_cell": "Table 2 'Bit/Cell 1-b/2-b'; Sec. 3.2: 'we adopt 2-b MLC'",
+    "analog_module.slc_weight_layout, mlc_weight_layout": "Sec. 3.2, Fig. 6 and 7: 'The SLC stores bits for the weight across adjacent columns, e.g., 4-bit words are stored across four columns'; 'two consecutive bits of weights are packed and mapped to a single 2-bit RRAM device'",
+    "analog_module.input": "Sec. 2.2 and 3.2: 'Each bit of the input is given sequentially through the WL'; Sec. 5.4: 'DRV details obtained from a 1-bit digital-analog converter (DAC)'; Table 2: WL DRV 'Resolution 1-b', 'Total 64x512' (64 per array)",
+    "analog_module.readout": "Sec. 3.2, Fig. 8(a): 'analog signals from 128 bitlines are first captured by sample and hold (S&H) circuits, then sequentially selected through a multiplexer before being fed to a shared successive-approximation-register (SAR) ADC'; 'enabling capacitors in sequence (C7 -> C1)'; Fig. 8(a): C1 = 2^0 C0, ..., C7 = 2^6 C0; 'The required ADC precision for MVM operations is given by log2(R) + w - 1'; 'a full-precision ADC, configured as 6-b for SLC and 7-b for MLC'; 'by simply bypassing the comparison for the largest capacitor (C7) ... the ADC can efficiently operate as a 6-b ADC'. Sec. 5.4: 'a shared 6-bit/7-bit reconfigurable ADC is employed for 128 columns. The bitline currents are captured in 128 sample-and-hold circuits'; 'a single 1.28 GSps ADC unit'; Table 2: ADC and S&H 'Total 512' (one per array)",
+    "analog_module.registers": "Table 2: IR 'Size/each 64B', OR 'Size/each 128B'; Sec. 3.1: 'IR holds the control signals of bit line and WL selectors as [31, 81]'",
+    "analog_module.shift_and_add": "Sec. 2.2: 'weighted-sum of all output bits using a shift and add (S&A) module'; Sec. 3.2: 'corresponding binary weights are applied in the digital shift & adder (S&A)'; for MLC 'the corresponding impact factor of 1x, 4x, 16x, ... are given for the consecutive columns'; Fig. 6 and 7",
+    "analog_module.excluded_from_table2": "Sec. 3.1: 'conventional read circuitry and write driver (not shown for simplicity)'; Sec. 3.2: written 'using conventional write drivers and a wordline (WL) driver, which are omitted in Figure 5 (c)'",
+    "digital_module.arrays, array, bits_per_cell": "Sec. 3.1: 'The digital PIM module contains 256 RRAM arrays, each of which includes 1024 bitcell per row'; Sec. 5.4: '256 arrays of 1024x1024 (128KB) RRAM'; Table 2: 'Bit/Cell 1-b', 'Size 1024x1024', 'Total 256'",
+    "digital_module.add_nor_ops_per_bit": "Not in HyFlexPIM, which says only that partial sums are accumulated in the digital module (Sec. 3.3). From its NOR source, FloatPIM (Imani et al., ISCA 2019, Sec. 6.1): 'addition takes 13N cycles' for N-bit operands, one NOR per cycle",
+    "digital_module.operation, nor_columns, int8_mul_nor_ops, row_processing_cycles": "Sec. 3.1: 'In the Q x K computation, which involves INT8 x INT8 multiplication, each output generation requires 64 NOR operations. Each NOR operation takes three columns for two input operand bits and one output bit [22]. Each row processing takes total five cycles (four cycles for writing and one cycle for reading)'; [22] is FloatPIM (Imani et al., ISCA 2019); Fig. 3(d) 'digital RRAM processing-in-memory NOR operation'",
+    "digital_module.registers": "Table 2: IR and OR 'Size/each 1KB'",
+    "digital_module.table2_counts": "Table 2, digital module: WL DRV 'Total 1024x256', S&A 'Total 1024', S&H 'Total 1024'",
+    "digital_module.adc": "Sec. 3.1: the digital PIM module 'does not require the analog peripheral circuitry such as ADC'; Table 2 has no ADC row for it",
+    "digital_module.sfu": "Sec. 3.1: 'The Digital PIM module also incorporates a Special Function Unit (SFU) to efficiently handle non-linear operations such as Softmax, Layer Normalization, and GELU. To enable these operations, we implemented max search, subtraction, exponentiation (via Taylor series), addition, division, multiplication, and square root functions, all fully pipelined using floating-point arithmetic. After computation, the results are converted to the integer format'; 'We configured each SFU to process 256 inputs per cycle to balance the throughput of GEMV operations'; Table 2: SFU '# inputs 256', in the digital module rows; Sec. 5.4: synthesis at 65 nm, 1 GHz, Cadence Genus 19.1",
+    "digital_module.stores": "Sec. 3.3: 'The generated tokens or outputs are stored in the digital PIM module'; 'We also store the intermediate computed results in the digital PIM with an SLC format'",
+    "mapping.analog, analog_factors": "Sec. 3.3, Fig. 9: W_Q, W_K, W_V, projection, FFN1 and FFN2 in analog PIM; 'the matrices are divided into two matrices: V x Sigma and U^T ... and stored in the analog PIM RRAM array'",
+    "mapping.digital, digital_cell_mode": "Sec. 3.3: 'the computations of Q . K^T and x V (in the orange box) are not static'; 'We also employ only SLC to avoid the costly MLC writing operation'; 'we employ digital PIM for this section'",
+    "mapping.sfu": "Sec. 3.1 (SFU); Sec. 5.1: 'non-linear operations which are computed by HyFlexPIM's SFU'",
+    "mapping.partial_sums": "Sec. 3.3: stored in the digital PIM module 'where partial sums from different sub-arrays are accumulated to finalize the GEMV computation'",
+    "mapping.svd_rank": "Sec. 4.1: 'we replace D_Th with a hard threshold D_h1 x D_h2 / (D_h1 + D_h2)'; Algorithm 1 step 2",
+    "mapping.slc_rate_pct": "The SLC rate we model: the paper's comparison point, its averages over the benchmarks at 20% SLC (reported_results.comparisons, 'slc_20pct_*'). Without the SVD factors, the compiler stores this share of each weight matrix's output columns in SLC and the rest in MLC (compiler/xdsl_dual_module_hardware.py)",
+    "mapping.slc_selection, slc_rates_pct": "Sec. 4.2: 'We choose singular values with the top k% (k = 0, 5, 10, 30, 40, 50, 100) gradient magnitudes to perform the computation on SLC, while the rest is computed using MLC'; Algorithm 1 steps 4-5",
+    "mapping.scaling": "Sec. 3.1: cases 1) to 3); 'partial sums (<3 KB per PU) are transferred between PUs and aggregated in the Special Function Unit (SFU) via global bus'",
+    "precisions": "Sec. 5.1: 'we employ INT8 for all the linear layers and for Q, K, and V in the attention mechanism, while FP16 is used for other non-linear operations'; Sec. 3.3: 'x V stage requires an operand to be 12 bits'; Sec. 3.2: 2-b MLC",
+    "accuracy_model": "Sec. 5.2: Eq. (5) W~ = W (.) (1 + eta); 'Using the experimental data from 3 million RRAM cells in [15], which showed a bit error rate (BER) of approximately 4.04% after one day of programming, we reverse-calculated the standard deviation of the Gaussian noise'; 'we also considered the limited ADC resolution for the outputs'; 'The simulator also models the serial bit computing mechanism and shift-and-add operations'; Appendix (artifact): code on GitHub",
+    "fine_tuning": "Table 1; Algorithm 1 step 3: 'training for 1-3 epochs'; Sec. 5.1: MSL 128 for GLUE, 1024 for GPT-2 on WikiText-2, 100 for Llama3 on PTB; ViT-Base on CIFAR-10 at 224x224, patch 16x16",
+    "paper_cost_sources": "Sec. 5.3: 'we utilize NVSIM [13] for RRAM, ARM Memory Compiler with high-density 65 nm single-port SRAM (version r0p0) [6] with 1 GHz operating frequency, and DRAM access energy from [68]'. Sec. 5.4: 'Area and power configurations for the 1T1M RRAM arrays are derived from [31, 63]'; 'The bitline currents are captured in 128 sample-and-hold circuits [29, 53]'; 'The area and power specifications for the S&A unit and on-chip SRAM buffers (IR and OR) are sourced from [31, 54], with the DRV details obtained from a 1-bit digital-analog converter (DAC) in [31, 51]. We validate the behavior of RRAM arrays using a modified NVSIM [13]'. The ADC source [29] is from Sec. 5.4 ('a single 1.28 GSps ADC unit', cited with the S&H). [53] and [54] are both ISAAC",
+    "reported_results.table2_analog_module, table2_digital_module": "Table 2, as printed. Checks on the printed values: the analog components sum to 0.470 mm^2 and 930.69 mW, matching 'Sum'; 24 x 930.69 = 22,336.6 mW matches 'Total', but 24 x 0.47 = 11.28 mm^2, not the printed 11.24. The digital components sum to 8.006 mm^2 and 6,532.04 mW; 8 x 8.006 = 64.05 mm^2 and 8 x 6,532.05 = 52,256.4 mW match 'Total'. Some analog area percentages do not match the printed areas (array 0.048 / 0.47 = 10.2%, printed 9.6%; WL DRV 4.3%, printed 3.7%). Array area per cell: 0.048 mm^2 / (512 x 64 x 128) = 0.0114 um^2 (2.7 F^2 at 65 nm) and 2.86 mm^2 / (256 x 1024 x 1024) = 0.0107 um^2 (2.5 F^2), below any 1T1R cell",
+    "reported_results.timing": "Sec. 5.4: 100 ns cycle, 128 bitlines 'converted to digital within 100 ns', 1.28 GSps; Sec. 3.1: '256 x 1024 / (64 x 3) / 5 = 273 operations'; 'partial sums (<3 KB per PU) ... with negligible latency overhead (24 cycles)'; 'only a single hidden layer output (0.75 - 2 KB at hidden dimension of 768-2048) is transmitted between chips ... requiring less than 6-16 cycles over the PCIe-6.0 interconnect'",
+    "reported_results.reconfigurable_slc_mlc_overhead_pct_max": "Abstract: 'with minimal overhead (<1% for area & energy)'; Sec. 3.2: the reconfigurable ADC's overhead 'compared to a dedicated 6-b ADC takes negligible (<1%) portion in the overall architecture'",
+    "reported_results.mlc_vs_slc": "Sec. 3.2: 'MLC improves efficiency with doubled throughput, increased storage density, and halved analog computation energy'; 'because the number of results generated to be converted by ADC is reduced by half in the case of 2-b MLC, the total energy consumption for the ADC does not increase'; 'higher-level MLCs (e.g., 3-b/4-b MLC) have a 7x higher bit error rate than SLC'",
+    "reported_results.accuracy": "Sec. 1: 'suffer catastrophic accuracy loss when implemented entirely with 2-bit MLC, e.g., 40% drop for BERT-Base with GLUE MRPC'; Sec. 4.1: truncation drops; Sec. 6.1 and Fig. 12: SLC rates needed for < 1% accuracy drop vs the INT8 SVD fine-tuned baseline, and < 10% loss increase vs 100% SLC for GPT-2 and Llama3 at 20% SLC",
+    "reported_results.comparisons": "Sec. 6.3.1 to 6.3.4, Fig. 14 to 16; Sec. 1 states 1.86x and 1.24x as the maxima vs the state of the art (the abstract says 1.86x and 1.45x)",
+    "reported_results.scalability": "Sec. 6.3.5, Fig. 17",
+    "reported_results.endurance": "Sec. 5.2"
+  }
+}

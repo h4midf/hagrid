@@ -1,0 +1,44 @@
+[
+  {
+    "unit": "sram_array",
+    "cell": "itrs-hp",
+    "size_bytes": 256,
+    "block_bytes": 2,
+    "node_nm": 65,
+    "area_mm2": 0.00252463,
+    "read_energy_pJ": 1.45379,
+    "leakage_mW": 0.371828,
+    "access_ns": 0.377061,
+    "cycle_ns": 0.232211,
+    "read_rate_MHz": 75.0,
+    "power_mW": 0.48086225
+  },
+  {
+    "unit": "sram_array",
+    "cell": "itrs-lop",
+    "size_bytes": 256,
+    "block_bytes": 2,
+    "node_nm": 65,
+    "area_mm2": 0.00252273,
+    "read_energy_pJ": 0.967155,
+    "leakage_mW": 0.0115117,
+    "access_ns": 0.798358,
+    "cycle_ns": 0.46799,
+    "read_rate_MHz": 75.0,
+    "power_mW": 0.08404832500000001
+  },
+  {
+    "unit": "sram_array",
+    "cell": "itrs-lstp",
+    "size_bytes": 256,
+    "block_bytes": 2,
+    "node_nm": 65,
+    "area_mm2": 0.00252287,
+    "read_energy_pJ": 2.27716,
+    "leakage_mW": 8.1025e-05,
+    "access_ns": 1.46416,
+    "cycle_ns": 0.790243,
+    "read_rate_MHz": 75.0,
+    "power_mW": 0.170868025
+  }
+]

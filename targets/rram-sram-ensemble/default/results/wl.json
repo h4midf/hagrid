@@ -1,0 +1,9 @@
+{
+  "wl_low_V": 1.16199e-06,
+  "wl_high_V": 3.29999,
+  "energy_pJ_per_toggle_pair": {
+    "high_supply": 6.553206,
+    "low_supply": 0.06598404000000001,
+    "total": 6.61919004
+  }
+}

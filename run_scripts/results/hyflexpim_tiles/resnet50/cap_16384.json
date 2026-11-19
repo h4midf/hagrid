@@ -1,0 +1,58 @@
+{
+  "target": "hyflexpim/default",
+  "model": "resnet50",
+  "cap": 16384,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/resnet50/cap_16384.json",
+  "latency_ns": 852636.4732690275,
+  "analog_arrays": 16384,
+  "digital_arrays": 0,
+  "analog_modules": 32,
+  "digital_modules": 0,
+  "pus": 2,
+  "units": {
+    "total": {
+      "quantize": 1261,
+      "vec_el_mul": 378,
+      "vec_add": 210,
+      "argmax_tree": 4,
+      "dequantize": 1087,
+      "relu": 69,
+      "reduce_tree_n128": 5,
+      "reduce_tree_n64": 7,
+      "reduce_tree_n32": 10,
+      "reduce_tree_n16": 17,
+      "reduce_tree_n8": 74
+    },
+    "max_per_pu": {
+      "quantize": 987,
+      "vec_el_mul": 310,
+      "vec_add": 141,
+      "argmax_tree": 4,
+      "dequantize": 987,
+      "relu": 59,
+      "reduce_tree_n128": 3,
+      "reduce_tree_n64": 6,
+      "reduce_tree_n32": 5,
+      "reduce_tree_n16": 17,
+      "reduce_tree_n8": 67
+    },
+    "chip_pool": {
+      "argmax_tree": 4,
+      "vec_add": 143,
+      "vec_el_mul": 314,
+      "relu": 59,
+      "quantize": 1000,
+      "dequantize": 1000,
+      "reduce_tree_n128": 5,
+      "reduce_tree_n64": 6,
+      "reduce_tree_n32": 4,
+      "reduce_tree_n16": 16,
+      "reduce_tree_n8": 67
+    }
+  },
+  "traffic": {
+    "local_bits": 3840141070.175984,
+    "inner_bus_bits": 133293230.02688693,
+    "global_bus_bits": 3687043.7971291873
+  }
+}

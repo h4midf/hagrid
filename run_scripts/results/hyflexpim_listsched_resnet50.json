@@ -1,0 +1,36 @@
+{
+  "target": "hyflexpim/default",
+  "model": "resnet50",
+  "algorithm": "list_schedule_hyflexpim",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "67d4b831158516be",
+  "points": {
+    "16384": {
+      "cap": 16384,
+      "latency": 2604471.7891178373,
+      "arrays": 16384,
+      "analog_arrays": 16384,
+      "digital_arrays": 0,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/resnet50/cap_16384.json"
+    },
+    "262144": {
+      "cap": 262144,
+      "latency": 2589410.627092303,
+      "arrays": 262144,
+      "analog_arrays": 262144,
+      "digital_arrays": 0,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/resnet50/cap_262144.json"
+    },
+    "4194304": {
+      "cap": 4194304,
+      "latency": 43362.690072307705,
+      "arrays": 2482544,
+      "analog_arrays": 2482544,
+      "digital_arrays": 0,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/resnet50/cap_4194304.json"
+    }
+  }
+}

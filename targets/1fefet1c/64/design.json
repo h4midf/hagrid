@@ -1,0 +1,79 @@
+{
+  "_description": "Design point of the 1F1C target with 64 x 64 arrays: the default design point (Laleni et al., 'A High-Efficiency Charge-Domain CIM 1F1C Macro Using 2-bit FeFET Cells for DNN Processing', IEEE JXCDC 2024; ../default/design.json) with the array size, the ADC resolution and ISAAC's weight-flip encoding changed (Shafiee et al., ISCA 2016, paper/devices/isaac_shafiee2016.pdf). Every value has its source in _provenance. 'reported_results' are Laleni's outputs at 128 x 128, kept only to check our simulations against, never used as inputs.",
+
+  "architecture": "coupled_fine_grained_rmu_wmu",
+  "process": {
+    "node_nm": 28,
+    "vdd_V": 1.0
+  },
+  "array": {
+    "rows": 64,
+    "cols": 64
+  },
+  "encoding": {
+    "scheme": "ISAAC weight flip",
+    "unit_columns": 1,
+    "unit_cell_level": 1,
+    "flip_bits_per_column": 1
+  },
+  "cell": {
+    "bits_per_cell": 2,
+    "fefet_w_nm": 450,
+    "fefet_l_nm": 450,
+    "cmom_fF": 1.3,
+    "vth_states_V": [1.2, 0.9, 0.6, 0.3],
+    "vth_states_linear_V": [1.2, 0.7, 0.4, 0.1]
+  },
+  "clock": {
+    "freq_MHz": 20,
+    "column_phase_cycles": {"reset": 1, "multiply": 1, "accumulate": 1}
+  },
+  "adc": {
+    "type": "SAR, single-ended, conventional switching, bootstrapped sampling switch, input buffer",
+    "bits": 7,
+    "cycles_per_conversion": 8,
+    "vrefp_V": 0.5,
+    "vrefn_V": 0.0,
+    "buffer_bias_uA": 0.7
+  },
+  "write": {
+    "erase_pulse_V": -5.0,
+    "erase_pulse_ns": 500,
+    "program_start_V": 1.4,
+    "program_pulse_ns": 200,
+    "program_step_mV": 40
+  },
+
+  "reported_results": {
+    "cpar_fF": 75,
+    "kappa": 0.69,
+    "adc_enob_bits": 6.4,
+    "adc_walden_fom_fJ": 26,
+    "bl_charging_power_nW": 0.86,
+    "efficiency_TOPS_per_W": 111.6,
+    "cifar10_vgg8_accuracy_pct": 89
+  },
+
+  "_provenance": {
+    "architecture": "Laleni Sec. III: each cell is one FeFET (RMU) with its own CMoM (WMU); the FeFET loads into the CMoM of the same cell, so RMU and WMU are coupled per cell",
+    "process.node_nm": "Laleni Sec. V: 'designed and simulated in 28-nm process technology'; FeFETs fabricated in 28 nm HKMG (Sec. III-A, Fig. 5)",
+    "process.vdd_V": "Laleni Sec. V: 'The supply voltage is chosen as VDD = 1 V'",
+    "array.rows, array.cols": "Our design point (array-size sweep: 64, 128). cols are the data columns the mapper uses; the unit column (encoding) is extra",
+    "encoding": "ISAAC Sec. III, 'Encoding to Reduce ADC Size': a column whose weights are collectively large is stored flipped (W' = 2^w - 1 - W), which guarantees the MSB of its sum of products is 0 and lowers the ADC resolution by one bit; a flipped column's result is (2^w - 1) * sum(a_i) - its sum, with sum(a_i) from one extra 'unit column' per array, and one bit per column records whether it is flipped. unit_cell_level: our decision, the unit column's cells store level 1, so its sum is sum(a_i) (at most rows, within the ADC range); the shift-and-add multiplies it by 2^w - 1",
+    "cell": "Laleni, as ../default/design.json (bits_per_cell: Title, Sec. III-C; W/L: Sec. III-A; CMoM: Sec. IV, V; Vth states: Sec. V, Fig. 10)",
+    "clock.freq_MHz": "Laleni Sec. V: 'The sampling frequency (Fs) of the operation is 20 MHz'",
+    "clock.column_phase_cycles": "As ../default/design.json (Laleni Sec. III-B, Fig. 4; reset and accumulate one cycle each, our assumption)",
+    "adc.type": "Laleni Sec. IV, V: conventional single-ended SAR ADC with a bootstrap sampling switch and an input buffer",
+    "adc.bits": "ISAAC Eq. 2 (v = 1 input bit per cycle, w = 2 bits per cell, so A = log2(R) + v + w - 1 = log2(64) + 2 = 8), minus the one bit of ISAAC's weight-flip encoding: 7",
+    "adc.cycles_per_conversion": "Laleni Sec. V: 'eight cycles are needed to quantize the result' by the 7-bit ADC: one sampling cycle and one cycle per bit, so bits + 1 = 8",
+    "adc.vrefp_V, adc.vrefn_V": "Laleni Sec. V: 'Vrefp = 0.5 V and Vrefn = 0 V'; kept at every resolution (the LSB is Vrefp / 2^bits)",
+    "adc.buffer_bias_uA": "The default's 7-bit ADC unchanged (spice/adc/sar_full_tb.sp, same front end), so its bias: ../default/design.json (spice/adc/run_full.py bias sweep)",
+    "write": "Laleni Sec. III-C: write-verify; HVT reset with -5 V for 500 ns, then 1.4 V pulses for 200 ns, increased in 40 mV steps with read-verify until the target Vth",
+    "reported_results.cpar_fF": "Laleni Sec. IV/V: 'Cpar = 75 fF' for 128 rows (our NVSim cell height is fitted to it, see ../default/1f1c.cell)",
+    "reported_results.kappa": "Laleni Sec. V: 'the input range drops to 69%'",
+    "reported_results.adc_enob_bits, adc_walden_fom_fJ": "Laleni Sec. V: 'ENOB ... 6.4 bits', 'Walden FoM of the ADC is 26 fJ/conversion'",
+    "reported_results.bl_charging_power_nW": "Laleni Sec. V: 'BL charging power is 0.86 nW with the expected value of weight as (VDD/2)'",
+    "reported_results.efficiency_TOPS_per_W": "Laleni Abstract, Sec. V: 111.6 TOPS/W",
+    "reported_results.cifar10_vgg8_accuracy_pct": "Laleni Sec. V: VGG-8 on CIFAR-10 with NeuroSim, 89%"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "_description": "Source values HyFlexPIM's Table 2 is built from, and the rules that scale them, each with its source in _provenance. HyFlexPIM Sec. 5.4 says its S&A, IR, OR and DRV come from ASADI [31] (with ISAAC [54] and Saberi [51]), its RRAM arrays from ASADI [31] and Wan et al. [63], its ADC and S&H from Kull et al. [29] and ISAAC [53], all scaled to 65 nm with Stillmaker and Baas [59]. targets/hyflexpim/table2.py applies these rules to the configuration in design.json and writes results/table2.json; report.py compares it with design.json reported_results. The SFU is not here: HyFlexPIM synthesized it itself.",
+
+  "asadi_table1": {
+    "node_nm": 32,
+    "analog_module": {
+      "rram_array": {"area_mm2": 0.0013, "power_mW": 2.45, "arrays": 96, "rows": 64, "cols": 64, "bits_per_cell": 1},
+      "ir": {"area_mm2": 0.0002, "power_mW": 0.057, "size_bytes": 64},
+      "or": {"area_mm2": 0.0002, "power_mW": 0.057, "size_bytes": 64}
+    },
+    "digital_module": {
+      "rram_array": {"area_mm2": 1.76, "power_mW": 3143.6, "arrays": 512, "rows": 1024, "cols": 1024, "bits_per_cell": 1},
+      "ir": {"area_mm2": 0.0608, "power_mW": 20.89, "size_bytes": 65536},
+      "or": {"area_mm2": 0.0322, "power_mW": 11.47, "size_bytes": 32768}
+    }
+  },
+
+  "isaac_table1": {
+    "node_nm": 32,
+    "s_and_h": {"area_mm2": 0.00004, "power_mW": 0.010, "count": 1024},
+    "dac": {"area_mm2": 0.00017, "power_mW": 4, "count": 1024, "resolution_bits": 1}
+  },
+
+  "interconnect": {
+    "isaac_node_nm": 32,
+    "isaac_clock_GHz": 1.2,
+    "isaac_tile_bus": {"area_mm2": 0.09, "power_mW": 7, "wires": 384},
+    "isaac_router": {"area_mm2": 0.151, "power_mW": 42, "flit_bits": 32, "ports": 8},
+    "pus_per_router": 4
+  },
+
+  "hyflexpim_counts": {
+    "analog_module": {"adc": 512, "s_and_a": 512, "s_and_h": 512},
+    "digital_module": {"s_and_a": 1024, "s_and_h": 1024}
+  },
+
+  "node_scaling": {
+    "from": {"node_nm": 32, "type": "High-k HP", "vdd_V": 1.0},
+    "to": {"node_nm": 65, "type": "Bulk", "vdd_V": 1.0},
+    "area_geometry": {
+      "_columns": ["min_feature_nm", "metal1_half_pitch_nm", "logic_gate_4T_um2"],
+      "32": [32, 45, 0.71],
+      "45": [45, 59, 2.1],
+      "65": [65, 68, 2.6]
+    },
+    "energy_coefficients": {
+      "_columns": ["ae2", "ae1", "ae0"],
+      "32_HP": [0.8367, -0.4341, 0.1701],
+      "45_HP": [1.018, -0.3107, 0.1539],
+      "65_Bulk": [3.755, -4.398, 1.975]
+    },
+    "delay_coefficients": {
+      "_columns": ["ad3", "ad2", "ad1", "ad0"],
+      "45_HP": [-501.6, 1567, -1619, 566.1],
+      "65_Bulk": [-53.3, 230.4, -333.9, 178.6]
+    },
+    "power_coefficients": {
+      "_columns": ["ap2", "ap1", "ap0"],
+      "45_HP": [5462, -1760, 522.4],
+      "65_Bulk": [12890, -10510, 4362]
+    },
+    "power_scaled_by": "energy factor"
+  },
+
+  "registers": {
+    "tool": "CACTI 6.5 (targets/hyflexpim/CACTI)",
+    "config": {"cache_type": "ram", "cell": "itrs-hp", "peripheral": "itrs-hp", "ecc": false,
+               "ports": "1 read-write", "access_widths_bytes": [4, 8, 16, 32, 64], "pick": "smallest area"},
+    "node_nm": 65,
+    "access_rate_MHz": {"analog_module": 10, "digital_module": 181.8},
+    "validation": {
+      "isaac_ir": {"bytes": 1024, "node_nm": 32, "area_mm2": 0.0021, "power_mW": 1.24},
+      "isaac_or": {"bytes": 256, "node_nm": 32, "area_mm2": 0.00077, "power_mW": 0.23}
+    }
+  },
+
+  "adc": {
+    "channels": 2,
+    "sampling_window_ps": 200,
+    "vcm_V": 0.5,
+    "sweep_V": 0.42,
+    "mom_density_fF_per_um2": 2.7,
+    "transistor_layout_F": {"gate_poly_gap": 2.8, "p_n_diffusion_gap": 3.5, "poly_extension": 1.0, "field_poly_gap": 1.6}
+  },
+
+  "s_and_a": {
+    "circuit": "isaac_shift_add",
+    "results": "periphery/results/shift_add.json",
+    "clock_GHz": {"analog_module": 1.28, "digital_module": 1.2}
+  },
+
+  "sfu": {
+    "lanes": 256,
+    "freq_MHz": 1000,
+    "synthesis": {"library": "NanGate45 typical", "node_nm": 45, "type": "HP", "vdd_V": 1.1},
+    "target": {"node_nm": 65, "type": "Bulk", "vdd_V": 1.0},
+    "flop_overhead_ps_45nm": 135
+  },
+
+  "floatpim": {
+    "nor_ns": 1.1
+  },
+
+  "rules": {
+    "rram_array": "base x (cells / base cells), node-scaled",
+    "rram_array_digital_power": "the digital module's array power uses the analog base's power per cell (2.45 mW / (96 x 64 x 64))",
+    "ir_or": "base (ASADI) x (HyFlexPIM size / base size), node-scaled; the OR's power then x or_power_extra",
+    "or_power_extra": 2,
+    "wl_drv": "base (ISAAC's 1-bit DAC) x (drivers / base DACs), node-scaled",
+    "adc": "our transistor-level ADC (see adc) x ADCs",
+    "s_and_a": "our synthesized unit (see s_and_a) x units",
+    "s_and_h": "base (ISAAC) x (units / base units), node-scaled"
+  },
+
+  "_provenance": {
+    "asadi_table1": "Li, Li, Bai, Mitra, 'ASADI: Accelerating Sparse Attention Using Diagonal-based In-Situ Computing', HPCA 2024 (paper/devices/asadi.pdf), Table I 'ASADI configurations', analog and digital module rows as printed. Counts: analog 96 arrays of 64x64 ('32 x 3 64 x 64 ReRAM arrays', Sec. VI), 16 ADCs ('We configure 16 ADC for 96 ReRAM arrays'), DRV 'Total 64x96'; digital 512 arrays of 1024x1024, DRV 'Total 1024x512'. The S&A, IR and OR rows are not here: ours are synthesized (see s_and_a) or CACTI runs (see registers). Its sources: array 'from [12]', S&A, IR and OR 'from [31]', DRV 'from 1-bit digital-analog converter (DAC) from [29]', ADC 'the 8-bit 1.2GS/s single-channel asynchronous SAR ADC from [15]' (Kull et al.) used as four 6-bit ADCs",
+    "asadi_table1.node_nm": "ASADI does not state its node. 32 nm is inferred: (1) its ADC is Kull et al.'s 32 nm SOI chip, used without node scaling; (2) every node-scaled HyFlexPIM row equals the ASADI row times Stillmaker's 32 nm HP -> 65 nm bulk factors (area x3.2555, energy x2.3258), e.g. analog IR 0.0002 x 3.2555 = 0.00065 mm^2 and 0.057 x 2.3258 = 0.1326 mW (Table 2: 0.00065, 0.13); digital IR 0.0608 / 64 x 3.2555 = 0.00309 mm^2, 20.89 / 64 x 2.3258 = 0.759 mW (Table 2: 0.0031, 0.76). No other starting node in Stillmaker's tables gives both factors",
+    "isaac_table1": "Shafiee et al., 'ISAAC', ISCA 2016 (paper/devices/isaac_shafiee2016.pdf), Table I, per IMA: S+H 'number 8 x 128', power 10 uW, area 0.00004 mm^2; DAC 'resolution 1 bit', 'number 8 x 128', 4 mW, 0.00017 mm^2; ISAAC is at 32 nm (Sec. VI). HyFlexPIM cites ISAAC [53] for its S&H (Sec. 5.4)",
+    "interconnect": "HyFlexPIM names its buses (Sec. 3.1, design.json chip: inner unit bus 1000 GB/s per PU, global bus 128 GB/s) but gives no area or power, so they come from ISAAC Table I, as 1F1C's organization does (targets/1fefet1c/default/organization.json): per tile, the eDRAM-to-IMA bus (384 wires, 7 mW, 0.090 mm^2) and, per 4 tiles on the concentrated mesh, the router (32-bit flits, 8 ports, 42 mW, 0.151 mm^2), at 32 nm and 1.2 GHz. A PU takes ISAAC's tile: its inner bus is the tile bus, the global bus is the router network. Each is scaled to HyFlexPIM's bandwidth (so neither is a bottleneck): the inner bus by 1000 GB/s / (384 bits x 1.2 GHz = 57.6 GB/s) = 17.4x, a router by 128 GB/s / (8 ports x 32 bits x 1.2 GHz = 38.4 GB/s) = 3.33x, then to 65 nm with node_scaling, as HyFlexPIM scales its other ISAAC rows (target_loader.py). ISAAC gives each one's power at full activity (Table I, CACTI 6.5 at 32 nm, Sec. VII): the bus moves one 384-wire transfer per cycle, the 8-port router one 32-bit flit through each port per cycle",
+    "isaac_table1.dac": "HyFlexPIM's WL DRV rows are ISAAC's 1-bit DAC per unit x count x Stillmaker: analog 64 x 512 x 4 / 1024 mW x 2.3258 = 297.71 mW (Table 2: 297.71), 32768 x 0.00017 / 1024 x 3.2555 = 0.0177 mm^2 (Table 2: 0.02); digital 1024 x 256 drivers: 2381.6 mW (Table 2: 2381.64), 0.1417 mm^2 (Table 2: 0.14). HyFlexPIM Sec. 5.4 cites ASADI for the DRV, but ASADI's per-driver values (Table I: 6 mW and 0.0005 mm^2 for 6144; 506.4 mW and 0.0423 mm^2 for 524288) are 1/4 the power and 1/2 the area of ISAAC's DAC, so Table 2 cannot come from them",
+    "hyflexpim_counts": "HyFlexPIM Table 2 'Total' column. The analog S&H count (512, one per array) disagrees with Sec. 5.4 ('The bitline currents are captured in 128 sample-and-hold circuits', i.e. 128 per array); Table 2's count is used because it is what Table 2's numbers are computed with",
+    "node_scaling": "Stillmaker and Baas, 'Scaling equations for the accurate prediction of CMOS device performance from 180 nm to 7 nm', Integration 58 (2017) (paper/devices/stillmaker_baas_2017_scaling.pdf), the scaling HyFlexPIM cites [59]. area_geometry: Table 3 (minimum feature size, metal 1 half pitch, 4T logic gate size); the area factor is the geometric mean of the three squared-length / area ratios (Sec. 4.1), 3.2555 for 32 -> 65 nm (Table 4 prints it rounded, 3.3). energy_coefficients: Table 5, EnergyFactor = ae2 V^2 + ae1 V + ae0 (Eq. 6). from / to: 32 nm High-k HP and 65 nm Bulk (Table 2's node types), both at 1.0 V",
+    "node_scaling.vdd_V": "Not stated by HyFlexPIM. 1.0 V at both nodes is the one choice that reproduces Table 2: it gives an energy factor of 2.3258, and Table 2's node-scaled power rows are the ASADI rows times 2.3258 (analog RRAM array: 2.45 mW x 512 x 8192 / (96 x 4096) x 2.3258 = 60.78 mW, Table 2 60.78). The ITRS VDDs of Stillmaker Table 2 (65 nm 1.1 V, 32 nm 0.97 V) give 3.13 instead",
+    "node_scaling.power_scaled_by": "Inferred from Table 2: power rows are scaled by Stillmaker's EnergyFactor ratio, not its PowerFactor (Eq. 7), which gives 2.41 at 1.0 V and matches no row",
+    "node_scaling.delay_coefficients, power_coefficients, 45 nm rows": "Stillmaker and Baas Table 3 (45 nm: 45 nm feature, 59 nm metal 1 half pitch, 2.1 um^2 4T gate) and Table 5 (45 nm High-k HP; 65 nm Bulk): DelayFactor = ad3 V^3 + ad2 V^2 + ad1 V + ad0 (Eq. 5), PowerFactor = ap2 V^2 + ap1 V + ap0 (Eq. 7). Used to scale our NanGate45 SFU synthesis (sfu/characterize_sfu.py) to 65 nm",
+    "adc": "The analog module's ADC row is our transistor-level simulation (spice/adc/characterize_adc.py) of the ADC HyFlexPIM describes: one per array (Table 2), 7-bit (the MLC mode; the 6-bit SLC mode skips a decision, Sec. 3.2), 1.28 GS/s (Sec. 5.4), SAR with a capacitive DAC (Fig. 8), single-ended input from the column S&H through the multiplexer (Fig. 8). The circuit follows the ADC HyFlexPIM cites [29], Kull et al. (JSSC 2013): asynchronous SAR with two alternating comparators, CMOS track-and-hold without bootstrapping, set-and-down-type monotonic CDAC switching (here set-and-up, so the comparators see a rising common mode), 1 fF unit capacitors (Kull's 128 fF for 8 bits = 128 units). PTM 65 nm bulk at 1.0 V (the 65 nm point of node_scaling). Not modeled: comparator offset calibration, the reference buffer (the CDAC charge is drawn from an ideal Vref and counted), wire capacitance",
+    "adc.channels": "One channel of our circuit converts correctly up to a period of about 1.56 ns at 65 nm (the LSB decision is cut at shorter periods), so the 1.28 GS/s ADC is two channels interleaved, each at 0.64 GS/s: power = energy per conversion x 1.28 GS/s, area = 2 channels. HyFlexPIM's text has 'a single 1.28 GSps ADC unit' (Sec. 5.4); with one channel the ADC would reach only about 0.56 GS/s",
+    "adc.sampling_window_ps, vcm_V, sweep_V": "Our choices: 200 ps of each 1.5625 ns channel period for tracking (the T&H switch's time constant at 65 nm is about 20 ps); mid-scale 0.5 V; the validation sweep stays inside the ADC's input range",
+    "adc.mom_density_fF_per_um2": "Shi et al., ESSDERC 2018 (paper/devices/ESSDERC.2018.8486905.pdf), Sec. IV-B: a 1.0 pF APMOM takes ~25 x 25 um^2 at 0.13 um (1.6 fF/um^2) and ~12.6 x 12.6 um^2 at 22 nm (6.3 fF/um^2); 2.7 fF/um^2 at 65 nm is interpolated on a log scale of the node between them (no 65 nm value is given)",
+    "adc.transistor_layout_F": "NeuroSim's single-transistor layout area, as targets/1fefet1c/default/area.json: width = 2 (L + gate_poly_gap F), height = W + p_n_diffusion_gap F + 2 (poly_extension + field_poly_gap / 2) F, F = 65 nm; layout area of the devices only, no routing",
+    "floatpim": "Imani et al., 'FloatPIM', ISCA 2019 (paper/devices/FloatPIM_In-Memory_Acceleration_of_Deep_Neural_Network_Training_with_High_Precision.pdf), Table 1 (HSPICE, VTEAM model, 28 nm): T_NOR 1.1 ns. HyFlexPIM's digital module computes with NOR stateful logic as FloatPIM [22] ('Digital PIM module ... is mostly similar to the analog PIM, but does not require the analog peripheral circuitry such as ADC', Sec. 3.1) and gives no clock period (design.json not_in_paper), so one NOR, all rows of an array, is FloatPIM's",
+    "rules.ir_or":"Table 2's IR / OR rows are ASADI's (Table I) scaled linearly by size and node: analog IR 0.0002 x 3.2555 = 0.00065 mm^2, 0.057 x 2.3258 = 0.133 mW (Table 2: 0.00065, 0.13); analog OR (128 B) 0.0002 x 2 x 3.2555 = 0.0013 mm^2 (0.00129); digital IR (1 KB of 64 KB) 0.0608 / 64 x 3.2555 = 0.00309 mm^2, 20.89 / 64 x 2.3258 = 0.759 mW (0.0031, 0.76); digital OR (1 KB of 32 KB) 0.0322 / 32 x 3.2555 = 0.00328 mm^2 (0.0032). CACTI 6.5 at the HyFlexPIM sizes and 65 nm does not reproduce these: a small SRAM does not shrink linearly (analog IR 0.00106 mm^2, digital IR 0.0084 mm^2 for every CACTI cell type), so CACTI is kept only to check ISAAC's 32 nm registers (see registers)",
+    "rules.or_power_extra": "Inferred from Table 2, no reason given in the paper: both ORs' power is 2x the scaled ASADI value (analog 0.057 x 2 x 2.3258 = 0.265 mW, x2 = 0.530, Table 2 0.53; digital 11.47 / 32 x 2.3258 = 0.834 mW, x2 = 1.667, Table 2 1.65)",
+    "registers": "CACTI 6.5 checks the registers behind Table 2's IR / OR rows: ISAAC's IR and OR at 32 nm, which ISAAC computed with CACTI 6.5 'for all buffers' (ISAAC Sec. VII); HyFlexPIM's IR / OR come from ISAAC through ASADI ([31] in both). HP's source, tag v6.5.0 of github.com/HewlettPackard/cacti, with one change for modern compilers (nuca.cc: the constructor's default argument, already given in nuca.h, removed from the definition). Where ASADI's numbers come from: its 64 B registers are ISAAC's 256 B OR scaled linearly by size (0.00077 x 64 / 256 = 0.00019 mm^2, 0.23 x 64 / 256 = 0.0575 mW; ASADI 0.0002, 0.057), which small memories do not follow, and its 64 KB / 32 KB buffers (0.0608 / 0.0322 mm^2) are denser per bit than a 32 nm SRAM cell (0.116 um^2 per bit vs CACTI's 146 F^2 = 0.15 um^2) and match no CACTI 6.5 configuration; FloatPIM [ASADI's 12], the source of ASADI's arrays, lists no buffers",
+    "registers.config": "SRAM scratch RAM (CACTI 'ram'), one read-write port, ITRS HP cells and periphery, no ECC, CACTI 6.5's cache.cfg defaults otherwise (350 K); the access width CACTI accepts with the smallest area. With these settings CACTI 6.5 at 32 nm gives ISAAC's IR, 1 KB, as 0.00209 mm^2 (ISAAC 0.0021; its Table I labels the IR 2 KB, but its Sec. VI says 'The IR has a maximum capacity of 1KB and is implemented with SRAM', and 2 KB in 0.0021 mm^2 would be denser than an SRAM cell) and its 256 B OR as 0.00068 mm^2 (ISAAC 0.00077; 0.00076 with ECC on)",
+    "registers.access_rate_MHz": "Not in any of the papers; CACTI gives energy per access and leakage, so power = leakage + read energy x access rate. Our assumption: analog IR / OR accessed once per array cycle (100 ns, HyFlexPIM Sec. 5.4); digital IR / OR once per row operation, 5 cycles (Sec. 3.1) of 1.1 ns, FloatPIM's NOR time (FloatPIM Sec. 6, HSPICE, 28 nm; HyFlexPIM's [22] for the digital module), = 5.5 ns",
+    "s_and_a": "Both modules' S&A rows are our synthesis, not ASADI's numbers: the unit Table 2 costs is ISAAC's S+A (0.00006 mm^2 / 0.05 mW per unit at 32 nm; ASADI's Table I S&A rows, 0.001 mm^2 / 0.8 mW for 16 units and 0.032 mm^2 / 25.62 mW for 512, are that unit, and HyFlexPIM scales ASADI), a bare 16-bit shift-and-add, rtl/isaac_shift_add.v. Synthesized in our flow it reproduces ISAAC at 32 nm (60.1 um^2 vs 60) and Table 2 at 65 nm (195.8 um^2 per array vs 195.3). One unit per array in the analog module and 1024 in the digital module (hyflexpim_counts). A shift-and-add that runs HyFlexPIM's SLC / MLC data flow at the ADC rate is 7.5x larger (periphery/rtl/hfp_shift_add.v); it is not what Table 2 costs, and is kept as the alternative",
+    "s_and_a.clock_GHz.analog_module": "The S&A takes one code per ADC conversion: design.json analog_module.readout.adc_sample_rate_GSps (Sec. 5.4, 1.28 GS/s)",
+    "s_and_a.clock_GHz.digital_module": "Not in the paper (the digital module's clock is not given). 1.2 GHz is the operating point of the unit Table 2 scales (ISAAC Table I, 'ISAAC Tile at 1.2 GHz')",
+    "sfu.lanes, freq_MHz": "HyFlexPIM Sec. 3.1: 'We configured each SFU to process 256 inputs per cycle'; Sec. 5.4: SFU synthesized 'at 1 GHz operating frequency'. One lane per input (targets/hyflexpim/sfu/rtl/sfu_lane.v)",
+    "sfu.design": "Our design (HyFlexPIM gives one paragraph, Sec. 3.1): FP16 (Sec. 5.1), one fully pipelined unit per lane for max, subtraction, addition, division, multiplication and square root, and FP16 -> int8. Exponentiation runs on the lane's multiplier, adder, subtractor and converter (degree-5 Taylor series after range reduction, a static modulo schedule, one exp per 7 cycles), as in the authors' prior work: TransPIM (Zhou, Xu, Kang, Rosing, HPCA 2022, paper/devices/TransPIM_...pdf) computes exp 'using five-order Taylor series expansion, which is computed by PIM multiplication and addition'; PIM-GPT (Wu, Wang, Lu 2024, HyFlexPIM's [70], paper/devices/s44335-024-00004-2.pdf) computes exp, tanh, division and square root on shared FP adders and multipliers. A dedicated exp unit (our first design) gave 7.27 mm^2 (1.52x Table 2); the shared-unit design gives 5.33 mm^2 (1.11x). The multiplier, adder, subtractor and FP16 -> int8 register their operands so the operand multiplexers fit the 1 GHz cycle",
+    "sfu.power": "Table 2's SFU power is compared with the SFU's average power under the paper's workload (sfu/sfu_average_power.py): leakage plus the measured energy per operation (sfu/power_sfu.py: gate-level simulation of the mapped netlists on softmax / layer norm / GELU operands, toggles x liberty pin capacitance) times the operations of one BERT-Large layer at N = 128, over the layer time. Every reading of a busy SFU gives over 1 W (1,240 mW with every unit busy at alpha 0.2), and the same Genus / TSMC 65 nm / 1 GHz flow in SPRINT (Kang's group, MICRO 2022, paper/devices/MICRO56248.2022.00059.pdf) gives 89.8 pJ per softmax element, so 138.89 mW is read as an average over a mostly idle SFU. Our choices, not stated by HyFlexPIM: idle units clock-gated (TransPIM: 'clock gating is applied'); layer time N x 8 x 100 ns (one PU per BERT-Large layer, no weight replication; 2x replication would give about 160 mW); the decomposition of softmax, layer norm and GELU into SFU operations (sfu_average_power.py); leakage is NanGate45 scaled with Stillmaker and is 73% of the result",
+    "sfu.synthesis": "Our synthesis: the repo's yosys / ABC flow on the NanGate45 open cell library, typical corner, 1.1 V (custom_op_library/common/lib/NangateOpenCellLibrary_typical.lib, nom_voltage 1.10). NanGate45 is built on the 45 nm FreePDK; Stillmaker's 45 nm High-k HP row is taken for it, as for the rest of the repo's 45 nm -> other node scaling",
+    "sfu.target": "HyFlexPIM synthesized its SFU with '65 nm general-purpose standard cell library' (Sec. 5.4); 65 nm Bulk at 1.0 V, the same 65 nm point as the rest of Table 2 (node_scaling.vdd_V)",
+    "sfu.flop_overhead_ps_45nm": "NanGate45 DFF_X1 (liberty, typical): clock-to-Q about 85-100 ps at 4-8 fF load, setup 25-37 ps; 135 ps total. A pipeline stage's logic must fit 1000 ps / DelayFactor ratio - 135 ps at 45 nm",
+    "adc.table2_origin": "How Table 2 computes its ADC row (not used here): ASADI's 6-bit ADC (Table I: 16 ADCs, 0.0047 mm^2, 8 mW) doubled for the 7th bit (HyFlexPIM Sec. 3.2: 'increasing the ADC precision by one bit results in doubling the energy consumption [29, 42]'), with no node scaling: 0.0047 / 16 x 512 x 2 = 0.3008 mm^2, 8 / 16 x 512 x 2 = 512 mW. Where ASADI's number comes from: ASADI's per-ADC 293.75 um^2 / 0.5 mW is ISAAC's 8-bit 1.2 GS/s ADC (Table I: 8 per IMA, 0.0096 mm^2, 16 mW, i.e. 1200 um^2 / 2.0 mW each, 32 nm) divided by 4 ('one 8-bit ADC [serves] as four 6-bit ADCs'): 0.5 mW exactly, 300 um^2 (0.98x). ISAAC takes 'an 8-bit ADC at 32 nm that is optimized for area' from the Murmann ADC survey; the survey's only 32 nm, 8-bit, 1.2 GS/s ADC is Kull et al., ISSCC 2013 26.4 / JSSC 2013 (paper/devices/kull2013_sar_adc.pdf): 3.06 mW, 0.0015 mm^2 measured. ISAAC's 2.0 mW / 0.0012 mm^2 is 0.65x / 0.8x of it, with no derivation given. Not reproducible by simulation: our transistor-level model of Kull's asynchronous SAR (PTM 32 nm HP, alternate comparators, 128 fF CDAC, NanGate45 wire-load model) converts monotonically (INL about 5 LSB) and its CDAC energy matches Kull's (0.18 vs 0.2 mW), but its total is 0.6-0.7 mW: Kull's comparator calibration, clock and state logic (2.7 mW) are not published at gate level. Scaling Kull consistently to HyFlexPIM's ADC (7 bits by ISAAC's rule, 1.28 GS/s, 32 -> 65 nm with Stillmaker on the digital part) would give about 6.2 mW per ADC, about 6x this row",
+    "rules.rram_array_digital_power": "Inferred from Table 2: ASADI's analog array power per cell x 256 x 1024 x 1024 cells x 2.3258 = 3889.98 mW (Table 2: 3890.02); ASADI's digital array (FloatPIM's 1 Mb crossbar, 6.14 mW) per cell would give 3655.7 mW. ASADI's analog array is 1.064x FloatPIM's power per cell, which is the whole gap"  }
+}

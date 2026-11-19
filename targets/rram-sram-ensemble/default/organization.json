@@ -1,0 +1,55 @@
+{
+  "_description": "Chip organization of the default RRAM/SRAM ensemble target, used by the post-mapping tile pass (placement of the mapped macros into PEs and tiles, then data movement between tiles). The paper describes one RRAM macro and one SRAM macro only, so the organization follows ISAAC (Shafiee et al., ISCA 2016, paper/devices/isaac_shafiee2016.pdf), as targets/1fefet1c/default/organization.json does: chip -> tiles on a concentrated mesh -> PEs (ISAAC's IMAs) -> macros. A PE here is ISAAC's IMA, not the SRAM macro's 16 MAC PEs. Each of a PE's macro slots holds one RRAM macro (64 x 64 with its readout) or one SRAM macro (32 x 64 with its 16 MAC PEs).",
+
+  "pe": {
+    "macros": 8,
+    "input_register": {
+      "bytes": 2048,
+      "access_bits": 256,
+      "source_area_mm2": 0.0021,
+      "source_power_mW": 1.24
+    },
+    "output_register": "the macros' own output registers (the RRAM macro's shift-and-add, the SRAM macro's PE accumulators)"
+  },
+  "tile": {
+    "pes": 12,
+    "accelerator_units": "per tile",
+    "bus": {
+      "wires": 384,
+      "source_area_mm2": 0.090,
+      "source_power_mW": 7
+    }
+  },
+  "scaling": {
+    "source": {"node_nm": 32, "type": "HP", "vdd_V": 0.97},
+    "source_clock_GHz": 1.2
+  },
+  "excluded": ["off-chip I/O links", "chip-level control and sequencing"],
+  "chip": {
+    "network": "concentrated mesh",
+    "tiles_per_router": 4,
+    "router": {
+      "flit_bits": 32,
+      "ports": 8,
+      "source_power_mW": 42,
+      "source_area_mm2": 0.151
+    }
+  },
+
+  "_provenance": {
+    "pe.macros": "ISAAC Sec. VIII: the chosen design 'has 8 128x128 arrays, 8 ADCs per IMA, and 12 IMAs per tile'; one macro per ISAAC array slot",
+    "pe.input_register": "ISAAC Table I, per IMA: IR, size 2 KB, 1.24 mW, 0.0021 mm^2 (32 nm, CACTI); scaled with 'scaling'",
+    "pe.input_register.access_bits": "ISAAC Sec. VI: 'the IR feeds 1 bit at a time for each of the 256 input values to the crossbar arrays': 256 bits per cycle",
+    "pe.output_register": "Our decision, as 1F1C: ISAAC's per-IMA OR holds the shift-and-add results; here each macro's own output registers hold them, so no separate output register is counted",
+    "tile.pes": "ISAAC Table I: 'IMA properties (12 IMAs per tile)'",
+    "tile.accelerator_units": "ISAAC Sec. IV: 'The tile also has shift-and-add, sigmoid, and max-pool units'; the accelerator units (vector lanes, reduce trees, softmax stages, ...) are placed per tile the same way, as 1F1C",
+    "tile.bus": "ISAAC Table I, per tile: eDRAM-to-IMA bus, 384 wires, 7 mW, 0.090 mm^2 (32 nm); scaled with 'scaling'",
+    "scaling": "Stillmaker and Baas (default/components.json node_scaling), from ISAAC's 32 nm to the chip's 65 nm Bulk at 1.2 V (components.json target): area by the area factor, energy by the energy factor (Eq. 6). source.vdd_V: ISAAC gives no supply; 0.97 V is the ITRS VDD of 32 nm HP in Stillmaker Table 2",
+    "scaling.source_clock_GHz": "ISAAC Table I: 'ISAAC Tile at 1.2 GHz'. ISAAC gives the router, bus and IR power at full activity, so one access costs power / clock: a router 32-bit flit per hop, a bus transfer of its 384 wires, an IR access of 256 bits. As 1F1C: energy counted per access from the placed traffic",
+    "excluded": "Our decision, as 1F1C: off-chip I/O and chip-level control are not counted",
+    "chip.network": "ISAAC Sec. IV: tiles 'connected with an on-chip concentrated-mesh (c-mesh)'",
+    "chip.tiles_per_router": "ISAAC Table I: router (flit size 32, 8 ports, 42 mW, 0.151 mm^2 at 32 nm) 'shared by 4 tiles'",
+    "chip.router.energy": "ISAAC gives the router's power at full activity (Table I, from CACTI 6.5 at 32 nm, Sec. VII) and no energy per flit. At full activity an 8-port router moves one flit through each port per cycle, so one flit-hop costs power / clock / ports (target_loader.py), not power / clock",
+    "chip.router": "ISAAC Table I (32 nm); scaled with 'scaling'; energy per flit-hop as in scaling.source_clock_GHz"
+  }
+}

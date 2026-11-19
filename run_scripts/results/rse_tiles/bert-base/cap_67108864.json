@@ -1,0 +1,80 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "bert-base",
+  "model": "bert-base-w3",
+  "cap": 67108864,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/bert-base/cap_67108864.json",
+  "latency_ns": 1368339.3490356647,
+  "macros": 35389440,
+  "rram_macros": 10616832,
+  "sram_macros": 24772608,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 368640,
+  "added_tiles": 0,
+  "mesh": [
+    608,
+    607
+  ],
+  "pes": 4423680,
+  "routers": 92160,
+  "units": {
+    "total": {
+      "quantize": 905685,
+      "vec_el_mul": 128984,
+      "vec_add": 26812,
+      "dequantize": 674446,
+      "rsqrt": 516,
+      "reduce_tree_n1024": 1033,
+      "reduce_tree_n16": 269955,
+      "reduce_tree_n8": 12835,
+      "gelu": 96285,
+      "reduce_tree_n64": 435214,
+      "softmax_max_reduce_tree": 50,
+      "softmax_exp_pwl16_standalone": 324,
+      "softmax_q8_8_reciprocal": 50,
+      "reduce_tree_n256": 50
+    },
+    "max_per_tile": {
+      "quantize": 6151,
+      "vec_el_mul": 31799,
+      "vec_add": 16633,
+      "dequantize": 39,
+      "rsqrt": 516,
+      "reduce_tree_n1024": 1033,
+      "reduce_tree_n16": 2,
+      "reduce_tree_n8": 1,
+      "gelu": 2,
+      "reduce_tree_n64": 39,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n256": 1
+    },
+    "chip_pool": {
+      "vec_add": 22362,
+      "vec_el_mul": 41773,
+      "rsqrt": 516,
+      "gelu": 10628,
+      "quantize": 462568,
+      "dequantize": 428042,
+      "softmax_max_reduce_tree": 50,
+      "softmax_exp_pwl16_standalone": 324,
+      "softmax_q8_8_reciprocal": 50,
+      "reduce_tree_n1024": 1033,
+      "reduce_tree_n64": 393216,
+      "reduce_tree_n16": 17344,
+      "reduce_tree_n8": 18994
+    }
+  },
+  "traffic": {
+    "edge_bits": 63495733248,
+    "bus_bits": 70667993088,
+    "flit_hops": 10222829568,
+    "correction_bits": 6115295232,
+    "flit_hops_by_kind": {
+      "edge_bits": 10222829568,
+      "correction_bits": 0
+    }
+  }
+}

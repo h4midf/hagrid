@@ -1,0 +1,26 @@
+[
+  {
+    "unit": "rram_decoder",
+    "params": {},
+    "method": "RRAM decoder: FSM, column counter, one-hot programming selects",
+    "area_um2_45nm": 249.24,
+    "area_um2_28nm": 87.23,
+    "delay_ps": 198.19,
+    "leakage_uW": 5.4533,
+    "dynamic_mW_est": 0.1254,
+    "total_cells": 229,
+    "notes": "",
+    "chip_65nm": {
+      "area_um2": 375.9305236184277,
+      "dynamic_mW": 0.02528157025030892,
+      "leakage_mW": 3.2644469974573586e-06,
+      "power_mW": 0.025284834697306375,
+      "clock_GHz": 0.1,
+      "factors": {
+        "area": 1.5083073488141057,
+        "energy": 2.0160741826402644,
+        "power": 1.9847481050617652
+      }
+    }
+  }
+]

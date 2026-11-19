@@ -1,0 +1,108 @@
+User-defined configuration file (1f1c.cfg) is loaded
+
+Memory Cell: Embedded DRAM
+Cell Area (F^2)    : 1218.600 (67.699Fx18.000F)
+Cell Aspect Ratio  : 3.761
+[Warning] Embedded DRAM model is still under development
+
+====================
+DESIGN SPECIFICATION
+====================
+Design Target: Random Access Memory
+Capacity   : 0KB
+Data Width : 65Bits
+
+Searching for the best solution that is optimized for read latency ...
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+[CAPBL] numRow=64 lenBitline_um=121.317 capWire_fF=34.953 capAccess_fF=2.547 capBitline_fF=37.500
+
+=============
+CONFIGURATION
+=============
+Bank Organization: 1 x 1
+ - Row Activation   : 1 / 1
+ - Column Activation: 1 / 1
+Mat Organization: 1 x 1
+ - Row Activation   : 1 / 1
+ - Column Activation: 1 / 1
+ - Subarray Size    : 64 Rows x 65 Columns
+Mux Level:
+ - Senseamp Mux      : 1
+ - Output Level-1 Mux: 1
+ - Output Level-2 Mux: 1
+Local Wire:
+ - Wire Type : Local Aggressive
+ - Repeater Type: No Repeaters
+ - Low Swing : No
+Global Wire:
+ - Wire Type : Global Aggressive
+ - Repeater Type: No Repeaters
+ - Low Swing : No
+Buffer Design Style: Latency-Optimized
+=============
+   RESULT
+=============
+Area:
+ - Total Area = 128.838um x 33.880um = 4365.100um^2
+ |--- Mat Area      = 128.838um x 33.880um = 4365.100um^2   (91.049%)
+ |--- Subarray Area = 123.404um x 33.880um = 4180.992um^2   (95.059%)
+ - Area Efficiency = 91.049%
+Timing:
+ -  Read Latency = 460.787ps
+ |--- H-Tree Latency = 0.000ps
+ |--- Mat Latency    = 460.787ps
+    |--- Predecoder Latency = 159.500ps
+    |--- Subarray Latency   = 301.287ps
+       |--- Row Decoder Latency = 151.210ps
+       |--- Bitline Latency     = 148.719ps
+       |--- Senseamp Latency    = 1.358ps
+       |--- Mux Latency         = 0.000ps
+       |--- Precharge Latency   = 649.336ps
+ - Write Latency = 460.787ps
+ |--- H-Tree Latency = 0.000ps
+ |--- Mat Latency    = 460.787ps
+    |--- Predecoder Latency = 159.500ps
+    |--- Subarray Latency   = 301.287ps
+       |--- Row Decoder Latency = 151.210ps
+       |--- Charge Latency      = 43.939ps
+ - Read Bandwidth  = 10.164GB/s
+ - Write Bandwidth = 26.968GB/s
+Power:
+ -  Read Dynamic Energy = 1.250pJ
+ |--- H-Tree Dynamic Energy = 0.000pJ
+ |--- Mat Dynamic Energy    = 1.250pJ per mat
+    |--- Predecoder Dynamic Energy = 0.057pJ
+    |--- Subarray Dynamic Energy   = 1.193pJ per active subarray
+       |--- Row Decoder Dynamic Energy = 0.017pJ
+       |--- Mux Decoder Dynamic Energy = 0.050pJ
+       |--- Senseamp Dynamic Energy    = 0.040pJ
+       |--- Mux Dynamic Energy         = 0.000pJ
+       |--- Precharge Dynamic Energy   = 0.053pJ
+ - Write Dynamic Energy = 0.124pJ
+ |--- H-Tree Dynamic Energy = 0.000pJ
+ |--- Mat Dynamic Energy    = 0.124pJ per mat
+    |--- Predecoder Dynamic Energy = 0.057pJ
+    |--- Subarray Dynamic Energy   = 0.067pJ per active subarray
+       |--- Row Decoder Dynamic Energy = 0.017pJ
+       |--- Mux Decoder Dynamic Energy = 0.050pJ
+       |--- Mux Dynamic Energy         = 0.000pJ
+ - Leakage Power = 9.036nW
+ |--- H-Tree Leakage Power = 0.000pW
+ |--- Mat Leakage Power    = 9.036nW per mat
+
+Finished!

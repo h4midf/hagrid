@@ -1,0 +1,36 @@
+{
+  "target": "hyflexpim/default",
+  "model": "mobilenet-v2",
+  "algorithm": "list_schedule_hyflexpim",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "67d4b831158516be",
+  "points": {
+    "16384": {
+      "cap": 16384,
+      "latency": 731321.587338821,
+      "arrays": 16085,
+      "analog_arrays": 16085,
+      "digital_arrays": 0,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/mobilenet-v2/cap_16384.json"
+    },
+    "262144": {
+      "cap": 262144,
+      "latency": 49270.15902567426,
+      "arrays": 257024,
+      "analog_arrays": 257024,
+      "digital_arrays": 0,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/mobilenet-v2/cap_262144.json"
+    },
+    "4194304": {
+      "cap": 4194304,
+      "latency": 45840.72680000002,
+      "arrays": 682134,
+      "analog_arrays": 682134,
+      "digital_arrays": 0,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/mobilenet-v2/cap_4194304.json"
+    }
+  }
+}

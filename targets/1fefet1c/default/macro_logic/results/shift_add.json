@@ -1,0 +1,33 @@
+[
+  {
+    "unit": "shift_add",
+    "params": {
+      "OUTS": 32,
+      "CELLS": 4,
+      "CODE": 7,
+      "PART": 14,
+      "ACC": 22,
+      "UNITS": 4
+    },
+    "method": "shift-and-add, bit-serial input, shared datapaths",
+    "area_um2_45nm": 4408.68,
+    "area_um2_28nm": 1543.04,
+    "delay_ps": 3376.49,
+    "leakage_uW": 95.6159,
+    "dynamic_mW_est": 2.2333,
+    "total_cells": 4498,
+    "notes": "one 1F1C array: int8 weights over 2-bit cells, 8-bit inputs MSB first; area/leakage/dynamic are the datapaths only, the accumulators are acc_sram",
+    "acc_sram": {
+      "banks": 4,
+      "words": 8,
+      "word_bits": 22,
+      "node_nm": 28,
+      "area_um2": 46.193,
+      "read_pJ": 0.049,
+      "write_pJ": 0.018,
+      "read_latency_ps": 321.742,
+      "leakage_uW": 0.0009075009999999999,
+      "source": "NVSim, sram/acc_bank.cfg (NVSim's 6T SRAM.cell)"
+    }
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "target": "hyflexpim/default",
+  "model": "vit-base",
+  "cap": 2097152,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/vit-base/cap_2097152.json",
+  "latency_ns": 248837.75819250869,
+  "analog_arrays": 1959312,
+  "digital_arrays": 131076,
+  "analog_modules": 3827,
+  "digital_modules": 513,
+  "pus": 160,
+  "units": {
+    "total": {
+      "vec_el_mul": 8264,
+      "vec_add": 3311,
+      "rsqrt": 6,
+      "quantize": 36983,
+      "dequantize": 16631,
+      "softmax_max_reduce_tree": 26,
+      "softmax_exp_pwl16_standalone": 306,
+      "softmax_q8_8_reciprocal": 26,
+      "reduce_tree_n1024": 9,
+      "reduce_tree_n256": 26,
+      "reduce_tree_n16": 14296,
+      "gelu": 5782,
+      "reduce_tree_n64": 976
+    },
+    "max_per_pu": {
+      "vec_el_mul": 2431,
+      "vec_add": 738,
+      "rsqrt": 6,
+      "quantize": 1644,
+      "dequantize": 385,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 6,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 9,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n16": 212,
+      "gelu": 243,
+      "reduce_tree_n64": 53
+    },
+    "chip_pool": {
+      "vec_add": 1467,
+      "vec_el_mul": 4693,
+      "rsqrt": 6,
+      "gelu": 2655,
+      "quantize": 13792,
+      "dequantize": 5863,
+      "softmax_max_reduce_tree": 23,
+      "softmax_exp_pwl16_standalone": 255,
+      "softmax_q8_8_reciprocal": 23,
+      "reduce_tree_n1024": 9,
+      "reduce_tree_n256": 16,
+      "reduce_tree_n64": 255,
+      "reduce_tree_n16": 4608
+    }
+  },
+  "traffic": {
+    "local_bits": 13037906296.139072,
+    "inner_bus_bits": 12863289.038608659,
+    "global_bus_bits": 318236686.82231987
+  }
+}

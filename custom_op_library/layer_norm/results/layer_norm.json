@@ -1,0 +1,440 @@
+[
+  {
+    "unit": "layer_norm",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "mean/variance reduction + rsqrt (1 Newton iteration) + affine",
+    "area_um2_45nm": 115495.87,
+    "area_um2_28nm": 40423.55,
+    "delay_ps": 21028.55,
+    "leakage_uW": 595.1606,
+    "dynamic_mW_est": 14.7946,
+    "total_cells": 32157,
+    "notes": "validated: mean abs err 5.6e-5, max abs err 8.5e-4 vs true layer-norm (see approximation_error.py)"
+  },
+  {
+    "unit": "layer_norm",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "mean/variance reduction + rsqrt (1 Newton iteration) + affine",
+    "area_um2_45nm": 27621.97,
+    "area_um2_28nm": 9667.69,
+    "delay_ps": 11300.58,
+    "leakage_uW": 64.7583,
+    "dynamic_mW_est": 1.4199,
+    "total_cells": 2537,
+    "notes": "validated: mean abs err 2.2e-2, max abs err 3.7e-1 (uniform [-10,10]); clustered (realistic) case: mean abs err 5.5e-3, max abs err 4.7e-2 (see approximation_error.py)"
+  },
+  {
+    "unit": "ailayernorm",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "FRAC": 8
+    },
+    "method": "PTF int8 quantize (bidirectional) + DynamicCompress + rsqrt (SOLE, ICCAD 2023)",
+    "area_um2_45nm": 25808.38,
+    "area_um2_28nm": 9032.93,
+    "delay_ps": 12968.25,
+    "leakage_uW": 147.873,
+    "dynamic_mW_est": 3.0079,
+    "total_cells": 5601,
+    "notes": "verified clean on bert-large-uncased: 8.12 ppl / 61.18% top-1 vs 7.36/61.18% baseline; see paper/approximate/selected_approximate.md idea 2"
+  },
+  {
+    "unit": "ailayernorm_stream",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "FRAC": 20,
+      "ROW": 768,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "streamed SOLE AILayerNorm (ICCAD 2023): 2 passes of N lanes (PTF quantize + DynamicCompress statistics, normalize + per-element affine), rsqrt once per row",
+    "area_um2_45nm": 122460.55,
+    "area_um2_28nm": 42861.19,
+    "delay_ps": 16350.06,
+    "leakage_uW": 2684.7259,
+    "dynamic_mW_est": 56.8219,
+    "total_cells": 120753,
+    "notes": "bit-exact vs its Python model (test_ailayernorm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 385,
+    "module_delays_ps": {
+      "ailayernorm_stream": 2218.79,
+      "ailn_stream_lane": 11036.13,
+      "reduce_tree": 1659.16,
+      "ailn_var": 4569.51,
+      "row_div": 1435.98,
+      "rsqrt_q12_20": 7246.43
+    },
+    "chain_delays_ps": {
+      "STATS": 16350.06,
+      "RSQ": 14034.73,
+      "NORM": 11036.13
+    }
+  },
+  {
+    "unit": "ailayernorm_stream",
+    "params": {
+      "N": 8,
+      "W": 32,
+      "FRAC": 20,
+      "ROW": 768,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "streamed SOLE AILayerNorm (ICCAD 2023): 2 passes of N lanes (PTF quantize + DynamicCompress statistics, normalize + per-element affine), rsqrt once per row",
+    "area_um2_45nm": 203374.56,
+    "area_um2_28nm": 71181.09,
+    "delay_ps": 16427.51,
+    "leakage_uW": 4482.9998,
+    "dynamic_mW_est": 94.3324,
+    "total_cells": 200889,
+    "notes": "bit-exact vs its Python model (test_ailayernorm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 193,
+    "module_delays_ps": {
+      "ailayernorm_stream": 1825.47,
+      "ailn_stream_lane": 11036.13,
+      "reduce_tree": 2129.93,
+      "ailn_var": 4569.51,
+      "row_div": 1435.98,
+      "rsqrt_q12_20": 7246.43
+    },
+    "chain_delays_ps": {
+      "STATS": 16427.51,
+      "RSQ": 13641.41,
+      "NORM": 11036.13
+    }
+  },
+  {
+    "unit": "ailayernorm_stream",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "FRAC": 8,
+      "ROW": 768,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "streamed SOLE AILayerNorm (ICCAD 2023): 2 passes of N lanes (PTF quantize + DynamicCompress statistics, normalize + per-element affine), rsqrt once per row",
+    "area_um2_45nm": 41236.38,
+    "area_um2_28nm": 14432.73,
+    "delay_ps": 9749.56,
+    "leakage_uW": 880.8671,
+    "dynamic_mW_est": 19.658,
+    "total_cells": 41159,
+    "notes": "bit-exact vs its Python model (test_ailayernorm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 385,
+    "module_delays_ps": {
+      "ailayernorm_stream": 1130.14,
+      "ailn_stream_lane": 6257.06,
+      "reduce_tree": 936.6,
+      "ailn_var": 2566.07,
+      "row_div": 1425.76,
+      "rsqrt_q8_8": 3920.12
+    },
+    "chain_delays_ps": {
+      "STATS": 9749.56,
+      "RSQ": 7616.33,
+      "NORM": 6257.06
+    }
+  },
+  {
+    "unit": "ailayernorm_stream",
+    "params": {
+      "N": 8,
+      "W": 16,
+      "FRAC": 8,
+      "ROW": 768,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "streamed SOLE AILayerNorm (ICCAD 2023): 2 passes of N lanes (PTF quantize + DynamicCompress statistics, normalize + per-element affine), rsqrt once per row",
+    "area_um2_45nm": 68348.17,
+    "area_um2_28nm": 23921.86,
+    "delay_ps": 10075.66,
+    "leakage_uW": 1466.7443,
+    "dynamic_mW_est": 32.6949,
+    "total_cells": 68638,
+    "notes": "bit-exact vs its Python model (test_ailayernorm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 193,
+    "module_delays_ps": {
+      "ailayernorm_stream": 1152.14,
+      "ailn_stream_lane": 6257.06,
+      "reduce_tree": 1240.7,
+      "ailn_var": 2566.07,
+      "row_div": 1425.76,
+      "rsqrt_q8_8": 3920.12
+    },
+    "chain_delays_ps": {
+      "STATS": 10075.66,
+      "RSQ": 7638.33,
+      "NORM": 6257.06
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "FRAC": 20,
+      "ROW": 768,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 99698.13,
+    "area_um2_28nm": 34894.35,
+    "delay_ps": 14362.91,
+    "leakage_uW": 2183.4591,
+    "dynamic_mW_est": 46.0157,
+    "total_cells": 97773,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 577,
+    "module_delays_ps": {
+      "layer_norm_stream": 2741.9,
+      "row_div": 2312.11,
+      "reduce_tree": 1704.21,
+      "rsqrt_q12_20": 7246.43,
+      "ln_stream_lane": 7604.69
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 14362.91,
+      "RSQ": 9988.33,
+      "NORM": 7604.69
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 8,
+      "W": 32,
+      "FRAC": 20,
+      "ROW": 768,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 173418.43,
+    "area_um2_28nm": 60696.45,
+    "delay_ps": 21757.89,
+    "leakage_uW": 3821.6757,
+    "dynamic_mW_est": 79.1267,
+    "total_cells": 170892,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 289,
+    "module_delays_ps": {
+      "layer_norm_stream": 9819.45,
+      "row_div": 2312.11,
+      "reduce_tree": 2084.18,
+      "rsqrt_q12_20": 7246.43,
+      "ln_stream_lane": 7542.15
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 21757.89,
+      "RSQ": 17065.88,
+      "NORM": 7542.15
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "FRAC": 8,
+      "ROW": 768,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 31070.4,
+    "area_um2_28nm": 10874.64,
+    "delay_ps": 8168.33,
+    "leakage_uW": 664.0329,
+    "dynamic_mW_est": 14.6245,
+    "total_cells": 31179,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 577,
+    "module_delays_ps": {
+      "layer_norm_stream": 1504.48,
+      "row_div": 1516.19,
+      "rsqrt_q8_8": 3920.12,
+      "reduce_tree": 987.1,
+      "ln_stream_lane": 4160.56
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 8168.33,
+      "RSQ": 5424.6,
+      "NORM": 4160.56
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 8,
+      "W": 16,
+      "FRAC": 8,
+      "ROW": 768,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 53528.51,
+    "area_um2_28nm": 18734.98,
+    "delay_ps": 11449.77,
+    "leakage_uW": 1146.4008,
+    "dynamic_mW_est": 25.2646,
+    "total_cells": 53935,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 289,
+    "module_delays_ps": {
+      "layer_norm_stream": 4600.42,
+      "row_div": 1516.19,
+      "rsqrt_q8_8": 3920.12,
+      "reduce_tree": 1240.71,
+      "ln_stream_lane": 4092.45
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 11449.77,
+      "RSQ": 8520.54,
+      "NORM": 4092.45
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "FRAC": 20,
+      "ROW": 1024,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 91241.46,
+    "area_um2_28nm": 31934.51,
+    "delay_ps": 11367.29,
+    "leakage_uW": 1999.5723,
+    "dynamic_mW_est": 42.1034,
+    "total_cells": 89472,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 769,
+    "module_delays_ps": {
+      "layer_norm_stream": 2058.39,
+      "reduce_tree": 1704.21,
+      "rsqrt_q12_20": 7246.43,
+      "ln_stream_lane": 7604.69,
+      "row_div": 0.0
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 11367.29,
+      "RSQ": 9304.82,
+      "NORM": 7604.69
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 8,
+      "W": 32,
+      "FRAC": 20,
+      "ROW": 1024,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 164962.56,
+    "area_um2_28nm": 57736.9,
+    "delay_ps": 27497.97,
+    "leakage_uW": 3637.9001,
+    "dynamic_mW_est": 75.2133,
+    "total_cells": 162597,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 385,
+    "module_delays_ps": {
+      "layer_norm_stream": 17871.64,
+      "reduce_tree": 2084.18,
+      "rsqrt_q12_20": 7246.43,
+      "ln_stream_lane": 7542.15,
+      "row_div": 0.0
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 27497.97,
+      "RSQ": 25118.07,
+      "NORM": 7542.15
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "FRAC": 8,
+      "ROW": 1024,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 25665.28,
+    "area_um2_28nm": 8982.85,
+    "delay_ps": 6293.08,
+    "leakage_uW": 549.2619,
+    "dynamic_mW_est": 12.0424,
+    "total_cells": 25765,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 769,
+    "module_delays_ps": {
+      "layer_norm_stream": 1145.42,
+      "rsqrt_q8_8": 3920.12,
+      "reduce_tree": 987.1,
+      "ln_stream_lane": 4160.56,
+      "row_div": 0.0
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 6293.08,
+      "RSQ": 5065.54,
+      "NORM": 4160.56
+    }
+  },
+  {
+    "unit": "layer_norm_stream",
+    "params": {
+      "N": 8,
+      "W": 16,
+      "FRAC": 8,
+      "ROW": 1024,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "streamed layer_norm.v: 3 passes of N lanes (sum, squared differences, normalize + per-element affine), rsqrt (1 Newton iteration) once per row",
+    "area_um2_45nm": 48122.59,
+    "area_um2_28nm": 16842.91,
+    "delay_ps": 12262.16,
+    "leakage_uW": 1031.6899,
+    "dynamic_mW_est": 22.6831,
+    "total_cells": 48517,
+    "notes": "bit-exact vs its Python model (test_layer_norm_stream.py); hierarchical synthesis, delay_ps is the clock period: the largest register-to-register chain of module delays (an upper bound)",
+    "cycles_per_row": 385,
+    "module_delays_ps": {
+      "layer_norm_stream": 6929.0,
+      "rsqrt_q8_8": 3920.12,
+      "reduce_tree": 1240.71,
+      "ln_stream_lane": 4092.45,
+      "row_div": 0.0
+    },
+    "chain_delays_ps": {
+      "SUM/VAR": 12262.16,
+      "RSQ": 10849.12,
+      "NORM": 4092.45
+    }
+  }
+]

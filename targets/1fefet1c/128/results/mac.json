@@ -1,0 +1,154 @@
+{
+  "cap_write": {
+    "generated": "2026-11-13T05:24:14",
+    "script": "cap_rw.py",
+    "latency_ns": 50.0,
+    "row": 127,
+    "driver_tg_width_nm": 384.0,
+    "write_window_ns": 50.0,
+    "tolerance_pct": 1.0,
+    "levels_V": [
+      0.0,
+      0.316161,
+      0.575536,
+      0.839155
+    ],
+    "by_level": [
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "v_written": -0.00394422,
+        "v_held": -0.00358189,
+        "neighbor_disturb_mV": 0.0009999999999732445,
+        "t_write_1pct_ns": null,
+        "write_energy_from_reference_fJ": -0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "v_written": 0.314677,
+        "v_held": 0.314617,
+        "neighbor_disturb_mV": 0.006999999999979245,
+        "t_write_1pct_ns": 1.9870000000000032,
+        "write_energy_from_reference_fJ": 10.028785000500001
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "v_written": 0.576109,
+        "v_held": 0.575675,
+        "neighbor_disturb_mV": 0.006999999999979245,
+        "t_write_1pct_ns": 17.266000000000005,
+        "write_energy_from_reference_fJ": 33.6121081504
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "v_written": 0.842686,
+        "v_held": 0.841785,
+        "neighbor_disturb_mV": 0.006999999999979245,
+        "t_write_1pct_ns": 2.204000000000011,
+        "write_energy_from_reference_fJ": 72.22716175149999
+      }
+    ]
+  },
+  "cap_read": {
+    "generated": "2026-11-13T05:24:14",
+    "script": "cap_rw.py",
+    "latency_ns": 901.0,
+    "row": 127,
+    "vref_read_V": 0.064,
+    "lsb_read_mV": 0.25,
+    "conversions": 2,
+    "by_case": [
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0081734,
+        "vbl_sig": 0.00813923,
+        "signal_mV": -0.034170000000000034,
+        "code1": 77.0,
+        "code2": 77.0,
+        "read_value_codes": 0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0081735,
+        "vbl_sig": 0.0128907,
+        "signal_mV": 4.717199999999999,
+        "code1": 76.0,
+        "code2": 84.0,
+        "read_value_codes": 8.0
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.00817358,
+        "vbl_sig": 0.0168559,
+        "signal_mV": 8.68232,
+        "code1": 76.0,
+        "code2": 91.0,
+        "read_value_codes": 15.0
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.00817374,
+        "vbl_sig": 0.0209897,
+        "signal_mV": 12.815959999999999,
+        "code1": 76.0,
+        "code2": 101.0,
+        "read_value_codes": 25.0
+      },
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817335,
+        "vbl_sig": 0.00813917,
+        "signal_mV": -0.034179999999999974,
+        "code1": 142.0,
+        "code2": 142.0,
+        "read_value_codes": 0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817344,
+        "vbl_sig": 0.0128907,
+        "signal_mV": 4.71726,
+        "code1": 141.0,
+        "code2": 149.0,
+        "read_value_codes": 8.0
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817352,
+        "vbl_sig": 0.0168559,
+        "signal_mV": 8.68238,
+        "code1": 141.0,
+        "code2": 157.0,
+        "read_value_codes": 16.0
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817368,
+        "vbl_sig": 0.0209896,
+        "signal_mV": 12.815920000000002,
+        "code1": 141.0,
+        "code2": 166.0,
+        "read_value_codes": 25.0
+      }
+    ]
+  }
+}

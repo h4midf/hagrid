@@ -1,0 +1,16 @@
+[
+  {
+    "unit": "sar_logic",
+    "params": {
+      "BITS": 7
+    },
+    "method": "SAR logic: shift register, bit registers, DAC switch control",
+    "area_um2_45nm": 105.34,
+    "area_um2_28nm": 36.87,
+    "delay_ps": 40.46,
+    "leakage_uW": 2.1586,
+    "dynamic_mW_est": 0.025,
+    "total_cells": 65,
+    "notes": "digital part of one column's 7-bit SAR ADC (Laleni et al. 2024, Fig. 9)"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "inverter": {
+    "generated": "2026-11-10T00:31:40",
+    "script": "inverter.py",
+    "cell": "inverter, NMOS 0.415 um / PMOS 0.63 um (Nangate INV_X1), L 32 nm",
+    "vdd_V": 1.0,
+    "models": {
+      "32nm_LP": {
+        "leakage_nW_by_input": {
+          "0": 0.09172715,
+          "1": 0.16015300000000002
+        },
+        "leakage_nW": 0.125940075,
+        "fo4_ps": 31.335050000000003
+      },
+      "32nm_HP": {
+        "leakage_nW_by_input": {
+          "0": 35.058640000000004,
+          "1": 28.65154
+        },
+        "leakage_nW": 31.855090000000004,
+        "fo4_ps": 7.363845
+      }
+    },
+    "nangate_cell": "INV_X1",
+    "nangate_leakage_nW": 14.353185,
+    "leakage_factor": 0.008774364365818459,
+    "slowdown": 4.255256594890305,
+    "note": "leakage_factor scales Nangate45 synthesized leakage to PTM 32 nm LP devices; slowdown bounds LP's delay against Nangate's low-Vt cells (taken as no faster than PTM HP)"
+  }
+}

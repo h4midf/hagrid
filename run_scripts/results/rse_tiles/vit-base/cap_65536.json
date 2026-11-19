@@ -1,0 +1,81 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "vit-base",
+  "model": "vit-base-w3",
+  "cap": 65536,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/vit-base/cap_65536.json",
+  "latency_ns": 101702217.70190147,
+  "macros": 65294,
+  "rram_macros": 26208,
+  "sram_macros": 39086,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 681,
+  "added_tiles": 0,
+  "mesh": [
+    27,
+    26
+  ],
+  "pes": 8162,
+  "routers": 171,
+  "units": {
+    "total": {
+      "vec_el_mul": 189,
+      "vec_add": 86,
+      "rsqrt": 2,
+      "quantize": 486,
+      "dequantize": 247,
+      "softmax_max_reduce_tree": 7,
+      "softmax_exp_pwl16_standalone": 7,
+      "softmax_q8_8_reciprocal": 7,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 7,
+      "reduce_tree_n16": 190,
+      "reduce_tree_n8": 25,
+      "gelu": 96,
+      "reduce_tree_n64": 24
+    },
+    "max_per_tile": {
+      "vec_el_mul": 48,
+      "vec_add": 9,
+      "rsqrt": 2,
+      "quantize": 8,
+      "dequantize": 2,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n16": 2,
+      "reduce_tree_n8": 1,
+      "gelu": 1,
+      "reduce_tree_n64": 1
+    },
+    "chip_pool": {
+      "vec_add": 15,
+      "vec_el_mul": 55,
+      "rsqrt": 2,
+      "gelu": 8,
+      "quantize": 56,
+      "dequantize": 27,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n64": 2,
+      "reduce_tree_n16": 16,
+      "reduce_tree_n8": 6
+    }
+  },
+  "traffic": {
+    "edge_bits": 21860342976,
+    "bus_bits": 24546073920,
+    "flit_hops": 189712773,
+    "correction_bits": 2352955392,
+    "flit_hops_by_kind": {
+      "edge_bits": 189712773,
+      "correction_bits": 0
+    }
+  }
+}

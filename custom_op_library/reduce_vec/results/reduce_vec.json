@@ -1,0 +1,274 @@
+[
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 8,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "35-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 1441.19,
+    "area_um2_28nm": 504.42,
+    "delay_ps": 1240.71,
+    "leakage_uW": 32.1044,
+    "dynamic_mW_est": 0.6318,
+    "total_cells": 1385,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 16,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "36-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 3177.1,
+    "area_um2_28nm": 1111.99,
+    "delay_ps": 1438.38,
+    "leakage_uW": 70.1486,
+    "dynamic_mW_est": 1.4111,
+    "total_cells": 3060,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 32,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "37-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 6751.61,
+    "area_um2_28nm": 2363.06,
+    "delay_ps": 1704.61,
+    "leakage_uW": 148.1345,
+    "dynamic_mW_est": 3.0117,
+    "total_cells": 6583,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 64,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "38-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 13795.56,
+    "area_um2_28nm": 4828.45,
+    "delay_ps": 1749.7,
+    "leakage_uW": 302.062,
+    "dynamic_mW_est": 6.1574,
+    "total_cells": 13414,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 128,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "39-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 27608.67,
+    "area_um2_28nm": 9663.04,
+    "delay_ps": 1860.22,
+    "leakage_uW": 603.3387,
+    "dynamic_mW_est": 12.3106,
+    "total_cells": 26695,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 256,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "40-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 56971.35,
+    "area_um2_28nm": 19939.97,
+    "delay_ps": 2048.3,
+    "leakage_uW": 1238.6327,
+    "dynamic_mW_est": 25.6501,
+    "total_cells": 55467,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 512,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "41-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 115349.3,
+    "area_um2_28nm": 40372.26,
+    "delay_ps": 2193.88,
+    "leakage_uW": 2507.8775,
+    "dynamic_mW_est": 51.9644,
+    "total_cells": 112762,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 1024,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "42-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 226058.5,
+    "area_um2_28nm": 79120.48,
+    "delay_ps": 2326.57,
+    "leakage_uW": 4947.7283,
+    "dynamic_mW_est": 100.6786,
+    "total_cells": 220059,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 8,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "19-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 827.79,
+    "area_um2_28nm": 289.73,
+    "delay_ps": 765.97,
+    "leakage_uW": 18.1036,
+    "dynamic_mW_est": 0.3835,
+    "total_cells": 826,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 16,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "20-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 1809.33,
+    "area_um2_28nm": 633.27,
+    "delay_ps": 1019.83,
+    "leakage_uW": 39.099,
+    "dynamic_mW_est": 0.8407,
+    "total_cells": 1815,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 32,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "21-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 3920.84,
+    "area_um2_28nm": 1372.29,
+    "delay_ps": 1172.04,
+    "leakage_uW": 83.7922,
+    "dynamic_mW_est": 1.8401,
+    "total_cells": 3959,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 64,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "22-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 8094.91,
+    "area_um2_28nm": 2833.22,
+    "delay_ps": 1339.82,
+    "leakage_uW": 171.5257,
+    "dynamic_mW_est": 3.8186,
+    "total_cells": 8143,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 128,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "23-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 15956.28,
+    "area_um2_28nm": 5584.7,
+    "delay_ps": 1499.6,
+    "leakage_uW": 340.0298,
+    "dynamic_mW_est": 7.443,
+    "total_cells": 16030,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 256,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "24-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 33435.4,
+    "area_um2_28nm": 11702.39,
+    "delay_ps": 1633.0,
+    "leakage_uW": 701.9061,
+    "dynamic_mW_est": 15.8779,
+    "total_cells": 33623,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 512,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "25-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 66653.75,
+    "area_um2_28nm": 23328.81,
+    "delay_ps": 1835.05,
+    "leakage_uW": 1400.9417,
+    "dynamic_mW_est": 31.5744,
+    "total_cells": 66840,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  },
+  {
+    "unit": "reduce_tree",
+    "params": {
+      "N": 1024,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "26-bit extended"
+    },
+    "method": "binary adder tree",
+    "area_um2_45nm": 129591.48,
+    "area_um2_28nm": 45357.02,
+    "delay_ps": 1914.38,
+    "leakage_uW": 2744.2258,
+    "dynamic_mW_est": 60.62,
+    "total_cells": 129143,
+    "notes": "no saturation: the output keeps full carry-safe precision"
+  }
+]

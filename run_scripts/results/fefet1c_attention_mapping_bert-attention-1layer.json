@@ -1,0 +1,3216 @@
+{
+ "target": "1fefet1c/default",
+ "model": "bert-attention-1layer",
+ "method": "greedy",
+ "cap": 2048,
+ "flags": {
+  "data_width": 32,
+  "sm_impl": "lut",
+  "gelu_impl": "exact",
+  "relu_impl": "exact",
+  "silu_impl": "exact",
+  "elu_impl": "exact",
+  "leaky_relu_impl": "exact",
+  "ln_impl": "exact",
+  "ln_lanes": 4,
+  "rms_norm_impl": "lut",
+  "smooth_impl": "vec_el_mul",
+  "reduce_impl": "tree",
+  "argmax_width": 512,
+  "quantize_impl": "mant_round_zp",
+  "quantize_mantissa_width": 16,
+  "dequantize_impl": "mant_round_zp",
+  "dequantize_mantissa_width": 31
+ },
+ "array": {
+  "rows": 128,
+  "cols": 128
+ },
+ "mapping": {
+  "latency_ns": 192037295.89344,
+  "arrays": {
+   "total": 1920,
+   "nonvolatile": 1792,
+   "volatile": 1920
+  },
+  "accelerators": {
+   "argmax_tree": 0,
+   "vec_add": 3,
+   "vec_el_mul": 7,
+   "relu": 0,
+   "rsqrt": 0,
+   "gelu": 0,
+   "layer_norm": 0,
+   "quantize": 678,
+   "dequantize": 188,
+   "silu": 0,
+   "elu": 0,
+   "leaky_relu": 0,
+   "absmax_tree": 0,
+   "vec_select": 0,
+   "reduce_tree_n512": 1,
+   "reduce_tree_n8": 1919
+  },
+  "args": [
+   {
+    "id": 0,
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32
+   }
+  ],
+  "ops": [
+   {
+    "id": 1,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.inv_s_qkv",
+     "fx_name": "_quantized_layers_0_inv_s_qkv"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 2,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0,
+     "fx_name": "_quantized_layers_0_inv_s_qkv"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 1,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "mul",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 862137.8764800001,
+     "interval_ns": 1683.8630400000002,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 0,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 2,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 1
+    }
+   },
+   {
+    "id": 4,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 29,
+     "m": 65269,
+     "zp": 139,
+     "mantissa_width": 16,
+     "fx_name": "quantize_per_tensor",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 299,
+    "schedule": {
+     "start_ns": 1683.8630400000002,
+     "end_ns": 1125547.86304,
+     "interval_ns": 854.0,
+     "unit_size": 299,
+     "count": 1316
+    },
+    "inputs": [
+     {
+      "from": 3,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 299
+    }
+   },
+   {
+    "id": 5,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wq.weight"
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 6,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": -1
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 5,
+      "elements": 589824,
+      "bits": 8
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wq.bias"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 8,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 7,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "op": "cim.MatvecOp",
+    "attributes": {
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<6>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wq",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wq",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wq"
+    },
+    "shape": [
+     1,
+     512,
+     6,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 4,
+    "schedule": {
+     "start_ns": 4245.86304,
+     "end_ns": 1129948.86304,
+     "interval_ns": 2198.638671875,
+     "unit_size": 4608,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 4,
+      "elements": 393216,
+      "bits": 8
+     },
+     {
+      "from": 6,
+      "elements": 589824,
+      "bits": 8
+     }
+    ],
+    "volatile": {
+     "arrays": 576,
+     "live_start_ns": 4245.86304,
+     "live_end_ns": 1129948.86304
+    },
+    "stationary": [
+     {
+      "value": 6,
+      "copies": 4,
+      "full_arrays_per_copy": 144,
+      "partial_tile_cols": 0,
+      "partial_tiles_per_copy": 0,
+      "live_start_ns": 0.0,
+      "live_end_ns": 1129948.86304
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "op": "cim.reduce_vec",
+    "attributes": {
+     "reduce_dim": -2,
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wq",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wq",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wq",
+     "reduce_width": 8,
+     "reduce_impl": "tree",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 768,
+    "schedule": {
+     "start_ns": 8646.86304,
+     "end_ns": 1130800.86304,
+     "interval_ns": 2191.70703125,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 9,
+      "elements": 2359296,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "reduce_tree_n8": 768
+    }
+   },
+   {
+    "id": 11,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wq.combined_scale"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 12,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 11,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wq",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wq",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wq",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 9498.86304,
+     "end_ns": 1131653.86304,
+     "interval_ns": 2191.708984375,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 10,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 12,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 2
+    }
+   },
+   {
+    "id": 14,
+    "op": "cim.vec_add",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wq",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wq",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wq",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 10351.86304,
+     "end_ns": 1132525.74272,
+     "interval_ns": 2191.74585875,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 13,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 8,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_add": 1
+    }
+   },
+   {
+    "id": 15,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 31,
+     "m": 49186,
+     "zp": 123,
+     "mantissa_width": 16,
+     "accel_data_width": 32,
+     "fx_name": "_quantized_layers_0_attn_wq",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wq",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wq"
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 3,
+    "schedule": {
+     "start_ns": 11223.74272,
+     "end_ns": 111946711.74272,
+     "interval_ns": 854.0,
+     "unit_size": 3,
+     "count": 131072
+    },
+    "inputs": [
+     {
+      "from": 14,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 3
+    }
+   },
+   {
+    "id": 16,
+    "op": "cim.dequantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 15,
+     "m": 1430679168,
+     "zp": 123,
+     "mantissa_width": 31,
+     "fx_name": "dequantize",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 12077.74272,
+     "end_ns": 167718701.74272,
+     "interval_ns": 853.0,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 15,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "units": {
+     "dequantize": 2
+    }
+   },
+   {
+    "id": 17,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wk.weight"
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 18,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": -1
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 17,
+      "elements": 589824,
+      "bits": 8
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wk.bias"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 20,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 19,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "op": "cim.MatvecOp",
+    "attributes": {
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<6>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wk",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wk",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wk"
+    },
+    "shape": [
+     1,
+     512,
+     6,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 4,
+    "schedule": {
+     "start_ns": 4245.86304,
+     "end_ns": 1129948.86304,
+     "interval_ns": 2198.638671875,
+     "unit_size": 4608,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 4,
+      "elements": 393216,
+      "bits": 8
+     },
+     {
+      "from": 18,
+      "elements": 589824,
+      "bits": 8
+     }
+    ],
+    "volatile": {
+     "arrays": 576,
+     "live_start_ns": 4245.86304,
+     "live_end_ns": 1129948.86304
+    },
+    "stationary": [
+     {
+      "value": 18,
+      "copies": 4,
+      "full_arrays_per_copy": 144,
+      "partial_tile_cols": 0,
+      "partial_tiles_per_copy": 0,
+      "live_start_ns": 0.0,
+      "live_end_ns": 1129948.86304
+     }
+    ]
+   },
+   {
+    "id": 22,
+    "op": "cim.reduce_vec",
+    "attributes": {
+     "reduce_dim": -2,
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wk",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wk",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wk",
+     "reduce_width": 8,
+     "reduce_impl": "tree",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 768,
+    "schedule": {
+     "start_ns": 8646.86304,
+     "end_ns": 1130800.86304,
+     "interval_ns": 2191.70703125,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 21,
+      "elements": 2359296,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "reduce_tree_n8": 768
+    }
+   },
+   {
+    "id": 23,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wk.combined_scale"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 24,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 23,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wk",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wk",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wk",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 9498.86304,
+     "end_ns": 1131653.86304,
+     "interval_ns": 2191.708984375,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 22,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 24,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 2
+    }
+   },
+   {
+    "id": 26,
+    "op": "cim.vec_add",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wk",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wk",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wk",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 10351.86304,
+     "end_ns": 1132525.74272,
+     "interval_ns": 2191.74585875,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 25,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 20,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_add": 1
+    }
+   },
+   {
+    "id": 27,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 31,
+     "m": 35474,
+     "zp": 103,
+     "mantissa_width": 16,
+     "accel_data_width": 32,
+     "fx_name": "_quantized_layers_0_attn_wk",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wk",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wk"
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 143,
+    "schedule": {
+     "start_ns": 11223.74272,
+     "end_ns": 2359723.74272,
+     "interval_ns": 854.0,
+     "unit_size": 143,
+     "count": 2750
+    },
+    "inputs": [
+     {
+      "from": 26,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 143
+    }
+   },
+   {
+    "id": 28,
+    "op": "cim.dequantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 15,
+     "m": 1983672704,
+     "zp": 103,
+     "mantissa_width": 31,
+     "fx_name": "dequantize_1",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 142,
+    "schedule": {
+     "start_ns": 12077.74272,
+     "end_ns": 2374887.74272,
+     "interval_ns": 853.0,
+     "unit_size": 142,
+     "count": 2770
+    },
+    "inputs": [
+     {
+      "from": 27,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "units": {
+     "dequantize": 142
+    }
+   },
+   {
+    "id": 29,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wv.weight"
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 30,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": -1
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 29,
+      "elements": 589824,
+      "bits": 8
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wv.bias"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 32,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 31,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 33,
+    "op": "cim.MatvecOp",
+    "attributes": {
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<6>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wv",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wv",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wv"
+    },
+    "shape": [
+     1,
+     512,
+     6,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 4245.86304,
+     "end_ns": 1130901.86304,
+     "interval_ns": 4401.0,
+     "unit_size": 9216,
+     "count": 256
+    },
+    "inputs": [
+     {
+      "from": 4,
+      "elements": 393216,
+      "bits": 8
+     },
+     {
+      "from": 30,
+      "elements": 589824,
+      "bits": 8
+     }
+    ],
+    "volatile": {
+     "arrays": 288,
+     "live_start_ns": 4245.86304,
+     "live_end_ns": 1130901.86304
+    },
+    "stationary": [
+     {
+      "value": 30,
+      "copies": 2,
+      "full_arrays_per_copy": 144,
+      "partial_tile_cols": 0,
+      "partial_tiles_per_copy": 0,
+      "live_start_ns": 0.0,
+      "live_end_ns": 1130901.86304
+     }
+    ]
+   },
+   {
+    "id": 34,
+    "op": "cim.reduce_vec",
+    "attributes": {
+     "reduce_dim": -2,
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wv",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wv",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wv",
+     "reduce_width": 8,
+     "reduce_impl": "tree",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 384,
+    "schedule": {
+     "start_ns": 8646.86304,
+     "end_ns": 1132605.86304,
+     "interval_ns": 2195.232421875,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 33,
+      "elements": 2359296,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "reduce_tree_n8": 384
+    }
+   },
+   {
+    "id": 35,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wv.combined_scale"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 36,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 35,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 37,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wv",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wv",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wv",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 10350.86304,
+     "end_ns": 1133458.86304,
+     "interval_ns": 2193.5703125,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 34,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 36,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 2
+    }
+   },
+   {
+    "id": 38,
+    "op": "cim.vec_add",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wv",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wv",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wv",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 11203.86304,
+     "end_ns": 1134330.74272,
+     "interval_ns": 2193.607186875,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 37,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 32,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_add": 1
+    }
+   },
+   {
+    "id": 39,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 30,
+     "m": 42378,
+     "zp": 136,
+     "mantissa_width": 16,
+     "accel_data_width": 32,
+     "fx_name": "_quantized_layers_0_attn_wv",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wv",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wv"
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 45,
+    "schedule": {
+     "start_ns": 12075.74272,
+     "end_ns": 7475181.74272,
+     "interval_ns": 854.0,
+     "unit_size": 45,
+     "count": 8739
+    },
+    "inputs": [
+     {
+      "from": 38,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 45
+    }
+   },
+   {
+    "id": 40,
+    "op": "cim.dequantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 16,
+     "m": 1660507392,
+     "zp": 136,
+     "mantissa_width": 31,
+     "fx_name": "dequantize_2",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 44,
+    "schedule": {
+     "start_ns": 12929.74272,
+     "end_ns": 7636190.74272,
+     "interval_ns": 853.0,
+     "unit_size": 44,
+     "count": 8937
+    },
+    "inputs": [
+     {
+      "from": 39,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "units": {
+     "dequantize": 44
+    }
+   },
+   {
+    "id": 41,
+    "op": "cim.view",
+    "attributes": {
+     "shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<12>, #builtin.int<64>]",
+     "fx_name": "view"
+    },
+    "shape": [
+     1,
+     512,
+     12,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 12077.74272,
+     "end_ns": 167718701.74272,
+     "interval_ns": 853.0,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 16,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 42,
+    "op": "cim.view",
+    "attributes": {
+     "shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<12>, #builtin.int<64>]",
+     "fx_name": "view_1"
+    },
+    "shape": [
+     1,
+     512,
+     12,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 12077.74272,
+     "end_ns": 2374887.74272,
+     "interval_ns": 853.0,
+     "unit_size": 142,
+     "count": 2770
+    },
+    "inputs": [
+     {
+      "from": 28,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 43,
+    "op": "cim.view",
+    "attributes": {
+     "shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<12>, #builtin.int<64>]",
+     "fx_name": "view_2"
+    },
+    "shape": [
+     1,
+     512,
+     12,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 12929.74272,
+     "end_ns": 7636190.74272,
+     "interval_ns": 853.0,
+     "unit_size": 44,
+     "count": 8937
+    },
+    "inputs": [
+     {
+      "from": 40,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 44,
+    "op": "cim.permute",
+    "attributes": {
+     "dims": "[#builtin.int<0>, #builtin.int<2>, #builtin.int<1>, #builtin.int<3>]",
+     "fx_name": "permute"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 12077.74272,
+     "end_ns": 167718701.74272,
+     "interval_ns": 853.0,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 41,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 45,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 31,
+     "m": 49186,
+     "zp": 123,
+     "mantissa_width": 16,
+     "fx_name": "quantize_per_tensor_1",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 12930.74272,
+     "end_ns": 167916162.74272,
+     "interval_ns": 854.0,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 44,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 2
+    }
+   },
+   {
+    "id": 46,
+    "op": "cim.permute",
+    "attributes": {
+     "dims": "[#builtin.int<0>, #builtin.int<2>, #builtin.int<3>, #builtin.int<1>]",
+     "fx_name": "permute_1"
+    },
+    "shape": [
+     1,
+     12,
+     64,
+     512
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 12077.74272,
+     "end_ns": 2374887.74272,
+     "interval_ns": 853.0,
+     "unit_size": 142,
+     "count": 2770
+    },
+    "inputs": [
+     {
+      "from": 42,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 47,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 31,
+     "m": 35474,
+     "zp": 103,
+     "mantissa_width": 16,
+     "fx_name": "quantize_per_tensor_2",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     64,
+     512
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 142,
+    "schedule": {
+     "start_ns": 12930.74272,
+     "end_ns": 2378510.74272,
+     "interval_ns": 854.0,
+     "unit_size": 142,
+     "count": 2770
+    },
+    "inputs": [
+     {
+      "from": 46,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 142
+    }
+   },
+   {
+    "id": 48,
+    "op": "cim.permute",
+    "attributes": {
+     "dims": "[#builtin.int<0>, #builtin.int<2>, #builtin.int<1>, #builtin.int<3>]",
+     "fx_name": "permute_2"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 12929.74272,
+     "end_ns": 7636190.74272,
+     "interval_ns": 853.0,
+     "unit_size": 44,
+     "count": 8937
+    },
+    "inputs": [
+     {
+      "from": 43,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 49,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 30,
+     "m": 42378,
+     "zp": 136,
+     "mantissa_width": 16,
+     "fx_name": "quantize_per_tensor_3",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 44,
+    "schedule": {
+     "start_ns": 13782.74272,
+     "end_ns": 7645980.74272,
+     "interval_ns": 854.0,
+     "unit_size": 44,
+     "count": 8937
+    },
+    "inputs": [
+     {
+      "from": 48,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 44
+    }
+   },
+   {
+    "id": 50,
+    "op": "cim.MatvecOp",
+    "attributes": {
+     "fx_name": "matmul"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 2432974.74272,
+     "end_ns": 191867854.74272,
+     "interval_ns": 61665.0,
+     "unit_size": 1024,
+     "count": 3072
+    },
+    "inputs": [
+     {
+      "from": 45,
+      "elements": 393216,
+      "bits": 8
+     },
+     {
+      "from": 47,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "volatile": {
+     "arrays": 768,
+     "live_start_ns": 2378510.74272,
+     "live_end_ns": 191867854.74272,
+     "rhs_hold_arrays": 192,
+     "rhs_hold_start_ns": 12930.74272,
+     "rhs_hold_end_ns": 2432974.74272
+    }
+   },
+   {
+    "id": 51,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "__static_val_0"
+    },
+    "shape": [
+     1
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 52,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     1
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 51,
+      "elements": 1,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 53,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "matmul",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 2494639.74272,
+     "end_ns": 191868977.31808,
+     "interval_ns": 30822.646089739585,
+     "unit_size": 512,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 50,
+      "elements": 3145728,
+      "bits": 32
+     },
+     {
+      "from": 52,
+      "elements": 1,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 1
+    }
+   },
+   {
+    "id": 54,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 31,
+     "m": 3138,
+     "zp": 125,
+     "mantissa_width": 16,
+     "accel_data_width": 32,
+     "fx_name": "matmul"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 15,
+    "schedule": {
+     "start_ns": 2495762.31808,
+     "end_ns": 191869831.31808,
+     "interval_ns": 903.0024843121173,
+     "unit_size": 15,
+     "count": 209716
+    },
+    "inputs": [
+     {
+      "from": 53,
+      "elements": 3145728,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 15
+    }
+   },
+   {
+    "id": 55,
+    "op": "cim.dequantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 11,
+     "m": 1401625856,
+     "zp": 125,
+     "mantissa_width": 31,
+     "fx_name": "dequantize_3",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 15,
+    "schedule": {
+     "start_ns": 2496616.31808,
+     "end_ns": 191870684.31808,
+     "interval_ns": 903.0024795437639,
+     "unit_size": 15,
+     "count": 209716
+    },
+    "inputs": [
+     {
+      "from": 54,
+      "elements": 3145728,
+      "bits": 8
+     }
+    ],
+    "units": {
+     "dequantize": 15
+    }
+   },
+   {
+    "id": 56,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "softmax_exp_lut_n256"
+    },
+    "shape": [
+     256
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 57,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     256
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 56,
+      "elements": 256,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 58,
+    "op": "cim.lut_search",
+    "attributes": {
+     "alpha": "2.656250e+00 : f64",
+     "beta": "2.550000e+02 : f64",
+     "fx_name": "softmax"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 32,
+    "schedule": {
+     "start_ns": 2497469.31808,
+     "end_ns": 191871535.31808,
+     "interval_ns": 903.0024700070571,
+     "unit_size": 15,
+     "count": 209716
+    },
+    "inputs": [
+     {
+      "from": 57,
+      "elements": 256,
+      "bits": 32
+     },
+     {
+      "from": 55,
+      "elements": 3145728,
+      "bits": 32
+     }
+    ],
+    "volatile": {
+     "arrays": 64,
+     "live_start_ns": 2497469.31808,
+     "live_end_ns": 191871535.31808
+    },
+    "stationary": [
+     {
+      "value": 57,
+      "copies": 32,
+      "full_arrays_per_copy": 0,
+      "partial_tile_cols": 16,
+      "partial_tiles_per_copy": 2,
+      "live_start_ns": 0.0,
+      "live_end_ns": 191871535.31808
+     }
+    ]
+   },
+   {
+    "id": 59,
+    "op": "cim.reduce_vec",
+    "attributes": {
+     "reduce_dim": -1,
+     "fx_name": "softmax",
+     "reduce_width": 512,
+     "accel_data_width": 32,
+     "reduce_impl": "tree"
+    },
+    "shape": [
+     1,
+     12,
+     512
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 2529022.4104911294,
+     "end_ns": 191872388.31808,
+     "interval_ns": 30817.605128188294,
+     "unit_size": 1,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 58,
+      "elements": 3145728,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "reduce_tree_n512": 1
+    }
+   },
+   {
+    "id": 60,
+    "op": "cim.broadcast",
+    "attributes": {
+     "out_shape": "[#builtin.int<1>, #builtin.int<12>, #builtin.int<512>, #builtin.int<1>]",
+     "fx_name": "softmax",
+     "reduce_width": 512,
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     1
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 2529022.4104911294,
+     "end_ns": 191872388.31808,
+     "interval_ns": 30817.605128188294,
+     "unit_size": 1,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 59,
+      "elements": 6144,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 61,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "softmax_rcp_lut_n1024_d512"
+    },
+    "shape": [
+     1024
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 62,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     1024
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 61,
+      "elements": 1024,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 63,
+    "op": "cim.lut_search",
+    "attributes": {
+     "alpha": "2.0019569471624266 : f64",
+     "beta": "-2.0019569471624266 : f64",
+     "fx_name": "softmax"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     1
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 4,
+    "schedule": {
+     "start_ns": 2529875.4104911294,
+     "end_ns": 191873239.31808,
+     "interval_ns": 30817.604802667458,
+     "unit_size": 1,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 62,
+      "elements": 1024,
+      "bits": 32
+     },
+     {
+      "from": 60,
+      "elements": 6144,
+      "bits": 32
+     }
+    ],
+    "volatile": {
+     "arrays": 32,
+     "live_start_ns": 2529875.4104911294,
+     "live_end_ns": 191873239.31808
+    },
+    "stationary": [
+     {
+      "value": 62,
+      "copies": 4,
+      "full_arrays_per_copy": 0,
+      "partial_tile_cols": 16,
+      "partial_tiles_per_copy": 8,
+      "live_start_ns": 0.0,
+      "live_end_ns": 191873239.31808
+     }
+    ]
+   },
+   {
+    "id": 64,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "softmax",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 2530726.4104911294,
+     "end_ns": 191874361.89344,
+     "interval_ns": 30817.64900438621,
+     "unit_size": 512,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 58,
+      "elements": 3145728,
+      "bits": 32
+     },
+     {
+      "from": 63,
+      "elements": 6144,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 1
+    }
+   },
+   {
+    "id": 65,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 27,
+     "m": 41376,
+     "zp": 0,
+     "mantissa_width": 16,
+     "fx_name": "quantize_per_tensor_4",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     512
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 15,
+    "schedule": {
+     "start_ns": 2531848.9858511295,
+     "end_ns": 191875215.89344,
+     "interval_ns": 902.8560858856209,
+     "unit_size": 15,
+     "count": 209716
+    },
+    "inputs": [
+     {
+      "from": 64,
+      "elements": 3145728,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 15
+    }
+   },
+   {
+    "id": 66,
+    "op": "cim.MatvecOp",
+    "attributes": {
+     "out_shape": "[#builtin.int<1>, #builtin.int<12>, #builtin.int<512>, #builtin.int<4>, #builtin.int<64>]",
+     "fx_name": "matmul_1"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     4,
+     64
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 4,
+    "schedule": {
+     "start_ns": 7754908.74272,
+     "end_ns": 191994544.89344,
+     "interval_ns": 29986.91994640625,
+     "unit_size": 256,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 65,
+      "elements": 3145728,
+      "bits": 8
+     },
+     {
+      "from": 49,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "volatile": {
+     "arrays": 768,
+     "live_start_ns": 7645980.74272,
+     "live_end_ns": 191994544.89344,
+     "rhs_hold_arrays": 96,
+     "rhs_hold_start_ns": 13782.74272,
+     "rhs_hold_end_ns": 7754908.74272
+    }
+   },
+   {
+    "id": 67,
+    "op": "cim.reduce_vec",
+    "attributes": {
+     "reduce_dim": -2,
+     "out_shape": "[#builtin.int<1>, #builtin.int<12>, #builtin.int<512>, #builtin.int<64>]",
+     "fx_name": "matmul_1",
+     "reduce_width": 8,
+     "reduce_impl": "tree",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 7874237.74272,
+     "end_ns": 192021808.89344,
+     "interval_ns": 29971.935408645833,
+     "unit_size": 64,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 66,
+      "elements": 1572864,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "reduce_tree_n8": 2
+    }
+   },
+   {
+    "id": 68,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "__static_val_1"
+    },
+    "shape": [
+     1
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 69,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     1
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 68,
+      "elements": 1,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 70,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "matmul_1",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 7901501.74272,
+     "end_ns": 192022661.89344,
+     "interval_ns": 29967.63674328125,
+     "unit_size": 64,
+     "count": 6144
+    },
+    "inputs": [
+     {
+      "from": 67,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 69,
+      "elements": 1,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 1
+    }
+   },
+   {
+    "id": 71,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 29,
+     "m": 35451,
+     "zp": 129,
+     "mantissa_width": 16,
+     "accel_data_width": 32,
+     "fx_name": "matmul_1"
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 7902354.74272,
+     "end_ns": 192023515.89344,
+     "interval_ns": 936.488653313802,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 70,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 2
+    }
+   },
+   {
+    "id": 72,
+    "op": "cim.dequantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 17,
+     "m": 1984945280,
+     "zp": 129,
+     "mantissa_width": 31,
+     "fx_name": "dequantize_4",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     12,
+     512,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 7903208.74272,
+     "end_ns": 192024368.89344,
+     "interval_ns": 936.4886482275391,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 71,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "units": {
+     "dequantize": 2
+    }
+   },
+   {
+    "id": 73,
+    "op": "cim.permute",
+    "attributes": {
+     "dims": "[#builtin.int<0>, #builtin.int<2>, #builtin.int<1>, #builtin.int<3>]",
+     "fx_name": "permute_3"
+    },
+    "shape": [
+     1,
+     512,
+     12,
+     64
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 7903208.74272,
+     "end_ns": 192024368.89344,
+     "interval_ns": 936.4886482275391,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 72,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 74,
+    "op": "cim.reshape",
+    "attributes": {
+     "shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<768>]",
+     "fx_name": "reshape"
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 7903208.74272,
+     "end_ns": 192024368.89344,
+     "interval_ns": 936.4886482275391,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 73,
+      "elements": 393216,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 75,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 29,
+     "m": 35451,
+     "zp": 129,
+     "mantissa_width": 16,
+     "fx_name": "quantize_per_tensor_5",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 7904061.74272,
+     "end_ns": 192025222.89344,
+     "interval_ns": 936.488653313802,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 74,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 2
+    }
+   },
+   {
+    "id": 76,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wo.weight"
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 77,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": -1
+    },
+    "shape": [
+     768,
+     768
+    ],
+    "type": "si8",
+    "bits": 8,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 76,
+      "elements": 589824,
+      "bits": 8
+     }
+    ]
+   },
+   {
+    "id": 78,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wo.bias"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 79,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 78,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 80,
+    "op": "cim.MatvecOp",
+    "attributes": {
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<6>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wo",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wo",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wo"
+    },
+    "shape": [
+     1,
+     512,
+     6,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 8263591.057631096,
+     "end_ns": 192029623.89344,
+     "interval_ns": 358918.03288243926,
+     "unit_size": 4608,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 75,
+      "elements": 393216,
+      "bits": 8
+     },
+     {
+      "from": 77,
+      "elements": 589824,
+      "bits": 8
+     }
+    ],
+    "volatile": {
+     "arrays": 288,
+     "live_start_ns": 8263591.057631096,
+     "live_end_ns": 192029623.89344
+    },
+    "stationary": [
+     {
+      "value": 77,
+      "copies": 2,
+      "full_arrays_per_copy": 144,
+      "partial_tile_cols": 0,
+      "partial_tiles_per_copy": 0,
+      "live_start_ns": 0.0,
+      "live_end_ns": 192029623.89344
+     }
+    ]
+   },
+   {
+    "id": 81,
+    "op": "cim.reduce_vec",
+    "attributes": {
+     "reduce_dim": -2,
+     "out_shape": "[#builtin.int<1>, #builtin.int<512>, #builtin.int<768>]",
+     "fx_name": "_quantized_layers_0_attn_wo",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wo",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wo",
+     "reduce_width": 8,
+     "reduce_impl": "tree",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "i32",
+    "bits": 32,
+    "pf": 154,
+    "schedule": {
+     "start_ns": 8267992.057631096,
+     "end_ns": 192033883.89344,
+     "interval_ns": 358917.75749181426,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 80,
+      "elements": 2359296,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "reduce_tree_n8": 154
+    }
+   },
+   {
+    "id": 82,
+    "op": "const.ref",
+    "attributes": {
+     "sym_name": "_quantized.layers.0.attn.Wo.combined_scale"
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": []
+   },
+   {
+    "id": 83,
+    "op": "cim.save_stationary",
+    "attributes": {
+     "transposed": 0
+    },
+    "shape": [
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 1,
+    "schedule": {
+     "start_ns": 0.0,
+     "end_ns": 0.0,
+     "interval_ns": 0.0,
+     "unit_size": null,
+     "count": 1
+    },
+    "inputs": [
+     {
+      "from": 82,
+      "elements": 768,
+      "bits": 32
+     }
+    ]
+   },
+   {
+    "id": 84,
+    "op": "cim.vec_el_mul",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wo",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wo",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wo",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 8272252.057631096,
+     "end_ns": 192034736.89344,
+     "interval_ns": 358911.10319493926,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 81,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 83,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_el_mul": 2
+    }
+   },
+   {
+    "id": 85,
+    "op": "cim.vec_add",
+    "attributes": {
+     "fx_name": "_quantized_layers_0_attn_wo",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wo",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wo",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 8273105.057631096,
+     "end_ns": 192035588.89344,
+     "interval_ns": 358911.10124181426,
+     "unit_size": 768,
+     "count": 512
+    },
+    "inputs": [
+     {
+      "from": 84,
+      "elements": 393216,
+      "bits": 32
+     },
+     {
+      "from": 79,
+      "elements": 768,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "vec_add": 2
+    }
+   },
+   {
+    "id": 86,
+    "op": "cim.quantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 30,
+     "m": 62159,
+     "zp": 120,
+     "mantissa_width": 16,
+     "accel_data_width": 32,
+     "fx_name": "_quantized_layers_0_attn_wo",
+     "logical_matmul_name": "_quantized.layers.0.attn.Wo",
+     "logical_matmul_source_op": "call_module",
+     "logical_matmul_source_name": "_quantized.layers.0.attn.Wo"
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "ui8",
+    "bits": 8,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 8273957.057631096,
+     "end_ns": 192036442.89344,
+     "interval_ns": 934.6643363230841,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 85,
+      "elements": 393216,
+      "bits": 32
+     }
+    ],
+    "units": {
+     "quantize": 2
+    }
+   },
+   {
+    "id": 87,
+    "op": "cim.dequantize",
+    "attributes": {
+     "variant": "mant_round_zp",
+     "sh": 16,
+     "m": 1132071552,
+     "zp": 120,
+     "mantissa_width": 31,
+     "fx_name": "dequantize_5",
+     "accel_data_width": 32
+    },
+    "shape": [
+     1,
+     512,
+     768
+    ],
+    "type": "!cim.fixed<#builtin.int<32>, #builtin.int<20>>",
+    "bits": 32,
+    "pf": 2,
+    "schedule": {
+     "start_ns": 8274811.057631096,
+     "end_ns": 192037295.89344,
+     "interval_ns": 934.664331236821,
+     "unit_size": 2,
+     "count": 196608
+    },
+    "inputs": [
+     {
+      "from": 86,
+      "elements": 393216,
+      "bits": 8
+     }
+    ],
+    "units": {
+     "dequantize": 2
+    }
+   }
+  ]
+ },
+ "placement": {
+  "stationary": [
+   {
+    "value": 6,
+    "consumer": 9,
+    "copies": 4,
+    "arrays_per_copy": 144,
+    "addresses": [
+     [
+      0,
+      575
+     ]
+    ]
+   },
+   {
+    "value": 18,
+    "consumer": 21,
+    "copies": 4,
+    "arrays_per_copy": 144,
+    "addresses": [
+     [
+      576,
+      1151
+     ]
+    ]
+   },
+   {
+    "value": 30,
+    "consumer": 33,
+    "copies": 2,
+    "arrays_per_copy": 144,
+    "addresses": [
+     [
+      1152,
+      1439
+     ]
+    ]
+   },
+   {
+    "value": 57,
+    "consumer": 58,
+    "copies": 32,
+    "arrays_per_copy": 2,
+    "addresses": [
+     [
+      1440,
+      1503
+     ]
+    ]
+   },
+   {
+    "value": 62,
+    "consumer": 63,
+    "copies": 4,
+    "arrays_per_copy": 8,
+    "addresses": [
+     [
+      1504,
+      1535
+     ]
+    ]
+   },
+   {
+    "value": 77,
+    "consumer": 80,
+    "copies": 2,
+    "arrays_per_copy": 144,
+    "addresses": [
+     [
+      1536,
+      1823
+     ]
+    ]
+   }
+  ],
+  "working": [
+   {
+    "op": 9,
+    "rhs": "stationary",
+    "arrays": 576,
+    "live_start_ns": 4245.86304,
+    "live_end_ns": 1129948.86304,
+    "addresses": [
+     [
+      0,
+      575
+     ]
+    ]
+   },
+   {
+    "op": 21,
+    "rhs": "stationary",
+    "arrays": 576,
+    "live_start_ns": 4245.86304,
+    "live_end_ns": 1129948.86304,
+    "addresses": [
+     [
+      576,
+      1151
+     ]
+    ]
+   },
+   {
+    "op": 33,
+    "rhs": "stationary",
+    "arrays": 288,
+    "live_start_ns": 4245.86304,
+    "live_end_ns": 1130901.86304,
+    "addresses": [
+     [
+      1152,
+      1439
+     ]
+    ]
+   },
+   {
+    "op": 58,
+    "rhs": "stationary",
+    "arrays": 64,
+    "live_start_ns": 2497469.31808,
+    "live_end_ns": 191871535.31808,
+    "addresses": [
+     [
+      1440,
+      1503
+     ]
+    ]
+   },
+   {
+    "op": 63,
+    "rhs": "stationary",
+    "arrays": 32,
+    "live_start_ns": 2529875.4104911294,
+    "live_end_ns": 191873239.31808,
+    "addresses": [
+     [
+      1504,
+      1535
+     ]
+    ]
+   },
+   {
+    "op": 80,
+    "rhs": "stationary",
+    "arrays": 288,
+    "live_start_ns": 8263591.057631096,
+    "live_end_ns": 192029623.89344,
+    "addresses": [
+     [
+      1536,
+      1823
+     ]
+    ]
+   },
+   {
+    "op": 50,
+    "rhs": "dynamic",
+    "rhs_value": 47,
+    "arrays": 768,
+    "live_start_ns": 2378510.74272,
+    "live_end_ns": 191867854.74272,
+    "rhs_hold_arrays": 192,
+    "rhs_hold_start_ns": 12930.74272,
+    "rhs_hold_end_ns": 2432974.74272,
+    "addresses": [
+     [
+      0,
+      767
+     ]
+    ],
+    "held_addresses": [
+     [
+      1440,
+      1631
+     ]
+    ]
+   },
+   {
+    "op": 66,
+    "rhs": "dynamic",
+    "rhs_value": 49,
+    "arrays": 768,
+    "live_start_ns": 7645980.74272,
+    "live_end_ns": 191994544.89344,
+    "rhs_hold_arrays": 96,
+    "rhs_hold_start_ns": 13782.74272,
+    "rhs_hold_end_ns": 7754908.74272,
+    "addresses": [
+     [
+      768,
+      1439
+     ],
+     [
+      1824,
+      1919
+     ]
+    ],
+    "held_addresses": [
+     [
+      1632,
+      1727
+     ]
+    ]
+   }
+  ]
+ }
+}

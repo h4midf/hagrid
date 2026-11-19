@@ -1,0 +1,36 @@
+[
+  {
+    "unit": "rms_norm",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "mean-square reduction + sqrt-via-rsqrt + reciprocal-via-rsqrt + gamma scale",
+    "area_um2_45nm": 137087.36,
+    "area_um2_28nm": 47980.57,
+    "delay_ps": 29643.36,
+    "leakage_uW": 200.1438,
+    "dynamic_mW_est": 4.8689,
+    "total_cells": 7572,
+    "notes": "validated: mean abs err 3.0e-6, max abs err 3.0e-5 vs true RMSNorm (see approximation_error.py)"
+  },
+  {
+    "unit": "rms_norm",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "mean-square reduction + sqrt-via-rsqrt + reciprocal-via-rsqrt + gamma scale",
+    "area_um2_45nm": 30712.89,
+    "area_um2_28nm": 10749.51,
+    "delay_ps": 16833.65,
+    "leakage_uW": 268.9322,
+    "dynamic_mW_est": 6.6801,
+    "total_cells": 12336,
+    "notes": "validated: mean abs err 2.1e-2, max abs err 1.3e-1 (uniform [-10,10]); clustered (realistic) case: mean abs err 6.3e-3, max abs err 5.7e-2 (see approximation_error.py)"
+  }
+]

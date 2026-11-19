@@ -1,0 +1,1123 @@
+{
+ "meta": {
+  "generated": "2026-11-14T20:46:45",
+  "git_commit": "a5b2677",
+  "git_dirty": true,
+  "script": "plot/attention_mapping.py",
+  "sources": [
+   {
+    "path": "run_scripts/results/fefet1c_attention_mapping_bert-attention-1layer.json",
+    "target": "1fefet1c/default",
+    "model": "bert-attention-1layer",
+    "method": "greedy",
+    "cap": 2048,
+    "flags": {
+     "data_width": 32,
+     "sm_impl": "lut",
+     "gelu_impl": "exact",
+     "relu_impl": "exact",
+     "silu_impl": "exact",
+     "elu_impl": "exact",
+     "leaky_relu_impl": "exact",
+     "ln_impl": "exact",
+     "ln_lanes": 4,
+     "rms_norm_impl": "lut",
+     "smooth_impl": "vec_el_mul",
+     "reduce_impl": "tree",
+     "argmax_width": 512,
+     "quantize_impl": "mant_round_zp",
+     "quantize_mantissa_width": 16,
+     "dequantize_impl": "mant_round_zp",
+     "dequantize_mantissa_width": 31
+    },
+    "array": {
+     "rows": 128,
+     "cols": 128
+    }
+   }
+  ]
+ },
+ "data": {
+  "implementation_flags": {
+   "data_width": 32,
+   "sm_impl": "lut",
+   "gelu_impl": "exact",
+   "relu_impl": "exact",
+   "silu_impl": "exact",
+   "elu_impl": "exact",
+   "leaky_relu_impl": "exact",
+   "ln_impl": "exact",
+   "ln_lanes": 4,
+   "rms_norm_impl": "lut",
+   "smooth_impl": "vec_el_mul",
+   "reduce_impl": "tree",
+   "argmax_width": 512,
+   "quantize_impl": "mant_round_zp",
+   "quantize_mantissa_width": 16,
+   "dequantize_impl": "mant_round_zp",
+   "dequantize_mantissa_width": 31
+  },
+  "stationary_placement_policy": "Dedicated arrays for narrow LUT tiles; no sharing between lookup consumers",
+  "placed_stationary_arrays": 1824,
+  "cap": 4096,
+  "arrays_used": 3912,
+  "array": {
+   "rows": 128,
+   "cols": 128
+  },
+  "latency_ns": 197671778.2476422,
+  "phase_bounds_ns": [
+   0.0,
+   1130901.86304,
+   8263591.057631096,
+   197671778.2476422
+  ],
+  "groups": [
+   {
+    "first": 0,
+    "last": 575,
+    "rmu": "WQ"
+   },
+   {
+    "first": 576,
+    "last": 1151,
+    "rmu": "WK"
+   },
+   {
+    "first": 1152,
+    "last": 1439,
+    "rmu": "WV"
+   },
+   {
+    "first": 1440,
+    "last": 1503,
+    "rmu": "Texp"
+   },
+   {
+    "first": 1504,
+    "last": 1535,
+    "rmu": "Trecip"
+   },
+   {
+    "first": 1536,
+    "last": 1823,
+    "rmu": "WO"
+   },
+   {
+    "first": 1824,
+    "last": 1919,
+    "rmu": "empty"
+   },
+   {
+    "first": 1920,
+    "last": 2753,
+    "rmu": "empty"
+   },
+   {
+    "first": 2754,
+    "last": 3218,
+    "rmu": "empty"
+   },
+   {
+    "first": 3219,
+    "last": 4095,
+    "rmu": "empty"
+   }
+  ],
+  "boxes": [
+   {
+    "kind": "run",
+    "label": "Q",
+    "op": 9,
+    "addresses": [
+     [
+      0,
+      575
+     ]
+    ],
+    "start_ns": 4245.86304,
+    "end_ns": 1129948.86304
+   },
+   {
+    "kind": "run",
+    "label": "K",
+    "op": 21,
+    "addresses": [
+     [
+      576,
+      1151
+     ]
+    ],
+    "start_ns": 4245.86304,
+    "end_ns": 1129948.86304
+   },
+   {
+    "kind": "run",
+    "label": "V",
+    "op": 33,
+    "addresses": [
+     [
+      1152,
+      1439
+     ]
+    ],
+    "start_ns": 4245.86304,
+    "end_ns": 1130901.86304
+   },
+   {
+    "kind": "run",
+    "label": "E",
+    "op": 58,
+    "addresses": [
+     [
+      1440,
+      1503
+     ]
+    ],
+    "start_ns": 2497469.31808,
+    "end_ns": 191900384.38879544
+   },
+   {
+    "kind": "run",
+    "label": "R",
+    "op": 63,
+    "addresses": [
+     [
+      1504,
+      1535
+     ]
+    ],
+    "start_ns": 2529875.4104911294,
+    "end_ns": 191932002.999559
+   },
+   {
+    "kind": "run",
+    "label": "O",
+    "op": 80,
+    "addresses": [
+     [
+      1536,
+      1823
+     ]
+    ],
+    "start_ns": 8263591.057631096,
+    "end_ns": 197661417.1792879
+   },
+   {
+    "kind": "run",
+    "label": "S",
+    "op": 50,
+    "addresses": [
+     [
+      0,
+      767
+     ]
+    ],
+    "start_ns": 2378510.74272,
+    "end_ns": 191867854.74272
+   },
+   {
+    "kind": "staged",
+    "label": "k",
+    "addresses": [
+     [
+      1440,
+      1631
+     ]
+    ],
+    "start_ns": 14250.60889875,
+    "end_ns": 2432974.74272
+   },
+   {
+    "kind": "run",
+    "label": "P",
+    "op": 66,
+    "addresses": [
+     [
+      768,
+      1439
+     ],
+     [
+      1824,
+      1919
+     ]
+    ],
+    "start_ns": 7645980.74272,
+    "end_ns": 197154300.75757
+   },
+   {
+    "kind": "staged",
+    "label": "v",
+    "addresses": [
+     [
+      1632,
+      1727
+     ]
+    ],
+    "start_ns": 15104.470226875,
+    "end_ns": 7754908.74272
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 3,
+    "consumers": [
+     4
+    ],
+    "start_ns": 1683.8630400000002,
+    "end_ns": 1125547.86304,
+    "peak_bits": 2947936,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 180,
+    "addresses": [
+     [
+      1728,
+      1907
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "x_q",
+    "producer": 4,
+    "consumers": [
+     9,
+     21,
+     33
+    ],
+    "start_ns": 2537.86304,
+    "end_ns": 1130901.86304,
+    "peak_bits": 29016,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1908,
+      1909
+     ]
+    ]
+   },
+   {
+    "kind": "partial",
+    "label": "q_p",
+    "producer": 9,
+    "consumers": [
+     10
+    ],
+    "start_ns": 6444.501711875,
+    "end_ns": 1134342.931399375,
+    "peak_bits": 442368,
+    "tensor_bits": 75497472,
+    "buffer_arrays": 27,
+    "addresses": [
+     [
+      1910,
+      1936
+     ]
+    ]
+   },
+   {
+    "kind": "partial",
+    "label": "k_p",
+    "producer": 21,
+    "consumers": [
+     22
+    ],
+    "start_ns": 6444.501711875,
+    "end_ns": 1134342.931399375,
+    "peak_bits": 442368,
+    "tensor_bits": 75497472,
+    "buffer_arrays": 27,
+    "addresses": [
+     [
+      1937,
+      1963
+     ]
+    ]
+   },
+   {
+    "kind": "partial",
+    "label": "v_p",
+    "producer": 33,
+    "consumers": [
+     34
+    ],
+    "start_ns": 8646.86304,
+    "end_ns": 1133097.095461875,
+    "peak_bits": 294912,
+    "tensor_bits": 75497472,
+    "buffer_arrays": 18,
+    "addresses": [
+     [
+      1964,
+      1981
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 10,
+    "consumers": [
+     13
+    ],
+    "start_ns": 10838.57007125,
+    "end_ns": 1135194.9333525,
+    "peak_bits": 24576,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1982,
+      1983
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 22,
+    "consumers": [
+     25
+    ],
+    "start_ns": 10838.57007125,
+    "end_ns": 1135194.9333525,
+    "peak_bits": 24576,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1984,
+      1985
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 34,
+    "consumers": [
+     37
+    ],
+    "start_ns": 10842.095461875,
+    "end_ns": 1134799.4333525,
+    "peak_bits": 49152,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 3,
+    "addresses": [
+     [
+      1986,
+      1988
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 13,
+    "consumers": [
+     14
+    ],
+    "start_ns": 11690.572024375,
+    "end_ns": 1136047.970226875,
+    "peak_bits": 24576,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1989,
+      1990
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 25,
+    "consumers": [
+     26
+    ],
+    "start_ns": 11690.572024375,
+    "end_ns": 1136047.970226875,
+    "peak_bits": 24576,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1991,
+      1992
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "q_b",
+    "producer": 14,
+    "consumers": [
+     15
+    ],
+    "start_ns": 12543.60889875,
+    "end_ns": 111946711.74272,
+    "peak_bits": 12456480,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 761,
+    "addresses": [
+     [
+      1993,
+      2753
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 15,
+    "consumers": [
+     16
+    ],
+    "start_ns": 12543.60889875,
+    "end_ns": 167718701.74272,
+    "peak_bits": 1046144,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 64,
+    "addresses": [
+     [
+      2754,
+      2817
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "k_b",
+    "producer": 26,
+    "consumers": [
+     27
+    ],
+    "start_ns": 12543.60889875,
+    "end_ns": 2359723.74272,
+    "peak_bits": 6556320,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 401,
+    "addresses": [
+     [
+      2818,
+      3218
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 27,
+    "consumers": [
+     28
+    ],
+    "start_ns": 12543.60889875,
+    "end_ns": 2374887.74272,
+    "peak_bits": 19720,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      3219,
+      3220
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 37,
+    "consumers": [
+     38
+    ],
+    "start_ns": 12544.4333525,
+    "end_ns": 1135652.470226875,
+    "peak_bits": 49152,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 3,
+    "addresses": [
+     [
+      3221,
+      3223
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 16,
+    "consumers": [
+     45
+    ],
+    "start_ns": 13396.60889875,
+    "end_ns": 167916162.74272,
+    "peak_bits": 14848,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      3224,
+      3224
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 28,
+    "consumers": [
+     47
+    ],
+    "start_ns": 13396.60889875,
+    "end_ns": 2378510.74272,
+    "peak_bits": 22720,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      3225,
+      3226
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "v_b",
+    "producer": 38,
+    "consumers": [
+     39
+    ],
+    "start_ns": 13397.470226875,
+    "end_ns": 7475181.74272,
+    "peak_bits": 10689312,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 653,
+    "addresses": [
+     [
+      3227,
+      3879
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 39,
+    "consumers": [
+     40
+    ],
+    "start_ns": 13397.470226875,
+    "end_ns": 7636190.74272,
+    "peak_bits": 66736,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 5,
+    "addresses": [
+     [
+      3880,
+      3884
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 40,
+    "consumers": [
+     49
+    ],
+    "start_ns": 14250.470226875,
+    "end_ns": 7645980.74272,
+    "peak_bits": 16896,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      3885,
+      3886
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "q",
+    "producer": 45,
+    "consumers": [
+     50
+    ],
+    "start_ns": 14250.60889875,
+    "end_ns": 191867854.74272,
+    "peak_bits": 398672,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 25,
+    "addresses": [
+     [
+      3887,
+      3911
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "s",
+    "producer": 50,
+    "consumers": [
+     53
+    ],
+    "start_ns": 2494639.74272,
+    "end_ns": 191898677.38880974,
+    "peak_bits": 32768,
+    "tensor_bits": 100663296,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1920,
+      1921
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 53,
+    "consumers": [
+     54
+    ],
+    "start_ns": 2525462.3888097396,
+    "end_ns": 191898677.38880974,
+    "peak_bits": 1056,
+    "tensor_bits": 100663296,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1922,
+      1922
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 54,
+    "consumers": [
+     55
+    ],
+    "start_ns": 2525462.3888097396,
+    "end_ns": 191899531.38880497,
+    "peak_bits": 8304,
+    "tensor_bits": 25165824,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1923,
+      1923
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 55,
+    "consumers": [
+     58
+    ],
+    "start_ns": 2526316.3888049712,
+    "end_ns": 191900384.38879544,
+    "peak_bits": 33216,
+    "tensor_bits": 100663296,
+    "buffer_arrays": 3,
+    "addresses": [
+     [
+      1924,
+      1926
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "e",
+    "producer": 58,
+    "consumers": [
+     59,
+     64
+    ],
+    "start_ns": 2527169.3887954345,
+    "end_ns": 191932854.04376072,
+    "peak_bits": 49152,
+    "tensor_bits": 100663296,
+    "buffer_arrays": 3,
+    "addresses": [
+     [
+      1927,
+      1929
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 60,
+    "consumers": [
+     63
+    ],
+    "start_ns": 2588757.6459742445,
+    "end_ns": 191932002.999559,
+    "peak_bits": 96,
+    "tensor_bits": 196608,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1930,
+      1930
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "r",
+    "producer": 63,
+    "consumers": [
+     64
+    ],
+    "start_ns": 2589610.645648724,
+    "end_ns": 191932854.04376072,
+    "peak_bits": 96,
+    "tensor_bits": 196608,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1931,
+      1931
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "p",
+    "producer": 64,
+    "consumers": [
+     65
+    ],
+    "start_ns": 2590461.6898504426,
+    "end_ns": 191932854.04376072,
+    "peak_bits": 960,
+    "tensor_bits": 100663296,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1932,
+      1932
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "p_q",
+    "producer": 65,
+    "consumers": [
+     66
+    ],
+    "start_ns": 2590461.6898504426,
+    "end_ns": 197154300.75757,
+    "peak_bits": 704512,
+    "tensor_bits": 25165824,
+    "buffer_arrays": 43,
+    "addresses": [
+     [
+      1933,
+      1975
+     ]
+    ]
+   },
+   {
+    "kind": "partial",
+    "label": "z_p",
+    "producer": 66,
+    "consumers": [
+     67
+    ],
+    "start_ns": 7842750.757569983,
+    "end_ns": 197273614.77303225,
+    "peak_bits": 49152,
+    "tensor_bits": 50331648,
+    "buffer_arrays": 3,
+    "addresses": [
+     [
+      1976,
+      1978
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 67,
+    "consumers": [
+     70
+    ],
+    "start_ns": 7962064.773032223,
+    "end_ns": 197300874.47436687,
+    "peak_bits": 8192,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1979,
+      1979
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 71,
+    "consumers": [
+     72
+    ],
+    "start_ns": 7989324.474366858,
+    "end_ns": 197301728.47436178,
+    "peak_bits": 2048,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1980,
+      1980
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 72,
+    "consumers": [
+     75
+    ],
+    "start_ns": 7990178.474361772,
+    "end_ns": 197302581.47436687,
+    "peak_bits": 8192,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1981,
+      1981
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 75,
+    "consumers": [
+     80
+    ],
+    "start_ns": 7991031.474366858,
+    "end_ns": 197661417.1792879,
+    "peak_bits": 12288,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      1982,
+      1982
+     ]
+    ]
+   },
+   {
+    "kind": "partial",
+    "label": "o_p",
+    "producer": 80,
+    "consumers": [
+     81
+    ],
+    "start_ns": 8688896.578454506,
+    "end_ns": 197665817.9038973,
+    "peak_bits": 147456,
+    "tensor_bits": 75497472,
+    "buffer_arrays": 9,
+    "addresses": [
+     [
+      1983,
+      1991
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 81,
+    "consumers": [
+     84
+    ],
+    "start_ns": 8693297.30306388,
+    "end_ns": 197670071.2496004,
+    "peak_bits": 24576,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      1992,
+      1992
+     ],
+     [
+      2818,
+      2818
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 84,
+    "consumers": [
+     85
+    ],
+    "start_ns": 8697550.648767006,
+    "end_ns": 197670924.2476473,
+    "peak_bits": 24576,
+    "tensor_bits": 12582912,
+    "buffer_arrays": 2,
+    "addresses": [
+     [
+      2819,
+      2820
+     ]
+    ]
+   },
+   {
+    "kind": "temporary",
+    "label": "...",
+    "producer": 86,
+    "consumers": [
+     87
+    ],
+    "start_ns": 8698403.64681388,
+    "end_ns": 197671778.2476422,
+    "peak_bits": 6144,
+    "tensor_bits": 3145728,
+    "buffer_arrays": 1,
+    "addresses": [
+     [
+      2821,
+      2821
+     ]
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "value": "..."
+   },
+   {
+    "value": "x_q",
+    "start_ns": 2537.86304,
+    "end_ns": 1125547.86304,
+    "retained_until_ns": 1130901.86304
+   },
+   {
+    "value": "q_p",
+    "start_ns": 6444.501711875,
+    "end_ns": 1129948.86304,
+    "retained_until_ns": 1134342.931399375
+   },
+   {
+    "value": "..."
+   },
+   {
+    "value": "q_b",
+    "start_ns": 12543.60889875,
+    "end_ns": 1136047.970226875,
+    "retained_until_ns": 111946711.74272
+   },
+   {
+    "value": "k_b",
+    "start_ns": 12543.60889875,
+    "end_ns": 1136047.970226875,
+    "retained_until_ns": 2359723.74272
+   },
+   {
+    "value": "v_b",
+    "start_ns": 13397.470226875,
+    "end_ns": 1135652.470226875,
+    "retained_until_ns": 7475181.74272
+   },
+   {
+    "value": "..."
+   },
+   {
+    "value": "q",
+    "start_ns": 14250.60889875,
+    "end_ns": 167916162.74272,
+    "retained_until_ns": 191867854.74272
+   },
+   {
+    "value": "k",
+    "start_ns": 14250.60889875,
+    "end_ns": 2378510.74272,
+    "retained_until_ns": 191867854.74272
+   },
+   {
+    "value": "v",
+    "start_ns": 15104.470226875,
+    "end_ns": 7645980.74272,
+    "retained_until_ns": 197154300.75757
+   },
+   {
+    "value": "s",
+    "start_ns": 2494639.74272,
+    "end_ns": 191867854.74272,
+    "retained_until_ns": 191898677.38880974
+   },
+   {
+    "value": "..."
+   },
+   {
+    "value": "e",
+    "start_ns": 2527169.3887954345,
+    "end_ns": 191900384.38879544,
+    "retained_until_ns": 191932854.04376072
+   },
+   {
+    "value": "..."
+   },
+   {
+    "value": "r",
+    "start_ns": 2589610.645648724,
+    "end_ns": 191932002.999559,
+    "retained_until_ns": 191932854.04376072
+   },
+   {
+    "value": "..."
+   },
+   {
+    "value": "z_p",
+    "start_ns": 7842750.757569983,
+    "end_ns": 197154300.75757,
+    "retained_until_ns": 197273614.77303225
+   },
+   {
+    "value": "..."
+   },
+   {
+    "value": "o",
+    "start_ns": 8699257.646808796,
+    "end_ns": 197671778.2476422,
+    "retained_until_ns": null
+   }
+  ],
+  "compiler_cap": 2048,
+  "compiler_arrays_used": 1920,
+  "compiler_latency_ns": 192037295.89344,
+  "buffer_storage_policy": {
+   "source": "figure-only approximation; compiler source unchanged",
+   "arrival": "uniform exported batches, with producer stalls and input-readiness propagation",
+   "release": "logical-prefix consumption at consumer batch completion; aliases share allocations",
+   "allocation": "peak live FIFO size reserved over its live envelope; reuse idle WMUs",
+   "staged_rhs": "existing dynamic RHS copies counted once",
+   "projection_stall_ns": 0.0,
+   "schedule_limit": "export omits exact first-batch and operand-read times; this is not a compiler result"
+  }
+ }
+}

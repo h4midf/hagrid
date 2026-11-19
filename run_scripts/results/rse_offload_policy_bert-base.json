@@ -1,0 +1,39 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "bert-base",
+  "model": "bert-base-w3",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "sram_share_pct": 20,
+  "code_fingerprint": "f795df646b2e43ec",
+  "min_feasible_array_cap": 80532,
+  "max_cap": 49549392,
+  "points": {
+    "131072": {
+      "cap": 131072,
+      "latency": 127758227.26618986,
+      "arrays": 129860,
+      "rram_macros": 37152,
+      "sram_macros": 92708,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/bert-base/cap_131072.json"
+    },
+    "2097152": {
+      "cap": 2097152,
+      "latency": 36877145.72560791,
+      "arrays": 2095758,
+      "rram_macros": 659664,
+      "sram_macros": 1436094,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/bert-base/cap_2097152.json"
+    },
+    "67108864": {
+      "cap": 67108864,
+      "latency": 1455078.392,
+      "arrays": 61048656,
+      "rram_macros": 17694720,
+      "sram_macros": 43353936,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/bert-base/cap_67108864.json"
+    }
+  }
+}

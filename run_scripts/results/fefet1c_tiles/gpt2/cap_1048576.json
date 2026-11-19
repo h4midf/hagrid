@@ -1,0 +1,79 @@
+{
+  "target": "1fefet1c/default",
+  "model": "gpt2",
+  "cap": 1048576,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/gpt2/cap_1048576.json",
+  "latency_ns": 30130548.187529214,
+  "arrays": 1048320,
+  "added_arrays": 0,
+  "arrays_per_tile": 96,
+  "tiles": 10920,
+  "added_tiles": 0,
+  "mesh": [
+    105,
+    104
+  ],
+  "pes": 131040,
+  "routers": 2730,
+  "units": {
+    "total": {
+      "vec_el_mul": 1112,
+      "vec_add": 194,
+      "rsqrt": 6,
+      "absmax_tree": 533,
+      "quantize_per_token_token_scale": 362,
+      "quantize_per_token_quant_mant_round": 388,
+      "vec_select": 9,
+      "softmax_max_reduce_tree": 64,
+      "softmax_exp_pwl16_standalone": 97,
+      "softmax_q8_8_reciprocal": 64,
+      "reduce_tree_n1024": 13,
+      "reduce_tree_n256": 63,
+      "reduce_tree_n8": 62913,
+      "quantize": 5315,
+      "reduce_tree_n32": 6912,
+      "gelu": 19332
+    },
+    "max_per_tile": {
+      "vec_el_mul": 38,
+      "vec_add": 15,
+      "rsqrt": 6,
+      "absmax_tree": 43,
+      "quantize_per_token_token_scale": 83,
+      "quantize_per_token_quant_mant_round": 171,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 13,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n8": 96,
+      "quantize": 49,
+      "reduce_tree_n32": 32,
+      "gelu": 54
+    },
+    "chip_pool": {
+      "vec_add": 38,
+      "vec_el_mul": 191,
+      "rsqrt": 6,
+      "gelu": 2552,
+      "quantize": 1073,
+      "absmax_tree": 138,
+      "vec_select": 1,
+      "quantize_per_token_token_scale": 148,
+      "quantize_per_token_quant_mant_round": 182,
+      "softmax_max_reduce_tree": 13,
+      "softmax_exp_pwl16_standalone": 21,
+      "softmax_q8_8_reciprocal": 13,
+      "reduce_tree_n1024": 13,
+      "reduce_tree_n256": 4,
+      "reduce_tree_n32": 767,
+      "reduce_tree_n8": 9213
+    }
+  },
+  "traffic": {
+    "edge_bits": 88118329344,
+    "bus_bits": 90852753408,
+    "flit_hops": 5752118272
+  }
+}

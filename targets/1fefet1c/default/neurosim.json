@@ -1,0 +1,37 @@
+{
+  "_description": "NeuroSim (DNN_NeuroSim_V1.4) inference-accuracy settings for the Laleni et al. 2024 1F1C macro. Keys under 'args' are passed 1:1 as --key value to Inference_pytorch/inference.py. Run with: python3 targets/1fefet1c/run_neurosim.py default",
+  "args": {
+    "dataset": "cifar10",
+    "model": "VGG8",
+    "mode": "WAGE",
+    "seed": 117,
+    "batch_size": 200,
+    "wl_weight": 8,
+    "wl_activate": 8,
+    "inference": 1,
+    "subArray": 128,
+    "parallelRead": 128,
+    "ADCprecision": 7,
+    "cellBit": 2,
+    "onoffratio": 10,
+    "vari": 0.06,
+    "t": 0,
+    "v": 0,
+    "detect": 0,
+    "target": 0
+  },
+  "_provenance": {
+    "dataset, model": "Laleni Sec. V: pretrained VGG-8 on CIFAR-10 using NeuroSim [35]; NeuroSim's shipped log/VGG8.pth",
+    "mode": "WAGE: the mode VGG8.pth was trained in",
+    "seed, batch_size": "NeuroSim defaults",
+    "wl_weight, wl_activate": "NeuroSim defaults (8/8); Laleni does not state weight/activation precision",
+    "inference": "1 = apply the hardware non-idealities below (0 = ideal quantized network)",
+    "subArray": "Laleni Sec. IV: 128 x 128 crossbar",
+    "parallelRead": "all 128 rows read at once (charge-domain MAC over the full column); NeuroSim requires parallelRead == subArray when cellBit > 1",
+    "ADCprecision": "Laleni Sec. IV: 7-bit SAR ADC",
+    "cellBit": "Laleni: 2-bit FeFET cell (4 Vth states)",
+    "onoffratio": "NeuroSim default; Laleni does not state it. Physically the HVT (Vth = 1.2 V) cell stores ~0 charge (Laleni Fig. 5), i.e. a much larger ratio",
+    "vari": "From Laleni Fig. 7(b) (60 FeFETs x 4 states), read off the fitted Gaussians: Vth = 0.35/0.63/0.95/1.24 V, sigma = 17/42/50/36 mV. A cell stores VDD - Vth, so sigma(Vth) is the stored-voltage error; with the linear scheme of Fig. 10(b) (0.3 V per weight level) that is 0.057/0.14/0.17 weight-LSB for w = 3/2/1 (w = 0, Vth > 1 V, stores ~0). NeuroSim applies one multiplicative sigma per cell, w*(1+N(0,vari)); matching the mean error power over w = 1..3: vari = sqrt(mean(0.057^2, 0.14^2, 0.17^2) / mean(1, 4, 9)) = 0.06. Run with vari = 0 gave 91.80 %",
+    "t, v, detect, target": "no retention / drift"
+  }
+}

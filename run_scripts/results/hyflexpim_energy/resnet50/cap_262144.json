@@ -1,0 +1,57 @@
+{
+  "target": "hyflexpim/default",
+  "model": "resnet50",
+  "cap": 262144,
+  "node_nm": 65,
+  "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/resnet50/cap_262144.json",
+  "latency_ns": 70127.61124,
+  "event_energies": {
+    "analog_array_cycle_pJ": 80.7158510704882,
+    "adc_conversion_pJ": {
+      "slc": 0.6261981818181819,
+      "mlc": 0.7797169696969697
+    },
+    "digital_row_pJ": 136.97489094614548,
+    "inner_bus_bit_pJ": 0.03533154356556663,
+    "global_bus_bit_pJ": 0.3179838920900996
+  },
+  "total_mJ": 4.1703332927644885,
+  "parts_mJ": {
+    "analog ADC conversions": 1.8054679722379638,
+    "analog array cycles": 1.6666002296455662,
+    "digital row writes": 0.39956035924624167,
+    "digital row reads": 0.10639962973892858,
+    "accelerator vec_el_mul": 0.05850045044691442,
+    "accelerator quantize": 0.04979039410004313,
+    "routers": 0.043624417011164145,
+    "accelerator dequantize": 0.012382692014277101,
+    "inner buses": 0.007186711915450956,
+    "accelerator vec_add": 0.005397506893021808,
+    "accelerator reduce_tree_n8": 0.004692181624815935,
+    "accelerator argmax_tree": 0.0033968903693904653,
+    "accelerator reduce_tree_n64": 0.0023813882257160105,
+    "accelerator reduce_tree_n16": 0.0018972051296560057,
+    "accelerator reduce_tree_n32": 0.0017392101944512456,
+    "accelerator reduce_tree_n128": 0.0011822455363669287,
+    "accelerator relu": 0.0001338084345202173
+  },
+  "parts_pct": {
+    "analog ADC conversions": 43.293133797493915,
+    "analog array cycles": 39.96323825093574,
+    "digital row writes": 9.581017419866113,
+    "digital row reads": 2.5513459541358845,
+    "accelerator vec_el_mul": 1.4027763811686815,
+    "accelerator quantize": 1.1939188214627654,
+    "routers": 1.0460654808298495,
+    "accelerator dequantize": 0.29692331871318345,
+    "inner buses": 0.17232943774349815,
+    "accelerator vec_add": 0.12942627157370037,
+    "accelerator reduce_tree_n8": 0.11251334834452804,
+    "accelerator argmax_tree": 0.0814536904108853,
+    "accelerator reduce_tree_n64": 0.05710306727396847,
+    "accelerator reduce_tree_n16": 0.045492889811652434,
+    "accelerator reduce_tree_n32": 0.04170434524906602,
+    "accelerator reduce_tree_n128": 0.02834894607627932,
+    "accelerator relu": 0.003208578910284566
+  }
+}

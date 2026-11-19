@@ -1,0 +1,31 @@
+{
+  "target": "1fefet1c",
+  "model": "mobilenet-v2",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "35dbda70f5452830",
+  "min_feasible_array_cap": 1276,
+  "max_cap": 301056,
+  "points": {
+    "2048": {
+      "cap": 2048,
+      "latency": 2418916.887668399,
+      "arrays": 2017,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/mobilenet-v2/cap_2048.json"
+    },
+    "32768": {
+      "cap": 32768,
+      "latency": 493086.37529897277,
+      "arrays": 31382,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/mobilenet-v2/cap_32768.json"
+    },
+    "524288": {
+      "cap": 524288,
+      "latency": 421749.0,
+      "arrays": 259569,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/mobilenet-v2/cap_524288.json"
+    }
+  }
+}

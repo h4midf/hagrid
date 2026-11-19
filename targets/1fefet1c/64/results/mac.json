@@ -1,0 +1,154 @@
+{
+  "cap_write": {
+    "generated": "2026-11-13T04:36:55",
+    "script": "cap_rw.py",
+    "latency_ns": 50.0,
+    "row": 63,
+    "driver_tg_width_nm": 384.0,
+    "write_window_ns": 50.0,
+    "tolerance_pct": 1.0,
+    "levels_V": [
+      0.0,
+      0.316161,
+      0.575536,
+      0.839155
+    ],
+    "by_level": [
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "v_written": -0.00394343,
+        "v_held": -0.00362945,
+        "neighbor_disturb_mV": 0.0010000000000287557,
+        "t_write_1pct_ns": null,
+        "write_energy_from_reference_fJ": -0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "v_written": 0.314676,
+        "v_held": 0.314625,
+        "neighbor_disturb_mV": 0.007000000000034756,
+        "t_write_1pct_ns": 0.9500000000000052,
+        "write_energy_from_reference_fJ": 5.3160259023
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "v_written": 0.576108,
+        "v_held": 0.575734,
+        "neighbor_disturb_mV": 0.007000000000034756,
+        "t_write_1pct_ns": 16.21900000000001,
+        "write_energy_from_reference_fJ": 18.0294709504
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "v_written": 0.842686,
+        "v_held": 0.841909,
+        "neighbor_disturb_mV": 0.007000000000034756,
+        "t_write_1pct_ns": 1.1050000000000089,
+        "write_energy_from_reference_fJ": 39.1115879865
+      }
+    ]
+  },
+  "cap_read": {
+    "generated": "2026-11-13T04:36:55",
+    "script": "cap_rw.py",
+    "latency_ns": 801.0,
+    "row": 63,
+    "vref_read_V": 0.064,
+    "lsb_read_mV": 0.5,
+    "conversions": 2,
+    "by_case": [
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0135444,
+        "vbl_sig": 0.0133037,
+        "signal_mV": -0.24069999999999994,
+        "code1": 40.0,
+        "code2": 40.0,
+        "read_value_codes": 0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0135445,
+        "vbl_sig": 0.0207917,
+        "signal_mV": 7.2472,
+        "code1": 40.0,
+        "code2": 47.0,
+        "read_value_codes": 7.0
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0135446,
+        "vbl_sig": 0.0275098,
+        "signal_mV": 13.965200000000001,
+        "code1": 40.0,
+        "code2": 56.0,
+        "read_value_codes": 16.0
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0135449,
+        "vbl_sig": 0.0348598,
+        "signal_mV": 21.314900000000005,
+        "code1": 40.0,
+        "code2": 67.0,
+        "read_value_codes": 27.0
+      },
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.0135441,
+        "vbl_sig": 0.0133032,
+        "signal_mV": -0.2409000000000005,
+        "code1": 73.0,
+        "code2": 73.0,
+        "read_value_codes": 0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.0135442,
+        "vbl_sig": 0.0207914,
+        "signal_mV": 7.247200000000002,
+        "code1": 73.0,
+        "code2": 81.0,
+        "read_value_codes": 8.0
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.0135443,
+        "vbl_sig": 0.0275096,
+        "signal_mV": 13.965299999999997,
+        "code1": 73.0,
+        "code2": 89.0,
+        "read_value_codes": 16.0
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.0135446,
+        "vbl_sig": 0.0348596,
+        "signal_mV": 21.314999999999998,
+        "code1": 73.0,
+        "code2": 100.0,
+        "read_value_codes": 27.0
+      }
+    ]
+  }
+}

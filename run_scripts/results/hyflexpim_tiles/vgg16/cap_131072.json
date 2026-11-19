@@ -1,0 +1,55 @@
+{
+  "target": "hyflexpim/default",
+  "model": "vgg16",
+  "cap": 131072,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/vgg16/cap_131072.json",
+  "latency_ns": 184865.57947398725,
+  "analog_arrays": 131072,
+  "digital_arrays": 0,
+  "analog_modules": 256,
+  "digital_modules": 0,
+  "pus": 11,
+  "units": {
+    "total": {
+      "quantize": 1745,
+      "vec_el_mul": 554,
+      "vec_add": 250,
+      "argmax_tree": 113,
+      "dequantize": 1006,
+      "reduce_tree_n16": 192,
+      "reduce_tree_n64": 106,
+      "reduce_tree_n32": 96,
+      "reduce_tree_n128": 45,
+      "reduce_tree_n512": 36
+    },
+    "max_per_pu": {
+      "quantize": 974,
+      "vec_el_mul": 306,
+      "vec_add": 139,
+      "argmax_tree": 58,
+      "dequantize": 974,
+      "reduce_tree_n16": 176,
+      "reduce_tree_n64": 60,
+      "reduce_tree_n32": 96,
+      "reduce_tree_n128": 27,
+      "reduce_tree_n512": 8
+    },
+    "chip_pool": {
+      "argmax_tree": 113,
+      "vec_add": 143,
+      "vec_el_mul": 314,
+      "quantize": 1000,
+      "dequantize": 1000,
+      "reduce_tree_n512": 36,
+      "reduce_tree_n128": 11,
+      "reduce_tree_n64": 80,
+      "reduce_tree_n32": 96,
+      "reduce_tree_n16": 192
+    }
+  },
+  "traffic": {
+    "local_bits": 9083390687.747257,
+    "inner_bus_bits": 429217115.99173075,
+    "global_bus_bits": 192587268.26101246
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "target": "hyflexpim/default",
+  "model": "vgg16",
+  "cap": 131072,
+  "node_nm": 65,
+  "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vgg16/cap_131072.json",
+  "latency_ns": 184865.57947398725,
+  "event_energies": {
+    "analog_array_cycle_pJ": 80.7158510704882,
+    "adc_conversion_pJ": {
+      "slc": 0.6261981818181819,
+      "mlc": 0.7797169696969697
+    },
+    "digital_row_pJ": 136.97489094614548,
+    "inner_bus_bit_pJ": 0.03533154356556663,
+    "global_bus_bit_pJ": 0.3179838920900996
+  },
+  "total_mJ": 14.633261218148055,
+  "parts_mJ": {
+    "analog ADC conversions": 6.823052068091967,
+    "analog array cycles": 6.30416367642132,
+    "digital row writes": 0.9758577765816042,
+    "digital row reads": 0.2596422614233586,
+    "accelerator vec_el_mul": 0.07133862334650919,
+    "routers": 0.06123964912863685,
+    "accelerator quantize": 0.04097535353171826,
+    "accelerator argmax_tree": 0.025901289066602298,
+    "accelerator reduce_tree_n128": 0.017339601200048287,
+    "accelerator reduce_tree_n64": 0.01580868935724804,
+    "inner buses": 0.015164903232748701,
+    "accelerator reduce_tree_n32": 0.009255292530018106,
+    "accelerator reduce_tree_n16": 0.00867293773557031,
+    "accelerator vec_add": 0.004398877795644451,
+    "accelerator reduce_tree_n512": 0.0002715857832157945,
+    "accelerator dequantize": 0.00017863292184498668
+  },
+  "parts_pct": {
+    "analog ADC conversions": 46.62700929325359,
+    "analog array cycles": 43.08105747885472,
+    "digital row writes": 6.668764823054981,
+    "digital row reads": 1.774329437250476,
+    "accelerator vec_el_mul": 0.4875100791478771,
+    "routers": 0.41849624779941685,
+    "accelerator quantize": 0.2800151854113077,
+    "accelerator argmax_tree": 0.17700284769385324,
+    "accelerator reduce_tree_n128": 0.11849444181686478,
+    "accelerator reduce_tree_n64": 0.10803257812169871,
+    "inner buses": 0.10363310684252192,
+    "accelerator reduce_tree_n32": 0.06324832443050879,
+    "accelerator reduce_tree_n16": 0.059268659297998454,
+    "accelerator vec_add": 0.03006081645142094,
+    "accelerator reduce_tree_n512": 0.0018559484394290449,
+    "accelerator dequantize": 0.001220732133336399
+  }
+}

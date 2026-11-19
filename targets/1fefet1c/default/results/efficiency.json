@@ -1,0 +1,15 @@
+{
+  "macro": {
+    "generated": "2026-11-09T21:31:31",
+    "script": "compute_efficiency.py",
+    "ops_per_conversion": 256,
+    "adc_energy_pJ": 2.1644776562500003,
+    "column_energy_pJ": 0.11760300000000001,
+    "column_share_pct": 5.1533235548847625,
+    "tops_per_w": 112.17833133937901,
+    "laleni_tops_per_w": 111.6,
+    "laleni_adc_energy_from_fom_pJ": 2.195661163526097,
+    "laleni_implied_column_energy_pJ": 0.09824564650974556,
+    "formula": "2*rows / (E_adc + E_column) per column per conversion"
+  }
+}

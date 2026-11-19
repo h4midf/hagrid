@@ -1,0 +1,52 @@
+{
+  "target": "1fefet1c/default",
+  "model": "mobilenet-v2",
+  "cap": 262144,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/mobilenet-v2/cap_262144.json",
+  "latency_ns": 429308.41671,
+  "arrays": 195200,
+  "added_arrays": 0,
+  "arrays_per_tile": 96,
+  "tiles": 2034,
+  "added_tiles": 0,
+  "mesh": [
+    46,
+    45
+  ],
+  "pes": 24400,
+  "routers": 509,
+  "units": {
+    "total": {
+      "quantize": 581626,
+      "vec_el_mul": 1270,
+      "vec_add": 780,
+      "dequantize": 10259,
+      "reduce_tree_n16": 331,
+      "reduce_tree_n8": 9568,
+      "reduce_tree_n64": 17
+    },
+    "max_per_tile": {
+      "quantize": 30721,
+      "vec_el_mul": 2,
+      "vec_add": 4,
+      "dequantize": 300,
+      "reduce_tree_n16": 100,
+      "reduce_tree_n8": 256,
+      "reduce_tree_n64": 4
+    },
+    "chip_pool": {
+      "vec_add": 712,
+      "vec_el_mul": 1183,
+      "quantize": 532656,
+      "dequantize": 7831,
+      "reduce_tree_n64": 17,
+      "reduce_tree_n16": 317,
+      "reduce_tree_n8": 4898
+    }
+  },
+  "traffic": {
+    "edge_bits": 910207040,
+    "bus_bits": 1108575552,
+    "flit_hops": 67511984
+  }
+}

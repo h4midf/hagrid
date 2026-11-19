@@ -1,0 +1,22 @@
+{
+  "array": {
+    "generated": "2026-11-13T03:51:59",
+    "script": "run_nvsim.py",
+    "cell_area_F2": 1218.6,
+    "array_area_um2": 4365.1,
+    "array_width_um": 128.838,
+    "array_height_um": 33.88,
+    "area_efficiency_pct": 91.049,
+    "rows": 64,
+    "bitline_length_um": 121.317,
+    "bitline_wire_cap_fF": 34.953,
+    "bitline_switch_cap_fF": 2.547,
+    "cpar_fF": 37.5,
+    "laleni_cpar_fF": 75,
+    "memory_read_latency_ps": 460.787,
+    "memory_read_energy_pJ": 1.25,
+    "memory_write_energy_pJ": 0.124,
+    "leakage_nW": 9.036,
+    "note": "Cpar is matched by fitting the cell height (see 1f1c.cell). memory_* are a plain memory access, not the 1F1C MAC."
+  }
+}

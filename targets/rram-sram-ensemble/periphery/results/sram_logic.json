@@ -1,0 +1,29 @@
+[
+  {
+    "unit": "rse_sram_logic",
+    "params": {
+      "W": 3,
+      "ACC": 9
+    },
+    "method": "SRAM macro logic: 16 PEs, FSM, input and output buffers",
+    "area_um2_45nm": 3365.17,
+    "area_um2_28nm": 1177.81,
+    "delay_ps": 1145.18,
+    "leakage_uW": 65.6889,
+    "dynamic_mW_est": 0.8105,
+    "total_cells": 1860,
+    "notes": "",
+    "chip_65nm": {
+      "area_um2": 5075.7106410087645,
+      "dynamic_mW": 0.16340281250299346,
+      "leakage_mW": 3.932259959497492e-05,
+      "power_mW": 0.16344213510258843,
+      "clock_GHz": 0.1,
+      "factors": {
+        "area": 1.5083073488141057,
+        "energy": 2.0160741826402644,
+        "power": 1.9847481050617652
+      }
+    }
+  }
+]

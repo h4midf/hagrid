@@ -1,0 +1,63 @@
+{
+  "target": "hyflexpim/default",
+  "model": "vit-base",
+  "cap": 65536,
+  "node_nm": 65,
+  "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-base/cap_65536.json",
+  "latency_ns": 2371337.768993204,
+  "event_energies": {
+    "analog_array_cycle_pJ": 80.7158510704882,
+    "adc_conversion_pJ": {
+      "slc": 0.6261981818181819,
+      "mlc": 0.7797169696969697
+    },
+    "digital_row_pJ": 136.97489094614548,
+    "inner_bus_bit_pJ": 0.03533154356556663,
+    "global_bus_bit_pJ": 0.3179838920900996
+  },
+  "total_mJ": 132.84681133363958,
+  "parts_mJ": {
+    "digital matvec rows": 116.866424672491,
+    "analog ADC conversions": 7.3156854775296,
+    "analog array cycles": 6.374656380658621,
+    "digital row writes": 1.3509040135449886,
+    "digital row reads": 0.3553027309723686,
+    "accelerator vec_el_mul": 0.243526081314549,
+    "accelerator quantize": 0.14169767134352976,
+    "routers": 0.0764273738666042,
+    "accelerator dequantize": 0.04184883331768597,
+    "accelerator reduce_tree_n16": 0.026151562253683938,
+    "accelerator gelu": 0.018311282747326497,
+    "accelerator reduce_tree_n64": 0.014264193662819214,
+    "accelerator vec_add": 0.01074978293874647,
+    "accelerator softmax_exp_pwl16_standalone": 0.004379002657580826,
+    "inner buses": 0.0031125459743346095,
+    "accelerator reduce_tree_n1024": 0.0012653613508061042,
+    "accelerator softmax_max_reduce_tree": 0.0011007511848676607,
+    "accelerator reduce_tree_n256": 0.0009284509134097767,
+    "accelerator rsqrt": 5.278445072851106e-05,
+    "accelerator softmax_q8_8_reciprocal": 2.238046634365032e-05
+  },
+  "parts_pct": {
+    "digital matvec rows": 87.97081653618733,
+    "analog ADC conversions": 5.5068581654975075,
+    "analog array cycles": 4.798501609985142,
+    "digital row writes": 1.016888550039975,
+    "digital row reads": 0.2674529613511307,
+    "accelerator vec_el_mul": 0.18331345620554093,
+    "accelerator quantize": 0.1066624557420965,
+    "routers": 0.05753045413687787,
+    "accelerator dequantize": 0.03150157154512671,
+    "accelerator reduce_tree_n16": 0.019685502415263328,
+    "accelerator gelu": 0.013783757821133114,
+    "accelerator reduce_tree_n64": 0.010737324832731775,
+    "accelerator vec_add": 0.008091863726972574,
+    "accelerator softmax_exp_pwl16_standalone": 0.0032962798381235745,
+    "inner buses": 0.0023429587380291513,
+    "accelerator reduce_tree_n1024": 0.0009524965922051365,
+    "accelerator softmax_max_reduce_tree": 0.000828586831567351,
+    "accelerator reduce_tree_n256": 0.0006988883693098275,
+    "accelerator rsqrt": 3.973332155932969e-05,
+    "accelerator softmax_q8_8_reciprocal": 1.68468223805859e-05
+  }
+}

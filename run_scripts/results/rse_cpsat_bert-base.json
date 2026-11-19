@@ -1,0 +1,98 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "bert-base",
+  "model": "bert-base-w3",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "sram_share_pct": 20,
+  "code_fingerprint": "ac462068980f4963",
+  "min_feasible_array_cap": 80532,
+  "max_cap": 49549392,
+  "points": {
+    "131072": {
+      "cap": 131072,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "time_scale": 1000,
+      "greedy_latency": 127758227.26618986,
+      "greedy_arrays": 129860,
+      "greedy_wall_s": 14.945156812667847,
+      "segment_rram_stationary_caps": [
+        3096
+      ],
+      "segment_sram_correction_caps": [
+        3345
+      ],
+      "status": "failed",
+      "error": "CP-SAT found no mapping for a 71-op segment under cap 131072 (INFEASIBLE)",
+      "wall_s": 0.05964803695678711
+    },
+    "2097152": {
+      "cap": 2097152,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "time_scale": 1000,
+      "greedy_latency": 36877145.72560791,
+      "greedy_arrays": 2095758,
+      "greedy_wall_s": 15.230741024017334,
+      "segment_rram_stationary_caps": [
+        54972
+      ],
+      "segment_sram_correction_caps": [
+        55006
+      ],
+      "status": "OPTIMAL",
+      "latency": 9590656.719031213,
+      "arrays": 2050128,
+      "rram_macros": 635904,
+      "rram_stationary_macros": 635904,
+      "sram_macros": 1414224,
+      "sram_correction_macros": 635904,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 854500.616,
+          "bound_ns": 854500.616,
+          "solve_wall_s": 2.220463
+        }
+      ],
+      "solve_wall_s": 2.220463,
+      "wall_s": 9.89536190032959,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_cpsat/bert-base/cap_2097152.json"
+    },
+    "67108864": {
+      "cap": 67108864,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "time_scale": 1000,
+      "greedy_latency": 1455078.392,
+      "greedy_arrays": 61048656,
+      "greedy_wall_s": 12.247628211975098,
+      "segment_rram_stationary_caps": [
+        1474560
+      ],
+      "segment_sram_correction_caps": [
+        1474560
+      ],
+      "status": "OPTIMAL",
+      "latency": 1455078.392,
+      "arrays": 61048656,
+      "rram_macros": 17694720,
+      "rram_stationary_macros": 17694720,
+      "sram_macros": 43353936,
+      "sram_correction_macros": 17694720,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 105440.616,
+          "bound_ns": 105440.616,
+          "solve_wall_s": 0.25815
+        }
+      ],
+      "solve_wall_s": 0.25815,
+      "wall_s": 4.098637819290161,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_cpsat/bert-base/cap_67108864.json"
+    }
+  }
+}

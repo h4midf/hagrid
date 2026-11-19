@@ -1,0 +1,38 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "vgg16",
+  "model": "vgg16-w3",
+  "algorithm": "list_schedule_rse",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "sram_share_pct": 1.1,
+  "code_fingerprint": "78662e57553d669e",
+  "points": {
+    "131072": {
+      "cap": 131072,
+      "latency": 3292929.8254622566,
+      "arrays": 130912,
+      "rram_macros": 65456,
+      "sram_macros": 65456,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_listsched/vgg16/cap_131072.json"
+    },
+    "1048576": {
+      "cap": 1048576,
+      "latency": 855762.2065629214,
+      "arrays": 1047808,
+      "rram_macros": 523904,
+      "sram_macros": 523904,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_listsched/vgg16/cap_1048576.json"
+    },
+    "8388608": {
+      "cap": 8388608,
+      "latency": 23086.606263703707,
+      "arrays": 7611904,
+      "rram_macros": 3805952,
+      "sram_macros": 3805952,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_listsched/vgg16/cap_8388608.json"
+    }
+  }
+}

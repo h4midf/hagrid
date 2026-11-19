@@ -1,0 +1,81 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "vit-base",
+  "model": "vit-base-w3",
+  "cap": 1048576,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/vit-base/cap_1048576.json",
+  "latency_ns": 13865302.305417389,
+  "macros": 1048320,
+  "rram_macros": 497664,
+  "sram_macros": 550656,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 10920,
+  "added_tiles": 0,
+  "mesh": [
+    105,
+    104
+  ],
+  "pes": 131040,
+  "routers": 2730,
+  "units": {
+    "total": {
+      "vec_el_mul": 1365,
+      "vec_add": 229,
+      "rsqrt": 2,
+      "quantize": 3692,
+      "dequantize": 1980,
+      "softmax_max_reduce_tree": 8,
+      "softmax_exp_pwl16_standalone": 16,
+      "softmax_q8_8_reciprocal": 8,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 8,
+      "reduce_tree_n16": 1768,
+      "reduce_tree_n8": 103,
+      "gelu": 804,
+      "reduce_tree_n64": 204
+    },
+    "max_per_tile": {
+      "vec_el_mul": 49,
+      "vec_add": 22,
+      "rsqrt": 2,
+      "quantize": 60,
+      "dequantize": 2,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n16": 2,
+      "reduce_tree_n8": 1,
+      "gelu": 1,
+      "reduce_tree_n64": 1
+    },
+    "chip_pool": {
+      "vec_add": 40,
+      "vec_el_mul": 124,
+      "rsqrt": 2,
+      "gelu": 67,
+      "quantize": 436,
+      "dequantize": 213,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 2,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n64": 17,
+      "reduce_tree_n16": 167,
+      "reduce_tree_n8": 23
+    }
+  },
+  "traffic": {
+    "edge_bits": 21860342976,
+    "bus_bits": 24548494656,
+    "flit_hops": 708688785,
+    "correction_bits": 2352955392,
+    "flit_hops_by_kind": {
+      "edge_bits": 708688785,
+      "correction_bits": 0
+    }
+  }
+}

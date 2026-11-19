@@ -1,0 +1,78 @@
+{
+  "validation": {
+    "isaac_ir": {
+      "size_bytes": 1024,
+      "block_bytes": 4,
+      "node_nm": 32,
+      "area_mm2": 0.00204402,
+      "read_energy_pJ": 0.956474,
+      "leakage_mW": 0.371277,
+      "access_ns": 0.161757,
+      "cycle_ns": 0.115191,
+      "source_area_mm2": 0.0021,
+      "source_power_mW": 1.24
+    },
+    "isaac_or": {
+      "size_bytes": 256,
+      "block_bytes": 4,
+      "node_nm": 32,
+      "area_mm2": 0.000658388,
+      "read_energy_pJ": 0.5204059999999999,
+      "leakage_mW": 0.102566,
+      "access_ns": 0.144672,
+      "cycle_ns": 0.0954874,
+      "source_area_mm2": 0.00077,
+      "source_power_mW": 0.23
+    }
+  },
+  "hyflexpim": {
+    "analog_module.ir": {
+      "size_bytes": 64,
+      "block_bytes": 4,
+      "node_nm": 65,
+      "area_mm2": 0.00105658,
+      "read_energy_pJ": 1.28135,
+      "leakage_mW": 0.105208,
+      "access_ns": 0.311047,
+      "cycle_ns": 0.21269,
+      "access_rate_MHz": 10,
+      "power_mW": 0.1180215
+    },
+    "analog_module.or": {
+      "size_bytes": 128,
+      "block_bytes": 4,
+      "node_nm": 65,
+      "area_mm2": 0.00162926,
+      "read_energy_pJ": 1.56241,
+      "leakage_mW": 0.202641,
+      "access_ns": 0.366548,
+      "cycle_ns": 0.23112,
+      "access_rate_MHz": 10,
+      "power_mW": 0.2182651
+    },
+    "digital_module.ir": {
+      "size_bytes": 1024,
+      "block_bytes": 4,
+      "node_nm": 65,
+      "area_mm2": 0.00843879,
+      "read_energy_pJ": 3.46168,
+      "leakage_mW": 1.36083,
+      "access_ns": 0.410872,
+      "cycle_ns": 0.274499,
+      "access_rate_MHz": 181.8,
+      "power_mW": 1.990163424
+    },
+    "digital_module.or": {
+      "size_bytes": 1024,
+      "block_bytes": 4,
+      "node_nm": 65,
+      "area_mm2": 0.00843879,
+      "read_energy_pJ": 3.46168,
+      "leakage_mW": 1.36083,
+      "access_ns": 0.410872,
+      "cycle_ns": 0.274499,
+      "access_rate_MHz": 181.8,
+      "power_mW": 1.990163424
+    }
+  }
+}

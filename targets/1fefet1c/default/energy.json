@@ -1,0 +1,29 @@
+{
+  "_description": "Energy inputs of the default 1F1C target that are not in the SPICE / NVSim results, and the energy model's decisions, each with its source in _provenance. Per-event energies of the array come from results/*.json (SPICE, NVSim); this file scales the synthesized CMOS circuits (accelerator units, macro logic) from their synthesis node to the target's node.",
+
+  "cmos_scaling": {
+    "source_node_nm": 45,
+    "target_node_nm": 28,
+    "deepscale_energy_factor": 1.703,
+    "deepscale_power_factor": 1.393
+  },
+
+  "macro_logic_devices": {
+    "devices": "PTM 32nm LP",
+    "result": "results/logic.json inverter"
+  },
+
+  "excluded": [
+    "FeFET weight programming (one-time weight load before inference)",
+    "charge-sharing energy of the WMU MAC (only its ADC conversion is counted)",
+    "off-chip I/O and chip-level control"
+  ],
+
+  "_provenance": {
+    "cmos_scaling": "DeepScaleTool (Sarangi and Baas, ISCAS 2021), current node 45 (Nangate45 synthesis), target node 28: Energy 1.703, Power 1.393. Energy at 28 nm = synthesized dynamic energy / energy factor; leakage at 28 nm = synthesized leakage / power factor",
+    "macro_logic_devices": "Our decision: the per-array macro logic (macro_ctrl, shift_add datapaths, wmu_readout) runs at the 20 MHz array clock, so it uses low-power transistors, as the cell array does (1f1c.cfg: LSTP; GF 28nm SLP), not Nangate45's low-Vt ones (NangateOpenCellLibrary.cdl, OpenROAD-flow-scripts flow/platforms/nangate45/cdl: NMOS_VTL / PMOS_VTL). Its synthesized leakage is multiplied by results/logic.json inverter leakage_factor (spice/logic/inverter.py: Nangate's INV_X1 simulated with the PTM 32nm LP model, gate and junction leakage included, over Nangate INV_X1 cell_leakage_power) before the 45 -> 28 nm power factor. Speed check: the loader fails if a macro-logic critical path times logic.json slowdown (FO4 of PTM LP over PTM HP, an upper bound against Nangate's low-Vt cells) exceeds the clock period. Accelerator units keep Nangate leakage (they run at their synthesized speed)",
+    "excluded": "Our decisions: weight programming is a one-time cost, left out as in most inference papers; the WMU MAC's charge sharing is not simulated (spice/mac/wmu_mac.py gives no energy); off-chip I/O and chip control as in organization.json",
+    "synthesized_dynamic_energy": "custom_op_library/common/tools/report.py estimates dynamic power as 0.5 * alpha * C * V^2 * f with alpha = 0.2 at f = 1 GHz, so one evaluation (one cycle) costs dynamic_mW_est pJ at 45 nm. An estimate with a fixed activity, not a simulated one",
+    "adc_energy": "results/efficiency.json adc_energy_pJ: our SPICE ADC (spice/adc), within 1.5% of Laleni et al.'s Walden FoM (26 fJ x 2^6.4 = 2.20 pJ). The ADC area comes from CAP-RAM (area.json); its energy from our simulation of Laleni's ADC"
+  }
+}

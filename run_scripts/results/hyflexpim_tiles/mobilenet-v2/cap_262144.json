@@ -1,0 +1,49 @@
+{
+  "target": "hyflexpim/default",
+  "model": "mobilenet-v2",
+  "cap": 262144,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/mobilenet-v2/cap_262144.json",
+  "latency_ns": 60572.840632978776,
+  "analog_arrays": 256784,
+  "digital_arrays": 0,
+  "analog_modules": 502,
+  "digital_modules": 0,
+  "pus": 21,
+  "units": {
+    "total": {
+      "quantize": 8655,
+      "vec_el_mul": 1975,
+      "vec_add": 1064,
+      "dequantize": 1249,
+      "reduce_tree_n8": 451,
+      "reduce_tree_n32": 21,
+      "reduce_tree_n16": 35,
+      "reduce_tree_n64": 2
+    },
+    "max_per_pu": {
+      "quantize": 1670,
+      "vec_el_mul": 422,
+      "vec_add": 228,
+      "dequantize": 974,
+      "reduce_tree_n8": 116,
+      "reduce_tree_n32": 20,
+      "reduce_tree_n16": 22,
+      "reduce_tree_n64": 2
+    },
+    "chip_pool": {
+      "vec_add": 869,
+      "vec_el_mul": 1581,
+      "quantize": 5854,
+      "dequantize": 1000,
+      "reduce_tree_n64": 2,
+      "reduce_tree_n32": 21,
+      "reduce_tree_n16": 1,
+      "reduce_tree_n8": 229
+    }
+  },
+  "traffic": {
+    "local_bits": 787767629.7481482,
+    "inner_bus_bits": 33240704.474074073,
+    "global_bus_bits": 148023921.7777778
+  }
+}

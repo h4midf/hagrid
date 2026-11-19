@@ -1,0 +1,650 @@
+[
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 32,
+      "MW": 8,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2617.17,
+    "area_um2_28nm": 916.01,
+    "delay_ps": 1958.35,
+    "leakage_uW": 57.9895,
+    "dynamic_mW_est": 1.2079,
+    "total_cells": 2600,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 32,
+      "MW": 12,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 3815.77,
+    "area_um2_28nm": 1335.52,
+    "delay_ps": 2301.88,
+    "leakage_uW": 85.0162,
+    "dynamic_mW_est": 1.7486,
+    "total_cells": 3807,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 32,
+      "MW": 16,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 4879.5,
+    "area_um2_28nm": 1707.83,
+    "delay_ps": 2231.99,
+    "leakage_uW": 84.7412,
+    "dynamic_mW_est": 1.6388,
+    "total_cells": 3377,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 32,
+      "MW": 24,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 7219.77,
+    "area_um2_28nm": 2526.92,
+    "delay_ps": 2682.8,
+    "leakage_uW": 90.8745,
+    "dynamic_mW_est": 1.8303,
+    "total_cells": 3962,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 32,
+      "MW": 31,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 9422.78,
+    "area_um2_28nm": 3297.97,
+    "delay_ps": 3024.63,
+    "leakage_uW": 84.7061,
+    "dynamic_mW_est": 1.834,
+    "total_cells": 4216,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 32,
+      "MW": 8,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2284.67,
+    "area_um2_28nm": 799.64,
+    "delay_ps": 1637.2,
+    "leakage_uW": 50.8098,
+    "dynamic_mW_est": 1.054,
+    "total_cells": 2267,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 32,
+      "MW": 12,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 3436.72,
+    "area_um2_28nm": 1202.85,
+    "delay_ps": 1749.93,
+    "leakage_uW": 76.375,
+    "dynamic_mW_est": 1.5821,
+    "total_cells": 3429,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 32,
+      "MW": 16,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 4656.06,
+    "area_um2_28nm": 1629.62,
+    "delay_ps": 1859.41,
+    "leakage_uW": 79.4476,
+    "dynamic_mW_est": 1.5879,
+    "total_cells": 3242,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 32,
+      "MW": 24,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 6791.78,
+    "area_um2_28nm": 2377.12,
+    "delay_ps": 2178.61,
+    "leakage_uW": 62.6963,
+    "dynamic_mW_est": 1.3675,
+    "total_cells": 3094,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 32,
+      "MW": 31,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 8763.37,
+    "area_um2_28nm": 3067.18,
+    "delay_ps": 2541.21,
+    "leakage_uW": 115.1057,
+    "dynamic_mW_est": 2.3193,
+    "total_cells": 4999,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_pow2_round",
+    "params": {
+      "XW": 32,
+      "MW": null,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 634.41,
+    "area_um2_28nm": 222.04,
+    "delay_ps": 1714.21,
+    "leakage_uW": 14.2507,
+    "dynamic_mW_est": 0.3025,
+    "total_cells": 639,
+    "notes": "power of two scale, round to nearest"
+  },
+  {
+    "unit": "quant_pow2_trunc",
+    "params": {
+      "XW": 32,
+      "MW": null,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 378.78,
+    "area_um2_28nm": 132.57,
+    "delay_ps": 427.3,
+    "leakage_uW": 7.5806,
+    "dynamic_mW_est": 0.2016,
+    "total_cells": 371,
+    "notes": "power of two scale, truncate"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 32,
+      "MW": 8,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2919.62,
+    "area_um2_28nm": 1021.87,
+    "delay_ps": 2734.48,
+    "leakage_uW": 65.2434,
+    "dynamic_mW_est": 1.3443,
+    "total_cells": 2953,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 32,
+      "MW": 12,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 4154.65,
+    "area_um2_28nm": 1454.13,
+    "delay_ps": 2840.24,
+    "leakage_uW": 92.8709,
+    "dynamic_mW_est": 1.9106,
+    "total_cells": 4172,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 32,
+      "MW": 16,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 5184.34,
+    "area_um2_28nm": 1814.52,
+    "delay_ps": 3377.36,
+    "leakage_uW": 116.7331,
+    "dynamic_mW_est": 2.3385,
+    "total_cells": 5125,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 32,
+      "MW": 24,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 7596.43,
+    "area_um2_28nm": 2658.75,
+    "delay_ps": 3671.24,
+    "leakage_uW": 70.819,
+    "dynamic_mW_est": 1.5196,
+    "total_cells": 3514,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 32,
+      "MW": 31,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 9840.14,
+    "area_um2_28nm": 3444.05,
+    "delay_ps": 4449.38,
+    "leakage_uW": 125.6285,
+    "dynamic_mW_est": 2.5163,
+    "total_cells": 5447,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_pow2_round_zp",
+    "params": {
+      "XW": 32,
+      "MW": null,
+      "sh_bits": 6,
+      "in": "Q12.20",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 821.14,
+    "area_um2_28nm": 287.4,
+    "delay_ps": 2392.39,
+    "leakage_uW": 18.4752,
+    "dynamic_mW_est": 0.3859,
+    "total_cells": 824,
+    "notes": "power of two scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 16,
+      "MW": 8,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 1504.5,
+    "area_um2_28nm": 526.57,
+    "delay_ps": 1498.23,
+    "leakage_uW": 32.253,
+    "dynamic_mW_est": 0.7171,
+    "total_cells": 1495,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 16,
+      "MW": 12,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2265.26,
+    "area_um2_28nm": 792.84,
+    "delay_ps": 1494.36,
+    "leakage_uW": 48.9616,
+    "dynamic_mW_est": 1.068,
+    "total_cells": 2255,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 16,
+      "MW": 16,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2584.99,
+    "area_um2_28nm": 904.75,
+    "delay_ps": 2031.63,
+    "leakage_uW": 56.8037,
+    "dynamic_mW_est": 1.2028,
+    "total_cells": 2574,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 16,
+      "MW": 24,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 3577.97,
+    "area_um2_28nm": 1252.29,
+    "delay_ps": 2053.54,
+    "leakage_uW": 80.5078,
+    "dynamic_mW_est": 1.6348,
+    "total_cells": 3548,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_round",
+    "params": {
+      "XW": 16,
+      "MW": 31,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 4405.49,
+    "area_um2_28nm": 1541.92,
+    "delay_ps": 2458.95,
+    "leakage_uW": 99.6631,
+    "dynamic_mW_est": 1.9764,
+    "total_cells": 4337,
+    "notes": "mantissa scale, round to nearest"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 16,
+      "MW": 8,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 1253.13,
+    "area_um2_28nm": 438.59,
+    "delay_ps": 1056.48,
+    "leakage_uW": 26.9617,
+    "dynamic_mW_est": 0.597,
+    "total_cells": 1255,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 16,
+      "MW": 12,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2028.25,
+    "area_um2_28nm": 709.89,
+    "delay_ps": 1244.39,
+    "leakage_uW": 43.8497,
+    "dynamic_mW_est": 0.9584,
+    "total_cells": 2037,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 16,
+      "MW": 16,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2556.79,
+    "area_um2_28nm": 894.88,
+    "delay_ps": 1319.31,
+    "leakage_uW": 54.6742,
+    "dynamic_mW_est": 1.2337,
+    "total_cells": 2599,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 16,
+      "MW": 24,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 3316.49,
+    "area_um2_28nm": 1160.77,
+    "delay_ps": 1742.64,
+    "leakage_uW": 73.0997,
+    "dynamic_mW_est": 1.5311,
+    "total_cells": 3300,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_mant_trunc",
+    "params": {
+      "XW": 16,
+      "MW": 31,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 4161.57,
+    "area_um2_28nm": 1456.55,
+    "delay_ps": 2078.95,
+    "leakage_uW": 92.784,
+    "dynamic_mW_est": 1.9055,
+    "total_cells": 4132,
+    "notes": "mantissa scale, truncate"
+  },
+  {
+    "unit": "quant_pow2_round",
+    "params": {
+      "XW": 16,
+      "MW": null,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 316.54,
+    "area_um2_28nm": 110.79,
+    "delay_ps": 1040.65,
+    "leakage_uW": 7.2167,
+    "dynamic_mW_est": 0.1573,
+    "total_cells": 331,
+    "notes": "power of two scale, round to nearest"
+  },
+  {
+    "unit": "quant_pow2_trunc",
+    "params": {
+      "XW": 16,
+      "MW": null,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 160.4,
+    "area_um2_28nm": 56.14,
+    "delay_ps": 365.09,
+    "leakage_uW": 3.3102,
+    "dynamic_mW_est": 0.0844,
+    "total_cells": 155,
+    "notes": "power of two scale, truncate"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 16,
+      "MW": 8,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 1655.85,
+    "area_um2_28nm": 579.55,
+    "delay_ps": 2031.14,
+    "leakage_uW": 35.7553,
+    "dynamic_mW_est": 0.7834,
+    "total_cells": 1665,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 16,
+      "MW": 12,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2430.44,
+    "area_um2_28nm": 850.65,
+    "delay_ps": 2164.51,
+    "leakage_uW": 52.8826,
+    "dynamic_mW_est": 1.1434,
+    "total_cells": 2433,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 16,
+      "MW": 16,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 2786.62,
+    "area_um2_28nm": 975.32,
+    "delay_ps": 2649.73,
+    "leakage_uW": 61.6644,
+    "dynamic_mW_est": 1.2865,
+    "total_cells": 2771,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 16,
+      "MW": 24,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 3774.54,
+    "area_um2_28nm": 1321.09,
+    "delay_ps": 3138.54,
+    "leakage_uW": 85.0891,
+    "dynamic_mW_est": 1.7116,
+    "total_cells": 3730,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_mant_round_zp",
+    "params": {
+      "XW": 16,
+      "MW": 31,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 4698.62,
+    "area_um2_28nm": 1644.52,
+    "delay_ps": 3383.18,
+    "leakage_uW": 106.4678,
+    "dynamic_mW_est": 2.1168,
+    "total_cells": 4641,
+    "notes": "mantissa scale, round to nearest, zero point"
+  },
+  {
+    "unit": "quant_pow2_round_zp",
+    "params": {
+      "XW": 16,
+      "MW": null,
+      "sh_bits": 6,
+      "in": "Q8.8",
+      "out": "int8"
+    },
+    "method": "direct",
+    "area_um2_45nm": 404.59,
+    "area_um2_28nm": 141.61,
+    "delay_ps": 1385.91,
+    "leakage_uW": 9.0814,
+    "dynamic_mW_est": 0.1955,
+    "total_cells": 420,
+    "notes": "power of two scale, round to nearest, zero point"
+  }
+]

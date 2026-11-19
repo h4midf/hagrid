@@ -1,0 +1,21 @@
+[
+  {
+    "unit": "wmu_readout",
+    "params": {
+      "COLS": 128,
+      "CODE": 8,
+      "CELLS_PER_VALUE": 16,
+      "T1": 4,
+      "T2": 12,
+      "T3": 21
+    },
+    "method": "two-conversion read: reference latches, value select, shared level decode",
+    "area_um2_45nm": 6732.19,
+    "area_um2_28nm": 2356.27,
+    "delay_ps": 4774.77,
+    "leakage_uW": 133.2578,
+    "dynamic_mW_est": 2.3136,
+    "total_cells": 4963,
+    "notes": "one 1F1C array; thresholds halfway between the read differences of results/mac.json cap_read"
+  }
+]

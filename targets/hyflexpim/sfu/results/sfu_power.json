@@ -1,0 +1,71 @@
+{
+  "method": "Method: each circuit is synthesized with the same flow as characterize_sfu.py\n(synth.synth(sized=True)) and written as a mapped netlist; yosys simulates it on an\noperand stream (read_liberty gives the cell functions), and every cell input pin's\ntoggles are weighted by its liberty capacitance:\n  dynamic energy = sum over input pins of toggles x 0.5 C V^2   (V = 1.1 V)\nthe same switching model as custom_op_library/common/tools/report.py, with the\nmeasured toggles in place of its fixed alpha = 0.2. Zero-delay simulation: no glitches,\nno cell internal power, no wire capacitance (all only add). Clock pins are counted\nseparately: they toggle twice per cycle while a unit is clocked.",
+  "vdd_V": 1.1,
+  "freq_MHz": 1000.0,
+  "factors_45_to_65": {
+    "area": 1.5083073488141057,
+    "delay": 1.5981936013606801,
+    "energy": 1.275972066557462,
+    "power": 1.2976814194040134
+  },
+  "units": {
+    "add": {
+      "circuit": "sfu_fp16_add",
+      "logic_pJ_per_op": 0.3857111928598872,
+      "clock_pJ_per_cycle": 0.12671560330827103,
+      "energy_pJ_per_op": 0.5124267961681582,
+      "energy_pJ_per_op_65nm": 0.6538422780661043
+    },
+    "sub": {
+      "circuit": "sfu_fp16_add",
+      "logic_pJ_per_op": 0.5135485895805776,
+      "clock_pJ_per_cycle": 0.12671560330827103,
+      "energy_pJ_per_op": 0.6402641928888486,
+      "energy_pJ_per_op_65nm": 0.8169592253431297
+    },
+    "mul": {
+      "circuit": "sfu_fp16_mul",
+      "logic_pJ_per_op": 1.1015968151084816,
+      "clock_pJ_per_cycle": 0.08870092231578953,
+      "energy_pJ_per_op": 1.1902977374242711,
+      "energy_pJ_per_op_65nm": 1.5187866638399186
+    },
+    "div": {
+      "circuit": "sfu_fp16_div",
+      "logic_pJ_per_op": 1.0595992086305914,
+      "clock_pJ_per_cycle": 0.5437251341954853,
+      "energy_pJ_per_op": 1.6033243428260768,
+      "energy_pJ_per_op_65nm": 2.045797075077674
+    },
+    "sqrt": {
+      "circuit": "sfu_fp16_sqrt",
+      "logic_pJ_per_op": 0.896268513252621,
+      "clock_pJ_per_cycle": 0.38360269001503794,
+      "energy_pJ_per_op": 1.279871203267659,
+      "energy_pJ_per_op_65nm": 1.6330799041608204
+    },
+    "max": {
+      "circuit": "sfu_fp16_max",
+      "logic_pJ_per_op": 0.1298776755593482,
+      "clock_pJ_per_cycle": 0.0,
+      "energy_pJ_per_op": 0.1298776755593482,
+      "energy_pJ_per_op_65nm": 0.16572028608314113
+    },
+    "to_int8": {
+      "circuit": "sfu_fp16_to_int8",
+      "logic_pJ_per_op": 0.2698438157223811,
+      "clock_pJ_per_cycle": 0.0,
+      "energy_pJ_per_op": 0.2698438157223811,
+      "energy_pJ_per_op_65nm": 0.34431317119503757
+    }
+  },
+  "exp": {
+    "lane_logic_pJ": 930.5395235158629,
+    "lane_clock_pJ": 771.1177991596417,
+    "idle_units_clock_pJ": 389.4776861684197,
+    "energy_pJ_per_op": 22.240332822153977,
+    "cycles_per_op": 7,
+    "energy_pJ_per_op_65nm": 28.378043432009562
+  },
+  "leakage_mW_65nm": 93.12716650403624
+}

@@ -1,0 +1,19 @@
+{
+  "flash_adc_each": {
+    "transistors_um2": 68.28833699999998,
+    "transistor_count": 177,
+    "resistors_um2": 10.66666666666667,
+    "capacitors_um2": 259.25925925925924,
+    "total_um2": 338.2142629259259
+  },
+  "parts_um2": {
+    "crossbar": 62300.159999999996,
+    "flash_adcs": 2705.714103407407,
+    "headers": 7.414748519735,
+    "column_mux": 440.52944,
+    "programming_muxes": 817.147136,
+    "wl_drivers_and_shifters": 2530.5044480000006,
+    "decoder": 375.9305236184277
+  },
+  "total_um2": 69177.40039954557
+}

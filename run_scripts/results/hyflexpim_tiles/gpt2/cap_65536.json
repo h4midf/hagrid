@@ -1,0 +1,73 @@
+{
+  "target": "hyflexpim/default",
+  "model": "gpt2",
+  "cap": 65536,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/gpt2/cap_65536.json",
+  "latency_ns": 63196080.46932938,
+  "analog_arrays": 62184,
+  "digital_arrays": 3084,
+  "analog_modules": 122,
+  "digital_modules": 13,
+  "pus": 6,
+  "units": {
+    "total": {
+      "vec_el_mul": 604,
+      "vec_add": 45,
+      "rsqrt": 2,
+      "absmax_tree": 20,
+      "quantize_per_token_token_scale": 20,
+      "quantize_per_token_quant_mant_round": 86,
+      "vec_select": 2,
+      "softmax_max_reduce_tree": 2,
+      "softmax_exp_pwl16_standalone": 8,
+      "softmax_q8_8_reciprocal": 2,
+      "quantize": 19,
+      "gelu": 25,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 2,
+      "reduce_tree_n64": 6,
+      "reduce_tree_n16": 57
+    },
+    "max_per_pu": {
+      "vec_el_mul": 516,
+      "vec_add": 16,
+      "rsqrt": 2,
+      "absmax_tree": 7,
+      "quantize_per_token_token_scale": 7,
+      "quantize_per_token_quant_mant_round": 64,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 4,
+      "softmax_q8_8_reciprocal": 1,
+      "quantize": 11,
+      "gelu": 5,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n64": 1,
+      "reduce_tree_n16": 25
+    },
+    "chip_pool": {
+      "vec_add": 19,
+      "vec_el_mul": 516,
+      "rsqrt": 2,
+      "gelu": 5,
+      "quantize": 11,
+      "absmax_tree": 10,
+      "vec_select": 1,
+      "quantize_per_token_token_scale": 10,
+      "quantize_per_token_quant_mant_round": 64,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 4,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n64": 1,
+      "reduce_tree_n16": 25
+    }
+  },
+  "traffic": {
+    "local_bits": 105198266860.32777,
+    "inner_bus_bits": 376265062.69625837,
+    "global_bus_bits": 1871150252.975993
+  }
+}

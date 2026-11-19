@@ -1,0 +1,310 @@
+{
+  "model": "bert-base",
+  "n_eval": 32,
+  "seed": 3,
+  "tokens_scored": 2432,
+  "float_ppl": 10.215022429633148,
+  "int8_torch_ppl": 10.865159694705728,
+  "variants": {
+    "dw32__qm8_dqm8": {
+      "data_width": 32,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=8, data_width=32"
+    },
+    "dw32__qm8_dqm12": {
+      "data_width": 32,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 12,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=12, data_width=32"
+    },
+    "dw32__qm8_dqm16": {
+      "data_width": 32,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 16,
+      "unrepresentable": "dequantize_3: no (m, sh) for dequantize scale=0.6534185409545898 at mantissa_width=16, data_width=32"
+    },
+    "dw32__qm8_dqm24": {
+      "data_width": 32,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 24,
+      "ppl": 10.74896331096168
+    },
+    "dw32__qm8_dqm31": {
+      "data_width": 32,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 31,
+      "ppl": 10.74896331096168
+    },
+    "dw32__qm12_dqm8": {
+      "data_width": 32,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=8, data_width=32"
+    },
+    "dw32__qm12_dqm12": {
+      "data_width": 32,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 12,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=12, data_width=32"
+    },
+    "dw32__qm12_dqm16": {
+      "data_width": 32,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 16,
+      "unrepresentable": "dequantize_3: no (m, sh) for dequantize scale=0.6534185409545898 at mantissa_width=16, data_width=32"
+    },
+    "dw32__qm12_dqm24": {
+      "data_width": 32,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 24,
+      "ppl": 10.814009401325425
+    },
+    "dw32__qm12_dqm31": {
+      "data_width": 32,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 31,
+      "ppl": 10.814009401325425
+    },
+    "dw32__qm16_dqm8": {
+      "data_width": 32,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=8, data_width=32"
+    },
+    "dw32__qm16_dqm12": {
+      "data_width": 32,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 12,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=12, data_width=32"
+    },
+    "dw32__qm16_dqm16": {
+      "data_width": 32,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 16,
+      "unrepresentable": "dequantize_3: no (m, sh) for dequantize scale=0.6534185409545898 at mantissa_width=16, data_width=32"
+    },
+    "dw32__qm16_dqm24": {
+      "data_width": 32,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 24,
+      "ppl": 10.793915250828965
+    },
+    "dw32__qm16_dqm31": {
+      "data_width": 32,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 31,
+      "ppl": 10.793915250828965
+    },
+    "dw32__qm24_dqm8": {
+      "data_width": 32,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=8, data_width=32"
+    },
+    "dw32__qm24_dqm12": {
+      "data_width": 32,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 12,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=12, data_width=32"
+    },
+    "dw32__qm24_dqm16": {
+      "data_width": 32,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 16,
+      "unrepresentable": "dequantize_3: no (m, sh) for dequantize scale=0.6534185409545898 at mantissa_width=16, data_width=32"
+    },
+    "dw32__qm24_dqm24": {
+      "data_width": 32,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 24,
+      "ppl": 10.741964492790034
+    },
+    "dw32__qm24_dqm31": {
+      "data_width": 32,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 31,
+      "ppl": 10.741964492790034
+    },
+    "dw32__qm31_dqm8": {
+      "data_width": 32,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=8, data_width=32"
+    },
+    "dw32__qm31_dqm12": {
+      "data_width": 32,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 12,
+      "unrepresentable": "dequantize: no (m, sh) for dequantize scale=0.040612537413835526 at mantissa_width=12, data_width=32"
+    },
+    "dw32__qm31_dqm16": {
+      "data_width": 32,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 16,
+      "unrepresentable": "dequantize_3: no (m, sh) for dequantize scale=0.6534185409545898 at mantissa_width=16, data_width=32"
+    },
+    "dw32__qm31_dqm24": {
+      "data_width": 32,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 24,
+      "ppl": 10.741964492790034
+    },
+    "dw32__qm31_dqm31": {
+      "data_width": 32,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 31,
+      "ppl": 10.741964492790034
+    },
+    "dw16__qm8_dqm8": {
+      "data_width": 16,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize_10: no (m, sh) for dequantize scale=1.1765599250793457 at mantissa_width=8, data_width=16"
+    },
+    "dw16__qm8_dqm12": {
+      "data_width": 16,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 12,
+      "ppl": 14.39285766837129
+    },
+    "dw16__qm8_dqm16": {
+      "data_width": 16,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 16,
+      "ppl": 14.133918471341403
+    },
+    "dw16__qm8_dqm24": {
+      "data_width": 16,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 24,
+      "ppl": 14.195158993728365
+    },
+    "dw16__qm8_dqm31": {
+      "data_width": 16,
+      "quantize_mantissa_width": 8,
+      "dequantize_mantissa_width": 31,
+      "ppl": 14.195158993728365
+    },
+    "dw16__qm12_dqm8": {
+      "data_width": 16,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize_10: no (m, sh) for dequantize scale=1.1765599250793457 at mantissa_width=8, data_width=16"
+    },
+    "dw16__qm12_dqm12": {
+      "data_width": 16,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 12,
+      "ppl": 14.316706152804588
+    },
+    "dw16__qm12_dqm16": {
+      "data_width": 16,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 16,
+      "ppl": 14.322582337448615
+    },
+    "dw16__qm12_dqm24": {
+      "data_width": 16,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 24,
+      "ppl": 14.265276277860119
+    },
+    "dw16__qm12_dqm31": {
+      "data_width": 16,
+      "quantize_mantissa_width": 12,
+      "dequantize_mantissa_width": 31,
+      "ppl": 14.265276277860119
+    },
+    "dw16__qm16_dqm8": {
+      "data_width": 16,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize_10: no (m, sh) for dequantize scale=1.1765599250793457 at mantissa_width=8, data_width=16"
+    },
+    "dw16__qm16_dqm12": {
+      "data_width": 16,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 12,
+      "ppl": 14.215937378067006
+    },
+    "dw16__qm16_dqm16": {
+      "data_width": 16,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 16,
+      "ppl": 14.206214014566914
+    },
+    "dw16__qm16_dqm24": {
+      "data_width": 16,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 24,
+      "ppl": 14.180920366200267
+    },
+    "dw16__qm16_dqm31": {
+      "data_width": 16,
+      "quantize_mantissa_width": 16,
+      "dequantize_mantissa_width": 31,
+      "ppl": 14.180920366200267
+    },
+    "dw16__qm24_dqm8": {
+      "data_width": 16,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize_10: no (m, sh) for dequantize scale=1.1765599250793457 at mantissa_width=8, data_width=16"
+    },
+    "dw16__qm24_dqm12": {
+      "data_width": 16,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 12,
+      "ppl": 14.367238436349165
+    },
+    "dw16__qm24_dqm16": {
+      "data_width": 16,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 16,
+      "ppl": 14.303483876108603
+    },
+    "dw16__qm24_dqm24": {
+      "data_width": 16,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 24,
+      "ppl": 14.3136777922786
+    },
+    "dw16__qm24_dqm31": {
+      "data_width": 16,
+      "quantize_mantissa_width": 24,
+      "dequantize_mantissa_width": 31,
+      "ppl": 14.3136777922786
+    },
+    "dw16__qm31_dqm8": {
+      "data_width": 16,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 8,
+      "unrepresentable": "dequantize_10: no (m, sh) for dequantize scale=1.1765599250793457 at mantissa_width=8, data_width=16"
+    },
+    "dw16__qm31_dqm12": {
+      "data_width": 16,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 12,
+      "ppl": 14.387712017246225
+    },
+    "dw16__qm31_dqm16": {
+      "data_width": 16,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 16,
+      "ppl": 14.346883619987677
+    },
+    "dw16__qm31_dqm24": {
+      "data_width": 16,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 24,
+      "ppl": 14.341959713620264
+    },
+    "dw16__qm31_dqm31": {
+      "data_width": 16,
+      "quantize_mantissa_width": 31,
+      "dequantize_mantissa_width": 31,
+      "ppl": 14.341959713620264
+    }
+  }
+}

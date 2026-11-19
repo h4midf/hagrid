@@ -1,0 +1,52 @@
+// 1F1C cell, modeled as NVSim eDRAM (same charge-sharing readout:
+// V = Vdd/2 * Ccell / (Ccell + Cbitline)).
+// [PAPER] = Laleni et al. 2024 (JXCDC) or Yin et al. 2024 (arXiv:2410.15296).
+// [ASSUMED] = not stated by either paper.
+
+-MemCellType: eDRAM
+
+// [PAPER] Laleni, Sec. V: 28 nm.
+-ProcessNode: 28
+
+// Cell size is set by the CMoM (Laleni, Sec. III-B: CMoM increases cell area).
+// [PAPER] CMoM = 1.3 fF (Laleni, Sec. IV).
+// MoM density at 28 nm, derived with NVSim's own sidewall wire-cap formula
+// (formula.cpp: eps0 * k * thickness / spacing), interdigitated fingers:
+//   [ASSUMED] 28 nm metal pitch 90 nm (width = spacing = 45 nm),
+//             thickness = 1.8 x width (NVSim local-wire aspect), k = 2.82
+//             (NVSim local aggressive), 4 metal layers.
+//   per layer = eps0 * k * t / (s * pitch) = 0.499 fF/um^2
+//   density   = 4 x 0.499 = 2.0 fF/um^2
+//   area = 1.3 / 2.0 = 0.651 um^2 = 830.5 F^2 (F = 28 nm)
+//   (devices alone, FeFET 450/450 nm + switch + contacts, ~0.35 um^2, fit under it)
+//   -> MoM-limited cell: 18F x 46.1F, giving Cpar = 52.7 fF (Laleni: 75 fF).
+// [PAPER-DERIVED] width (wordline dir) = FeFET W 16F + 2F isolation = 18F.
+// [FITTED] height (bitline dir) raised to match Laleni's Cpar = 75 fF:
+//   wire needed = 75 - 5.09 (switch contacts) = 69.9 fF
+//   at NVSim 0.288 fF/um -> bitline 242.6 um -> 1.896 um/row = 67.7F
+//   area = 18 x 67.7 = 1218.6 F^2, aspect = 67.7 / 18 = 3.761.
+//   Neither paper gives cell pitch; extra height over the MoM-limited 46.1F
+//   stands in for routing/layout overhead not modeled here.
+-CellArea (F^2): 1218.6
+-CellAspectRatio: 3.761
+
+// [PAPER] Laleni, Sec. IV: CMoM = 1.3 fF.
+-DRAMCellCapacitance (F): 1.3e-15
+
+// [PAPER] Yin: CMOS-compatible FeFET, 28 nm HKMG.
+-AccessType: CMOS
+
+// The device on the bitline is the per-cell switch (Laleni Fig. 4/9: S0..S3
+// connect the CMoM node to BL), not the FeFET (FeFET drain sits on CMoM).
+// [ASSUMED] Minimum-size switch: NVSim MIN_NMOS_SIZE = 1.5F.
+-AccessCMOSWidth (F): 1.5
+
+// [ASSUMED] Default used elsewhere in this project.
+-VoltageDropAccessDevice (V): 0.15
+
+// [PAPER] Laleni, Sec. V: VDD = 1 V.
+-ReadVoltage (V): 1.0
+-ReadMode: voltage
+
+// [PAPER-DERIVED] Laleni ADC: Vrefp / 2^ENOB = 0.5 V / 2^6.4 = 5.9 mV.
+-MinSenseVoltage (mV): 5.9

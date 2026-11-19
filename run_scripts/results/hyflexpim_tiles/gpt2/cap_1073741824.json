@@ -1,0 +1,73 @@
+{
+  "target": "hyflexpim/default",
+  "model": "gpt2",
+  "cap": 1073741824,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/gpt2/cap_1073741824.json",
+  "latency_ns": 56703.78400597471,
+  "analog_arrays": 51204096,
+  "digital_arrays": 805306374,
+  "analog_modules": 100008,
+  "digital_modules": 3145729,
+  "pus": 393217,
+  "units": {
+    "total": {
+      "vec_el_mul": 9628762,
+      "vec_add": 2602050,
+      "rsqrt": 1038,
+      "absmax_tree": 86288,
+      "quantize_per_token_token_scale": 182583,
+      "quantize_per_token_quant_mant_round": 3837955,
+      "vec_select": 66161,
+      "softmax_max_reduce_tree": 12288,
+      "softmax_exp_pwl16_standalone": 346127,
+      "softmax_q8_8_reciprocal": 12288,
+      "reduce_tree_n1024": 2066,
+      "reduce_tree_n256": 12288,
+      "reduce_tree_n16": 8138411,
+      "quantize": 1348176,
+      "gelu": 4218266,
+      "reduce_tree_n64": 995286
+    },
+    "max_per_pu": {
+      "vec_el_mul": 745648,
+      "vec_add": 300320,
+      "rsqrt": 1038,
+      "absmax_tree": 2219,
+      "quantize_per_token_token_scale": 2134,
+      "quantize_per_token_quant_mant_round": 198558,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 2066,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n16": 27119,
+      "quantize": 3875,
+      "gelu": 27119,
+      "reduce_tree_n64": 6780
+    },
+    "chip_pool": {
+      "vec_add": 595204,
+      "vec_el_mul": 4011926,
+      "rsqrt": 1038,
+      "gelu": 3145728,
+      "quantize": 112348,
+      "absmax_tree": 24576,
+      "vec_select": 66161,
+      "quantize_per_token_token_scale": 24576,
+      "quantize_per_token_quant_mant_round": 1524440,
+      "softmax_max_reduce_tree": 12288,
+      "softmax_exp_pwl16_standalone": 346127,
+      "softmax_q8_8_reciprocal": 12288,
+      "reduce_tree_n1024": 2066,
+      "reduce_tree_n256": 10222,
+      "reduce_tree_n64": 774144,
+      "reduce_tree_n16": 2359296
+    }
+  },
+  "traffic": {
+    "local_bits": 105923945342.52873,
+    "inner_bus_bits": 231987.16074819936,
+    "global_bus_bits": 1521504846.3105156
+  }
+}

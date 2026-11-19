@@ -1,0 +1,61 @@
+{
+  "vari_0.0": {
+    "generated": "2026-11-07T21:14:00",
+    "script": "-c",
+    "accuracy_pct": 91.8,
+    "correct": 9180,
+    "total": 10000,
+    "neurosim_args": {
+      "dataset": "cifar10",
+      "model": "VGG8",
+      "mode": "WAGE",
+      "seed": 117,
+      "batch_size": 200,
+      "wl_weight": 8,
+      "wl_activate": 8,
+      "inference": 1,
+      "subArray": 128,
+      "parallelRead": 128,
+      "ADCprecision": 7,
+      "cellBit": 2,
+      "onoffratio": 10,
+      "vari": 0.0,
+      "t": 0,
+      "v": 0,
+      "detect": 0,
+      "target": 0
+    },
+    "run_dir": "neurosim_out/20261107_191807 (on the GPU machine halide)",
+    "laleni_accuracy_pct": 89
+  },
+  "vari_0.06": {
+    "generated": "2026-11-07T21:31:57",
+    "script": "-c",
+    "accuracy_pct": 91.46,
+    "correct": 9146,
+    "total": 10000,
+    "neurosim_args": {
+      "dataset": "cifar10",
+      "model": "VGG8",
+      "mode": "WAGE",
+      "seed": 117,
+      "batch_size": 200,
+      "wl_weight": 8,
+      "wl_activate": 8,
+      "inference": 1,
+      "subArray": 128,
+      "parallelRead": 128,
+      "ADCprecision": 7,
+      "cellBit": 2,
+      "onoffratio": 10,
+      "vari": 0.06,
+      "t": 0,
+      "v": 0,
+      "detect": 0,
+      "target": 0
+    },
+    "run_dir": "neurosim_out/20261107_203450 (on the GPU machine halide)",
+    "laleni_accuracy_pct": 89,
+    "note": "copied by hand from the GPU machine run output"
+  }
+}

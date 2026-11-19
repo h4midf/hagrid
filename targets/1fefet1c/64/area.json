@@ -1,0 +1,37 @@
+{
+  "_description": "Area inputs of the 64 x 64 1F1C config (one array: 64 data columns and ISAAC's unit column, each with its column readout) that are not in design.json, each with its source in _provenance. The cell array area is not here: it is results/nvsim.json -> array.array_area_um2 (28 nm). The 7-bit ADC and its front end are the default's (../default/area.json).",
+
+  "adc": {
+    "per_array": 65,
+    "bits": 7,
+    "source_bits": 7,
+    "source_area_um2": 429,
+    "source_node_nm": 65,
+    "target_node_nm": 28,
+    "deepscale_area_factor": 5.829
+  },
+  "column_frontend": {
+    "per_array": 65,
+    "capacitance_fF": {"buffer_CC": 70, "buffer_CLS": 200, "bootstrap_CB": 25},
+    "mom_density_fF_per_um2": 6.30,
+    "transistors_W_L_nm": [
+      [1000, 200], [2000, 200], [2000, 200], [2000, 200], [500, 200], [500, 200], [3000, 200], [4000, 200],
+      [200, 32], [200, 32], [200, 32], [400, 32], [400, 32], [500, 32]
+    ],
+    "transistor_node_nm": 32,
+    "transistor_layout": {
+      "gate_poly_gap_F": 2.8,
+      "p_n_diffusion_gap_F": 3.5,
+      "poly_extension_F": 1.0,
+      "field_poly_gap_F": 1.6
+    },
+    "transistor_deepscale_area_factor": 1.400
+  },
+
+  "_provenance": {
+    "adc.per_array": "One buffer, sample-and-hold and SAR ADC per column (Laleni et al. 2024, Fig. 9, Sec. IV): 64 data columns + 1 unit column (design.json encoding)",
+    "adc.bits, source_bits": "design.json adc.bits (7, ISAAC Eq. 2 with the weight-flip encoding); the source ADC (CAP-RAM) is 7-bit, so its area is used as is. An ADC of more bits than the source scales its area by 2^(bits - source_bits): ISAAC Sec. III, 'some ADC overheads grow exponentially with resolution', and our SAR keeps its unit capacitor, so its capacitive DAC doubles per bit (spice/adc/sar_full_tb_8b.sp)",
+    "adc.source_area_um2, source_node_nm, deepscale_area_factor": "As ../default/area.json: CAP-RAM (Chen et al., IEEE JSSC, arXiv 2107.02388), Sec. III-B, per-column 7-bit ciSAR ADC, 429 um^2 in 65-nm LP CMOS; DeepScaleTool area factor 65 -> 28 nm",
+    "column_frontend": "The default's front end (spice/adc/sar_full_tb.sp: buffer_ab CC=70f, N2=4, N6=6, CLS=200f; bootsw CB=25f, WS=500n), unchanged since the 7-bit ADC is the default's; area per column and transistor list as ../default/area.json _provenance"
+  }
+}

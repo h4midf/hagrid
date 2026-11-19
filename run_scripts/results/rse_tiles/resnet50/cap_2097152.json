@@ -1,0 +1,72 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "resnet50",
+  "model": "resnet50-w3",
+  "cap": 2097152,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/resnet50/cap_2097152.json",
+  "latency_ns": 60551.34196663683,
+  "macros": 430398,
+  "rram_macros": 298688,
+  "sram_macros": 131710,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 4484,
+  "added_tiles": 0,
+  "mesh": [
+    67,
+    67
+  ],
+  "pes": 53800,
+  "routers": 1121,
+  "units": {
+    "total": {
+      "quantize": 279308,
+      "vec_el_mul": 18135,
+      "vec_add": 3659,
+      "argmax_tree": 22301,
+      "reduce_tree_n8": 121208,
+      "reduce_tree_n16": 17625,
+      "dequantize": 67093,
+      "relu": 47826,
+      "reduce_tree_n32": 3735,
+      "reduce_tree_n64": 1167,
+      "reduce_tree_n128": 430
+    },
+    "max_per_tile": {
+      "quantize": 9670,
+      "vec_el_mul": 30,
+      "vec_add": 7,
+      "argmax_tree": 66,
+      "reduce_tree_n8": 262,
+      "reduce_tree_n16": 29,
+      "dequantize": 219,
+      "relu": 211,
+      "reduce_tree_n32": 137,
+      "reduce_tree_n64": 12,
+      "reduce_tree_n128": 6
+    },
+    "chip_pool": {
+      "argmax_tree": 22301,
+      "vec_add": 3158,
+      "vec_el_mul": 11959,
+      "relu": 41645,
+      "quantize": 236909,
+      "dequantize": 59331,
+      "reduce_tree_n128": 430,
+      "reduce_tree_n64": 813,
+      "reduce_tree_n32": 1803,
+      "reduce_tree_n16": 15319,
+      "reduce_tree_n8": 104276
+    }
+  },
+  "traffic": {
+    "edge_bits": 5684097344,
+    "bus_bits": 6615367232,
+    "flit_hops": 160267776,
+    "correction_bits": 580121856,
+    "flit_hops_by_kind": {
+      "edge_bits": 160267776,
+      "correction_bits": 0
+    }
+  }
+}

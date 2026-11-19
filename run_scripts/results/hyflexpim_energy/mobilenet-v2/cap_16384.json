@@ -1,0 +1,51 @@
+{
+  "target": "hyflexpim/default",
+  "model": "mobilenet-v2",
+  "cap": 16384,
+  "node_nm": 65,
+  "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/mobilenet-v2/cap_16384.json",
+  "latency_ns": 246162.1347118946,
+  "event_energies": {
+    "analog_array_cycle_pJ": 80.7158510704882,
+    "adc_conversion_pJ": {
+      "slc": 0.6261981818181819,
+      "mlc": 0.7797169696969697
+    },
+    "digital_row_pJ": 136.97489094614548,
+    "inner_bus_bit_pJ": 0.03533154356556663,
+    "global_bus_bit_pJ": 0.3179838920900996
+  },
+  "total_mJ": 2.1400056253827358,
+  "parts_mJ": {
+    "analog array cycles": 1.6745956189892042,
+    "analog ADC conversions": 0.2818708450630593,
+    "digital row writes": 0.08811090666966856,
+    "accelerator vec_el_mul": 0.03515380194659539,
+    "digital row reads": 0.02592474449976961,
+    "accelerator quantize": 0.021028173289007676,
+    "inner buses": 0.005500492190745046,
+    "routers": 0.004016706505948906,
+    "accelerator vec_add": 0.0022374484494732307,
+    "accelerator dequantize": 0.000739643790450901,
+    "accelerator reduce_tree_n8": 0.0006750067315872059,
+    "accelerator reduce_tree_n16": 0.00013833787403741703,
+    "accelerator reduce_tree_n64": 1.0056538115354773e-05,
+    "accelerator reduce_tree_n32": 3.842845072851109e-06
+  },
+  "parts_pct": {
+    "analog array cycles": 78.25192602891902,
+    "analog ADC conversions": 13.171500192325302,
+    "digital row writes": 4.11732126423313,
+    "accelerator vec_el_mul": 1.6426967074120753,
+    "digital row reads": 1.2114334743925275,
+    "accelerator quantize": 0.9826223370439425,
+    "inner buses": 0.25703166970700336,
+    "routers": 0.1876960723049747,
+    "accelerator vec_add": 0.10455339102545898,
+    "accelerator dequantize": 0.03456270309189572,
+    "accelerator reduce_tree_n8": 0.0315422877202242,
+    "accelerator reduce_tree_n16": 0.006464369644480517,
+    "accelerator reduce_tree_n64": 0.0004699304523349644,
+    "accelerator reduce_tree_n32": 0.00017957172762869832
+  }
+}

@@ -1,0 +1,102 @@
+* 7-bit SAR ADC core for 1F1C (Laleni et al. 2024, Fig. 9), PTM 32nm LP, VDD = 1 V.
+* Conventional switching, single-ended, bottom-plate sampling, comparator vs VCM.
+* All gates are minimum size (L = 32 nm, Wn = 48 nm, Wp = 96 nm) unless noted.
+
+* ---------------------------------------------------------------- basic gates
+.subckt inv a y vdd
+Mp y a vdd vdd pmos W=96n L=32n
+Mn y a 0   0   nmos W=48n L=32n
+.ends
+
+.subckt nand2 a b y vdd
+Mp1 y a vdd vdd pmos W=96n L=32n
+Mp2 y b vdd vdd pmos W=96n L=32n
+Mn1 y a n1  0   nmos W=96n L=32n
+Mn2 n1 b 0  0   nmos W=96n L=32n
+.ends
+
+.subckt nor2 a b y vdd
+Mp1 n1 a vdd vdd pmos W=192n L=32n
+Mp2 y  b n1  vdd pmos W=192n L=32n
+Mn1 y a 0 0 nmos W=48n L=32n
+Mn2 y b 0 0 nmos W=48n L=32n
+.ends
+
+* transmission gate: conducts when en = 1 (enb = not en)
+.subckt tg x y en enb vdd W=96n
+Mn x en  y 0   nmos W={W} L=32n
+Mp x enb y vdd pmos W={W} L=32n
+.ends
+
+* low-Vt transmission gate for analog switches (DAC, sampling):
+* standard-Vt LP devices (Vth ~0.55 V) barely conduct at mid-rail (Vref = 0.5 V)
+.subckt tglvt x y en enb vdd W=192n
+Mn x en  y 0   nmos_lvt W={W} L=32n
+Mp x enb y vdd pmos_lvt W={W} L=32n
+.ends
+
+* positive-edge master-slave DFF (transmission-gate latches)
+.subckt dff d clk q vdd
+Xi0 clk clkb vdd inv
+* master: transparent while clk = 0
+Xt1 d a clkb clk vdd tg
+Xi1 a b vdd inv
+Xi2 b c vdd inv
+Xt2 c a clk clkb vdd tg
+* slave: transparent while clk = 1
+Xt3 b e clk clkb vdd tg
+Xi3 e q vdd inv
+Xi4 q g vdd inv
+Xt4 g e clkb clk vdd tg
+.ends
+
+* ---------------------------------------------------------------- comparator
+* PMOS-input StrongARM latch (inputs near ground: VCM = 0.3 V).
+* Evaluates while clkc = 1, resets (outputs to ground) while clkc = 0.
+* outn rises when inp < inn; outp rises when inp > inn.
+* NOR SR latch holds the decision: cmp = 1  <=>  inp < inn.
+.subckt comparator inp inn clkc cmp vdd
+Xic clkc clkcb vdd inv
+Mtail t clkcb vdd vdd pmos W=2u L=32n
+M1 p inp t vdd pmos W=2u L=64n
+M2 q inn t vdd pmos W=2u L=64n
+M3 outn outp p vdd pmos W=1u L=32n
+M4 outp outn q vdd pmos W=1u L=32n
+M5 outn outp 0 0 nmos W=500n L=32n
+M6 outp outn 0 0 nmos W=500n L=32n
+M7 outn clkcb 0 0 nmos W=250n L=32n
+M8 outp clkcb 0 0 nmos W=250n L=32n
+M9 p clkcb 0 0 nmos W=250n L=32n
+M10 q clkcb 0 0 nmos W=250n L=32n
+Xn1 outp cmpb cmp vdd nor2
+Xn2 outn cmp cmpb vdd nor2
+.ends
+
+* ---------------------------------------------------------------- one DAC bit
+* bottom plate bot of this bit's capacitor:
+*   samp = 1 -> vin ; samp = 0 and dk = 1 -> vref ; samp = 0 and dk = 0 -> ground
+.subckt dacsw bot vin vref samp sampb dk vdd W=192n
+Xi dk dkb vdd inv
+Xnr samp dkb enref vdd nor2
+Xng samp dk  engnd vdd nor2
+Xir enref enrefb vdd inv
+Xtin vin  bot samp  sampb  vdd tglvt W={W}
+Xtrf vref bot enref enrefb vdd tglvt W={W}
+Mg bot engnd 0 0 nmos_lvt W={W} L=32n
+.ends
+
+* ---------------------------------------------------------------- one SAR bit
+* tk  : this bit's trial cycle (one-hot from the shift register)
+* bk  : decided bit (register)
+* dk  : DAC control = tk OR bk
+* next bk = samp ? 0 : (tk ? cmp : bk)
+.subckt sarbit tk cmp samp clk bk dk vdd
+Xit tk tkb vdd inv
+Xtm1 cmp mux tk tkb vdd tg
+Xtm2 bk  mux tkb tk vdd tg
+Xim mux muxb vdd inv
+Xnd samp muxb bnext vdd nor2
+Xff bnext clk bk vdd dff
+Xor tk bk dkn vdd nor2
+Xio dkn dk vdd inv
+.ends

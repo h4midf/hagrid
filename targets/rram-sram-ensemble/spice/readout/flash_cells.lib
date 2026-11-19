@@ -1,0 +1,67 @@
+* Cells of the RRAM macro's 3-bit flash ADC (flash_tb.sp), PTM 65 nm bulk, L = 65 nm.
+.subckt inv a y vdd s=1
+MP y a vdd vdd pmos w={s*260n} l=65n
+MN y a 0 0 nmos w={s*130n} l=65n
+.ends
+.subckt nand2 a b y vdd s=1
+MP1 y a vdd vdd pmos w={s*260n} l=65n
+MP2 y b vdd vdd pmos w={s*260n} l=65n
+MN1 y a m 0 nmos w={s*260n} l=65n
+MN2 m b 0 0 nmos w={s*260n} l=65n
+.ends
+.subckt nand4 a b c d y vdd s=1
+MP1 y a vdd vdd pmos w={s*260n} l=65n
+MP2 y b vdd vdd pmos w={s*260n} l=65n
+MP3 y c vdd vdd pmos w={s*260n} l=65n
+MP4 y d vdd vdd pmos w={s*260n} l=65n
+MN1 y a m1 0 nmos w={s*520n} l=65n
+MN2 m1 b m2 0 nmos w={s*520n} l=65n
+MN3 m2 c m3 0 nmos w={s*520n} l=65n
+MN4 m3 d 0 0 nmos w={s*520n} l=65n
+.ends
+* SR latch (cross-coupled NAND), active-low inputs: sn = 0 sets q, rn = 0 resets q
+.subckt srln sn rn q qb vdd
+X1 sn qb q vdd nand2
+X2 rn q qb vdd nand2
+.ends
+* StrongARM, NMOS inputs (references at or above mid-rail). clk high = evaluate. on / op
+* are high in reset; on falls when inp > inn, op falls when inp < inn.
+.subckt sa_n inp inn clk on op vdd
+MT  tail clk 0 0 nmos w=520n l=65n
+M1  x1 inp tail 0 nmos w=520n l=65n
+M2  x2 inn tail 0 nmos w=520n l=65n
+M3  on op x1 0 nmos w=260n l=65n
+M4  op on x2 0 nmos w=260n l=65n
+M5  on op vdd vdd pmos w=260n l=65n
+M6  op on vdd vdd pmos w=260n l=65n
+MR1 on clk vdd vdd pmos w=260n l=65n
+MR2 op clk vdd vdd pmos w=260n l=65n
+MR3 x1 clk vdd vdd pmos w=260n l=65n
+MR4 x2 clk vdd vdd pmos w=260n l=65n
+.ends
+* StrongARM, PMOS inputs (references below mid-rail). clkb low = evaluate. on / op are low
+* in reset; op rises when inp > inn, on rises when inp < inn.
+.subckt sa_p inp inn clkb on op vdd
+MT  tail clkb vdd vdd pmos w=1040n l=65n
+M1  x1 inp tail vdd pmos w=1040n l=65n
+M2  x2 inn tail vdd pmos w=1040n l=65n
+M3  on op x1 vdd pmos w=520n l=65n
+M4  op on x2 vdd pmos w=520n l=65n
+M5  on op 0 0 nmos w=130n l=65n
+M6  op on 0 0 nmos w=130n l=65n
+MR1 on clkb 0 0 nmos w=130n l=65n
+MR2 op clkb 0 0 nmos w=130n l=65n
+MR3 x1 clkb 0 0 nmos w=130n l=65n
+MR4 x2 clkb 0 0 nmos w=130n l=65n
+.ends
+* One comparator slice, output latched: q = 1 when vin > ref
+.subckt cmp_n vin ref clk q qb vdd
+XS vin ref clk on op vdd sa_n
+XL on op q qb vdd srln
+.ends
+.subckt cmp_p vin ref clkb q qb vdd
+XS vin ref clkb on op vdd sa_p
+XI1 op sn vdd inv
+XI2 on rn vdd inv
+XL sn rn q qb vdd srln
+.ends

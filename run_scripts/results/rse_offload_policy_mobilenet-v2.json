@@ -1,0 +1,39 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "mobilenet-v2",
+  "model": "mobilenet-v2-w3",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "sram_share_pct": 63.4,
+  "code_fingerprint": "f795df646b2e43ec",
+  "min_feasible_array_cap": 5894,
+  "max_cap": 870468,
+  "points": {
+    "8192": {
+      "cap": 8192,
+      "latency": 11944825.432187593,
+      "arrays": 7796,
+      "rram_macros": 1844,
+      "sram_macros": 5952,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/mobilenet-v2/cap_8192.json"
+    },
+    "65536": {
+      "cap": 65536,
+      "latency": 4407978.310624985,
+      "arrays": 54909,
+      "rram_macros": 21504,
+      "sram_macros": 33405,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/mobilenet-v2/cap_65536.json"
+    },
+    "1048576": {
+      "cap": 1048576,
+      "latency": 1399536.2309645729,
+      "arrays": 645172,
+      "rram_macros": 157100,
+      "sram_macros": 488072,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/mobilenet-v2/cap_1048576.json"
+    }
+  }
+}

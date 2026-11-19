@@ -1,0 +1,66 @@
+{
+  "_description": "Chip organization of the default 1F1C target, used by the post-mapping tile pass (placement of the mapped arrays into PEs and tiles, then data movement between tiles). The 1F1C paper describes one macro only, so the organization follows ISAAC (Shafiee et al., ISCA 2016, paper/devices/isaac_shafiee2016.pdf): chip -> tiles on a concentrated mesh -> PEs (ISAAC's IMAs) -> arrays. A 1F1C array here is one 128 x 128 macro with its 128 column ADCs.",
+
+  "pe": {
+    "arrays": 8,
+    "input_register": {
+      "bytes": 2048,
+      "access_bits": 256,
+      "source_area_mm2": 0.0021,
+      "source_power_mW": 1.24
+    },
+    "output_register": "the arrays' shift-and-add accumulators (macro_logic/shift_add)"
+  },
+  "tile": {
+    "pes": 12,
+    "accelerator_units": "per tile",
+    "bus": {
+      "wires": 384,
+      "source_area_mm2": 0.090,
+      "source_power_mW": 7
+    }
+  },
+  "scaling": {
+    "source_node_nm": 32,
+    "source_clock_GHz": 1.2,
+    "target_node_nm": 28,
+    "deepscale_area_factor": 1.400,
+    "deepscale_power_factor": 1.125
+  },
+  "excluded": ["off-chip I/O links", "chip-level control and sequencing"],
+  "chip": {
+    "network": "concentrated mesh",
+    "tiles_per_router": 4,
+    "router": {
+      "flit_bits": 32,
+      "ports": 8,
+      "source_power_mW": 42,
+      "source_area_mm2": 0.151
+    },
+    "placement": "schedule order; each op's arrays kept together; consumers in the tiles nearest their producers"
+  },
+  "buffer": {
+    "activations": "WMU arrays",
+    "lane_operands": "each shared lane's own register (custom_op_library/lane_register)"
+  },
+
+  "_provenance": {
+    "pe.arrays": "ISAAC Sec. VIII: the chosen design 'has 8 128x128 arrays, 8 ADCs per IMA, and 12 IMAs per tile'; Table I lists 8 crossbars per IMA",
+    "pe.input_register": "ISAAC Table I, per IMA: IR, size 2 KB, 1.24 mW, 0.0021 mm^2 (32 nm, CACTI); scaled with 'scaling'",
+    "pe.input_register.access_bits": "ISAAC Sec. VI: 'the IR feeds 1 bit at a time for each of the 256 input values to the crossbar arrays': 256 bits per cycle",
+    "pe.output_register": "Our decision: ISAAC's per-IMA OR (256 B) holds the shift-and-add results; in 1F1C the arrays' shift-and-add accumulators already hold them (32 x 22 bits per array), so no separate output register is counted",
+    "tile.bus": "ISAAC Table I, per tile: eDRAM-to-IMA bus, 384 wires, 7 mW, 0.090 mm^2 (32 nm); scaled with 'scaling'",
+    "scaling": "DeepScaleTool (Sarangi and Baas, ISCAS 2021), current node 32 (ISAAC), target node 28: value at 28 nm = value at 32 nm / factor (Area 1.400, Power 1.125). Used for the router, tile bus and PE input register",
+    "scaling.source_clock_GHz": "ISAAC Table I: 'ISAAC Tile at 1.2 GHz'. ISAAC gives the router, bus and IR power at full activity, so one access (one transfer per cycle) costs power / clock: a router 32-bit flit per hop, a bus transfer of its 384 wires, an IR access of 256 bits. Our decision: energy counted per access from the placed traffic (run_scripts/fefet1c_tiles.py), not power x latency, since these parts are idle most of the run; their idle (static) power is not counted separately (ISAAC does not split it)",
+    "excluded": "Our decision: off-chip I/O (ISAAC's HyperTransport links) and chip-level control are not counted, as in most CIM papers",
+    "tile.pes": "ISAAC Table I: 'IMA properties (12 IMAs per tile)'; Sec. VIII as above",
+    "tile.accelerator_units": "ISAAC Sec. IV: 'The tile also has shift-and-add, sigmoid, and max-pool units'; the 1F1C accelerator units (vector lanes, reduce trees, softmax stages, ...) are placed per tile the same way",
+    "chip.network": "ISAAC Sec. IV: tiles 'connected with an on-chip concentrated-mesh (c-mesh)'; data transfers over the c-mesh are statically scheduled",
+    "chip.tiles_per_router": "ISAAC Table I: router (flit size 32, 8 ports, 42 mW, 0.151 mm^2 at 32 nm) 'shared by 4 tiles'",
+    "chip.router.energy": "ISAAC gives the router's power at full activity (Table I, from CACTI 6.5 at 32 nm, Sec. VII) and no energy per flit. At full activity an 8-port router moves one flit through each port per cycle, so one flit-hop costs power / clock / ports (target_loader.py), not power / clock",
+    "chip.router": "ISAAC Table I (32 nm); scaled with 'scaling'; energy per flit-hop as in scaling.source_clock_GHz",
+    "chip.placement": "Our decision: arrays are placed into PEs and tiles in schedule order, an op's arrays kept together, and each consumer in the free tiles nearest its producers",
+    "buffer.activations": "Our decision: in 1F1C, op outputs are written to and read from the WMU (capacitor) arrays (every accelerator round is WMU read, circuit, WMU write), so the WMU arrays, already counted by the mapping, are the activation buffer; no separate ISAAC-style eDRAM tile buffer",
+    "buffer.lane_operands": "Our decision: after a WMU read each column's value waits in its ADC's output register until a shared lane takes it; each shared lane has a register for its operands and result (custom_op_library/lane_register, counted in the lane's area); no SRAM queue"
+  }
+}

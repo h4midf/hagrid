@@ -1,0 +1,14 @@
+{
+  "ioff_A_per_um": 9.12e-12,
+  "vdd_V": 1.2,
+  "vth_n_V": 0.7761080471875175,
+  "vth_p_V": 0.69663259949466,
+  "leakage_nW_by_input": {
+    "0": 0.007103243999999999,
+    "1": 0.010080924
+  },
+  "leakage_nW": 0.008592084,
+  "nangate_cell": "INV_X1",
+  "nangate_leakage_nW": 14.353185,
+  "leakage_factor": 0.0005986186341219737
+}

@@ -1,0 +1,61 @@
+{
+  "target": "1fefet1c/default",
+  "model": "resnet50",
+  "cap": 131072,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/resnet50/cap_131072.json",
+  "latency_ns": 503585.8268482374,
+  "arrays": 107136,
+  "added_arrays": 0,
+  "arrays_per_tile": 96,
+  "tiles": 1116,
+  "added_tiles": 0,
+  "mesh": [
+    34,
+    33
+  ],
+  "pes": 13392,
+  "routers": 279,
+  "units": {
+    "total": {
+      "quantize": 224337,
+      "vec_el_mul": 448,
+      "vec_add": 330,
+      "argmax_tree": 8363,
+      "reduce_tree_n8": 67608,
+      "dequantize": 82800,
+      "relu": 54088,
+      "reduce_tree_n16": 3703,
+      "reduce_tree_n32": 1536,
+      "reduce_tree_n64": 663
+    },
+    "max_per_tile": {
+      "quantize": 4559,
+      "vec_el_mul": 2,
+      "vec_add": 2,
+      "argmax_tree": 98,
+      "reduce_tree_n8": 264,
+      "dequantize": 405,
+      "relu": 373,
+      "reduce_tree_n16": 63,
+      "reduce_tree_n32": 22,
+      "reduce_tree_n64": 22
+    },
+    "chip_pool": {
+      "argmax_tree": 8363,
+      "vec_add": 277,
+      "vec_el_mul": 400,
+      "relu": 47088,
+      "quantize": 202119,
+      "dequantize": 74321,
+      "reduce_tree_n64": 663,
+      "reduce_tree_n32": 1001,
+      "reduce_tree_n16": 2304,
+      "reduce_tree_n8": 55168
+    }
+  },
+  "traffic": {
+    "edge_bits": 2971483712,
+    "bus_bits": 3322230336,
+    "flit_hops": 103830784
+  }
+}

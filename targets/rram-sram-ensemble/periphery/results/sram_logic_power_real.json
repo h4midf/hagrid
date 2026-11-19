@@ -1,0 +1,292 @@
+{
+  "passes": 40,
+  "mean_input_density": 0.1630952380952381,
+  "logic_mW": 0.04811643392968888,
+  "clock_mW": 0.02137161676163031,
+  "clock_gated": true,
+  "dynamic_mW": 0.06948805069131919,
+  "leakage_mW": 3.932259959497492e-05,
+  "power_mW": 0.06952737329091417,
+  "samples": [
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 0,
+      "input_density": 0.09523809523809523,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.21235152909677862
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 1,
+      "input_density": 0.2619047619047619,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.30390385963976
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 2,
+      "input_density": 0.2619047619047619,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.29931236219433777
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 3,
+      "input_density": 0.23809523809523808,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.29760935831828417
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 4,
+      "input_density": 0.4523809523809524,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.35496890335102327
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 0,
+      "input_density": 0.023809523809523808,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.17955366771888573
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 1,
+      "input_density": 0.23809523809523808,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.2873083284569589
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 2,
+      "input_density": 0.23809523809523808,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.28545326963569384
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 3,
+      "input_density": 0.2619047619047619,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.29496026465207936
+    },
+    {
+      "layer": "stage1.1.conv2",
+      "plane": 4,
+      "input_density": 0.30952380952380953,
+      "weight_bit_density": 0.3611111111111111,
+      "logic_pJ_per_cycle": 0.321641762574066
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 0,
+      "input_density": 0.14285714285714285,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.23051534401301385
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 1,
+      "input_density": 0.2619047619047619,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.2595524977249112
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 2,
+      "input_density": 0.2857142857142857,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.287382146985272
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 3,
+      "input_density": 0.38095238095238093,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.30860468222159826
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 4,
+      "input_density": 0.38095238095238093,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.30747863969707934
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 0,
+      "input_density": 0.09523809523809523,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.2100958646271999
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 1,
+      "input_density": 0.19047619047619047,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.2352196357668995
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 2,
+      "input_density": 0.2619047619047619,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.2794697020178619
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 3,
+      "input_density": 0.4523809523809524,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.3472818974598493
+    },
+    {
+      "layer": "stage2.1.conv2",
+      "plane": 4,
+      "input_density": 0.4523809523809524,
+      "weight_bit_density": 0.29910714285714285,
+      "logic_pJ_per_cycle": 0.3350073304682822
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 0,
+      "input_density": 0.0,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.15854484292310334
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 1,
+      "input_density": 0.0,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.15854484292310334
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 2,
+      "input_density": 0.047619047619047616,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.17817972237337537
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 3,
+      "input_density": 0.11904761904761904,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.1982121814733444
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 4,
+      "input_density": 0.07142857142857142,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.1861193733488867
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 0,
+      "input_density": 0.0,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.15854484292310334
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 1,
+      "input_density": 0.0,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.15854484292310334
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 2,
+      "input_density": 0.047619047619047616,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.17840226116343572
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 3,
+      "input_density": 0.07142857142857142,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.18498513752075443
+    },
+    {
+      "layer": "stage3.1.conv2",
+      "plane": 4,
+      "input_density": 0.19047619047619047,
+      "weight_bit_density": 0.24206349206349204,
+      "logic_pJ_per_cycle": 0.2385166862153029
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 0,
+      "input_density": 0.0,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.16963974199786244
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 1,
+      "input_density": 0.0,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.16963974199786244
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 2,
+      "input_density": 0.047619047619047616,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.19706063409503155
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 3,
+      "input_density": 0.09523809523809523,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.2246949924168403
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 4,
+      "input_density": 0.11904761904761904,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.2338253489546701
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 0,
+      "input_density": 0.0,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.16963974199786244
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 1,
+      "input_density": 0.023809523809523808,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.18980237460713859
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 2,
+      "input_density": 0.07142857142857142,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.20839362006623655
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 3,
+      "input_density": 0.14285714285714285,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.2615839298454252
+    },
+    {
+      "layer": "stage4.1.conv2",
+      "plane": 4,
+      "input_density": 0.19047619047619047,
+      "weight_bit_density": 0.4642857142857143,
+      "logic_pJ_per_cycle": 0.28601430335268246
+    }
+  ]
+}

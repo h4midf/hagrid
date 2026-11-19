@@ -1,0 +1,74 @@
+[
+  {
+    "unit": "elu",
+    "params": {
+      "W": 32,
+      "alpha": "1.0",
+      "segments": 16,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear exp",
+    "area_um2_45nm": 5496.89,
+    "area_um2_28nm": 1923.91,
+    "delay_ps": 3460.28,
+    "leakage_uW": 95.0959,
+    "dynamic_mW_est": 2.0341,
+    "total_cells": 4113,
+    "notes": "validated: mean abs err 4e-6, max abs err 2.3e-4 vs true ELU (see approximation_error.py)"
+  },
+  {
+    "unit": "elu",
+    "params": {
+      "W": 32,
+      "alpha": "0.5",
+      "segments": 16,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear exp",
+    "area_um2_45nm": 5764.49,
+    "area_um2_28nm": 2017.57,
+    "delay_ps": 4012.86,
+    "leakage_uW": 126.2921,
+    "dynamic_mW_est": 2.7455,
+    "total_cells": 5832,
+    "notes": "validated: mean abs err 4e-6, max abs err 2.3e-4 vs true ELU (see approximation_error.py)"
+  },
+  {
+    "unit": "elu",
+    "params": {
+      "W": 16,
+      "alpha": "1.0",
+      "segments": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear exp",
+    "area_um2_45nm": 911.05,
+    "area_um2_28nm": 318.87,
+    "delay_ps": 1408.74,
+    "leakage_uW": 19.6769,
+    "dynamic_mW_est": 0.4478,
+    "total_cells": 942,
+    "notes": "validated: mean abs err 8.5e-4, max abs err 7.5e-3 vs true ELU (see approximation_error.py)"
+  },
+  {
+    "unit": "elu",
+    "params": {
+      "W": 16,
+      "alpha": "0.5",
+      "segments": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "base-2 decompose + 16-segment piecewise-linear exp",
+    "area_um2_45nm": 918.23,
+    "area_um2_28nm": 321.38,
+    "delay_ps": 1551.35,
+    "leakage_uW": 19.4971,
+    "dynamic_mW_est": 0.4531,
+    "total_cells": 939,
+    "notes": "validated: mean abs err 8.5e-4, max abs err 7.5e-3 vs true ELU (see approximation_error.py)"
+  }
+]

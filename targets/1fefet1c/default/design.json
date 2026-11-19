@@ -1,0 +1,76 @@
+{
+  "_description": "Design point of the default 1F1C target: Laleni et al., 'A High-Efficiency Charge-Domain CIM 1F1C Macro Using 2-bit FeFET Cells for DNN Processing', IEEE JXCDC 2024. Every value has its source in _provenance. The SPICE scripts (targets/1fefet1c/spice/) read this file; 'reported_results' are Laleni's outputs, kept only to check our simulations against, never used as inputs.",
+
+  "architecture": "coupled_fine_grained_rmu_wmu",
+  "process": {
+    "node_nm": 28,
+    "vdd_V": 1.0
+  },
+  "array": {
+    "rows": 128,
+    "cols": 128
+  },
+  "cell": {
+    "bits_per_cell": 2,
+    "fefet_w_nm": 450,
+    "fefet_l_nm": 450,
+    "cmom_fF": 1.3,
+    "vth_states_V": [1.2, 0.9, 0.6, 0.3],
+    "vth_states_linear_V": [1.2, 0.7, 0.4, 0.1]
+  },
+  "clock": {
+    "freq_MHz": 20,
+    "column_phase_cycles": {"reset": 1, "multiply": 1, "accumulate": 1}
+  },
+  "adc": {
+    "type": "SAR, single-ended, conventional switching, bootstrapped sampling switch, input buffer",
+    "bits": 7,
+    "cycles_per_conversion": 8,
+    "vrefp_V": 0.5,
+    "vrefn_V": 0.0,
+    "buffer_bias_uA": 0.7
+  },
+  "write": {
+    "erase_pulse_V": -5.0,
+    "erase_pulse_ns": 500,
+    "program_start_V": 1.4,
+    "program_pulse_ns": 200,
+    "program_step_mV": 40
+  },
+
+  "reported_results": {
+    "cpar_fF": 75,
+    "kappa": 0.69,
+    "adc_enob_bits": 6.4,
+    "adc_walden_fom_fJ": 26,
+    "bl_charging_power_nW": 0.86,
+    "efficiency_TOPS_per_W": 111.6,
+    "cifar10_vgg8_accuracy_pct": 89
+  },
+
+  "_provenance": {
+    "architecture": "Sec. III: each cell is one FeFET (RMU) with its own CMoM (WMU); the FeFET loads into the CMoM of the same cell, so RMU and WMU are coupled per cell",
+    "process.node_nm": "Sec. V: 'designed and simulated in 28-nm process technology'; FeFETs fabricated in 28 nm HKMG (Sec. III-A, Fig. 5)",
+    "process.vdd_V": "Sec. V: 'The supply voltage is chosen as VDD = 1 V'",
+    "array.rows, array.cols": "Sec. IV: '128 x 128 array of 1F1C cells'",
+    "cell.bits_per_cell": "Title, Sec. III-C: 2-bit FeFET cell, four Vth states",
+    "cell.fefet_w_nm, cell.fefet_l_nm": "Sec. III-A (Fig. 5): 'W/L = 450/450 nm'",
+    "cell.cmom_fF": "Sec. IV and V: 'CMoM is selected as 1.3 fF'",
+    "cell.vth_states_V": "Sec. V: 'Vth1 is 0.3 V, Vth2 is 0.6 V, Vth3 is 0.9 V, and Vth4 ... is 1.2 V' (also Fig. 10(a))",
+    "cell.vth_states_linear_V": "Sec. IV, Fig. 10(b): alternative write scheme [1.2, 0.7, 0.4, 0.1 V] for uniform VBL steps",
+    "clock.freq_MHz": "Sec. V: 'The sampling frequency (Fs) of the operation is 20 MHz'",
+    "clock.column_phase_cycles": "Sec. III-B, Fig. 4: three phases (reset, multiply, accumulate). multiply (FeFET -> CMoM load) = 1 cycle: Sec. V, the FeFET 'is read in one cycle'; supported by SPICE (results/column.json -> fet_to_cap): the stored level has no settling point (it keeps rising ~logarithmically while WL is high), so the load time is the WL pulse width; at one cycle the four levels are distinct and evenly spaced, and longer pulses only let charge leak into the off ('0') state. reset and accumulate durations are not stated; one cycle each is our assumption (accumulate settles in 8.9 ns, results/column.json -> kappa)",
+    "adc.type": "Sec. IV: 'a conventional 7-bit SAR ADC with a bootstrap sampling switch'; 'an extra buffer is needed to drive this circuit'; Sec. V: 'conventional switching, since a single-ended SAR ADC is preferred'",
+    "adc.bits": "Sec. IV: 7-bit SAR ADC",
+    "adc.cycles_per_conversion": "Sec. V: 'eight cycles are needed to quantize the result by this ADC'",
+    "adc.vrefp_V, adc.vrefn_V": "Sec. V: 'Vrefp = 0.5 V and Vrefn = 0 V'",
+    "adc.buffer_bias_uA": "Our design: the input buffer's bias current, the bias the ADC and MAC results use (spice/adc/run_full.py bias sweep, results/adc.json bias_sweep; Laleni gives no bias)",
+    "write": "Sec. III-C: write-verify; HVT reset with -5 V for 500 ns, then 1.4 V pulses for 200 ns, increased in 40 mV steps with read-verify until the target Vth",
+    "reported_results.cpar_fF": "Sec. IV/V: 'Cpar = 75 fF' for 128 rows (our NVSim cell height is fitted to it, see 1f1c.cell)",
+    "reported_results.kappa": "Sec. V: 'the input range drops to 69%'",
+    "reported_results.adc_enob_bits, adc_walden_fom_fJ": "Sec. V: 'ENOB ... 6.4 bits', 'Walden FoM of the ADC is 26 fJ/conversion'",
+    "reported_results.bl_charging_power_nW": "Sec. V: 'BL charging power is 0.86 nW with the expected value of weight as (VDD/2)'",
+    "reported_results.efficiency_TOPS_per_W": "Abstract, Sec. V: 111.6 TOPS/W",
+    "reported_results.cifar10_vgg8_accuracy_pct": "Sec. V: VGG-8 on CIFAR-10 with NeuroSim, 89%"
+  }
+}

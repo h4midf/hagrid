@@ -1,0 +1,93 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "gpt2",
+  "model": "gpt2-w3",
+  "cap": 2097152,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/gpt2/cap_2097152.json",
+  "latency_ns": 21336896.944323216,
+  "macros": 2096640,
+  "rram_macros": 523008,
+  "sram_macros": 1573632,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 21840,
+  "added_tiles": 0,
+  "mesh": [
+    148,
+    148
+  ],
+  "pes": 262080,
+  "routers": 5460,
+  "units": {
+    "total": {
+      "vec_el_mul": 4182,
+      "vec_add": 236,
+      "rsqrt": 2,
+      "absmax_tree": 84,
+      "quantize_per_token_token_scale": 60,
+      "quantize_per_token_quant_mant_round": 308,
+      "vec_select": 8,
+      "softmax_max_reduce_tree": 16,
+      "softmax_exp_pwl16_standalone": 139,
+      "softmax_q8_8_reciprocal": 16,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 16,
+      "reduce_tree_n32": 114,
+      "reduce_tree_n16": 5499,
+      "reduce_tree_n8": 5447,
+      "quantize": 802,
+      "gelu": 2510,
+      "reduce_tree_n64": 618
+    },
+    "max_per_tile": {
+      "vec_el_mul": 59,
+      "vec_add": 10,
+      "rsqrt": 2,
+      "absmax_tree": 6,
+      "quantize_per_token_token_scale": 7,
+      "quantize_per_token_quant_mant_round": 31,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n32": 1,
+      "reduce_tree_n16": 1,
+      "reduce_tree_n8": 1,
+      "quantize": 1,
+      "gelu": 1,
+      "reduce_tree_n64": 1
+    },
+    "chip_pool": {
+      "vec_add": 38,
+      "vec_el_mul": 512,
+      "rsqrt": 2,
+      "gelu": 262,
+      "quantize": 221,
+      "absmax_tree": 14,
+      "vec_select": 1,
+      "quantize_per_token_token_scale": 12,
+      "quantize_per_token_quant_mant_round": 53,
+      "softmax_max_reduce_tree": 2,
+      "softmax_exp_pwl16_standalone": 23,
+      "softmax_q8_8_reciprocal": 2,
+      "reduce_tree_n1024": 4,
+      "reduce_tree_n256": 2,
+      "reduce_tree_n64": 67,
+      "reduce_tree_n32": 64,
+      "reduce_tree_n16": 573,
+      "reduce_tree_n8": 1024
+    }
+  },
+  "traffic": {
+    "edge_bits": 168145649664,
+    "bus_bits": 183110664192,
+    "flit_hops": 8372051968,
+    "correction_bits": 12230590464,
+    "flit_hops_by_kind": {
+      "edge_bits": 8372051968,
+      "correction_bits": 0
+    }
+  }
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "unit": "leaky_relu",
+    "params": {
+      "W": 32,
+      "alpha": "0.01_generic",
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "constant-multiply + mux",
+    "area_um2_45nm": 1803.75,
+    "area_um2_28nm": 631.31,
+    "delay_ps": 1529.98,
+    "leakage_uW": 38.9344,
+    "dynamic_mW_est": 0.8601,
+    "total_cells": 1795,
+    "notes": "alpha is a compile-time parameter"
+  },
+  {
+    "unit": "leaky_relu",
+    "params": {
+      "W": 32,
+      "alpha": "0.125_pow2",
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "constant-multiply + mux",
+    "area_um2_45nm": 149.49,
+    "area_um2_28nm": 52.32,
+    "delay_ps": 638.01,
+    "leakage_uW": 3.4755,
+    "dynamic_mW_est": 0.0746,
+    "total_cells": 155,
+    "notes": "alpha is a compile-time parameter"
+  },
+  {
+    "unit": "leaky_relu",
+    "params": {
+      "W": 32,
+      "alpha": "0.0078125_pow2",
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "constant-multiply + mux",
+    "area_um2_45nm": 133.8,
+    "area_um2_28nm": 46.83,
+    "delay_ps": 500.09,
+    "leakage_uW": 3.0894,
+    "dynamic_mW_est": 0.0659,
+    "total_cells": 137,
+    "notes": "alpha is a compile-time parameter"
+  },
+  {
+    "unit": "leaky_relu",
+    "params": {
+      "W": 16,
+      "alpha": "0.01_generic",
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "constant-multiply + mux",
+    "area_um2_45nm": 116.77,
+    "area_um2_28nm": 40.87,
+    "delay_ps": 378.22,
+    "leakage_uW": 2.7435,
+    "dynamic_mW_est": 0.057,
+    "total_cells": 126,
+    "notes": "alpha is a compile-time parameter"
+  },
+  {
+    "unit": "leaky_relu",
+    "params": {
+      "W": 16,
+      "alpha": "0.125_pow2",
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "constant-multiply + mux",
+    "area_um2_45nm": 65.7,
+    "area_um2_28nm": 23.0,
+    "delay_ps": 258.77,
+    "leakage_uW": 1.4423,
+    "dynamic_mW_est": 0.0332,
+    "total_cells": 71,
+    "notes": "alpha is a compile-time parameter"
+  },
+  {
+    "unit": "leaky_relu",
+    "params": {
+      "W": 16,
+      "alpha": "0.0078125_pow2",
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "constant-multiply + mux",
+    "area_um2_45nm": 48.94,
+    "area_um2_28nm": 17.13,
+    "delay_ps": 229.27,
+    "leakage_uW": 1.085,
+    "dynamic_mW_est": 0.0249,
+    "total_cells": 55,
+    "notes": "alpha is a compile-time parameter"
+  }
+]

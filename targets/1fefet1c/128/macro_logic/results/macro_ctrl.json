@@ -1,0 +1,17 @@
+[
+  {
+    "unit": "macro_ctrl",
+    "params": {
+      "ROWS": 128,
+      "CONV_CYCLES": 9
+    },
+    "method": "input latches, word-line gating, phase sequencer",
+    "area_um2_45nm": 1027.56,
+    "area_um2_28nm": 359.65,
+    "delay_ps": 728.34,
+    "leakage_uW": 20.6056,
+    "dynamic_mW_est": 0.2492,
+    "total_cells": 670,
+    "notes": "one 1F1C array per MAC; the word-line drivers are in the NVSim array area"
+  }
+]

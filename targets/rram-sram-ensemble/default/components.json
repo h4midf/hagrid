@@ -1,0 +1,35 @@
+{
+  "_description": "Scaling rules for circuits synthesized on NanGate45 (Stillmaker and Baas, Integration 2017), to the RRAM/SRAM chip's 65 nm at 1.2 V. Same tables as targets/hyflexpim/default/components.json.",
+
+  "synthesis": {"library": "NanGate45 typical", "node_nm": 45, "type": "HP", "vdd_V": 1.1},
+  "target": {"node_nm": 65, "type": "Bulk", "vdd_V": 1.2},
+
+  "layout": {
+    "_source": "transistor_layout_F and mom_density as targets/hyflexpim/default/components.json (NeuroSim's single-transistor layout); poly resistor values are ours, typical of a 65 nm non-silicided poly",
+    "transistor_layout_F": {"gate_poly_gap": 2.8, "p_n_diffusion_gap": 3.5, "poly_extension": 1.0, "field_poly_gap": 1.6},
+    "mom_density_fF_per_um2": 2.7,
+    "poly_ohm_per_square": 300,
+    "poly_width_um": 0.2
+  },
+
+  "node_scaling": {
+    "_source_32nm": "the 32 nm rows (for ISAAC's router, tile bus and input register, organization.json) as targets/hyflexpim/default/components.json: Stillmaker and Baas Table 3 and Table 5",
+    "area_geometry": {
+      "_columns": ["min_feature_nm", "metal1_half_pitch_nm", "logic_gate_4T_um2"],
+      "32": [32, 45, 0.71],
+      "45": [45, 59, 2.1],
+      "65": [65, 68, 2.6]
+    },
+    "energy_coefficients": {
+      "_columns": ["ae2", "ae1", "ae0"],
+      "32_HP": [0.8367, -0.4341, 0.1701],
+      "45_HP": [1.018, -0.3107, 0.1539],
+      "65_Bulk": [3.755, -4.398, 1.975]
+    },
+    "power_coefficients": {
+      "_columns": ["ap2", "ap1", "ap0"],
+      "45_HP": [5462, -1760, 522.4],
+      "65_Bulk": [12890, -10510, 4362]
+    }
+  }
+}

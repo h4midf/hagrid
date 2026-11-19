@@ -1,0 +1,71 @@
+{
+  "paper_share_pct": 90,
+  "shift_add_mW_not_in_share": 0.025970774683842787,
+  "by_rows_on": {
+    "1": {
+      "adc_mW": 0.23340911999999997,
+      "column_supply_mW": 0.9796403999999999,
+      "header_only_mW": 0.059082,
+      "crossbar_and_mux_mW": 0.9205583999999999,
+      "wl_mW": 0.08144706494531251,
+      "decoder_mW": 0.025284834697306375,
+      "mux_select_mW": 0.05938128,
+      "programming_mux_leakage_mW": 0.007002978724320001,
+      "total_mW": 1.3861656783669387,
+      "share_supply_view_pct": 87.51114956396196,
+      "share_header_only_pct": 21.100733091630715
+    },
+    "8": {
+      "adc_mW": 0.23340911999999997,
+      "column_supply_mW": 4.770612,
+      "header_only_mW": 1.4431699999999998,
+      "crossbar_and_mux_mW": 3.327442,
+      "wl_mW": 0.5791791285000001,
+      "decoder_mW": 0.025284834697306375,
+      "mux_select_mW": 0.05652659999999999,
+      "programming_mux_leakage_mW": 0.00166695492896,
+      "total_mW": 5.666678638126267,
+      "share_supply_view_pct": 88.30606850249444,
+      "share_header_only_pct": 29.58662784792
+    },
+    "16": {
+      "adc_mW": 0.23340911999999997,
+      "column_supply_mW": 6.5084159999999995,
+      "header_only_mW": 3.2692300000000003,
+      "crossbar_and_mux_mW": 3.2391859999999992,
+      "wl_mW": 0.992878506,
+      "decoder_mW": 0.025284834697306375,
+      "mux_select_mW": 0.055103040000000006,
+      "programming_mux_leakage_mW": 0.0006240970189792,
+      "total_mW": 7.815715597716285,
+      "share_supply_view_pct": 86.25985727999019,
+      "share_header_only_pct": 44.81533490066418
+    },
+    "32": {
+      "adc_mW": 0.23340911999999997,
+      "column_supply_mW": 7.462452,
+      "header_only_mW": 5.24231,
+      "crossbar_and_mux_mW": 2.220142,
+      "wl_mW": 1.323838008,
+      "decoder_mW": 0.025284834697306375,
+      "mux_select_mW": 0.0549072,
+      "programming_mux_leakage_mW": 0.00024981464995200005,
+      "total_mW": 9.100140977347259,
+      "share_supply_view_pct": 84.5685922795823,
+      "share_header_only_pct": 60.17180539983461
+    },
+    "64": {
+      "adc_mW": 0.23340911999999997,
+      "column_supply_mW": 7.907124,
+      "header_only_mW": 6.502339999999999,
+      "crossbar_and_mux_mW": 1.4047840000000003,
+      "wl_mW": 0.0,
+      "decoder_mW": 0.025284834697306375,
+      "mux_select_mW": 0.05475839999999999,
+      "programming_mux_leakage_mW": 0.00016075838816,
+      "total_mW": 8.220737113085466,
+      "share_supply_view_pct": 99.02436981036894,
+      "share_header_only_pct": 81.93607248768826
+    }
+  }
+}

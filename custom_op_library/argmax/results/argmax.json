@@ -1,0 +1,164 @@
+[
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 646.91,
+    "area_um2_28nm": 226.42,
+    "delay_ps": 1380.26,
+    "leakage_uW": 14.7164,
+    "dynamic_mW_est": 0.3326,
+    "total_cells": 712,
+    "notes": "taps both max value (cim.max) and argmax index (cim.argmax) from one circuit"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 8,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 1460.61,
+    "area_um2_28nm": 511.21,
+    "delay_ps": 2185.47,
+    "leakage_uW": 33.5576,
+    "dynamic_mW_est": 0.7505,
+    "total_cells": 1617,
+    "notes": "taps both max value (cim.max) and argmax index (cim.argmax) from one circuit"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 16,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 3187.48,
+    "area_um2_28nm": 1115.62,
+    "delay_ps": 2877.01,
+    "leakage_uW": 73.0147,
+    "dynamic_mW_est": 1.6261,
+    "total_cells": 3561,
+    "notes": "taps both max value (cim.max) and argmax index (cim.argmax) from one circuit"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 32,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 6428.16,
+    "area_um2_28nm": 2249.85,
+    "delay_ps": 3806.33,
+    "leakage_uW": 92.0504,
+    "dynamic_mW_est": 1.9133,
+    "total_cells": 4371,
+    "notes": "taps both max value (cim.max) and argmax index (cim.argmax) from one circuit"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 64,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 13137.47,
+    "area_um2_28nm": 4598.12,
+    "delay_ps": 4389.18,
+    "leakage_uW": 133.2422,
+    "dynamic_mW_est": 3.0741,
+    "total_cells": 5145,
+    "notes": "taps both max value (cim.max) and argmax index (cim.argmax) from one circuit"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 512,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 103360.42,
+    "area_um2_28nm": 36176.15,
+    "delay_ps": 6826.93,
+    "leakage_uW": 494.4273,
+    "dynamic_mW_est": 13.2643,
+    "total_cells": 17101,
+    "notes": "taps both max value (cim.max) and argmax index (cim.argmax); matches hd-cim target config argmax_tree_width"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 1024,
+      "W": 32,
+      "k": 1,
+      "in": "Q12.20",
+      "out": "Q12.20 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 204498.67,
+    "area_um2_28nm": 71574.54,
+    "delay_ps": 7788.33,
+    "leakage_uW": 403.0841,
+    "dynamic_mW_est": 9.7676,
+    "total_cells": 13159,
+    "notes": "mandatory tiling-width variant"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 512,
+      "W": 16,
+      "k": 1,
+      "in": "Q8.8",
+      "out": "Q8.8 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 55620.33,
+    "area_um2_28nm": 19467.12,
+    "delay_ps": 4381.74,
+    "leakage_uW": 670.8958,
+    "dynamic_mW_est": 16.1117,
+    "total_cells": 28757,
+    "notes": "mandatory tiling-width variant, F16/Q8.8 data width"
+  },
+  {
+    "unit": "argmax_tree",
+    "params": {
+      "N": 1024,
+      "W": 16,
+      "k": 1,
+      "in": "Q8.8",
+      "out": "Q8.8 + index"
+    },
+    "method": "comparator tree",
+    "area_um2_45nm": 111293.6,
+    "area_um2_28nm": 38952.76,
+    "delay_ps": 4989.59,
+    "leakage_uW": 645.0865,
+    "dynamic_mW_est": 17.5084,
+    "total_cells": 23925,
+    "notes": "mandatory tiling-width variant, F16/Q8.8 data width"
+  }
+]

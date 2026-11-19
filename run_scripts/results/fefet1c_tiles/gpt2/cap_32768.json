@@ -1,0 +1,78 @@
+{
+  "target": "1fefet1c/default",
+  "model": "gpt2",
+  "cap": 32768,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_greedy/gpt2/cap_32768.json",
+  "latency_ns": 714913134.6753333,
+  "arrays": 32688,
+  "added_arrays": 0,
+  "arrays_per_tile": 96,
+  "tiles": 341,
+  "added_tiles": 0,
+  "mesh": [
+    19,
+    18
+  ],
+  "pes": 4086,
+  "routers": 86,
+  "units": {
+    "total": {
+      "vec_el_mul": 205,
+      "vec_add": 87,
+      "rsqrt": 2,
+      "absmax_tree": 55,
+      "quantize_per_token_token_scale": 51,
+      "quantize_per_token_quant_mant_round": 53,
+      "vec_select": 9,
+      "softmax_max_reduce_tree": 9,
+      "softmax_exp_pwl16_standalone": 9,
+      "softmax_q8_8_reciprocal": 9,
+      "reduce_tree_n1024": 5,
+      "reduce_tree_n256": 8,
+      "reduce_tree_n8": 3142,
+      "quantize": 287,
+      "gelu": 624,
+      "reduce_tree_n32": 159
+    },
+    "max_per_tile": {
+      "vec_el_mul": 15,
+      "vec_add": 9,
+      "rsqrt": 2,
+      "absmax_tree": 10,
+      "quantize_per_token_token_scale": 6,
+      "quantize_per_token_quant_mant_round": 9,
+      "vec_select": 1,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 5,
+      "reduce_tree_n256": 1,
+      "reduce_tree_n8": 128,
+      "quantize": 24,
+      "gelu": 10,
+      "reduce_tree_n32": 3
+    },
+    "chip_pool": {
+      "vec_add": 15,
+      "vec_el_mul": 31,
+      "rsqrt": 2,
+      "gelu": 59,
+      "quantize": 144,
+      "absmax_tree": 12,
+      "vec_select": 1,
+      "quantize_per_token_token_scale": 10,
+      "quantize_per_token_quant_mant_round": 10,
+      "softmax_max_reduce_tree": 1,
+      "softmax_exp_pwl16_standalone": 1,
+      "softmax_q8_8_reciprocal": 1,
+      "reduce_tree_n1024": 5,
+      "reduce_tree_n32": 15,
+      "reduce_tree_n8": 1905
+    }
+  },
+  "traffic": {
+    "edge_bits": 88118329344,
+    "bus_bits": 90852753408,
+    "flit_hops": 1027050496
+  }
+}

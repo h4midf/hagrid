@@ -1,0 +1,158 @@
+[
+  {
+    "unit": "gelu",
+    "params": {
+      "W": 32,
+      "segments": 256,
+      "domain": "+-8",
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "256-segment piecewise-linear (exact GELU breakpoints)",
+    "area_um2_45nm": 3917.65,
+    "area_um2_28nm": 1371.18,
+    "delay_ps": 2022.08,
+    "leakage_uW": 83.0735,
+    "dynamic_mW_est": 1.9761,
+    "total_cells": 4039,
+    "notes": "validated: mean abs err 2.5e-5, max abs err 3.9e-4 vs true GELU; 128 segments tried first, missed the bar (see approximation_error.py)"
+  },
+  {
+    "unit": "gelu",
+    "params": {
+      "W": 16,
+      "segments": 256,
+      "domain": "+-8",
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "256-segment piecewise-linear (exact GELU breakpoints)",
+    "area_um2_45nm": 475.34,
+    "area_um2_28nm": 166.37,
+    "delay_ps": 867.68,
+    "leakage_uW": 10.4381,
+    "dynamic_mW_est": 0.2492,
+    "total_cells": 495,
+    "notes": "validated: mean abs err 1.0e-3, max abs err 8.7e-3 vs true GELU (see approximation_error.py)"
+  },
+  {
+    "unit": "ibert_gelu",
+    "params": {
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "I-BERT (ICML 2021) clipped-quadratic erf fit",
+    "area_um2_45nm": 3080.81,
+    "area_um2_28nm": 1078.28,
+    "delay_ps": 3285.87,
+    "leakage_uW": 64.3791,
+    "dynamic_mW_est": 1.5597,
+    "total_cells": 3185,
+    "notes": "verified clean on bert-large-uncased: 7.1713 ppl vs 7.3563 baseline, 62.17% top-1 (see paper/approximate/selected_approximate.md idea 5). W=32/Q12.20 is bit-exact correct (test_ibert_gelu.py) but did NOT synthesize within 14+ minutes through this project's ABC pipeline -- not characterized, disclosed limitation."
+  },
+  {
+    "unit": "wang_tcad_gelu24",
+    "params": {
+      "W": 32,
+      "segments": 24,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "24-entry nonuniform step-function LUT (Wang et al. TCAD'25)",
+    "area_um2_45nm": 208.01,
+    "area_um2_28nm": 72.8,
+    "delay_ps": 525.06,
+    "leakage_uW": 4.6872,
+    "dynamic_mW_est": 0.1049,
+    "total_cells": 227,
+    "notes": "bert-large-calibrated breakpoints/outputs; see paper/approximate/selected_approximate.md idea 4"
+  },
+  {
+    "unit": "wang_tcad_gelu24",
+    "params": {
+      "W": 16,
+      "segments": 24,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "24-entry nonuniform step-function LUT (Wang et al. TCAD'25)",
+    "area_um2_45nm": 187.0,
+    "area_um2_28nm": 65.45,
+    "delay_ps": 496.65,
+    "leakage_uW": 4.1595,
+    "dynamic_mW_est": 0.0962,
+    "total_cells": 204,
+    "notes": "bert-large-calibrated breakpoints/outputs; see paper/approximate/selected_approximate.md idea 4"
+  },
+  {
+    "unit": "gqa_lut_gelu8",
+    "params": {
+      "W": 32,
+      "segments": 8,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "8-entry genetic piecewise-linear LUT (GQA-LUT, DAC'24)",
+    "area_um2_45nm": 5465.5,
+    "area_um2_28nm": 1912.93,
+    "delay_ps": 3028.95,
+    "leakage_uW": 118.6591,
+    "dynamic_mW_est": 2.6075,
+    "total_cells": 5564,
+    "notes": "verified clean on bert-large-uncased: 7.2420 ppl / 61.18% top-1 vs 7.3563/61.18% baseline; see paper/approximate/selected_approximate.md idea 7"
+  },
+  {
+    "unit": "gqa_lut_gelu8",
+    "params": {
+      "W": 16,
+      "segments": 8,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "8-entry genetic piecewise-linear LUT (GQA-LUT, DAC'24)",
+    "area_um2_45nm": 1406.34,
+    "area_um2_28nm": 492.22,
+    "delay_ps": 1767.07,
+    "leakage_uW": 29.7277,
+    "dynamic_mW_est": 0.7037,
+    "total_cells": 1478,
+    "notes": "verified clean on bert-large-uncased: 7.2420 ppl / 61.18% top-1 vs 7.3563/61.18% baseline; see paper/approximate/selected_approximate.md idea 7"
+  },
+  {
+    "unit": "gelu_tanh",
+    "params": {
+      "W": 32,
+      "segments": 256,
+      "domain": "+-8",
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "256-segment piecewise-linear (exact tanh-form GELU breakpoints)",
+    "area_um2_45nm": 3822.69,
+    "area_um2_28nm": 1337.94,
+    "delay_ps": 2053.21,
+    "leakage_uW": 81.6262,
+    "dynamic_mW_est": 1.9244,
+    "total_cells": 3965,
+    "notes": "validated: mean abs err 2.5e-5, max abs err 3.9e-4 vs true tanh-form GELU (see test_gelu_tanh.py)"
+  },
+  {
+    "unit": "gelu_tanh",
+    "params": {
+      "W": 16,
+      "segments": 256,
+      "domain": "+-8",
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "256-segment piecewise-linear (exact tanh-form GELU breakpoints)",
+    "area_um2_45nm": 456.46,
+    "area_um2_28nm": 159.76,
+    "delay_ps": 862.56,
+    "leakage_uW": 10.1323,
+    "dynamic_mW_est": 0.2374,
+    "total_cells": 478,
+    "notes": "validated: mean abs err 1.0e-3, max abs err 8.7e-3 vs true tanh-form GELU (see test_gelu_tanh.py)"
+  }
+]

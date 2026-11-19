@@ -1,0 +1,60 @@
+[
+  {
+    "unit": "hfp_shift_add",
+    "params": {
+      "PART": 14,
+      "ACC": 22
+    },
+    "method": "S&A of one analog array: carry-save over a weight's columns, then partial add and accumulator update (OR outside)",
+    "area_um2_45nm": 973.29,
+    "area_um2_28nm": 340.65,
+    "delay_ps": 301.28,
+    "leakage_uW": 21.873,
+    "dynamic_mW_est": 0.3163,
+    "total_cells": 628,
+    "notes": "80 flops",
+    "hyflexpim_65nm": {
+      "clock_GHz": 1.28,
+      "unit": {
+        "area_um2": 1468.0264927566761,
+        "dynamic_mW": 0.5165951547547204,
+        "leakage_mW": 0.028384185686623986,
+        "power_mW": 0.5449793404413443,
+        "stage_ps": 697.2599044016375,
+        "clock_ps": 781.25,
+        "meets_clock": true
+      },
+      "analog_module": {
+        "units": 512,
+        "area_mm2": 0.7516295642914181,
+        "power_mW": 279.0294223059683
+      },
+      "factors": {
+        "area": 1.5083073488141057,
+        "delay": 1.5981936013606801,
+        "energy": 1.275972066557462,
+        "power": 1.2976814194040134
+      }
+    }
+  },
+  {
+    "unit": "isaac_shift_add",
+    "params": {
+      "W": 16
+    },
+    "method": "bare 16-bit shift-and-add (ISAAC's S+A)",
+    "area_um2_45nm": 129.81,
+    "area_um2_28nm": 45.43,
+    "delay_ps": 306.18,
+    "leakage_uW": 3.2673,
+    "dynamic_mW_est": 0.0647,
+    "total_cells": 109,
+    "notes": "combinational, no registers",
+    "isaac_32nm": {
+      "area_um2": 60.142266085593775,
+      "power_mW": 0.042594120182774364,
+      "isaac_area_um2": 60.0,
+      "isaac_power_mW": 0.05
+    }
+  }
+]

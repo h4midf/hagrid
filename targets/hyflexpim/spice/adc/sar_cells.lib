@@ -1,0 +1,65 @@
+* Cells of the HyFlexPIM ADC (sar_tb.sp), PTM 65 nm bulk (../models/65nm_bulk.pm,
+* nmos / pmos), L = 65 nm, VDD = 1.0 V.
+.subckt inv a y vdd s=1
+MP y a vdd vdd pmos w={s*260n} l=65n
+MN y a 0 0 nmos w={s*130n} l=65n
+.ends
+.subckt nand2 a b y vdd s=1
+MP1 y a vdd vdd pmos w={s*260n} l=65n
+MP2 y b vdd vdd pmos w={s*260n} l=65n
+MN1 y a m 0 nmos w={s*260n} l=65n
+MN2 m b 0 0 nmos w={s*260n} l=65n
+.ends
+.subckt nand3 a b c y vdd s=1
+MP1 y a vdd vdd pmos w={s*260n} l=65n
+MP2 y b vdd vdd pmos w={s*260n} l=65n
+MP3 y c vdd vdd pmos w={s*260n} l=65n
+MN1 y a m1 0 nmos w={s*390n} l=65n
+MN2 m1 b m2 0 nmos w={s*390n} l=65n
+MN3 m2 c 0 0 nmos w={s*390n} l=65n
+.ends
+.subckt nor2 a b y vdd s=1
+MP1 m a vdd vdd pmos w={s*520n} l=65n
+MP2 y b m vdd pmos w={s*520n} l=65n
+MN1 y a 0 0 nmos w={s*130n} l=65n
+MN2 y b 0 0 nmos w={s*130n} l=65n
+.ends
+* SR latch (cross-coupled NAND), active-low inputs: sn = 0 sets q, rn = 0 resets q
+.subckt srln sn rn q qb vdd
+X1 sn qb q vdd nand2
+X2 rn q qb vdd nand2
+.ends
+* CMOS track-and-hold switch (NMOS and PMOS in parallel, no bootstrapping, as Kull),
+* en high = track
+.subckt tg x y en enb vdd wn=1u wp=2u
+MN x en y 0 nmos w={wn} l=65n
+MP x enb y vdd pmos w={wp} l=65n
+.ends
+* CDAC bottom-plate driver: out = vref when c = 1, 0 when c = 0; tapered buffer
+* (1, s/8, s/3, s), the last stage on vref
+.subckt drv c out vref vdd s=1
+X1 c n1 vdd inv s=1
+X2 n1 n2 vdd inv s={max(1, s/8)}
+X3 n2 n3 vdd inv s={max(1, s/3)}
+MP out n3 vref vref pmos w={s*260n} l=65n
+MN out n3 0 0 nmos w={s*130n} l=65n
+.ends
+* StrongARM latch comparator: clk high = evaluate, clk low = reset. dp / dn: buffered
+* decisions, both low in reset; dp rises when inp > inn. valid = dp | dn, taken as one
+* NAND of the latch nodes (decision detect).
+.subckt strongarm inp inn clk dp dn valid vdd w=2
+XV on op valid vdd nand2 s=2
+MT  tail clk 0 0 nmos w={w*1040n} l=65n
+M1  x1 inp tail 0 nmos w={w*1040n} l=65n
+M2  x2 inn tail 0 nmos w={w*1040n} l=65n
+M3  on op x1 0 nmos w={w*520n} l=65n
+M4  op on x2 0 nmos w={w*520n} l=65n
+M5  on op vdd vdd pmos w={w*520n} l=65n
+M6  op on vdd vdd pmos w={w*520n} l=65n
+MR1 on clk vdd vdd pmos w={w*520n} l=65n
+MR2 op clk vdd vdd pmos w={w*520n} l=65n
+MR3 x1 clk vdd vdd pmos w={w*260n} l=65n
+MR4 x2 clk vdd vdd pmos w={w*260n} l=65n
+XIP on dp vdd inv s=2
+XIN op dn vdd inv s=2
+.ends

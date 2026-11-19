@@ -1,0 +1,236 @@
+{
+  "target": "hyflexpim/default",
+  "model": "bert-attention-12layer",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "85bfc678ad13b015",
+  "min_feasible_array_cap": 16712,
+  "max_cap": 209879043,
+  "points": {
+    "32768": {
+      "cap": 32768,
+      "greedy": {
+        "latency": 5110888.691320499,
+        "arrays": 32558,
+        "analog_arrays": 24360,
+        "analog_stationary_arrays": 24360,
+        "digital_arrays": 8198,
+        "feasible": true,
+        "wall_s": 7.213865041732788,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/greedy/cap_32768.json"
+      },
+      "listsched": {
+        "latency": 999833857.684147,
+        "arrays": 32766,
+        "analog_arrays": 32712,
+        "analog_stationary_arrays": 32712,
+        "digital_arrays": 54,
+        "feasible": true,
+        "wall_s": 5.54048490524292,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/listsched/cap_32768.json"
+      },
+      "cpsat": {
+        "latency": 5363862.447464674,
+        "arrays": 29078,
+        "analog_arrays": 20880,
+        "analog_stationary_arrays": 20880,
+        "digital_arrays": 8198,
+        "feasible": true,
+        "wall_s": 166.45498323440552,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/cpsat/cap_32768.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          2030
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 737624.0,
+            "bound_ns": 737624.0,
+            "solve_wall_s": 162.328401
+          }
+        ]
+      }
+    },
+    "262144": {
+      "cap": 262144,
+      "greedy": {
+        "latency": 2305143.516154651,
+        "arrays": 261926,
+        "analog_arrays": 130848,
+        "analog_stationary_arrays": 130848,
+        "digital_arrays": 131078,
+        "feasible": true,
+        "wall_s": 8.192143201828003,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/greedy/cap_262144.json"
+      },
+      "listsched": {
+        "latency": 63014175.93234,
+        "arrays": 261938,
+        "analog_arrays": 260652,
+        "analog_stationary_arrays": 260652,
+        "digital_arrays": 1286,
+        "feasible": true,
+        "wall_s": 5.13632607460022,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/listsched/cap_262144.json"
+      },
+      "cpsat": {
+        "latency": 766492.0746703867,
+        "arrays": 215238,
+        "analog_arrays": 116928,
+        "analog_stationary_arrays": 116928,
+        "digital_arrays": 98310,
+        "feasible": true,
+        "wall_s": 140.85528898239136,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/cpsat/cap_262144.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          10904
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 107259.0,
+            "bound_ns": 107259.0,
+            "solve_wall_s": 137.03895
+          }
+        ]
+      }
+    },
+    "4194304": {
+      "cap": 4194304,
+      "greedy": {
+        "latency": 89721.0327818919,
+        "arrays": 4179587,
+        "analog_arrays": 2082432,
+        "analog_stationary_arrays": 2082432,
+        "digital_arrays": 2097155,
+        "feasible": true,
+        "wall_s": 7.3519511222839355,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/greedy/cap_4194304.json"
+      },
+      "listsched": {
+        "latency": 3828348.5708688367,
+        "arrays": 4194203,
+        "analog_arrays": 2097048,
+        "analog_stationary_arrays": 2097048,
+        "digital_arrays": 2097155,
+        "feasible": true,
+        "wall_s": 4.53399133682251,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/listsched/cap_4194304.json"
+      },
+      "cpsat": {
+        "latency": 84479.91457445313,
+        "arrays": 3968006,
+        "analog_arrays": 1870848,
+        "analog_stationary_arrays": 1870848,
+        "digital_arrays": 2097158,
+        "feasible": true,
+        "wall_s": 132.51222610473633,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/cpsat/cap_4194304.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          173536
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 10389.0,
+            "bound_ns": 10389.0,
+            "solve_wall_s": 129.22849300000001
+          }
+        ]
+      }
+    },
+    "33554432": {
+      "cap": 33554432,
+      "greedy": {
+        "latency": 27669.288812884093,
+        "arrays": 25329667,
+        "analog_arrays": 8552448,
+        "analog_stationary_arrays": 8552448,
+        "digital_arrays": 16777219,
+        "feasible": true,
+        "wall_s": 6.239749908447266,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/greedy/cap_33554432.json"
+      },
+      "listsched": {
+        "latency": 27669.288812884093,
+        "arrays": 25329667,
+        "analog_arrays": 8552448,
+        "analog_stationary_arrays": 8552448,
+        "digital_arrays": 16777219,
+        "feasible": true,
+        "wall_s": 3.4646477699279785,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/listsched/cap_33554432.json"
+      },
+      "cpsat": {
+        "latency": 27669.288812884093,
+        "arrays": 25329667,
+        "analog_arrays": 8552448,
+        "analog_stationary_arrays": 8552448,
+        "digital_arrays": 16777219,
+        "feasible": true,
+        "wall_s": 6.654551982879639,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/cpsat/cap_33554432.json",
+        "source": "greedy",
+        "replaced_manually": "CP-SAT's own mapping (latency 30248.278187445805 ns, 16941059 arrays, digital 8388611) was slower than greedy's; greedy rerun alone at this cap (same mapping as greedy/cap_33554432.json) stands in for it",
+        "cpsat_own_latency": 30248.278187445805,
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_stationary_caps": [
+          712704
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 2192.0,
+            "bound_ns": 2192.0,
+            "solve_wall_s": 133.142265
+          }
+        ]
+      }
+    },
+    "268435456": {
+      "cap": 268435456,
+      "greedy": {
+        "latency": 25997.44070642089,
+        "arrays": 209879043,
+        "analog_arrays": 8552448,
+        "analog_stationary_arrays": 8552448,
+        "digital_arrays": 201326595,
+        "feasible": true,
+        "wall_s": 6.440313816070557,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/greedy/cap_268435456.json"
+      },
+      "listsched": {
+        "latency": 25997.44070642089,
+        "arrays": 209879043,
+        "analog_arrays": 8552448,
+        "analog_stationary_arrays": 8552448,
+        "digital_arrays": 201326595,
+        "feasible": true,
+        "wall_s": 3.26005220413208,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/listsched/cap_268435456.json"
+      },
+      "cpsat": {
+        "latency": 25997.44070642089,
+        "arrays": 209879043,
+        "analog_arrays": 8552448,
+        "analog_stationary_arrays": 8552448,
+        "digital_arrays": 201326595,
+        "feasible": true,
+        "wall_s": 296.56697607040405,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_motivation/cpsat/cap_268435456.json",
+        "source": "greedy",
+        "cpsat_error": "CP-SAT found no mapping for a 49-op segment under cap 268435456 (UNKNOWN)",
+        "time_scale": 1
+      }
+    }
+  }
+}

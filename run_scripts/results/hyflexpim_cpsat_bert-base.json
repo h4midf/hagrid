@@ -1,0 +1,97 @@
+{
+  "target": "hyflexpim/default",
+  "model": "bert-base",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "da0db8e61e027ec1",
+  "min_feasible_array_cap": 50018,
+  "max_cap": 226928649,
+  "points": {
+    "65536": {
+      "cap": 65536,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 5409775.222466326,
+      "greedy_arrays": 64820,
+      "greedy_wall_s": 14.014236211776733,
+      "segment_stationary_caps": [
+        4727
+      ],
+      "status": "OPTIMAL",
+      "latency": 5728140.133628405,
+      "arrays": 62384,
+      "analog_arrays": 54180,
+      "analog_stationary_arrays": 54180,
+      "digital_arrays": 8204,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 840991.0,
+          "bound_ns": 840991.0,
+          "solve_wall_s": 154.34125500000002
+        }
+      ],
+      "solve_wall_s": 154.34125500000002,
+      "wall_s": 162.6126630306244,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/bert-base/cap_65536.json"
+    },
+    "4194304": {
+      "cap": 4194304,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 609970.6352386405,
+      "greedy_arrays": 4192326,
+      "greedy_wall_s": 11.31204605102539,
+      "segment_stationary_caps": [
+        284200
+      ],
+      "status": "OPTIMAL",
+      "latency": 413244.67507613025,
+      "arrays": 3986694,
+      "analog_arrays": 3200256,
+      "analog_stationary_arrays": 3200256,
+      "digital_arrays": 786438,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 35078.616,
+          "bound_ns": 35078.616,
+          "solve_wall_s": 109.98634200000001
+        }
+      ],
+      "solve_wall_s": 109.98634200000001,
+      "wall_s": 114.71208810806274,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/bert-base/cap_4194304.json"
+    },
+    "268435456": {
+      "cap": 268435456,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 278437.25090000004,
+      "greedy_arrays": 226928646,
+      "greedy_wall_s": 11.100511074066162,
+      "segment_stationary_caps": [
+        2138112
+      ],
+      "status": "OPTIMAL",
+      "latency": 278437.25090000004,
+      "arrays": 226928646,
+      "analog_arrays": 25602048,
+      "analog_stationary_arrays": 25602048,
+      "digital_arrays": 201326598,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 20177.116,
+          "bound_ns": 20177.116,
+          "solve_wall_s": 443.27528900000004
+        }
+      ],
+      "solve_wall_s": 443.27528900000004,
+      "wall_s": 449.612646818161,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/bert-base/cap_268435456.json"
+    }
+  }
+}

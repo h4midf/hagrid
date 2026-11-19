@@ -1,0 +1,376 @@
+[
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 1,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 76.61,
+    "area_um2_28nm": 26.81,
+    "delay_ps": 26.29,
+    "leakage_uW": 1.7397,
+    "dynamic_mW_est": 0.0382,
+    "total_cells": 96,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 2,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 136.19,
+    "area_um2_28nm": 47.67,
+    "delay_ps": 26.29,
+    "leakage_uW": 3.0201,
+    "dynamic_mW_est": 0.0698,
+    "total_cells": 160,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 255.36,
+    "area_um2_28nm": 89.38,
+    "delay_ps": 32.05,
+    "leakage_uW": 5.5809,
+    "dynamic_mW_est": 0.1331,
+    "total_cells": 288,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 8,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 493.7,
+    "area_um2_28nm": 172.79,
+    "delay_ps": 48.86,
+    "leakage_uW": 10.7026,
+    "dynamic_mW_est": 0.2596,
+    "total_cells": 544,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 16,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 970.37,
+    "area_um2_28nm": 339.63,
+    "delay_ps": 80.54,
+    "leakage_uW": 20.9458,
+    "dynamic_mW_est": 0.5126,
+    "total_cells": 1056,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 32,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 1923.71,
+    "area_um2_28nm": 673.3,
+    "delay_ps": 140.46,
+    "leakage_uW": 41.4324,
+    "dynamic_mW_est": 1.0186,
+    "total_cells": 2080,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 64,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 3830.4,
+    "area_um2_28nm": 1340.64,
+    "delay_ps": 256.15,
+    "leakage_uW": 82.4054,
+    "dynamic_mW_est": 2.0307,
+    "total_cells": 4128,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 128,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 7643.78,
+    "area_um2_28nm": 2675.32,
+    "delay_ps": 487.21,
+    "leakage_uW": 164.3515,
+    "dynamic_mW_est": 4.0547,
+    "total_cells": 8224,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 256,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 15270.53,
+    "area_um2_28nm": 5344.68,
+    "delay_ps": 949.34,
+    "leakage_uW": 328.2438,
+    "dynamic_mW_est": 8.1029,
+    "total_cells": 16416,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 512,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 30524.03,
+    "area_um2_28nm": 10683.41,
+    "delay_ps": 1873.58,
+    "leakage_uW": 656.0283,
+    "dynamic_mW_est": 16.1991,
+    "total_cells": 32800,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 1024,
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 61031.04,
+    "area_um2_28nm": 21360.86,
+    "delay_ps": 3722.13,
+    "leakage_uW": 1311.5972,
+    "dynamic_mW_est": 32.3917,
+    "total_cells": 65568,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 1,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 38.3,
+    "area_um2_28nm": 13.41,
+    "delay_ps": 26.29,
+    "leakage_uW": 0.8699,
+    "dynamic_mW_est": 0.0191,
+    "total_cells": 48,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 2,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 68.1,
+    "area_um2_28nm": 23.83,
+    "delay_ps": 26.29,
+    "leakage_uW": 1.5101,
+    "dynamic_mW_est": 0.0349,
+    "total_cells": 80,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 127.68,
+    "area_um2_28nm": 44.69,
+    "delay_ps": 32.05,
+    "leakage_uW": 2.7905,
+    "dynamic_mW_est": 0.0665,
+    "total_cells": 144,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 8,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 246.85,
+    "area_um2_28nm": 86.4,
+    "delay_ps": 48.86,
+    "leakage_uW": 5.3513,
+    "dynamic_mW_est": 0.1298,
+    "total_cells": 272,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 16,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 485.18,
+    "area_um2_28nm": 169.81,
+    "delay_ps": 80.54,
+    "leakage_uW": 10.4729,
+    "dynamic_mW_est": 0.2563,
+    "total_cells": 528,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 32,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 961.86,
+    "area_um2_28nm": 336.65,
+    "delay_ps": 140.46,
+    "leakage_uW": 20.7162,
+    "dynamic_mW_est": 0.5093,
+    "total_cells": 1040,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 64,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 1915.2,
+    "area_um2_28nm": 670.32,
+    "delay_ps": 256.15,
+    "leakage_uW": 41.2027,
+    "dynamic_mW_est": 1.0153,
+    "total_cells": 2064,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 128,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 3821.89,
+    "area_um2_28nm": 1337.66,
+    "delay_ps": 487.21,
+    "leakage_uW": 82.1758,
+    "dynamic_mW_est": 2.0274,
+    "total_cells": 4112,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 256,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 7635.26,
+    "area_um2_28nm": 2672.34,
+    "delay_ps": 949.34,
+    "leakage_uW": 164.1219,
+    "dynamic_mW_est": 4.0514,
+    "total_cells": 8208,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 512,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 15262.02,
+    "area_um2_28nm": 5341.71,
+    "delay_ps": 1873.58,
+    "leakage_uW": 328.0141,
+    "dynamic_mW_est": 8.0996,
+    "total_cells": 16400,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  },
+  {
+    "unit": "vec_select",
+    "params": {
+      "N": 1024,
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "2-to-1 multiplexer per lane",
+    "area_um2_45nm": 30515.52,
+    "area_um2_28nm": 10680.43,
+    "delay_ps": 3722.13,
+    "leakage_uW": 655.7986,
+    "dynamic_mW_est": 16.1958,
+    "total_cells": 32784,
+    "notes": "out = mask ? x : fill (shared fill word)"
+  }
+]

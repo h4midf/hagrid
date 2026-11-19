@@ -1,0 +1,3464 @@
+{
+ "meta": {
+  "generated": "2026-11-13T04:03:38",
+  "git_commit": "4df043f",
+  "git_dirty": true,
+  "script": "plot/mapping_energy_breakdown.py",
+  "sources": [
+   {
+    "path": "run_scripts/results/fefet1c_energy/resnet50/cap_8192.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "cap": 8192
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/resnet50/cap_131072.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "cap": 131072
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/resnet50/cap_2097152.json",
+    "target": "1fefet1c/default",
+    "model": "resnet50",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/mobilenet-v2/cap_2048.json",
+    "target": "1fefet1c/default",
+    "model": "mobilenet-v2",
+    "cap": 2048
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/mobilenet-v2/cap_16384.json",
+    "target": "1fefet1c/default",
+    "model": "mobilenet-v2",
+    "cap": 16384
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/mobilenet-v2/cap_262144.json",
+    "target": "1fefet1c/default",
+    "model": "mobilenet-v2",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vgg16/cap_65536.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vgg16/cap_524288.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "cap": 524288
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vgg16/cap_4194304.json",
+    "target": "1fefet1c/default",
+    "model": "vgg16",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vit-base/cap_32768.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "cap": 32768
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vit-base/cap_262144.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vit-base/cap_4194304.json",
+    "target": "1fefet1c/default",
+    "model": "vit-base",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vit-large/cap_131072.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "cap": 131072
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vit-large/cap_1048576.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "cap": 1048576
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/vit-large/cap_16777216.json",
+    "target": "1fefet1c/default",
+    "model": "vit-large",
+    "cap": 16777216
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/bert-base/cap_32768.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "cap": 32768
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/bert-base/cap_524288.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "cap": 524288
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/bert-base/cap_16777216.json",
+    "target": "1fefet1c/default",
+    "model": "bert-base",
+    "cap": 16777216
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/bert-large/cap_131072.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "cap": 131072
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/bert-large/cap_2097152.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/bert-large/cap_67108864.json",
+    "target": "1fefet1c/default",
+    "model": "bert-large",
+    "cap": 67108864
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/gpt2/cap_32768.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "cap": 32768
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/gpt2/cap_1048576.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "cap": 1048576
+   },
+   {
+    "path": "run_scripts/results/fefet1c_energy/gpt2/cap_33554432.json",
+    "target": "1fefet1c/default",
+    "model": "gpt2",
+    "cap": 33554432
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/resnet50/cap_16384.json",
+    "target": "hyflexpim/default",
+    "model": "resnet50",
+    "cap": 16384
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/resnet50/cap_262144.json",
+    "target": "hyflexpim/default",
+    "model": "resnet50",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/resnet50/cap_4194304.json",
+    "target": "hyflexpim/default",
+    "model": "resnet50",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/mobilenet-v2/cap_16384.json",
+    "target": "hyflexpim/default",
+    "model": "mobilenet-v2",
+    "cap": 16384
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/mobilenet-v2/cap_262144.json",
+    "target": "hyflexpim/default",
+    "model": "mobilenet-v2",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/mobilenet-v2/cap_4194304.json",
+    "target": "hyflexpim/default",
+    "model": "mobilenet-v2",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vgg16/cap_131072.json",
+    "target": "hyflexpim/default",
+    "model": "vgg16",
+    "cap": 131072
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vgg16/cap_1048576.json",
+    "target": "hyflexpim/default",
+    "model": "vgg16",
+    "cap": 1048576
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vgg16/cap_16777216.json",
+    "target": "hyflexpim/default",
+    "model": "vgg16",
+    "cap": 16777216
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vit-base/cap_65536.json",
+    "target": "hyflexpim/default",
+    "model": "vit-base",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vit-base/cap_2097152.json",
+    "target": "hyflexpim/default",
+    "model": "vit-base",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vit-base/cap_67108864.json",
+    "target": "hyflexpim/default",
+    "model": "vit-base",
+    "cap": 67108864
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vit-large/cap_262144.json",
+    "target": "hyflexpim/default",
+    "model": "vit-large",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vit-large/cap_4194304.json",
+    "target": "hyflexpim/default",
+    "model": "vit-large",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/vit-large/cap_134217728.json",
+    "target": "hyflexpim/default",
+    "model": "vit-large",
+    "cap": 134217728
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/bert-base/cap_65536.json",
+    "target": "hyflexpim/default",
+    "model": "bert-base",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/bert-base/cap_4194304.json",
+    "target": "hyflexpim/default",
+    "model": "bert-base",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/bert-base/cap_268435456.json",
+    "target": "hyflexpim/default",
+    "model": "bert-base",
+    "cap": 268435456
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/bert-large/cap_262144.json",
+    "target": "hyflexpim/default",
+    "model": "bert-large",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/bert-large/cap_8388608.json",
+    "target": "hyflexpim/default",
+    "model": "bert-large",
+    "cap": 8388608
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/bert-large/cap_536870912.json",
+    "target": "hyflexpim/default",
+    "model": "bert-large",
+    "cap": 536870912
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/gpt2/cap_65536.json",
+    "target": "hyflexpim/default",
+    "model": "gpt2",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/gpt2/cap_8388608.json",
+    "target": "hyflexpim/default",
+    "model": "gpt2",
+    "cap": 8388608
+   },
+   {
+    "path": "run_scripts/results/hyflexpim_energy/gpt2/cap_1073741824.json",
+    "target": "hyflexpim/default",
+    "model": "gpt2",
+    "cap": 1073741824
+   },
+   {
+    "path": "run_scripts/results/rse_energy/resnet50/cap_16384.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "resnet50-w3",
+    "cap": 16384
+   },
+   {
+    "path": "run_scripts/results/rse_energy/resnet50/cap_131072.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "resnet50-w3",
+    "cap": 131072
+   },
+   {
+    "path": "run_scripts/results/rse_energy/resnet50/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "resnet50-w3",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/rse_energy/mobilenet-v2/cap_8192.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "mobilenet-v2-w3",
+    "cap": 8192
+   },
+   {
+    "path": "run_scripts/results/rse_energy/mobilenet-v2/cap_65536.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "mobilenet-v2-w3",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/rse_energy/mobilenet-v2/cap_1048576.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "mobilenet-v2-w3",
+    "cap": 1048576
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vgg16/cap_131072.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "cap": 131072
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vgg16/cap_1048576.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "cap": 1048576
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vgg16/cap_8388608.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vgg16-w3",
+    "cap": 8388608
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vit-base/cap_65536.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vit-base/cap_1048576.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "cap": 1048576
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vit-base/cap_16777216.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-base-w3",
+    "cap": 16777216
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vit-large/cap_262144.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vit-large/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/rse_energy/vit-large/cap_33554432.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "vit-large-w3",
+    "cap": 33554432
+   },
+   {
+    "path": "run_scripts/results/rse_energy/bert-base/cap_65536.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/rse_energy/bert-base/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/rse_energy/bert-base/cap_67108864.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-base-w3",
+    "cap": 67108864
+   },
+   {
+    "path": "run_scripts/results/rse_energy/bert-large/cap_262144.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "cap": 262144
+   },
+   {
+    "path": "run_scripts/results/rse_energy/bert-large/cap_4194304.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "cap": 4194304
+   },
+   {
+    "path": "run_scripts/results/rse_energy/bert-large/cap_134217728.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "bert-large-w3",
+    "cap": 134217728
+   },
+   {
+    "path": "run_scripts/results/rse_energy/gpt2/cap_65536.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "cap": 65536
+   },
+   {
+    "path": "run_scripts/results/rse_energy/gpt2/cap_2097152.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "cap": 2097152
+   },
+   {
+    "path": "run_scripts/results/rse_energy/gpt2/cap_134217728.json",
+    "target": "rram-sram-ensemble/default",
+    "model": "gpt2-w3",
+    "cap": 134217728
+   }
+  ],
+  "gpu_mobile_refresh": {
+   "generated": "2026-11-15T03:51:25",
+   "git_commit": "a5b2677",
+   "git_dirty": true,
+   "script": "plot/mapping_energy_breakdown.py",
+   "sources": [
+    {
+     "path": "dump/gpu_baseline/latency_rtx3060_laptop.json"
+    }
+   ]
+  }
+ },
+ "data": {
+  "method": "greedy",
+  "targets": {
+   "fefet1c": {
+    "resnet50": [
+     {
+      "cap": 8192,
+      "total_mJ": 9.572238985078894,
+      "groups_mJ": {
+       "Array": 9.323857944791174,
+       "Interconnect/Buffer": 0.1855971381925926,
+       "Digital module": 0.0,
+       "Accel units": 0.06278390209512619
+      },
+      "groups_pct": {
+       "Array": 97.405193908396,
+       "Interconnect/Buffer": 1.9389104104264374,
+       "Digital module": 0.0,
+       "Accel units": 0.6558956811775498
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 6.431710100534798,
+       "RMU MAC: ADC conversions": 2.399102878390401,
+       "WMU read: readout logic": 0.2210062251884901,
+       "routers": 0.1399173688888889,
+       "RMU MAC: column charging": 0.1303509394022399,
+       "MAC: shift-and-add": 0.10941338081514496,
+       "tile buses": 0.04422213185185185,
+       "accelerator vec_el_mul": 0.026921756706517894,
+       "WMU write": 0.023459368832619832,
+       "accelerator quantize": 0.022913411196711652,
+       "MAC: phase control": 0.008815051627480917,
+       "accelerator dequantize": 0.005698482990017615,
+       "accelerator vec_add": 0.002483918778156194,
+       "accelerator reduce_tree_n8": 0.0019545658625954193,
+       "accelerator argmax_tree": 0.0015632402038755137,
+       "PE input registers": 0.0014576374518518508,
+       "accelerator reduce_tree_n32": 0.0005324077247210804,
+       "accelerator reduce_tree_n16": 0.00037500956100998243,
+       "accelerator reduce_tree_n64": 0.000279530774398121,
+       "accelerator relu": 6.157829712272458e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/resnet50/cap_8192.json"
+     },
+     {
+      "cap": 131072,
+      "total_mJ": 9.836746232486302,
+      "groups_mJ": {
+       "Array": 9.323857944791174,
+       "Interconnect/Buffer": 0.45010438560000005,
+       "Digital module": 0.0,
+       "Accel units": 0.06278390209512619
+      },
+      "groups_pct": {
+       "Array": 94.78599655238344,
+       "Interconnect/Buffer": 4.575744610687524,
+       "Digital module": 0.0,
+       "Accel units": 0.6382588369290192
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 6.431710100534798,
+       "RMU MAC: ADC conversions": 2.399102878390401,
+       "routers": 0.4037863822222223,
+       "WMU read: readout logic": 0.2210062251884901,
+       "RMU MAC: column charging": 0.1303509394022399,
+       "MAC: shift-and-add": 0.10941338081514496,
+       "tile buses": 0.044860365925925925,
+       "accelerator vec_el_mul": 0.026921756706517894,
+       "WMU write": 0.023459368832619832,
+       "accelerator quantize": 0.022913411196711652,
+       "MAC: phase control": 0.008815051627480917,
+       "accelerator dequantize": 0.005698482990017615,
+       "accelerator vec_add": 0.002483918778156194,
+       "accelerator reduce_tree_n8": 0.0019545658625954193,
+       "accelerator argmax_tree": 0.0015632402038755137,
+       "PE input registers": 0.0014576374518518508,
+       "accelerator reduce_tree_n32": 0.0005324077247210804,
+       "accelerator reduce_tree_n16": 0.00037500956100998243,
+       "accelerator reduce_tree_n64": 0.000279530774398121,
+       "accelerator relu": 6.157829712272458e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/resnet50/cap_131072.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 9.98481789100482,
+      "groups_mJ": {
+       "Array": 9.323857944791174,
+       "Interconnect/Buffer": 0.5981760441185187,
+       "Digital module": 0.0,
+       "Accel units": 0.06278390209512619
+      },
+      "groups_pct": {
+       "Array": 93.3803505138627,
+       "Interconnect/Buffer": 5.990855823794313,
+       "Digital module": 0.0,
+       "Accel units": 0.6287936623429788
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 6.431710100534798,
+       "RMU MAC: ADC conversions": 2.399102878390401,
+       "routers": 0.5518526222222223,
+       "WMU read: readout logic": 0.2210062251884901,
+       "RMU MAC: column charging": 0.1303509394022399,
+       "MAC: shift-and-add": 0.10941338081514496,
+       "tile buses": 0.04486578444444444,
+       "accelerator vec_el_mul": 0.026921756706517894,
+       "WMU write": 0.023459368832619832,
+       "accelerator quantize": 0.022913411196711652,
+       "MAC: phase control": 0.008815051627480917,
+       "accelerator dequantize": 0.005698482990017615,
+       "accelerator vec_add": 0.002483918778156194,
+       "accelerator reduce_tree_n8": 0.0019545658625954193,
+       "accelerator argmax_tree": 0.0015632402038755137,
+       "PE input registers": 0.0014576374518518508,
+       "accelerator reduce_tree_n32": 0.0005324077247210804,
+       "accelerator reduce_tree_n16": 0.00037500956100998243,
+       "accelerator reduce_tree_n64": 0.000279530774398121,
+       "accelerator relu": 6.157829712272458e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/resnet50/cap_2097152.json"
+     }
+    ],
+    "mobilenet-v2": [
+     {
+      "cap": 2048,
+      "total_mJ": 2.732278624421979,
+      "groups_mJ": {
+       "Array": 2.6557576981472826,
+       "Interconnect/Buffer": 0.04910505170370371,
+       "Digital module": 0.0,
+       "Accel units": 0.027415874570992368
+      },
+      "groups_pct": {
+       "Array": 97.19937324141367,
+       "Interconnect/Buffer": 1.7972197734442994,
+       "Digital module": 0.0,
+       "Accel units": 1.0034069851420175
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 1.9701228006414526,
+       "RMU MAC: ADC conversions": 0.54180941490767,
+       "WMU read: readout logic": 0.06792871757510278,
+       "MAC: shift-and-add": 0.03602064231933293,
+       "routers": 0.032944488888888894,
+       "RMU MAC: column charging": 0.029438239954752008,
+       "accelerator vec_el_mul": 0.016177689164533184,
+       "tile buses": 0.014293357037037038,
+       "accelerator quantize": 0.009677111217850844,
+       "WMU write": 0.007535826169289811,
+       "MAC: phase control": 0.0029020565796829116,
+       "PE input registers": 0.0018672057777777784,
+       "accelerator vec_add": 0.0010296680169113327,
+       "accelerator dequantize": 0.0003403821684086905,
+       "accelerator reduce_tree_n8": 0.000185567413740458,
+       "accelerator reduce_tree_n64": 4.627992953611274e-06,
+       "accelerator reduce_tree_n16": 8.285965942454492e-07
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/mobilenet-v2/cap_2048.json"
+     },
+     {
+      "cap": 16384,
+      "total_mJ": 2.77165435553309,
+      "groups_mJ": {
+       "Array": 2.6557576981472826,
+       "Interconnect/Buffer": 0.08848078281481483,
+       "Digital module": 0.0,
+       "Accel units": 0.027415874570992368
+      },
+      "groups_pct": {
+       "Array": 95.81850250719606,
+       "Interconnect/Buffer": 3.1923454899121704,
+       "Digital module": 0.0,
+       "Accel units": 0.9891520028917637
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 1.9701228006414526,
+       "RMU MAC: ADC conversions": 0.54180941490767,
+       "routers": 0.07171179555555557,
+       "WMU read: readout logic": 0.06792871757510278,
+       "MAC: shift-and-add": 0.03602064231933293,
+       "RMU MAC: column charging": 0.029438239954752008,
+       "accelerator vec_el_mul": 0.016177689164533184,
+       "tile buses": 0.01490178148148148,
+       "accelerator quantize": 0.009677111217850844,
+       "WMU write": 0.007535826169289811,
+       "MAC: phase control": 0.0029020565796829116,
+       "PE input registers": 0.0018672057777777784,
+       "accelerator vec_add": 0.0010296680169113327,
+       "accelerator dequantize": 0.0003403821684086905,
+       "accelerator reduce_tree_n8": 0.000185567413740458,
+       "accelerator reduce_tree_n64": 4.627992953611274e-06,
+       "accelerator reduce_tree_n16": 8.285965942454492e-07
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/mobilenet-v2/cap_16384.json"
+     },
+     {
+      "cap": 262144,
+      "total_mJ": 2.962556577014572,
+      "groups_mJ": {
+       "Array": 2.6557576981472826,
+       "Interconnect/Buffer": 0.27938300429629637,
+       "Digital module": 0.0,
+       "Accel units": 0.027415874570992368
+      },
+      "groups_pct": {
+       "Array": 89.6441174744937,
+       "Interconnect/Buffer": 9.430469833519137,
+       "Digital module": 0.0,
+       "Accel units": 0.9254126919871315
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 1.9701228006414526,
+       "RMU MAC: ADC conversions": 0.54180941490767,
+       "routers": 0.2625466044444445,
+       "WMU read: readout logic": 0.06792871757510278,
+       "MAC: shift-and-add": 0.03602064231933293,
+       "RMU MAC: column charging": 0.029438239954752008,
+       "accelerator vec_el_mul": 0.016177689164533184,
+       "tile buses": 0.014969194074074075,
+       "accelerator quantize": 0.009677111217850844,
+       "WMU write": 0.007535826169289811,
+       "MAC: phase control": 0.0029020565796829116,
+       "PE input registers": 0.0018672057777777784,
+       "accelerator vec_add": 0.0010296680169113327,
+       "accelerator dequantize": 0.0003403821684086905,
+       "accelerator reduce_tree_n8": 0.000185567413740458,
+       "accelerator reduce_tree_n64": 4.627992953611274e-06,
+       "accelerator reduce_tree_n16": 8.285965942454492e-07
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/mobilenet-v2/cap_262144.json"
+     }
+    ],
+    "vgg16": [
+     {
+      "cap": 65536,
+      "total_mJ": 23.482241495948845,
+      "groups_mJ": {
+       "Array": 22.92623951321793,
+       "Interconnect/Buffer": 0.4788951801777778,
+       "Digital module": 0.0,
+       "Accel units": 0.0771068025531415
+      },
+      "groups_pct": {
+       "Array": 97.63224484840241,
+       "Interconnect/Buffer": 2.039392961103806,
+       "Digital module": 0.0,
+       "Accel units": 0.32836219049379917
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 12.849151825833049,
+       "RMU MAC: ADC conversions": 8.713582791164164,
+       "RMU MAC: column charging": 0.47343684700569605,
+       "WMU read: readout logic": 0.44147759896558963,
+       "MAC: shift-and-add": 0.39738929561359465,
+       "routers": 0.3844681244444445,
+       "tile buses": 0.0889925711111111,
+       "accelerator vec_el_mul": 0.032829850827480904,
+       "MAC: phase control": 0.032016259171814436,
+       "WMU write": 0.019184895464019063,
+       "accelerator quantize": 0.01885675221843804,
+       "accelerator argmax_tree": 0.011919706554550793,
+       "PE input registers": 0.005434484622222223,
+       "accelerator reduce_tree_n64": 0.0039911811231943635,
+       "accelerator reduce_tree_n32": 0.0035583969413975334,
+       "accelerator vec_add": 0.002024352238167939,
+       "accelerator reduce_tree_n16": 0.001995631810217264,
+       "accelerator reduce_tree_n8": 0.0017870316458015267,
+       "accelerator dequantize": 8.220641080446269e-05,
+       "accelerator reduce_tree_n256": 6.169278308866705e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vgg16/cap_65536.json"
+     },
+     {
+      "cap": 524288,
+      "total_mJ": 23.655692162615512,
+      "groups_mJ": {
+       "Array": 22.92623951321793,
+       "Interconnect/Buffer": 0.6523458468444445,
+       "Digital module": 0.0,
+       "Accel units": 0.0771068025531415
+      },
+      "groups_pct": {
+       "Array": 96.91637579495399,
+       "Interconnect/Buffer": 2.7576696651277244,
+       "Digital module": 0.0,
+       "Accel units": 0.32595453991829476
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 12.849151825833049,
+       "RMU MAC: ADC conversions": 8.713582791164164,
+       "routers": 0.5579187911111112,
+       "RMU MAC: column charging": 0.47343684700569605,
+       "WMU read: readout logic": 0.44147759896558963,
+       "MAC: shift-and-add": 0.39738929561359465,
+       "tile buses": 0.0889925711111111,
+       "accelerator vec_el_mul": 0.032829850827480904,
+       "MAC: phase control": 0.032016259171814436,
+       "WMU write": 0.019184895464019063,
+       "accelerator quantize": 0.01885675221843804,
+       "accelerator argmax_tree": 0.011919706554550793,
+       "PE input registers": 0.005434484622222223,
+       "accelerator reduce_tree_n64": 0.0039911811231943635,
+       "accelerator reduce_tree_n32": 0.0035583969413975334,
+       "accelerator vec_add": 0.002024352238167939,
+       "accelerator reduce_tree_n16": 0.001995631810217264,
+       "accelerator reduce_tree_n8": 0.0017870316458015267,
+       "accelerator dequantize": 8.220641080446269e-05,
+       "accelerator reduce_tree_n256": 6.169278308866705e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vgg16/cap_524288.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 24.717034029282182,
+      "groups_mJ": {
+       "Array": 22.92623951321793,
+       "Interconnect/Buffer": 1.7136877135111113,
+       "Digital module": 0.0,
+       "Accel units": 0.0771068025531415
+      },
+      "groups_pct": {
+       "Array": 92.75481631840331,
+       "Interconnect/Buffer": 6.933225529733509,
+       "Digital module": 0.0,
+       "Accel units": 0.31195815186317805
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 12.849151825833049,
+       "RMU MAC: ADC conversions": 8.713582791164164,
+       "routers": 1.619260657777778,
+       "RMU MAC: column charging": 0.47343684700569605,
+       "WMU read: readout logic": 0.44147759896558963,
+       "MAC: shift-and-add": 0.39738929561359465,
+       "tile buses": 0.0889925711111111,
+       "accelerator vec_el_mul": 0.032829850827480904,
+       "MAC: phase control": 0.032016259171814436,
+       "WMU write": 0.019184895464019063,
+       "accelerator quantize": 0.01885675221843804,
+       "accelerator argmax_tree": 0.011919706554550793,
+       "PE input registers": 0.005434484622222223,
+       "accelerator reduce_tree_n64": 0.0039911811231943635,
+       "accelerator reduce_tree_n32": 0.0035583969413975334,
+       "accelerator vec_add": 0.002024352238167939,
+       "accelerator reduce_tree_n16": 0.001995631810217264,
+       "accelerator reduce_tree_n8": 0.0017870316458015267,
+       "accelerator dequantize": 8.220641080446269e-05,
+       "accelerator reduce_tree_n256": 6.169278308866705e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vgg16/cap_4194304.json"
+     }
+    ],
+    "vit-base": [
+     {
+      "cap": 32768,
+      "total_mJ": 45.36319406330112,
+      "groups_mJ": {
+       "Array": 44.46636409545808,
+       "Interconnect/Buffer": 0.6740797414962963,
+       "Digital module": 0.0,
+       "Accel units": 0.22275022634674121
+      },
+      "groups_pct": {
+       "Array": 98.02300083501268,
+       "Interconnect/Buffer": 1.4859618142313036,
+       "Digital module": 0.0,
+       "Accel units": 0.4910373507560095
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 32.45794603904337,
+       "RMU MAC: ADC conversions": 9.05407888379905,
+       "WMU read: readout logic": 1.1152867490254943,
+       "WMU MAC: ADC conversions": 0.638579782386,
+       "routers": 0.5423561033333334,
+       "RMU MAC: column charging": 0.4919370897162233,
+       "MAC: shift-and-add": 0.4444574919989664,
+       "WMU write": 0.22826968112608612,
+       "tile buses": 0.13013418962962964,
+       "accelerator vec_el_mul": 0.11207007574738723,
+       "accelerator quantize": 0.06520890360070454,
+       "MAC: phase control": 0.035808378362888985,
+       "accelerator dequantize": 0.01925872536746918,
+       "accelerator gelu": 0.008426805184263066,
+       "accelerator reduce_tree_n8": 0.006062003395419843,
+       "accelerator vec_add": 0.004947022436817371,
+       "accelerator reduce_tree_n32": 0.003210744543981209,
+       "accelerator softmax_exp_pwl16_standalone": 0.0020152057507927183,
+       "PE input registers": 0.0015894485333333343,
+       "accelerator reduce_tree_n1024": 0.000582316036406342,
+       "accelerator softmax_max_reduce_tree": 0.0005065628617733411,
+       "accelerator reduce_tree_n256": 0.00042727072037580734,
+       "accelerator rsqrt": 2.4291268349970627e-05,
+       "accelerator softmax_q8_8_reciprocal": 1.02994330005872e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vit-base/cap_32768.json"
+     },
+     {
+      "cap": 262144,
+      "total_mJ": 46.275216398301126,
+      "groups_mJ": {
+       "Array": 44.46636409545808,
+       "Interconnect/Buffer": 1.5861020764962965,
+       "Digital module": 0.0,
+       "Accel units": 0.22275022634674121
+      },
+      "groups_pct": {
+       "Array": 96.0910992024892,
+       "Interconnect/Buffer": 3.4275411331291497,
+       "Digital module": 0.0,
+       "Accel units": 0.4813596643816428
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 32.45794603904337,
+       "RMU MAC: ADC conversions": 9.05407888379905,
+       "routers": 1.4543784383333336,
+       "WMU read: readout logic": 1.1152867490254943,
+       "WMU MAC: ADC conversions": 0.638579782386,
+       "RMU MAC: column charging": 0.4919370897162233,
+       "MAC: shift-and-add": 0.4444574919989664,
+       "WMU write": 0.22826968112608612,
+       "tile buses": 0.13013418962962964,
+       "accelerator vec_el_mul": 0.11207007574738723,
+       "accelerator quantize": 0.06520890360070454,
+       "MAC: phase control": 0.035808378362888985,
+       "accelerator dequantize": 0.01925872536746918,
+       "accelerator gelu": 0.008426805184263066,
+       "accelerator reduce_tree_n8": 0.006062003395419843,
+       "accelerator vec_add": 0.004947022436817371,
+       "accelerator reduce_tree_n32": 0.003210744543981209,
+       "accelerator softmax_exp_pwl16_standalone": 0.0020152057507927183,
+       "PE input registers": 0.0015894485333333343,
+       "accelerator reduce_tree_n1024": 0.000582316036406342,
+       "accelerator softmax_max_reduce_tree": 0.0005065628617733411,
+       "accelerator reduce_tree_n256": 0.00042727072037580734,
+       "accelerator rsqrt": 2.4291268349970627e-05,
+       "accelerator softmax_q8_8_reciprocal": 1.02994330005872e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vit-base/cap_262144.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 49.975468711634456,
+      "groups_mJ": {
+       "Array": 44.46636409545808,
+       "Interconnect/Buffer": 5.286354389829629,
+       "Digital module": 0.0,
+       "Accel units": 0.22275022634674121
+      },
+      "groups_pct": {
+       "Array": 88.97638229675306,
+       "Interconnect/Buffer": 10.57789856926134,
+       "Digital module": 0.0,
+       "Accel units": 0.4457191339855993
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 32.45794603904337,
+       "RMU MAC: ADC conversions": 9.05407888379905,
+       "routers": 5.154630751666667,
+       "WMU read: readout logic": 1.1152867490254943,
+       "WMU MAC: ADC conversions": 0.638579782386,
+       "RMU MAC: column charging": 0.4919370897162233,
+       "MAC: shift-and-add": 0.4444574919989664,
+       "WMU write": 0.22826968112608612,
+       "tile buses": 0.13013418962962964,
+       "accelerator vec_el_mul": 0.11207007574738723,
+       "accelerator quantize": 0.06520890360070454,
+       "MAC: phase control": 0.035808378362888985,
+       "accelerator dequantize": 0.01925872536746918,
+       "accelerator gelu": 0.008426805184263066,
+       "accelerator reduce_tree_n8": 0.006062003395419843,
+       "accelerator vec_add": 0.004947022436817371,
+       "accelerator reduce_tree_n32": 0.003210744543981209,
+       "accelerator softmax_exp_pwl16_standalone": 0.0020152057507927183,
+       "PE input registers": 0.0015894485333333343,
+       "accelerator reduce_tree_n1024": 0.000582316036406342,
+       "accelerator softmax_max_reduce_tree": 0.0005065628617733411,
+       "accelerator reduce_tree_n256": 0.00042727072037580734,
+       "accelerator rsqrt": 2.4291268349970627e-05,
+       "accelerator softmax_q8_8_reciprocal": 1.02994330005872e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vit-base/cap_4194304.json"
+     }
+    ],
+    "vit-large": [
+     {
+      "cap": 131072,
+      "total_mJ": 139.52946616593158,
+      "groups_mJ": {
+       "Array": 135.6658277734829,
+       "Interconnect/Buffer": 3.2716096346074073,
+       "Digital module": 0.0,
+       "Accel units": 0.5920287578412774
+      },
+      "groups_pct": {
+       "Array": 97.23095164153072,
+       "Interconnect/Buffer": 2.344744608079225,
+       "Digital module": 0.0,
+       "Accel units": 0.4243037503900599
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 94.48936778214534,
+       "RMU MAC: ADC conversions": 32.192280475729966,
+       "WMU read: readout logic": 3.246632796837635,
+       "routers": 2.8708451022222223,
+       "RMU MAC: column charging": 1.7491096523243508,
+       "WMU MAC: ADC conversions": 1.7028794196960009,
+       "MAC: shift-and-add": 1.5522558430243465,
+       "WMU write": 0.6082420048836892,
+       "tile buses": 0.396526002962963,
+       "accelerator vec_el_mul": 0.29737112439283386,
+       "accelerator quantize": 0.1738904096018787,
+       "MAC: phase control": 0.12505979884157392,
+       "accelerator dequantize": 0.05135660097991767,
+       "accelerator gelu": 0.022471480491368177,
+       "accelerator reduce_tree_n8": 0.016165342387786285,
+       "accelerator vec_add": 0.013131294177040492,
+       "accelerator reduce_tree_n32": 0.008561985450616563,
+       "accelerator softmax_exp_pwl16_standalone": 0.005373882002113916,
+       "PE input registers": 0.004238529422222229,
+       "accelerator softmax_max_reduce_tree": 0.0013508342980622428,
+       "accelerator reduce_tree_n1024": 0.0011413394313564292,
+       "accelerator reduce_tree_n256": 0.001139388587668819,
+       "accelerator rsqrt": 4.76108859659424e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.7465154668232512e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vit-large/cap_131072.json"
+     },
+     {
+      "cap": 1048576,
+      "total_mJ": 144.41950742148714,
+      "groups_mJ": {
+       "Array": 135.6658277734829,
+       "Interconnect/Buffer": 8.161650890162964,
+       "Digital module": 0.0,
+       "Accel units": 0.5920287578412774
+      },
+      "groups_pct": {
+       "Array": 93.93871381761697,
+       "Interconnect/Buffer": 5.651349347386467,
+       "Digital module": 0.0,
+       "Accel units": 0.4099368349965676
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 94.48936778214534,
+       "RMU MAC: ADC conversions": 32.192280475729966,
+       "routers": 7.760886357777778,
+       "WMU read: readout logic": 3.246632796837635,
+       "RMU MAC: column charging": 1.7491096523243508,
+       "WMU MAC: ADC conversions": 1.7028794196960009,
+       "MAC: shift-and-add": 1.5522558430243465,
+       "WMU write": 0.6082420048836892,
+       "tile buses": 0.396526002962963,
+       "accelerator vec_el_mul": 0.29737112439283386,
+       "accelerator quantize": 0.1738904096018787,
+       "MAC: phase control": 0.12505979884157392,
+       "accelerator dequantize": 0.05135660097991767,
+       "accelerator gelu": 0.022471480491368177,
+       "accelerator reduce_tree_n8": 0.016165342387786285,
+       "accelerator vec_add": 0.013131294177040492,
+       "accelerator reduce_tree_n32": 0.008561985450616563,
+       "accelerator softmax_exp_pwl16_standalone": 0.005373882002113916,
+       "PE input registers": 0.004238529422222229,
+       "accelerator softmax_max_reduce_tree": 0.0013508342980622428,
+       "accelerator reduce_tree_n1024": 0.0011413394313564292,
+       "accelerator reduce_tree_n256": 0.001139388587668819,
+       "accelerator rsqrt": 4.76108859659424e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.7465154668232512e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vit-large/cap_1048576.json"
+     },
+     {
+      "cap": 16777216,
+      "total_mJ": 162.10070833259826,
+      "groups_mJ": {
+       "Array": 135.6658277734829,
+       "Interconnect/Buffer": 25.84285180127408,
+       "Digital module": 0.0,
+       "Accel units": 0.5920287578412774
+      },
+      "groups_pct": {
+       "Array": 83.69231027363787,
+       "Interconnect/Buffer": 15.942466918929009,
+       "Digital module": 0.0,
+       "Accel units": 0.365222807433113
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 94.48936778214534,
+       "RMU MAC: ADC conversions": 32.192280475729966,
+       "routers": 25.442087268888894,
+       "WMU read: readout logic": 3.246632796837635,
+       "RMU MAC: column charging": 1.7491096523243508,
+       "WMU MAC: ADC conversions": 1.7028794196960009,
+       "MAC: shift-and-add": 1.5522558430243465,
+       "WMU write": 0.6082420048836892,
+       "tile buses": 0.396526002962963,
+       "accelerator vec_el_mul": 0.29737112439283386,
+       "accelerator quantize": 0.1738904096018787,
+       "MAC: phase control": 0.12505979884157392,
+       "accelerator dequantize": 0.05135660097991767,
+       "accelerator gelu": 0.022471480491368177,
+       "accelerator reduce_tree_n8": 0.016165342387786285,
+       "accelerator vec_add": 0.013131294177040492,
+       "accelerator reduce_tree_n32": 0.008561985450616563,
+       "accelerator softmax_exp_pwl16_standalone": 0.005373882002113916,
+       "PE input registers": 0.004238529422222229,
+       "accelerator softmax_max_reduce_tree": 0.0013508342980622428,
+       "accelerator reduce_tree_n1024": 0.0011413394313564292,
+       "accelerator reduce_tree_n256": 0.001139388587668819,
+       "accelerator rsqrt": 4.76108859659424e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.7465154668232512e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/vit-large/cap_16777216.json"
+     }
+    ],
+    "bert-base": [
+     {
+      "cap": 32768,
+      "total_mJ": 184.2550235819564,
+      "groups_mJ": {
+       "Array": 181.51416051243103,
+       "Interconnect/Buffer": 1.8993651408592598,
+       "Digital module": 0.0,
+       "Accel units": 0.8414979286661172
+      },
+      "groups_pct": {
+       "Array": 98.51246222966277,
+       "Interconnect/Buffer": 1.0308349286414025,
+       "Digital module": 0.0,
+       "Accel units": 0.4567028416958303
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 145.1154876711322,
+       "RMU MAC: ADC conversions": 23.53141313961986,
+       "WMU read: readout logic": 4.9842653627753535,
+       "WMU MAC: ADC conversions": 3.9219021899366404,
+       "routers": 1.4955315200000003,
+       "WMU write": 1.3296634099814149,
+       "RMU MAC: column charging": 1.2785370047447038,
+       "MAC: shift-and-add": 1.2520208164985465,
+       "accelerator vec_el_mul": 0.4571339780209033,
+       "tile buses": 0.3985514192592593,
+       "accelerator quantize": 0.23325859431121493,
+       "MAC: phase control": 0.10087091774233689,
+       "accelerator dequantize": 0.06889033489888438,
+       "accelerator gelu": 0.021901138346917207,
+       "accelerator vec_add": 0.01620769089089844,
+       "accelerator reduce_tree_n8": 0.01575505450992368,
+       "accelerator softmax_exp_pwl16_standalone": 0.013612154302759834,
+       "accelerator reduce_tree_n32": 0.008344676175220202,
+       "PE input registers": 0.005282201600000001,
+       "accelerator softmax_max_reduce_tree": 0.0026330983271873167,
+       "accelerator reduce_tree_n256": 0.0022209401911920134,
+       "accelerator reduce_tree_n1024": 0.0014528932904286562,
+       "accelerator rsqrt": 6.060733106283029e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.676806952436875e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/bert-base/cap_32768.json"
+     },
+     {
+      "cap": 524288,
+      "total_mJ": 188.91560408566014,
+      "groups_mJ": {
+       "Array": 181.51416051243103,
+       "Interconnect/Buffer": 6.559945644562964,
+       "Digital module": 0.0,
+       "Accel units": 0.8414979286661172
+      },
+      "groups_pct": {
+       "Array": 96.08214281236766,
+       "Interconnect/Buffer": 3.4724212837328583,
+       "Digital module": 0.0,
+       "Accel units": 0.44543590389947685
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 145.1154876711322,
+       "RMU MAC: ADC conversions": 23.53141313961986,
+       "routers": 6.156069546666667,
+       "WMU read: readout logic": 4.9842653627753535,
+       "WMU MAC: ADC conversions": 3.9219021899366404,
+       "WMU write": 1.3296634099814149,
+       "RMU MAC: column charging": 1.2785370047447038,
+       "MAC: shift-and-add": 1.2520208164985465,
+       "accelerator vec_el_mul": 0.4571339780209033,
+       "tile buses": 0.3985938962962963,
+       "accelerator quantize": 0.23325859431121493,
+       "MAC: phase control": 0.10087091774233689,
+       "accelerator dequantize": 0.06889033489888438,
+       "accelerator gelu": 0.021901138346917207,
+       "accelerator vec_add": 0.01620769089089844,
+       "accelerator reduce_tree_n8": 0.01575505450992368,
+       "accelerator softmax_exp_pwl16_standalone": 0.013612154302759834,
+       "accelerator reduce_tree_n32": 0.008344676175220202,
+       "PE input registers": 0.005282201600000001,
+       "accelerator softmax_max_reduce_tree": 0.0026330983271873167,
+       "accelerator reduce_tree_n256": 0.0022209401911920134,
+       "accelerator reduce_tree_n1024": 0.0014528932904286562,
+       "accelerator rsqrt": 6.060733106283029e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.676806952436875e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/bert-base/cap_524288.json"
+     },
+     {
+      "cap": 16777216,
+      "total_mJ": 207.00041498936383,
+      "groups_mJ": {
+       "Array": 181.51416051243103,
+       "Interconnect/Buffer": 24.644756548266667,
+       "Digital module": 0.0,
+       "Accel units": 0.8414979286661172
+      },
+      "groups_pct": {
+       "Array": 87.68782445279525,
+       "Interconnect/Buffer": 11.905655623701515,
+       "Digital module": 0.0,
+       "Accel units": 0.4065199235032236
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 145.1154876711322,
+       "routers": 24.240837973333335,
+       "RMU MAC: ADC conversions": 23.53141313961986,
+       "WMU read: readout logic": 4.9842653627753535,
+       "WMU MAC: ADC conversions": 3.9219021899366404,
+       "WMU write": 1.3296634099814149,
+       "RMU MAC: column charging": 1.2785370047447038,
+       "MAC: shift-and-add": 1.2520208164985465,
+       "accelerator vec_el_mul": 0.4571339780209033,
+       "tile buses": 0.3986363733333333,
+       "accelerator quantize": 0.23325859431121493,
+       "MAC: phase control": 0.10087091774233689,
+       "accelerator dequantize": 0.06889033489888438,
+       "accelerator gelu": 0.021901138346917207,
+       "accelerator vec_add": 0.01620769089089844,
+       "accelerator reduce_tree_n8": 0.01575505450992368,
+       "accelerator softmax_exp_pwl16_standalone": 0.013612154302759834,
+       "accelerator reduce_tree_n32": 0.008344676175220202,
+       "PE input registers": 0.005282201600000001,
+       "accelerator softmax_max_reduce_tree": 0.0026330983271873167,
+       "accelerator reduce_tree_n256": 0.0022209401911920134,
+       "accelerator reduce_tree_n1024": 0.0014528932904286562,
+       "accelerator rsqrt": 6.060733106283029e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.676806952436875e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/bert-base/cap_16777216.json"
+     }
+    ],
+    "bert-large": [
+     {
+      "cap": 131072,
+      "total_mJ": 541.1002696839201,
+      "groups_mJ": {
+       "Array": 528.7535199597918,
+       "Interconnect/Buffer": 10.103805147970371,
+       "Digital module": 0.0,
+       "Accel units": 2.2429445761578415
+      },
+      "groups_pct": {
+       "Array": 97.71821408787311,
+       "Interconnect/Buffer": 1.8672703959050763,
+       "Digital module": 0.0,
+       "Accel units": 0.4145155162217978
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 407.88804104035916,
+       "RMU MAC: ADC conversions": 83.66724671864854,
+       "WMU read: readout logic": 14.009684751603599,
+       "WMU MAC: ADC conversions": 10.458405839831041,
+       "routers": 8.89622072888889,
+       "RMU MAC: column charging": 4.545909350203389,
+       "MAC: shift-and-add": 4.29264279942359,
+       "WMU write": 3.545746313177513,
+       "accelerator vec_el_mul": 1.2189842647863756,
+       "tile buses": 1.1934985481481482,
+       "accelerator quantize": 0.6220229181632448,
+       "MAC: phase control": 0.3458431465451552,
+       "accelerator dequantize": 0.18370755973035835,
+       "accelerator gelu": 0.05840303559177925,
+       "accelerator vec_add": 0.043219285774280775,
+       "accelerator reduce_tree_n8": 0.04201347869312981,
+       "accelerator softmax_exp_pwl16_standalone": 0.0362990781406929,
+       "accelerator reduce_tree_n32": 0.022252469800587205,
+       "PE input registers": 0.014085870933333322,
+       "accelerator softmax_max_reduce_tree": 0.007021595539166181,
+       "accelerator reduce_tree_n256": 0.005922507176512038,
+       "accelerator reduce_tree_n1024": 0.002905786580857307,
+       "accelerator rsqrt": 0.00012121466212566058,
+       "accelerator softmax_q8_8_reciprocal": 7.138151873165001e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/bert-large/cap_131072.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 557.2598372054016,
+      "groups_mJ": {
+       "Array": 528.7535199597918,
+       "Interconnect/Buffer": 26.263372669451854,
+       "Digital module": 0.0,
+       "Accel units": 2.2429445761578415
+      },
+      "groups_pct": {
+       "Array": 94.88455558028981,
+       "Interconnect/Buffer": 4.7129491335962514,
+       "Digital module": 0.0,
+       "Accel units": 0.4024952861139192
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 407.88804104035916,
+       "RMU MAC: ADC conversions": 83.66724671864854,
+       "routers": 25.066209280000002,
+       "WMU read: readout logic": 14.009684751603599,
+       "WMU MAC: ADC conversions": 10.458405839831041,
+       "RMU MAC: column charging": 4.545909350203389,
+       "MAC: shift-and-add": 4.29264279942359,
+       "WMU write": 3.545746313177513,
+       "accelerator vec_el_mul": 1.2189842647863756,
+       "tile buses": 1.1830775185185185,
+       "accelerator quantize": 0.6220229181632448,
+       "MAC: phase control": 0.3458431465451552,
+       "accelerator dequantize": 0.18370755973035835,
+       "accelerator gelu": 0.05840303559177925,
+       "accelerator vec_add": 0.043219285774280775,
+       "accelerator reduce_tree_n8": 0.04201347869312981,
+       "accelerator softmax_exp_pwl16_standalone": 0.0362990781406929,
+       "accelerator reduce_tree_n32": 0.022252469800587205,
+       "PE input registers": 0.014085870933333322,
+       "accelerator softmax_max_reduce_tree": 0.007021595539166181,
+       "accelerator reduce_tree_n256": 0.005922507176512038,
+       "accelerator reduce_tree_n1024": 0.002905786580857307,
+       "accelerator rsqrt": 0.00012121466212566058,
+       "accelerator softmax_q8_8_reciprocal": 7.138151873165001e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/bert-large/cap_2097152.json"
+     },
+     {
+      "cap": 67108864,
+      "total_mJ": 649.8316298261425,
+      "groups_mJ": {
+       "Array": 528.7535199597918,
+       "Interconnect/Buffer": 118.8351652901926,
+       "Digital module": 0.0,
+       "Accel units": 2.2429445761578415
+      },
+      "groups_pct": {
+       "Array": 81.36777215680557,
+       "Interconnect/Buffer": 18.287070040278902,
+       "Digital module": 0.0,
+       "Accel units": 0.34515780291549125
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 407.88804104035916,
+       "routers": 117.62758087111114,
+       "RMU MAC: ADC conversions": 83.66724671864854,
+       "WMU read: readout logic": 14.009684751603599,
+       "WMU MAC: ADC conversions": 10.458405839831041,
+       "RMU MAC: column charging": 4.545909350203389,
+       "MAC: shift-and-add": 4.29264279942359,
+       "WMU write": 3.545746313177513,
+       "accelerator vec_el_mul": 1.2189842647863756,
+       "tile buses": 1.1934985481481482,
+       "accelerator quantize": 0.6220229181632448,
+       "MAC: phase control": 0.3458431465451552,
+       "accelerator dequantize": 0.18370755973035835,
+       "accelerator gelu": 0.05840303559177925,
+       "accelerator vec_add": 0.043219285774280775,
+       "accelerator reduce_tree_n8": 0.04201347869312981,
+       "accelerator softmax_exp_pwl16_standalone": 0.0362990781406929,
+       "accelerator reduce_tree_n32": 0.022252469800587205,
+       "PE input registers": 0.014085870933333322,
+       "accelerator softmax_max_reduce_tree": 0.007021595539166181,
+       "accelerator reduce_tree_n256": 0.005922507176512038,
+       "accelerator reduce_tree_n1024": 0.002905786580857307,
+       "accelerator rsqrt": 0.00012121466212566058,
+       "accelerator softmax_q8_8_reciprocal": 7.138151873165001e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/bert-large/cap_67108864.json"
+     }
+    ],
+    "gpt2": [
+     {
+      "cap": 32768,
+      "total_mJ": 624.8984494764647,
+      "groups_mJ": {
+       "Array": 616.6786907990789,
+       "Interconnect/Buffer": 5.235776360296296,
+       "Digital module": 0.0,
+       "Accel units": 2.9839823170893776
+      },
+      "groups_pct": {
+       "Array": 98.68462488836829,
+       "Interconnect/Buffer": 0.837860353899548,
+       "Digital module": 0.0,
+       "Accel units": 0.47751475773213004
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 525.0723166632681,
+       "RMU MAC: ADC conversions": 47.06282627923972,
+       "WMU read: readout logic": 18.034599910024138,
+       "WMU MAC: ADC conversions": 15.687608759746562,
+       "WMU write": 5.171941213331981,
+       "routers": 3.9940852622222227,
+       "MAC: shift-and-add": 2.8617618662823907,
+       "RMU MAC: column charging": 2.5570740094894076,
+       "accelerator vec_el_mul": 2.4283320746917267,
+       "tile buses": 1.2267925807407407,
+       "accelerator quantize_per_token_quant_mant_round": 0.2741798422548442,
+       "MAC: phase control": 0.23056209769677005,
+       "accelerator softmax_exp_pwl16_standalone": 0.05444861721103934,
+       "accelerator vec_add": 0.043924041117087455,
+       "accelerator gelu": 0.04265629334022313,
+       "accelerator absmax_tree": 0.04041198574562537,
+       "accelerator reduce_tree_n8": 0.03151010901984736,
+       "accelerator reduce_tree_n32": 0.016689352350440403,
+       "accelerator vec_select": 0.015835406340810335,
+       "PE input registers": 0.014898517333333345,
+       "accelerator quantize": 0.012958810795067532,
+       "accelerator softmax_max_reduce_tree": 0.010532393308749267,
+       "accelerator reduce_tree_n256": 0.008883760764768054,
+       "accelerator reduce_tree_n1024": 0.003026861021726367,
+       "accelerator quantize_per_token_token_scale": 0.00041296771532589555,
+       "accelerator rsqrt": 0.0001262652730475631,
+       "accelerator softmax_q8_8_reciprocal": 5.35361390487375e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/gpt2/cap_32768.json"
+     },
+     {
+      "cap": 1048576,
+      "total_mJ": 643.2737130497981,
+      "groups_mJ": {
+       "Array": 616.6786907990789,
+       "Interconnect/Buffer": 23.61103993362963,
+       "Digital module": 0.0,
+       "Accel units": 2.9839823170893776
+      },
+      "groups_pct": {
+       "Array": 95.86567557305729,
+       "Interconnect/Buffer": 3.670449989583488,
+       "Digital module": 0.0,
+       "Accel units": 0.4638744373591988
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 525.0723166632681,
+       "RMU MAC: ADC conversions": 47.06282627923972,
+       "routers": 22.369348835555556,
+       "WMU read: readout logic": 18.034599910024138,
+       "WMU MAC: ADC conversions": 15.687608759746562,
+       "WMU write": 5.171941213331981,
+       "MAC: shift-and-add": 2.8617618662823907,
+       "RMU MAC: column charging": 2.5570740094894076,
+       "accelerator vec_el_mul": 2.4283320746917267,
+       "tile buses": 1.2267925807407407,
+       "accelerator quantize_per_token_quant_mant_round": 0.2741798422548442,
+       "MAC: phase control": 0.23056209769677005,
+       "accelerator softmax_exp_pwl16_standalone": 0.05444861721103934,
+       "accelerator vec_add": 0.043924041117087455,
+       "accelerator gelu": 0.04265629334022313,
+       "accelerator absmax_tree": 0.04041198574562537,
+       "accelerator reduce_tree_n8": 0.03151010901984736,
+       "accelerator reduce_tree_n32": 0.016689352350440403,
+       "accelerator vec_select": 0.015835406340810335,
+       "PE input registers": 0.014898517333333345,
+       "accelerator quantize": 0.012958810795067532,
+       "accelerator softmax_max_reduce_tree": 0.010532393308749267,
+       "accelerator reduce_tree_n256": 0.008883760764768054,
+       "accelerator reduce_tree_n1024": 0.003026861021726367,
+       "accelerator quantize_per_token_token_scale": 0.00041296771532589555,
+       "accelerator rsqrt": 0.0001262652730475631,
+       "accelerator softmax_q8_8_reciprocal": 5.35361390487375e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/gpt2/cap_1048576.json"
+     },
+     {
+      "cap": 33554432,
+      "total_mJ": 704.4973771209092,
+      "groups_mJ": {
+       "Array": 616.6786907990789,
+       "Interconnect/Buffer": 84.83470400474074,
+       "Digital module": 0.0,
+       "Accel units": 2.9839823170893776
+      },
+      "groups_pct": {
+       "Array": 87.53456163588265,
+       "Interconnect/Buffer": 12.041876486671576,
+       "Digital module": 0.0,
+       "Accel units": 0.42356187744574847
+      },
+      "parts_mJ": {
+       "WMU read: ADC conversions": 525.0723166632681,
+       "routers": 83.59301290666667,
+       "RMU MAC: ADC conversions": 47.06282627923972,
+       "WMU read: readout logic": 18.034599910024138,
+       "WMU MAC: ADC conversions": 15.687608759746562,
+       "WMU write": 5.171941213331981,
+       "MAC: shift-and-add": 2.8617618662823907,
+       "RMU MAC: column charging": 2.5570740094894076,
+       "accelerator vec_el_mul": 2.4283320746917267,
+       "tile buses": 1.2267925807407407,
+       "accelerator quantize_per_token_quant_mant_round": 0.2741798422548442,
+       "MAC: phase control": 0.23056209769677005,
+       "accelerator softmax_exp_pwl16_standalone": 0.05444861721103934,
+       "accelerator vec_add": 0.043924041117087455,
+       "accelerator gelu": 0.04265629334022313,
+       "accelerator absmax_tree": 0.04041198574562537,
+       "accelerator reduce_tree_n8": 0.03151010901984736,
+       "accelerator reduce_tree_n32": 0.016689352350440403,
+       "accelerator vec_select": 0.015835406340810335,
+       "PE input registers": 0.014898517333333345,
+       "accelerator quantize": 0.012958810795067532,
+       "accelerator softmax_max_reduce_tree": 0.010532393308749267,
+       "accelerator reduce_tree_n256": 0.008883760764768054,
+       "accelerator reduce_tree_n1024": 0.003026861021726367,
+       "accelerator quantize_per_token_token_scale": 0.00041296771532589555,
+       "accelerator rsqrt": 0.0001262652730475631,
+       "accelerator softmax_q8_8_reciprocal": 5.35361390487375e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_tiles/gpt2/cap_33554432.json"
+     }
+    ]
+   },
+   "hyflexpim": {
+    "resnet50": [
+     {
+      "cap": 16384,
+      "total_mJ": 4.1254040399384815,
+      "groups_mJ": {
+       "Array": 3.47206820188353,
+       "Interconnect/Buffer": 0.005881876100607848,
+       "Digital module": 0.5059599889851703,
+       "Accel units": 0.14149397296917327
+      },
+      "groups_pct": {
+       "Array": 84.16310665016233,
+       "Interconnect/Buffer": 0.14257697048979376,
+       "Digital module": 12.264495406678158,
+       "Accel units": 3.4298209726697033
+      },
+      "parts_mJ": {
+       "analog ADC conversions": 1.8054679722379638,
+       "analog array cycles": 1.6666002296455662,
+       "digital row writes": 0.39956035924624167,
+       "digital row reads": 0.10639962973892858,
+       "accelerator vec_el_mul": 0.05850045044691442,
+       "accelerator quantize": 0.04979039410004313,
+       "accelerator dequantize": 0.012382692014277101,
+       "accelerator vec_add": 0.005397506893021808,
+       "inner buses": 0.00470945556369005,
+       "accelerator reduce_tree_n8": 0.004692181624815935,
+       "accelerator argmax_tree": 0.0033968903693904653,
+       "accelerator reduce_tree_n64": 0.0023813882257160105,
+       "accelerator reduce_tree_n16": 0.0018972051296560057,
+       "accelerator reduce_tree_n32": 0.0017392101944512456,
+       "accelerator reduce_tree_n128": 0.0011822455363669287,
+       "routers": 0.0011724205369177984,
+       "accelerator relu": 0.0001338084345202173
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/resnet50/cap_16384.json"
+     },
+     {
+      "cap": 262144,
+      "total_mJ": 4.1703332927644885,
+      "groups_mJ": {
+       "Array": 3.47206820188353,
+       "Interconnect/Buffer": 0.0508111289266151,
+       "Digital module": 0.5059599889851703,
+       "Accel units": 0.14149397296917327
+      },
+      "groups_pct": {
+       "Array": 83.25637204842967,
+       "Interconnect/Buffer": 1.2183949185733478,
+       "Digital module": 12.132363374001995,
+       "Accel units": 3.3928696589949956
+      },
+      "parts_mJ": {
+       "analog ADC conversions": 1.8054679722379638,
+       "analog array cycles": 1.6666002296455662,
+       "digital row writes": 0.39956035924624167,
+       "digital row reads": 0.10639962973892858,
+       "accelerator vec_el_mul": 0.05850045044691442,
+       "accelerator quantize": 0.04979039410004313,
+       "routers": 0.043624417011164145,
+       "accelerator dequantize": 0.012382692014277101,
+       "inner buses": 0.007186711915450956,
+       "accelerator vec_add": 0.005397506893021808,
+       "accelerator reduce_tree_n8": 0.004692181624815935,
+       "accelerator argmax_tree": 0.0033968903693904653,
+       "accelerator reduce_tree_n64": 0.0023813882257160105,
+       "accelerator reduce_tree_n16": 0.0018972051296560057,
+       "accelerator reduce_tree_n32": 0.0017392101944512456,
+       "accelerator reduce_tree_n128": 0.0011822455363669287,
+       "accelerator relu": 0.0001338084345202173
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/resnet50/cap_262144.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 4.216142677987372,
+      "groups_mJ": {
+       "Array": 3.47206820188353,
+       "Interconnect/Buffer": 0.09662051414949847,
+       "Digital module": 0.5059599889851703,
+       "Accel units": 0.14149397296917327
+      },
+      "groups_pct": {
+       "Array": 82.35177191728637,
+       "Interconnect/Buffer": 2.291680370637302,
+       "Digital module": 12.00054238265714,
+       "Accel units": 3.356005329419193
+      },
+      "parts_mJ": {
+       "analog ADC conversions": 1.8054679722379638,
+       "analog array cycles": 1.6666002296455662,
+       "digital row writes": 0.39956035924624167,
+       "digital row reads": 0.10639962973892858,
+       "routers": 0.09491384580025179,
+       "accelerator vec_el_mul": 0.05850045044691442,
+       "accelerator quantize": 0.04979039410004313,
+       "accelerator dequantize": 0.012382692014277101,
+       "accelerator vec_add": 0.005397506893021808,
+       "accelerator reduce_tree_n8": 0.004692181624815935,
+       "accelerator argmax_tree": 0.0033968903693904653,
+       "accelerator reduce_tree_n64": 0.0023813882257160105,
+       "accelerator reduce_tree_n16": 0.0018972051296560057,
+       "accelerator reduce_tree_n32": 0.0017392101944512456,
+       "inner buses": 0.0017066683492466775,
+       "accelerator reduce_tree_n128": 0.0011822455363669287,
+       "accelerator relu": 0.0001338084345202173
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/resnet50/cap_4194304.json"
+     }
+    ],
+    "mobilenet-v2": [
+     {
+      "cap": 16384,
+      "total_mJ": 2.1400056253827358,
+      "groups_mJ": {
+       "Array": 1.9564664640522635,
+       "Interconnect/Buffer": 0.009517198696693952,
+       "Digital module": 0.11403565116943817,
+       "Accel units": 0.059986311464340025
+      },
+      "groups_pct": {
+       "Array": 91.42342622124433,
+       "Interconnect/Buffer": 0.44472774201197807,
+       "Digital module": 5.3287547386256575,
+       "Accel units": 2.8030912981180407
+      },
+      "parts_mJ": {
+       "analog array cycles": 1.6745956189892042,
+       "analog ADC conversions": 0.2818708450630593,
+       "digital row writes": 0.08811090666966856,
+       "accelerator vec_el_mul": 0.03515380194659539,
+       "digital row reads": 0.02592474449976961,
+       "accelerator quantize": 0.021028173289007676,
+       "inner buses": 0.005500492190745046,
+       "routers": 0.004016706505948906,
+       "accelerator vec_add": 0.0022374484494732307,
+       "accelerator dequantize": 0.000739643790450901,
+       "accelerator reduce_tree_n8": 0.0006750067315872059,
+       "accelerator reduce_tree_n16": 0.00013833787403741703,
+       "accelerator reduce_tree_n64": 1.0056538115354773e-05,
+       "accelerator reduce_tree_n32": 3.842845072851109e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/mobilenet-v2/cap_16384.json"
+     },
+     {
+      "cap": 262144,
+      "total_mJ": 2.1787320948536557,
+      "groups_mJ": {
+       "Array": 1.9564664640522635,
+       "Interconnect/Buffer": 0.04824366816761411,
+       "Digital module": 0.11403565116943817,
+       "Accel units": 0.059986311464340025
+      },
+      "groups_pct": {
+       "Array": 89.79839552892246,
+       "Interconnect/Buffer": 2.2143001556533553,
+       "Digital module": 5.234037330188496,
+       "Accel units": 2.7532669852357077
+      },
+      "parts_mJ": {
+       "analog array cycles": 1.6745956189892042,
+       "analog ADC conversions": 0.2818708450630593,
+       "digital row writes": 0.08811090666966856,
+       "routers": 0.04706922276933823,
+       "accelerator vec_el_mul": 0.03515380194659539,
+       "digital row reads": 0.02592474449976961,
+       "accelerator quantize": 0.021028173289007676,
+       "accelerator vec_add": 0.0022374484494732307,
+       "inner buses": 0.0011744453982758735,
+       "accelerator dequantize": 0.000739643790450901,
+       "accelerator reduce_tree_n8": 0.0006750067315872059,
+       "accelerator reduce_tree_n16": 0.00013833787403741703,
+       "accelerator reduce_tree_n64": 1.0056538115354773e-05,
+       "accelerator reduce_tree_n32": 3.842845072851109e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/mobilenet-v2/cap_262144.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 2.188720590595938,
+      "groups_mJ": {
+       "Array": 1.9564664640522635,
+       "Interconnect/Buffer": 0.058232163909895975,
+       "Digital module": 0.11403565116943817,
+       "Accel units": 0.059986311464340025
+      },
+      "groups_pct": {
+       "Array": 89.38858950102731,
+       "Interconnect/Buffer": 2.6605572296480613,
+       "Digital module": 5.210151156771861,
+       "Accel units": 2.7407021125527558
+      },
+      "parts_mJ": {
+       "analog array cycles": 1.6745956189892042,
+       "analog ADC conversions": 0.2818708450630593,
+       "digital row writes": 0.08811090666966856,
+       "routers": 0.05781665569856921,
+       "accelerator vec_el_mul": 0.03515380194659539,
+       "digital row reads": 0.02592474449976961,
+       "accelerator quantize": 0.021028173289007676,
+       "accelerator vec_add": 0.0022374484494732307,
+       "accelerator dequantize": 0.000739643790450901,
+       "accelerator reduce_tree_n8": 0.0006750067315872059,
+       "inner buses": 0.0004155082113267662,
+       "accelerator reduce_tree_n16": 0.00013833787403741703,
+       "accelerator reduce_tree_n64": 1.0056538115354773e-05,
+       "accelerator reduce_tree_n32": 3.842845072851109e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/mobilenet-v2/cap_4194304.json"
+     }
+    ],
+    "vgg16": [
+     {
+      "cap": 131072,
+      "total_mJ": 14.633261218148055,
+      "groups_mJ": {
+       "Array": 13.127215744513286,
+       "Interconnect/Buffer": 0.07640455236138555,
+       "Digital module": 1.2355000380049628,
+       "Accel units": 0.19414088326841974
+      },
+      "groups_pct": {
+       "Array": 89.70806677210831,
+       "Interconnect/Buffer": 0.5221293546419388,
+       "Digital module": 8.443094260305458,
+       "Accel units": 1.3267096129442952
+      },
+      "parts_mJ": {
+       "analog ADC conversions": 6.823052068091967,
+       "analog array cycles": 6.30416367642132,
+       "digital row writes": 0.9758577765816042,
+       "digital row reads": 0.2596422614233586,
+       "accelerator vec_el_mul": 0.07133862334650919,
+       "routers": 0.06123964912863685,
+       "accelerator quantize": 0.04097535353171826,
+       "accelerator argmax_tree": 0.025901289066602298,
+       "accelerator reduce_tree_n128": 0.017339601200048287,
+       "accelerator reduce_tree_n64": 0.01580868935724804,
+       "inner buses": 0.015164903232748701,
+       "accelerator reduce_tree_n32": 0.009255292530018106,
+       "accelerator reduce_tree_n16": 0.00867293773557031,
+       "accelerator vec_add": 0.004398877795644451,
+       "accelerator reduce_tree_n512": 0.0002715857832157945,
+       "accelerator dequantize": 0.00017863292184498668
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vgg16/cap_131072.json"
+     },
+     {
+      "cap": 1048576,
+      "total_mJ": 14.738094865736581,
+      "groups_mJ": {
+       "Array": 13.127215744513286,
+       "Interconnect/Buffer": 0.18123819994991233,
+       "Digital module": 1.2355000380049628,
+       "Accel units": 0.19414088326841974
+      },
+      "groups_pct": {
+       "Array": 89.06996368324172,
+       "Interconnect/Buffer": 1.2297261050426438,
+       "Digital module": 8.383037626371086,
+       "Accel units": 1.3172725853445437
+      },
+      "parts_mJ": {
+       "analog ADC conversions": 6.823052068091967,
+       "analog array cycles": 6.30416367642132,
+       "digital row writes": 0.9758577765816042,
+       "digital row reads": 0.2596422614233586,
+       "routers": 0.18061902121784226,
+       "accelerator vec_el_mul": 0.07133862334650919,
+       "accelerator quantize": 0.04097535353171826,
+       "accelerator argmax_tree": 0.025901289066602298,
+       "accelerator reduce_tree_n128": 0.017339601200048287,
+       "accelerator reduce_tree_n64": 0.01580868935724804,
+       "accelerator reduce_tree_n32": 0.009255292530018106,
+       "accelerator reduce_tree_n16": 0.00867293773557031,
+       "accelerator vec_add": 0.004398877795644451,
+       "inner buses": 0.0006191787320700624,
+       "accelerator reduce_tree_n512": 0.0002715857832157945,
+       "accelerator dequantize": 0.00017863292184498668
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vgg16/cap_1048576.json"
+     },
+     {
+      "cap": 16777216,
+      "total_mJ": 14.760921854864447,
+      "groups_mJ": {
+       "Array": 13.127215744513286,
+       "Interconnect/Buffer": 0.20406518907777701,
+       "Digital module": 1.2355000380049628,
+       "Accel units": 0.19414088326841974
+      },
+      "groups_pct": {
+       "Array": 88.93222167006613,
+       "Interconnect/Buffer": 1.3824691376611247,
+       "Digital module": 8.370073699684312,
+       "Accel units": 1.3152354925884306
+      },
+      "parts_mJ": {
+       "analog ADC conversions": 6.823052068091967,
+       "analog array cycles": 6.30416367642132,
+       "digital row writes": 0.9758577765816042,
+       "digital row reads": 0.2596422614233586,
+       "routers": 0.20391633189519587,
+       "accelerator vec_el_mul": 0.07133862334650919,
+       "accelerator quantize": 0.04097535353171826,
+       "accelerator argmax_tree": 0.025901289066602298,
+       "accelerator reduce_tree_n128": 0.017339601200048287,
+       "accelerator reduce_tree_n64": 0.01580868935724804,
+       "accelerator reduce_tree_n32": 0.009255292530018106,
+       "accelerator reduce_tree_n16": 0.00867293773557031,
+       "accelerator vec_add": 0.004398877795644451,
+       "accelerator reduce_tree_n512": 0.0002715857832157945,
+       "accelerator dequantize": 0.00017863292184498668,
+       "inner buses": 0.00014885718258113672
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vgg16/cap_16777216.json"
+     }
+    ],
+    "vit-base": [
+     {
+      "cap": 65536,
+      "total_mJ": 132.84681133363958,
+      "groups_mJ": {
+       "Array": 13.690341858188221,
+       "Interconnect/Buffer": 0.0795399198409388,
+       "Digital module": 118.57263141700835,
+       "Accel units": 0.5042981386020773
+      },
+      "groups_pct": {
+       "Array": 10.305359775482652,
+       "Interconnect/Buffer": 0.05987341287490702,
+       "Digital module": 89.25515804757845,
+       "Accel units": 0.37960876406401073
+      },
+      "parts_mJ": {
+       "digital matvec rows": 116.866424672491,
+       "analog ADC conversions": 7.3156854775296,
+       "analog array cycles": 6.374656380658621,
+       "digital row writes": 1.3509040135449886,
+       "digital row reads": 0.3553027309723686,
+       "accelerator vec_el_mul": 0.243526081314549,
+       "accelerator quantize": 0.14169767134352976,
+       "routers": 0.0764273738666042,
+       "accelerator dequantize": 0.04184883331768597,
+       "accelerator reduce_tree_n16": 0.026151562253683938,
+       "accelerator gelu": 0.018311282747326497,
+       "accelerator reduce_tree_n64": 0.014264193662819214,
+       "accelerator vec_add": 0.01074978293874647,
+       "accelerator softmax_exp_pwl16_standalone": 0.004379002657580826,
+       "inner buses": 0.0031125459743346095,
+       "accelerator reduce_tree_n1024": 0.0012653613508061042,
+       "accelerator softmax_max_reduce_tree": 0.0011007511848676607,
+       "accelerator reduce_tree_n256": 0.0009284509134097767,
+       "accelerator rsqrt": 5.278445072851106e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.238046634365032e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-base/cap_65536.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 132.86892003393734,
+      "groups_mJ": {
+       "Array": 13.690341858188221,
+       "Interconnect/Buffer": 0.10164862013868345,
+       "Digital module": 118.57263141700835,
+       "Accel units": 0.5042981386020773
+      },
+      "groups_pct": {
+       "Array": 10.303645016977212,
+       "Interconnect/Buffer": 0.07650293244855183,
+       "Digital module": 89.24030645144295,
+       "Accel units": 0.3795455991312864
+      },
+      "parts_mJ": {
+       "digital matvec rows": 116.866424672491,
+       "analog ADC conversions": 7.3156854775296,
+       "analog array cycles": 6.374656380658621,
+       "digital row writes": 1.3509040135449886,
+       "digital row reads": 0.3553027309723686,
+       "accelerator vec_el_mul": 0.243526081314549,
+       "accelerator quantize": 0.14169767134352976,
+       "routers": 0.10119414028161937,
+       "accelerator dequantize": 0.04184883331768597,
+       "accelerator reduce_tree_n16": 0.026151562253683938,
+       "accelerator gelu": 0.018311282747326497,
+       "accelerator reduce_tree_n64": 0.014264193662819214,
+       "accelerator vec_add": 0.01074978293874647,
+       "accelerator softmax_exp_pwl16_standalone": 0.004379002657580826,
+       "accelerator reduce_tree_n1024": 0.0012653613508061042,
+       "accelerator softmax_max_reduce_tree": 0.0011007511848676607,
+       "accelerator reduce_tree_n256": 0.0009284509134097767,
+       "inner buses": 0.0004544798570640775,
+       "accelerator rsqrt": 5.278445072851106e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.238046634365032e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-base/cap_2097152.json"
+     },
+     {
+      "cap": 67108864,
+      "total_mJ": 132.85938632580343,
+      "groups_mJ": {
+       "Array": 13.690341858188221,
+       "Interconnect/Buffer": 0.09211491200476173,
+       "Digital module": 118.57263141700835,
+       "Accel units": 0.5042981386020773
+      },
+      "groups_pct": {
+       "Array": 10.304384384717979,
+       "Interconnect/Buffer": 0.06933263396149794,
+       "Digital module": 89.24671014680101,
+       "Accel units": 0.37957283451950924
+      },
+      "parts_mJ": {
+       "digital matvec rows": 116.866424672491,
+       "analog ADC conversions": 7.3156854775296,
+       "analog array cycles": 6.374656380658621,
+       "digital row writes": 1.3509040135449886,
+       "digital row reads": 0.3553027309723686,
+       "accelerator vec_el_mul": 0.243526081314549,
+       "accelerator quantize": 0.14169767134352976,
+       "routers": 0.09208442106415285,
+       "accelerator dequantize": 0.04184883331768597,
+       "accelerator reduce_tree_n16": 0.026151562253683938,
+       "accelerator gelu": 0.018311282747326497,
+       "accelerator reduce_tree_n64": 0.014264193662819214,
+       "accelerator vec_add": 0.01074978293874647,
+       "accelerator softmax_exp_pwl16_standalone": 0.004379002657580826,
+       "accelerator reduce_tree_n1024": 0.0012653613508061042,
+       "accelerator softmax_max_reduce_tree": 0.0011007511848676607,
+       "accelerator reduce_tree_n256": 0.0009284509134097767,
+       "accelerator rsqrt": 5.278445072851106e-05,
+       "inner buses": 3.04909406088774e-05,
+       "accelerator softmax_q8_8_reciprocal": 2.238046634365032e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-base/cap_67108864.json"
+     }
+    ],
+    "vit-large": [
+     {
+      "cap": 262144,
+      "total_mJ": 367.53467614975085,
+      "groups_mJ": {
+       "Array": 48.77141564916342,
+       "Interconnect/Buffer": 0.23926809913792457,
+       "Digital module": 317.1834821474018,
+       "Accel units": 1.340510254047696
+      },
+      "groups_pct": {
+       "Array": 13.269881405500813,
+       "Interconnect/Buffer": 0.06510082304191497,
+       "Digital module": 86.30028749128596,
+       "Accel units": 0.36473028017130804
+      },
+      "parts_mJ": {
+       "digital matvec rows": 311.6437991266429,
+       "analog ADC conversions": 26.00827485692651,
+       "analog array cycles": 22.763140792236914,
+       "digital row writes": 4.394664048146598,
+       "digital row reads": 1.145018972612299,
+       "accelerator vec_el_mul": 0.6461816335586492,
+       "accelerator quantize": 0.3778604569160797,
+       "routers": 0.23394827665903575,
+       "accelerator dequantize": 0.11159688884716293,
+       "accelerator reduce_tree_n16": 0.06973749934315714,
+       "accelerator gelu": 0.048830087326204,
+       "accelerator reduce_tree_n64": 0.03803784976751789,
+       "accelerator vec_add": 0.028534045258712077,
+       "accelerator softmax_exp_pwl16_standalone": 0.011677340420215534,
+       "inner buses": 0.005319822478888824,
+       "accelerator softmax_max_reduce_tree": 0.002935336492980431,
+       "accelerator reduce_tree_n1024": 0.0024801082475799643,
+       "accelerator reduce_tree_n256": 0.002475869102426072,
+       "accelerator rsqrt": 0.00010345752342788163,
+       "accelerator softmax_q8_8_reciprocal": 5.968124358306748e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-large/cap_262144.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 367.5741274954985,
+      "groups_mJ": {
+       "Array": 48.77141564916342,
+       "Interconnect/Buffer": 0.2787194448855674,
+       "Digital module": 317.1834821474018,
+       "Accel units": 1.340510254047696
+      },
+      "groups_pct": {
+       "Array": 13.268457163041406,
+       "Interconnect/Buffer": 0.07582673100107698,
+       "Digital module": 86.29102497190479,
+       "Accel units": 0.3646911340527123
+      },
+      "parts_mJ": {
+       "digital matvec rows": 311.6437991266429,
+       "analog ADC conversions": 26.00827485692651,
+       "analog array cycles": 22.763140792236914,
+       "digital row writes": 4.394664048146598,
+       "digital row reads": 1.145018972612299,
+       "accelerator vec_el_mul": 0.6461816335586492,
+       "accelerator quantize": 0.3778604569160797,
+       "routers": 0.2780313477894029,
+       "accelerator dequantize": 0.11159688884716293,
+       "accelerator reduce_tree_n16": 0.06973749934315714,
+       "accelerator gelu": 0.048830087326204,
+       "accelerator reduce_tree_n64": 0.03803784976751789,
+       "accelerator vec_add": 0.028534045258712077,
+       "accelerator softmax_exp_pwl16_standalone": 0.011677340420215534,
+       "accelerator softmax_max_reduce_tree": 0.002935336492980431,
+       "accelerator reduce_tree_n1024": 0.0024801082475799643,
+       "accelerator reduce_tree_n256": 0.002475869102426072,
+       "inner buses": 0.0006880970961644535,
+       "accelerator rsqrt": 0.00010345752342788163,
+       "accelerator softmax_q8_8_reciprocal": 5.968124358306748e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-large/cap_4194304.json"
+     },
+     {
+      "cap": 134217728,
+      "total_mJ": 367.54138540289625,
+      "groups_mJ": {
+       "Array": 48.77141564916342,
+       "Interconnect/Buffer": 0.24597735228336085,
+       "Digital module": 317.1834821474018,
+       "Accel units": 1.340510254047696
+      },
+      "groups_pct": {
+       "Array": 13.26963917157262,
+       "Interconnect/Buffer": 0.06692507620977764,
+       "Digital module": 86.29871212998435,
+       "Accel units": 0.36472362223324545
+      },
+      "parts_mJ": {
+       "digital matvec rows": 311.6437991266429,
+       "analog ADC conversions": 26.00827485692651,
+       "analog array cycles": 22.763140792236914,
+       "digital row writes": 4.394664048146598,
+       "digital row reads": 1.145018972612299,
+       "accelerator vec_el_mul": 0.6461816335586492,
+       "accelerator quantize": 0.3778604569160797,
+       "routers": 0.2459362329094427,
+       "accelerator dequantize": 0.11159688884716293,
+       "accelerator reduce_tree_n16": 0.06973749934315714,
+       "accelerator gelu": 0.048830087326204,
+       "accelerator reduce_tree_n64": 0.03803784976751789,
+       "accelerator vec_add": 0.028534045258712077,
+       "accelerator softmax_exp_pwl16_standalone": 0.011677340420215534,
+       "accelerator softmax_max_reduce_tree": 0.002935336492980431,
+       "accelerator reduce_tree_n1024": 0.0024801082475799643,
+       "accelerator reduce_tree_n256": 0.002475869102426072,
+       "accelerator rsqrt": 0.00010345752342788163,
+       "accelerator softmax_q8_8_reciprocal": 5.968124358306748e-05,
+       "inner buses": 4.1119373918162354e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/vit-large/cap_134217728.json"
+     }
+    ],
+    "bert-base": [
+     {
+      "cap": 65536,
+      "total_mJ": 832.4298354014514,
+      "groups_mJ": {
+       "Array": 35.58099000706787,
+       "Interconnect/Buffer": 0.2668699628205149,
+       "Digital module": 794.700745210208,
+       "Accel units": 1.8812302213550836
+      },
+      "groups_pct": {
+       "Array": 4.274353043810403,
+       "Interconnect/Buffer": 0.03205915399365917,
+       "Digital module": 95.46759515496606,
+       "Accel units": 0.2259926472298813
+      },
+      "parts_mJ": {
+       "digital matvec rows": 789.8135792848514,
+       "analog ADC conversions": 19.01335514972161,
+       "analog array cycles": 16.56763485734626,
+       "digital row writes": 3.862066004219623,
+       "digital row reads": 1.0250999211370029,
+       "accelerator vec_el_mul": 0.9933431878291319,
+       "accelerator quantize": 0.5068663604153456,
+       "routers": 0.25899292254387823,
+       "accelerator dequantize": 0.14969734950646077,
+       "accelerator reduce_tree_n16": 0.06796751205018363,
+       "accelerator gelu": 0.04759074500828003,
+       "accelerator reduce_tree_n64": 0.03707242210844385,
+       "accelerator vec_add": 0.03521899511083366,
+       "accelerator softmax_exp_pwl16_standalone": 0.02957894490115356,
+       "inner buses": 0.00787704027663668,
+       "accelerator softmax_max_reduce_tree": 0.005721671133525306,
+       "accelerator reduce_tree_n256": 0.004826059570211225,
+       "accelerator reduce_tree_n1024": 0.003157108686031557,
+       "accelerator rsqrt": 0.00013169854427450648,
+       "accelerator softmax_q8_8_reciprocal": 5.816649120786276e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/bert-base/cap_65536.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 832.4974853201627,
+      "groups_mJ": {
+       "Array": 35.58099000706787,
+       "Interconnect/Buffer": 0.33451988153188206,
+       "Digital module": 794.700745210208,
+       "Accel units": 1.8812302213550836
+      },
+      "groups_pct": {
+       "Array": 4.274005703859165,
+       "Interconnect/Buffer": 0.040182689729474926,
+       "Digital module": 95.45983732366244,
+       "Accel units": 0.22597428274892606
+      },
+      "parts_mJ": {
+       "digital matvec rows": 789.8135792848514,
+       "analog ADC conversions": 19.01335514972161,
+       "analog array cycles": 16.56763485734626,
+       "digital row writes": 3.862066004219623,
+       "digital row reads": 1.0250999211370029,
+       "accelerator vec_el_mul": 0.9933431878291319,
+       "accelerator quantize": 0.5068663604153456,
+       "routers": 0.3343315496703315,
+       "accelerator dequantize": 0.14969734950646077,
+       "accelerator reduce_tree_n16": 0.06796751205018363,
+       "accelerator gelu": 0.04759074500828003,
+       "accelerator reduce_tree_n64": 0.03707242210844385,
+       "accelerator vec_add": 0.03521899511083366,
+       "accelerator softmax_exp_pwl16_standalone": 0.02957894490115356,
+       "accelerator softmax_max_reduce_tree": 0.005721671133525306,
+       "accelerator reduce_tree_n256": 0.004826059570211225,
+       "accelerator reduce_tree_n1024": 0.003157108686031557,
+       "inner buses": 0.00018833186155055735,
+       "accelerator rsqrt": 0.00013169854427450648,
+       "accelerator softmax_q8_8_reciprocal": 5.816649120786276e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/bert-base/cap_4194304.json"
+     },
+     {
+      "cap": 268435456,
+      "total_mJ": 832.4027831247952,
+      "groups_mJ": {
+       "Array": 35.58099000706787,
+       "Interconnect/Buffer": 0.2398176861642439,
+       "Digital module": 794.700745210208,
+       "Accel units": 1.8812302213550836
+      },
+      "groups_pct": {
+       "Array": 4.274491956105522,
+       "Interconnect/Buffer": 0.02881029364942549,
+       "Digital module": 95.47069775847507,
+       "Accel units": 0.22599999176997546
+      },
+      "parts_mJ": {
+       "digital matvec rows": 789.8135792848514,
+       "analog ADC conversions": 19.01335514972161,
+       "analog array cycles": 16.56763485734626,
+       "digital row writes": 3.862066004219623,
+       "digital row reads": 1.0250999211370029,
+       "accelerator vec_el_mul": 0.9933431878291319,
+       "accelerator quantize": 0.5068663604153456,
+       "routers": 0.23978653124773838,
+       "accelerator dequantize": 0.14969734950646077,
+       "accelerator reduce_tree_n16": 0.06796751205018363,
+       "accelerator gelu": 0.04759074500828003,
+       "accelerator reduce_tree_n64": 0.03707242210844385,
+       "accelerator vec_add": 0.03521899511083366,
+       "accelerator softmax_exp_pwl16_standalone": 0.02957894490115356,
+       "accelerator softmax_max_reduce_tree": 0.005721671133525306,
+       "accelerator reduce_tree_n256": 0.004826059570211225,
+       "accelerator reduce_tree_n1024": 0.003157108686031557,
+       "accelerator rsqrt": 0.00013169854427450648,
+       "accelerator softmax_q8_8_reciprocal": 5.816649120786276e-05,
+       "inner buses": 3.1154916505514676e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/bert-base/cap_268435456.json"
+     }
+    ],
+    "bert-large": [
+     {
+      "cap": 262144,
+      "total_mJ": 2254.3430034932003,
+      "groups_mJ": {
+       "Array": 126.75616656026227,
+       "Interconnect/Buffer": 0.7854130898308833,
+       "Digital module": 2121.7870913322654,
+       "Accel units": 5.014332510841177
+      },
+      "groups_pct": {
+       "Array": 5.622754228786312,
+       "Interconnect/Buffer": 0.03483999944169332,
+       "Digital module": 94.11997588851679,
+       "Accel units": 0.222429883255177
+      },
+      "parts_mJ": {
+       "digital matvec rows": 2106.1695447596026,
+       "analog ADC conversions": 67.5951102880527,
+       "analog array cycles": 59.161056272209585,
+       "digital row writes": 12.366925961955124,
+       "digital row reads": 3.2506206107077125,
+       "accelerator vec_el_mul": 2.648828951063181,
+       "accelerator quantize": 1.3516436277742558,
+       "routers": 0.7724130189535631,
+       "accelerator dequantize": 0.3991929320172293,
+       "accelerator reduce_tree_n16": 0.18124669880048977,
+       "accelerator gelu": 0.12690865335541346,
+       "accelerator reduce_tree_n64": 0.0988597922891836,
+       "accelerator vec_add": 0.09391466215788263,
+       "accelerator softmax_exp_pwl16_standalone": 0.0788771864030761,
+       "accelerator softmax_max_reduce_tree": 0.015257789689400818,
+       "inner buses": 0.013000070877320217,
+       "accelerator reduce_tree_n256": 0.01286949218722993,
+       "accelerator reduce_tree_n1024": 0.0063142173720630995,
+       "accelerator rsqrt": 0.00026339708854901264,
+       "accelerator softmax_q8_8_reciprocal": 0.00015511064322096734
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/bert-large/cap_262144.json"
+     },
+     {
+      "cap": 8388608,
+      "total_mJ": 2254.444393990608,
+      "groups_mJ": {
+       "Array": 126.75616656026227,
+       "Interconnect/Buffer": 0.8868035872393305,
+       "Digital module": 2121.7870913322654,
+       "Accel units": 5.014332510841177
+      },
+      "groups_pct": {
+       "Array": 5.622501353244304,
+       "Interconnect/Buffer": 0.03933579331577982,
+       "Digital module": 94.11574297365901,
+       "Accel units": 0.22241987978090116
+      },
+      "parts_mJ": {
+       "digital matvec rows": 2106.1695447596026,
+       "analog ADC conversions": 67.5951102880527,
+       "analog array cycles": 59.161056272209585,
+       "digital row writes": 12.366925961955124,
+       "digital row reads": 3.2506206107077125,
+       "accelerator vec_el_mul": 2.648828951063181,
+       "accelerator quantize": 1.3516436277742558,
+       "routers": 0.8857139122264996,
+       "accelerator dequantize": 0.3991929320172293,
+       "accelerator reduce_tree_n16": 0.18124669880048977,
+       "accelerator gelu": 0.12690865335541346,
+       "accelerator reduce_tree_n64": 0.0988597922891836,
+       "accelerator vec_add": 0.09391466215788263,
+       "accelerator softmax_exp_pwl16_standalone": 0.0788771864030761,
+       "accelerator softmax_max_reduce_tree": 0.015257789689400818,
+       "accelerator reduce_tree_n256": 0.01286949218722993,
+       "accelerator reduce_tree_n1024": 0.0063142173720630995,
+       "inner buses": 0.0010896750128308616,
+       "accelerator rsqrt": 0.00026339708854901264,
+       "accelerator softmax_q8_8_reciprocal": 0.00015511064322096734
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/bert-large/cap_8388608.json"
+     },
+     {
+      "cap": 536870912,
+      "total_mJ": 2254.1973134831587,
+      "groups_mJ": {
+       "Array": 126.75616656026227,
+       "Interconnect/Buffer": 0.6397230797894293,
+       "Digital module": 2121.7870913322654,
+       "Accel units": 5.014332510841177
+      },
+      "groups_pct": {
+       "Array": 5.623117630479302,
+       "Interconnect/Buffer": 0.028379196264808643,
+       "Digital module": 94.12605891423522,
+       "Accel units": 0.22244425902065734
+      },
+      "parts_mJ": {
+       "digital matvec rows": 2106.1695447596026,
+       "analog ADC conversions": 67.5951102880527,
+       "analog array cycles": 59.161056272209585,
+       "digital row writes": 12.366925961955124,
+       "digital row reads": 3.2506206107077125,
+       "accelerator vec_el_mul": 2.648828951063181,
+       "accelerator quantize": 1.3516436277742558,
+       "routers": 0.6396654653030605,
+       "accelerator dequantize": 0.3991929320172293,
+       "accelerator reduce_tree_n16": 0.18124669880048977,
+       "accelerator gelu": 0.12690865335541346,
+       "accelerator reduce_tree_n64": 0.0988597922891836,
+       "accelerator vec_add": 0.09391466215788263,
+       "accelerator softmax_exp_pwl16_standalone": 0.0788771864030761,
+       "accelerator softmax_max_reduce_tree": 0.015257789689400818,
+       "accelerator reduce_tree_n256": 0.01286949218722993,
+       "accelerator reduce_tree_n1024": 0.0063142173720630995,
+       "accelerator rsqrt": 0.00026339708854901264,
+       "accelerator softmax_q8_8_reciprocal": 0.00015511064322096734,
+       "inner buses": 5.7614486368865146e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/bert-large/cap_536870912.json"
+     }
+    ],
+    "gpt2": [
+     {
+      "cap": 65536,
+      "total_mJ": 3250.193178376191,
+      "groups_mJ": {
+       "Array": 71.16198001413574,
+       "Interconnect/Buffer": 0.6082896655815341,
+       "Digital module": 3171.833430137866,
+       "Accel units": 6.589478558608326
+      },
+      "groups_pct": {
+       "Array": 2.1894692440923937,
+       "Interconnect/Buffer": 0.01871549265528389,
+       "Digital module": 97.58907412766543,
+       "Accel units": 0.20274113558691473
+      },
+      "parts_mJ": {
+       "digital matvec rows": 3159.2543171394054,
+       "analog ADC conversions": 38.02671029944322,
+       "analog array cycles": 33.13526971469252,
+       "digital row writes": 9.743004268614992,
+       "accelerator vec_el_mul": 5.276718074261579,
+       "digital row reads": 2.8361087298451935,
+       "accelerator quantize_per_token_quant_mant_round": 0.5957874313413234,
+       "routers": 0.5949956401266806,
+       "accelerator reduce_tree_n16": 0.13593502410036726,
+       "accelerator softmax_exp_pwl16_standalone": 0.11831577960461424,
+       "accelerator vec_add": 0.09544608172527971,
+       "accelerator gelu": 0.09269129061680494,
+       "accelerator absmax_tree": 0.08781445413630819,
+       "accelerator reduce_tree_n64": 0.0741448442168877,
+       "accelerator vec_select": 0.0344100280693439,
+       "accelerator quantize": 0.028159242245297002,
+       "accelerator softmax_max_reduce_tree": 0.022886684534101222,
+       "accelerator reduce_tree_n256": 0.0193042382808449,
+       "inner buses": 0.01329402545485351,
+       "accelerator reduce_tree_n1024": 0.006577309762565744,
+       "accelerator quantize_per_token_token_scale": 0.0008973707633554631,
+       "accelerator rsqrt": 0.0002743719672385551,
+       "accelerator softmax_q8_8_reciprocal": 0.00011633298241572552
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/gpt2/cap_65536.json"
+     },
+     {
+      "cap": 8388608,
+      "total_mJ": 3250.4483243825434,
+      "groups_mJ": {
+       "Array": 71.16198001413574,
+       "Interconnect/Buffer": 0.8634356719337566,
+       "Digital module": 3171.833430137866,
+       "Accel units": 6.589478558608326
+      },
+      "groups_pct": {
+       "Array": 2.189297380313028,
+       "Interconnect/Buffer": 0.026563587104488893,
+       "Digital module": 97.58141381128982,
+       "Accel units": 0.20272522129266787
+      },
+      "parts_mJ": {
+       "digital matvec rows": 3159.2543171394054,
+       "analog ADC conversions": 38.02671029944322,
+       "analog array cycles": 33.13526971469252,
+       "digital row writes": 9.743004268614992,
+       "accelerator vec_el_mul": 5.276718074261579,
+       "digital row reads": 2.8361087298451935,
+       "routers": 0.8626934424459354,
+       "accelerator quantize_per_token_quant_mant_round": 0.5957874313413234,
+       "accelerator reduce_tree_n16": 0.13593502410036726,
+       "accelerator softmax_exp_pwl16_standalone": 0.11831577960461424,
+       "accelerator vec_add": 0.09544608172527971,
+       "accelerator gelu": 0.09269129061680494,
+       "accelerator absmax_tree": 0.08781445413630819,
+       "accelerator reduce_tree_n64": 0.0741448442168877,
+       "accelerator vec_select": 0.0344100280693439,
+       "accelerator quantize": 0.028159242245297002,
+       "accelerator softmax_max_reduce_tree": 0.022886684534101222,
+       "accelerator reduce_tree_n256": 0.0193042382808449,
+       "accelerator reduce_tree_n1024": 0.006577309762565744,
+       "accelerator quantize_per_token_token_scale": 0.0008973707633554631,
+       "inner buses": 0.000742229487821228,
+       "accelerator rsqrt": 0.0002743719672385551,
+       "accelerator softmax_q8_8_reciprocal": 0.00011633298241572552
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/gpt2/cap_8388608.json"
+     },
+     {
+      "cap": 1073741824,
+      "total_mJ": 3250.068710939938,
+      "groups_mJ": {
+       "Array": 71.16198001413574,
+       "Interconnect/Buffer": 0.4838222293282432,
+       "Digital module": 3171.833430137866,
+       "Accel units": 6.589478558608326
+      },
+      "groups_pct": {
+       "Array": 2.189553093896138,
+       "Interconnect/Buffer": 0.014886523097178432,
+       "Digital module": 97.59281148307028,
+       "Accel units": 0.20274889993641435
+      },
+      "parts_mJ": {
+       "digital matvec rows": 3159.2543171394054,
+       "analog ADC conversions": 38.02671029944322,
+       "analog array cycles": 33.13526971469252,
+       "digital row writes": 9.743004268614992,
+       "accelerator vec_el_mul": 5.276718074261579,
+       "digital row reads": 2.8361087298451935,
+       "accelerator quantize_per_token_quant_mant_round": 0.5957874313413234,
+       "routers": 0.48381403286376656,
+       "accelerator reduce_tree_n16": 0.13593502410036726,
+       "accelerator softmax_exp_pwl16_standalone": 0.11831577960461424,
+       "accelerator vec_add": 0.09544608172527971,
+       "accelerator gelu": 0.09269129061680494,
+       "accelerator absmax_tree": 0.08781445413630819,
+       "accelerator reduce_tree_n64": 0.0741448442168877,
+       "accelerator vec_select": 0.0344100280693439,
+       "accelerator quantize": 0.028159242245297002,
+       "accelerator softmax_max_reduce_tree": 0.022886684534101222,
+       "accelerator reduce_tree_n256": 0.0193042382808449,
+       "accelerator reduce_tree_n1024": 0.006577309762565744,
+       "accelerator quantize_per_token_token_scale": 0.0008973707633554631,
+       "accelerator rsqrt": 0.0002743719672385551,
+       "accelerator softmax_q8_8_reciprocal": 0.00011633298241572552,
+       "inner buses": 8.196464476627113e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/gpt2/cap_1073741824.json"
+     }
+    ]
+   },
+   "rse": {
+    "resnet50": [
+     {
+      "cap": 16384,
+      "total_mJ": 7.6938640461889936,
+      "groups_mJ": {
+       "Array": 5.800688426149645,
+       "Interconnect/Buffer": 1.2260909716415194,
+       "Digital module": 0.0,
+       "Accel units": 0.6670846483978295
+      },
+      "groups_pct": {
+       "Array": 75.39369543477837,
+       "Interconnect/Buffer": 15.935958372553252,
+       "Digital module": 0.0,
+       "Accel units": 8.67034619266839
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 4.345644557157579,
+       "routers": 0.8252925925501182,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 0.7085545518789895,
+       "accelerator vec_el_mul": 0.535952390514687,
+       "SRAM: op input reads": 0.4336718215828894,
+       "tile buses": 0.39436284136116007,
+       "SRAM: op output writes": 0.2587129634831635,
+       "accelerator quantize": 0.07867031788509819,
+       "SRAM correction: PE steps": 0.04035906123777028,
+       "accelerator dequantize": 0.019565025235170834,
+       "SRAM: matvec input reads": 0.013745470809253774,
+       "accelerator vec_add": 0.008528222978268536,
+       "accelerator reduce_tree_n8": 0.007413787873564268,
+       "PE input registers": 0.006435537730240884,
+       "accelerator argmax_tree": 0.005367188792356732,
+       "accelerator reduce_tree_n64": 0.0037626649097912243,
+       "accelerator reduce_tree_n16": 0.002997641077983502,
+       "accelerator reduce_tree_n32": 0.002748004335767334,
+       "accelerator reduce_tree_n128": 0.0018679834503287052,
+       "accelerator relu": 0.00021142134481325008
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/resnet50/cap_16384.json"
+     },
+     {
+      "cap": 131072,
+      "total_mJ": 7.9838903844676405,
+      "groups_mJ": {
+       "Array": 5.800688426149645,
+       "Interconnect/Buffer": 1.5161173099201664,
+       "Digital module": 0.0,
+       "Accel units": 0.6670846483978295
+      },
+      "groups_pct": {
+       "Array": 72.65491066153247,
+       "Interconnect/Buffer": 18.989705981807013,
+       "Digital module": 0.0,
+       "Accel units": 8.355383356660528
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 4.345644557157579,
+       "routers": 1.1152950078153139,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 0.7085545518789895,
+       "accelerator vec_el_mul": 0.535952390514687,
+       "SRAM: op input reads": 0.4336718215828894,
+       "tile buses": 0.39438676437461145,
+       "SRAM: op output writes": 0.2587129634831635,
+       "accelerator quantize": 0.07867031788509819,
+       "SRAM correction: PE steps": 0.04035906123777028,
+       "accelerator dequantize": 0.019565025235170834,
+       "SRAM: matvec input reads": 0.013745470809253774,
+       "accelerator vec_add": 0.008528222978268536,
+       "accelerator reduce_tree_n8": 0.007413787873564268,
+       "PE input registers": 0.006435537730240884,
+       "accelerator argmax_tree": 0.005367188792356732,
+       "accelerator reduce_tree_n64": 0.0037626649097912243,
+       "accelerator reduce_tree_n16": 0.002997641077983502,
+       "accelerator reduce_tree_n32": 0.002748004335767334,
+       "accelerator reduce_tree_n128": 0.0018679834503287052,
+       "accelerator relu": 0.00021142134481325008
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/resnet50/cap_131072.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 9.62033329130018,
+      "groups_mJ": {
+       "Array": 5.800688426149645,
+       "Interconnect/Buffer": 3.1525602167527045,
+       "Digital module": 0.0,
+       "Accel units": 0.6670846483978295
+      },
+      "groups_pct": {
+       "Array": 60.29612748859024,
+       "Interconnect/Buffer": 32.76976089387272,
+       "Digital module": 0.0,
+       "Accel units": 6.9341116175370425
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 4.345644557157579,
+       "routers": 2.751737914647852,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 0.7085545518789895,
+       "accelerator vec_el_mul": 0.535952390514687,
+       "SRAM: op input reads": 0.4336718215828894,
+       "tile buses": 0.39438676437461145,
+       "SRAM: op output writes": 0.2587129634831635,
+       "accelerator quantize": 0.07867031788509819,
+       "SRAM correction: PE steps": 0.04035906123777028,
+       "accelerator dequantize": 0.019565025235170834,
+       "SRAM: matvec input reads": 0.013745470809253774,
+       "accelerator vec_add": 0.008528222978268536,
+       "accelerator reduce_tree_n8": 0.007413787873564268,
+       "PE input registers": 0.006435537730240884,
+       "accelerator argmax_tree": 0.005367188792356732,
+       "accelerator reduce_tree_n64": 0.0037626649097912243,
+       "accelerator reduce_tree_n16": 0.002997641077983502,
+       "accelerator reduce_tree_n32": 0.002748004335767334,
+       "accelerator reduce_tree_n128": 0.0018679834503287052,
+       "accelerator relu": 0.00021142134481325008
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/resnet50/cap_2097152.json"
+     }
+    ],
+    "mobilenet-v2": [
+     {
+      "cap": 8192,
+      "total_mJ": 2.35701590962357,
+      "groups_mJ": {
+       "Array": 1.7121110916088764,
+       "Interconnect/Buffer": 0.5303588365860421,
+       "Digital module": 0.0,
+       "Accel units": 0.11454598142865154
+      },
+      "groups_pct": {
+       "Array": 72.63892808777481,
+       "Interconnect/Buffer": 22.501283696075845,
+       "Digital module": 0.0,
+       "Accel units": 4.859788216149345
+      },
+      "parts_mJ": {
+       "SRAM correction: PE steps": 0.625356926772291,
+       "RRAM MAC: columns (ADC, column supply)": 0.6150550202413204,
+       "routers": 0.44012599221124865,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 0.34273968275661415,
+       "tile buses": 0.08198904327202516,
+       "accelerator vec_el_mul": 0.07530987066960852,
+       "SRAM: op input reads": 0.06719375284772026,
+       "SRAM: op output writes": 0.046688760554279896,
+       "accelerator quantize": 0.03322514527330743,
+       "SRAM: matvec input reads": 0.015076948436650733,
+       "PE input registers": 0.008243801102768301,
+       "accelerator vec_add": 0.0035352357408118314,
+       "accelerator dequantize": 0.0011686594004376614,
+       "accelerator reduce_tree_n8": 0.0010665309063802044,
+       "accelerator reduce_tree_n16": 0.00021857799526963037,
+       "accelerator reduce_tree_n64": 1.588963222040213e-05,
+       "accelerator reduce_tree_n32": 6.071810615857684e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/mobilenet-v2/cap_8192.json"
+     },
+     {
+      "cap": 65536,
+      "total_mJ": 4.142018715419828,
+      "groups_mJ": {
+       "Array": 1.7121110916088764,
+       "Interconnect/Buffer": 2.3153616423823,
+       "Digital module": 0.0,
+       "Accel units": 0.11454598142865154
+      },
+      "groups_pct": {
+       "Array": 41.33518482751085,
+       "Interconnect/Buffer": 55.899352500816,
+       "Digital module": 0.0,
+       "Accel units": 2.765462671673162
+      },
+      "parts_mJ": {
+       "routers": 2.2249298592640683,
+       "SRAM correction: PE steps": 0.625356926772291,
+       "RRAM MAC: columns (ADC, column supply)": 0.6150550202413204,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 0.34273968275661415,
+       "tile buses": 0.08218798201546323,
+       "accelerator vec_el_mul": 0.07530987066960852,
+       "SRAM: op input reads": 0.06719375284772026,
+       "SRAM: op output writes": 0.046688760554279896,
+       "accelerator quantize": 0.03322514527330743,
+       "SRAM: matvec input reads": 0.015076948436650733,
+       "PE input registers": 0.008243801102768301,
+       "accelerator vec_add": 0.0035352357408118314,
+       "accelerator dequantize": 0.0011686594004376614,
+       "accelerator reduce_tree_n8": 0.0010665309063802044,
+       "accelerator reduce_tree_n16": 0.00021857799526963037,
+       "accelerator reduce_tree_n64": 1.588963222040213e-05,
+       "accelerator reduce_tree_n32": 6.071810615857684e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/mobilenet-v2/cap_65536.json"
+     },
+     {
+      "cap": 1048576,
+      "total_mJ": 6.693361112467439,
+      "groups_mJ": {
+       "Array": 1.7121110916088764,
+       "Interconnect/Buffer": 4.866704039429912,
+       "Digital module": 0.0,
+       "Accel units": 0.11454598142865154
+      },
+      "groups_pct": {
+       "Array": 25.57924281748074,
+       "Interconnect/Buffer": 72.70941994097569,
+       "Digital module": 0.0,
+       "Accel units": 1.7113372415435886
+      },
+      "parts_mJ": {
+       "routers": 4.7762555445415185,
+       "SRAM correction: PE steps": 0.625356926772291,
+       "RRAM MAC: columns (ADC, column supply)": 0.6150550202413204,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 0.34273968275661415,
+       "tile buses": 0.08220469378562548,
+       "accelerator vec_el_mul": 0.07530987066960852,
+       "SRAM: op input reads": 0.06719375284772026,
+       "SRAM: op output writes": 0.046688760554279896,
+       "accelerator quantize": 0.03322514527330743,
+       "SRAM: matvec input reads": 0.015076948436650733,
+       "PE input registers": 0.008243801102768301,
+       "accelerator vec_add": 0.0035352357408118314,
+       "accelerator dequantize": 0.0011686594004376614,
+       "accelerator reduce_tree_n8": 0.0010665309063802044,
+       "accelerator reduce_tree_n16": 0.00021857799526963037,
+       "accelerator reduce_tree_n64": 1.588963222040213e-05,
+       "accelerator reduce_tree_n32": 6.071810615857684e-06
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/mobilenet-v2/cap_1048576.json"
+     }
+    ],
+    "vgg16": [
+     {
+      "cap": 131072,
+      "total_mJ": 27.218239864298585,
+      "groups_mJ": {
+       "Array": 21.6660643133271,
+       "Interconnect/Buffer": 3.3329054992586276,
+       "Digital module": 0.0,
+       "Accel units": 2.219270051712852
+      },
+      "groups_pct": {
+       "Array": 79.60126893343269,
+       "Interconnect/Buffer": 12.245117670633464,
+       "Digital module": 0.0,
+       "Accel units": 8.153613395933833
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 16.421696636999265,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 2.677532063998205,
+       "routers": 2.1218054574374965,
+       "accelerator vec_el_mul": 2.0252387932806806,
+       "SRAM: op input reads": 1.2918103916894896,
+       "tile buses": 1.1871065372728689,
+       "SRAM: op output writes": 0.6651670682749545,
+       "SRAM correction: PE steps": 0.5583360112882818,
+       "accelerator quantize": 0.06474228907121184,
+       "SRAM: matvec input reads": 0.05152214107690573,
+       "accelerator argmax_tree": 0.040924814541720075,
+       "accelerator reduce_tree_n128": 0.02739709060482101,
+       "accelerator reduce_tree_n64": 0.024978203919868016,
+       "PE input registers": 0.02399350454826238,
+       "accelerator reduce_tree_n32": 0.014623640134141207,
+       "accelerator reduce_tree_n16": 0.013703502070781725,
+       "accelerator vec_add": 0.00695035901555053,
+       "accelerator reduce_tree_n512": 0.0004291136932101806,
+       "accelerator dequantize": 0.000282245380867086
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vgg16/cap_131072.json"
+     },
+     {
+      "cap": 1048576,
+      "total_mJ": 28.732369096385394,
+      "groups_mJ": {
+       "Array": 21.6660643133271,
+       "Interconnect/Buffer": 4.847034731345439,
+       "Digital module": 0.0,
+       "Accel units": 2.219270051712852
+      },
+      "groups_pct": {
+       "Array": 75.40646662531127,
+       "Interconnect/Buffer": 16.869596499632912,
+       "Digital module": 0.0,
+       "Accel units": 7.723936875055813
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 16.421696636999265,
+       "routers": 3.6359346895243077,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 2.677532063998205,
+       "accelerator vec_el_mul": 2.0252387932806806,
+       "SRAM: op input reads": 1.2918103916894896,
+       "tile buses": 1.1871065372728689,
+       "SRAM: op output writes": 0.6651670682749545,
+       "SRAM correction: PE steps": 0.5583360112882818,
+       "accelerator quantize": 0.06474228907121184,
+       "SRAM: matvec input reads": 0.05152214107690573,
+       "accelerator argmax_tree": 0.040924814541720075,
+       "accelerator reduce_tree_n128": 0.02739709060482101,
+       "accelerator reduce_tree_n64": 0.024978203919868016,
+       "PE input registers": 0.02399350454826238,
+       "accelerator reduce_tree_n32": 0.014623640134141207,
+       "accelerator reduce_tree_n16": 0.013703502070781725,
+       "accelerator vec_add": 0.00695035901555053,
+       "accelerator reduce_tree_n512": 0.0004291136932101806,
+       "accelerator dequantize": 0.000282245380867086
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vgg16/cap_1048576.json"
+     },
+     {
+      "cap": 8388608,
+      "total_mJ": 35.25462080731758,
+      "groups_mJ": {
+       "Array": 21.6660643133271,
+       "Interconnect/Buffer": 11.369286442277627,
+       "Digital module": 0.0,
+       "Accel units": 2.219270051712852
+      },
+      "groups_pct": {
+       "Array": 61.455956175906486,
+       "Interconnect/Buffer": 32.24906744683459,
+       "Digital module": 0.0,
+       "Accel units": 6.294976377258927
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 16.421696636999265,
+       "routers": 10.158186400456495,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 2.677532063998205,
+       "accelerator vec_el_mul": 2.0252387932806806,
+       "SRAM: op input reads": 1.2918103916894896,
+       "tile buses": 1.1871065372728689,
+       "SRAM: op output writes": 0.6651670682749545,
+       "SRAM correction: PE steps": 0.5583360112882818,
+       "accelerator quantize": 0.06474228907121184,
+       "SRAM: matvec input reads": 0.05152214107690573,
+       "accelerator argmax_tree": 0.040924814541720075,
+       "accelerator reduce_tree_n128": 0.02739709060482101,
+       "accelerator reduce_tree_n64": 0.024978203919868016,
+       "PE input registers": 0.02399350454826238,
+       "accelerator reduce_tree_n32": 0.014623640134141207,
+       "accelerator reduce_tree_n16": 0.013703502070781725,
+       "accelerator vec_add": 0.00695035901555053,
+       "accelerator reduce_tree_n512": 0.0004291136932101806,
+       "accelerator dequantize": 0.000282245380867086
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vgg16/cap_8388608.json"
+     }
+    ],
+    "vit-base": [
+     {
+      "cap": 65536,
+      "total_mJ": 48.75859538009088,
+      "groups_mJ": {
+       "Array": 41.18680791860736,
+       "Interconnect/Buffer": 4.727672425622186,
+       "Digital module": 0.0,
+       "Accel units": 2.8441150358613254
+      },
+      "groups_pct": {
+       "Array": 84.47086631093717,
+       "Interconnect/Buffer": 9.696080021928994,
+       "Digital module": 0.0,
+       "Accel units": 5.833053667133806
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 17.625793075583378,
+       "SRAM correction: PE steps": 10.972480856896034,
+       "SRAM dynamic matvec: PE steps": 7.0363771615519015,
+       "routers": 3.2572975265912554,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 2.873839990934239,
+       "accelerator vec_el_mul": 2.422656406243792,
+       "SRAM: op input reads": 1.703443681303464,
+       "tile buses": 1.4633574091924606,
+       "SRAM: op output writes": 0.9448869505586817,
+       "accelerator quantize": 0.22388657590810174,
+       "accelerator dequantize": 0.06612241336366516,
+       "accelerator reduce_tree_n16": 0.0413202536930204,
+       "accelerator gelu": 0.028932376629146623,
+       "accelerator reduce_tree_n64": 0.022537854341418383,
+       "accelerator vec_add": 0.016984979859523804,
+       "SRAM dynamic matvec: rhs writes": 0.015016735548090776,
+       "SRAM: matvec input reads": 0.014969466231578825,
+       "accelerator reduce_tree_n8": 0.009430948110528142,
+       "PE input registers": 0.007017489838469336,
+       "accelerator softmax_exp_pwl16_standalone": 0.006918955700559006,
+       "accelerator reduce_tree_n1024": 0.0019993089331130057,
+       "accelerator softmax_max_reduce_tree": 0.00173921992768204,
+       "accelerator reduce_tree_n256": 0.0014669803245962569,
+       "accelerator rsqrt": 8.34010172696879e-05,
+       "accelerator softmax_q8_8_reciprocal": 3.536180890904385e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vit-base/cap_65536.json"
+     },
+     {
+      "cap": 1048576,
+      "total_mJ": 57.734436702430095,
+      "groups_mJ": {
+       "Array": 41.251880439315755,
+       "Interconnect/Buffer": 13.638441227253008,
+       "Digital module": 0.0,
+       "Accel units": 2.8441150358613254
+      },
+      "groups_pct": {
+       "Array": 71.45108326237367,
+       "Interconnect/Buffer": 23.622714633117663,
+       "Digital module": 0.0,
+       "Accel units": 4.92620210450865
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 17.625793075583378,
+       "routers": 12.16792201178495,
+       "SRAM correction: PE steps": 10.972480856896034,
+       "SRAM dynamic matvec: PE steps": 7.0363771615519015,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 2.873839990934239,
+       "accelerator vec_el_mul": 2.422656406243792,
+       "SRAM: op input reads": 1.703443681303464,
+       "tile buses": 1.4635017256295877,
+       "SRAM: op output writes": 0.9448869505586817,
+       "accelerator quantize": 0.22388657590810174,
+       "SRAM dynamic matvec: rhs writes": 0.08008925625648414,
+       "accelerator dequantize": 0.06612241336366516,
+       "accelerator reduce_tree_n16": 0.0413202536930204,
+       "accelerator gelu": 0.028932376629146623,
+       "accelerator reduce_tree_n64": 0.022537854341418383,
+       "accelerator vec_add": 0.016984979859523804,
+       "SRAM: matvec input reads": 0.014969466231578825,
+       "accelerator reduce_tree_n8": 0.009430948110528142,
+       "PE input registers": 0.007017489838469336,
+       "accelerator softmax_exp_pwl16_standalone": 0.006918955700559006,
+       "accelerator reduce_tree_n1024": 0.0019993089331130057,
+       "accelerator softmax_max_reduce_tree": 0.00173921992768204,
+       "accelerator reduce_tree_n256": 0.0014669803245962569,
+       "accelerator rsqrt": 8.34010172696879e-05,
+       "accelerator softmax_q8_8_reciprocal": 3.536180890904385e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vit-base/cap_1048576.json"
+     },
+     {
+      "cap": 16777216,
+      "total_mJ": 86.46651512546906,
+      "groups_mJ": {
+       "Array": 47.08838498900704,
+       "Interconnect/Buffer": 36.53401510060069,
+       "Digital module": 0.0,
+       "Accel units": 2.8441150358613254
+      },
+      "groups_pct": {
+       "Array": 54.45852064313965,
+       "Interconnect/Buffer": 42.252211792723735,
+       "Digital module": 0.0,
+       "Accel units": 3.289267564136605
+      },
+      "parts_mJ": {
+       "routers": 35.06349588513263,
+       "RRAM MAC: columns (ADC, column supply)": 17.625793075583378,
+       "SRAM correction: PE steps": 10.972480856896034,
+       "SRAM dynamic matvec: PE steps": 7.0363771615519015,
+       "SRAM dynamic matvec: rhs writes": 5.916593805947769,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 2.873839990934239,
+       "accelerator vec_el_mul": 2.422656406243792,
+       "SRAM: op input reads": 1.703443681303464,
+       "tile buses": 1.4635017256295877,
+       "SRAM: op output writes": 0.9448869505586817,
+       "accelerator quantize": 0.22388657590810174,
+       "accelerator dequantize": 0.06612241336366516,
+       "accelerator reduce_tree_n16": 0.0413202536930204,
+       "accelerator gelu": 0.028932376629146623,
+       "accelerator reduce_tree_n64": 0.022537854341418383,
+       "accelerator vec_add": 0.016984979859523804,
+       "SRAM: matvec input reads": 0.014969466231578825,
+       "accelerator reduce_tree_n8": 0.009430948110528142,
+       "PE input registers": 0.007017489838469336,
+       "accelerator softmax_exp_pwl16_standalone": 0.006918955700559006,
+       "accelerator reduce_tree_n1024": 0.0019993089331130057,
+       "accelerator softmax_max_reduce_tree": 0.00173921992768204,
+       "accelerator reduce_tree_n256": 0.0014669803245962569,
+       "accelerator rsqrt": 8.34010172696879e-05,
+       "accelerator softmax_q8_8_reciprocal": 3.536180890904385e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vit-base/cap_16777216.json"
+     }
+    ],
+    "vit-large": [
+     {
+      "cap": 262144,
+      "total_mJ": 171.86912516686323,
+      "groups_mJ": {
+       "Array": 139.54026371947162,
+       "Interconnect/Buffer": 22.81911462717843,
+       "Digital module": 0.0,
+       "Accel units": 9.509746820213167
+      },
+      "groups_pct": {
+       "Array": 81.18983766513946,
+       "Interconnect/Buffer": 13.277029603207643,
+       "Digital module": 0.0,
+       "Accel units": 5.53313273165288
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 62.669486490963145,
+       "SRAM correction: PE steps": 39.013254933995356,
+       "SRAM dynamic matvec: PE steps": 18.763672430805073,
+       "routers": 17.889479075927838,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 10.218097745543988,
+       "accelerator vec_el_mul": 8.387537554169741,
+       "SRAM: op input reads": 5.7090898450348035,
+       "tile buses": 4.910922245014674,
+       "SRAM: op output writes": 3.086699068383465,
+       "accelerator quantize": 0.5970308690882761,
+       "accelerator dequantize": 0.17632643563644038,
+       "accelerator reduce_tree_n16": 0.11018734318138786,
+       "accelerator gelu": 0.077153004344391,
+       "accelerator reduce_tree_n64": 0.06010094491044902,
+       "accelerator vec_add": 0.04508464838700075,
+       "SRAM dynamic matvec: rhs writes": 0.040044628128242075,
+       "SRAM: matvec input reads": 0.039918576617543534,
+       "accelerator reduce_tree_n8": 0.025149194961408376,
+       "PE input registers": 0.018713306235918208,
+       "accelerator softmax_exp_pwl16_standalone": 0.018450548534824033,
+       "accelerator softmax_max_reduce_tree": 0.004637919807152107,
+       "accelerator reduce_tree_n1024": 0.003918645508901489,
+       "accelerator reduce_tree_n256": 0.003911947532256684,
+       "accelerator rsqrt": 0.00016346599384858826,
+       "accelerator softmax_q8_8_reciprocal": 9.429815709078359e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vit-large/cap_262144.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 200.90956950886604,
+      "groups_mJ": {
+       "Array": 139.66039760385635,
+       "Interconnect/Buffer": 51.739425084796515,
+       "Digital module": 0.0,
+       "Accel units": 9.509746820213167
+      },
+      "groups_pct": {
+       "Array": 69.51405945732874,
+       "Interconnect/Buffer": 25.752593672504624,
+       "Digital module": 0.0,
+       "Accel units": 4.733346870166633
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 62.669486490963145,
+       "routers": 46.809789533545924,
+       "SRAM correction: PE steps": 39.013254933995356,
+       "SRAM dynamic matvec: PE steps": 18.763672430805073,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 10.218097745543988,
+       "accelerator vec_el_mul": 8.387537554169741,
+       "SRAM: op input reads": 5.7090898450348035,
+       "tile buses": 4.910922245014674,
+       "SRAM: op output writes": 3.086699068383465,
+       "accelerator quantize": 0.5970308690882761,
+       "accelerator dequantize": 0.17632643563644038,
+       "SRAM dynamic matvec: rhs writes": 0.1601785125129683,
+       "accelerator reduce_tree_n16": 0.11018734318138786,
+       "accelerator gelu": 0.077153004344391,
+       "accelerator reduce_tree_n64": 0.06010094491044902,
+       "accelerator vec_add": 0.04508464838700075,
+       "SRAM: matvec input reads": 0.039918576617543534,
+       "accelerator reduce_tree_n8": 0.025149194961408376,
+       "PE input registers": 0.018713306235918208,
+       "accelerator softmax_exp_pwl16_standalone": 0.018450548534824033,
+       "accelerator softmax_max_reduce_tree": 0.004637919807152107,
+       "accelerator reduce_tree_n1024": 0.003918645508901489,
+       "accelerator reduce_tree_n256": 0.003911947532256684,
+       "accelerator rsqrt": 0.00016346599384858826,
+       "accelerator softmax_q8_8_reciprocal": 9.429815709078359e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vit-large/cap_2097152.json"
+     },
+     {
+      "cap": 33554432,
+      "total_mJ": 341.6453040100251,
+      "groups_mJ": {
+       "Array": 160.53699706804653,
+       "Interconnect/Buffer": 171.59856012176536,
+       "Digital module": 0.0,
+       "Accel units": 9.509746820213167
+      },
+      "groups_pct": {
+       "Array": 46.98937616989338,
+       "Interconnect/Buffer": 50.22710925853383,
+       "Digital module": 0.0,
+       "Accel units": 2.7835145715727787
+      },
+      "parts_mJ": {
+       "routers": 166.66892457051478,
+       "RRAM MAC: columns (ADC, column supply)": 62.669486490963145,
+       "SRAM correction: PE steps": 39.013254933995356,
+       "SRAM dynamic matvec: rhs writes": 21.036777976703174,
+       "SRAM dynamic matvec: PE steps": 18.763672430805073,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 10.218097745543988,
+       "accelerator vec_el_mul": 8.387537554169741,
+       "SRAM: op input reads": 5.7090898450348035,
+       "tile buses": 4.910922245014674,
+       "SRAM: op output writes": 3.086699068383465,
+       "accelerator quantize": 0.5970308690882761,
+       "accelerator dequantize": 0.17632643563644038,
+       "accelerator reduce_tree_n16": 0.11018734318138786,
+       "accelerator gelu": 0.077153004344391,
+       "accelerator reduce_tree_n64": 0.06010094491044902,
+       "accelerator vec_add": 0.04508464838700075,
+       "SRAM: matvec input reads": 0.039918576617543534,
+       "accelerator reduce_tree_n8": 0.025149194961408376,
+       "PE input registers": 0.018713306235918208,
+       "accelerator softmax_exp_pwl16_standalone": 0.018450548534824033,
+       "accelerator softmax_max_reduce_tree": 0.004637919807152107,
+       "accelerator reduce_tree_n1024": 0.003918645508901489,
+       "accelerator reduce_tree_n256": 0.003911947532256684,
+       "accelerator rsqrt": 0.00016346599384858826,
+       "accelerator softmax_q8_8_reciprocal": 9.429815709078359e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/vit-large/cap_33554432.json"
+     }
+    ],
+    "bert-base": [
+     {
+      "cap": 65536,
+      "total_mJ": 159.73919228380203,
+      "groups_mJ": {
+       "Array": 137.10625833936618,
+       "Interconnect/Buffer": 14.302613607482126,
+       "Digital module": 0.0,
+       "Accel units": 8.330320336953731
+      },
+      "groups_pct": {
+       "Array": 85.83132065409167,
+       "Interconnect/Buffer": 8.953728513958717,
+       "Digital module": 0.0,
+       "Accel units": 5.214950831949617
+      },
+      "parts_mJ": {
+       "SRAM dynamic matvec: PE steps": 47.52877050781679,
+       "RRAM MAC: columns (ADC, column supply)": 45.80916779034872,
+       "SRAM correction: PE steps": 28.517310653455674,
+       "routers": 10.066295656256184,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 7.469066372377312,
+       "accelerator vec_el_mul": 6.865925655483043,
+       "SRAM: op input reads": 4.938480644855285,
+       "tile buses": 4.2129967833646536,
+       "SRAM: op output writes": 2.7639601871526893,
+       "accelerator quantize": 0.8008640706682717,
+       "accelerator dequantize": 0.23652630763610943,
+       "accelerator reduce_tree_n16": 0.12081454886893285,
+       "accelerator gelu": 0.07519480626458414,
+       "accelerator reduce_tree_n64": 0.05857554021729041,
+       "accelerator vec_add": 0.055647069902597844,
+       "SRAM: matvec input reads": 0.05348333868756127,
+       "accelerator reduce_tree_n8": 0.04808266646218739,
+       "accelerator softmax_exp_pwl16_standalone": 0.046735621200426215,
+       "SRAM dynamic matvec: rhs writes": 0.026018844672157287,
+       "PE input registers": 0.023321167861289103,
+       "accelerator softmax_max_reduce_tree": 0.009040412212925935,
+       "accelerator reduce_tree_n256": 0.007625319047647552,
+       "accelerator reduce_tree_n1024": 0.004988326531998503,
+       "accelerator rsqrt": 0.00020808765486495943,
+       "accelerator softmax_q8_8_reciprocal": 9.190480284990074e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/bert-base/cap_65536.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 206.8749115287868,
+      "groups_mJ": {
+       "Array": 137.89549662775494,
+       "Interconnect/Buffer": 60.64909456407813,
+       "Digital module": 0.0,
+       "Accel units": 8.330320336953731
+      },
+      "groups_pct": {
+       "Array": 66.65646192122561,
+       "Interconnect/Buffer": 29.316795408339672,
+       "Digital module": 0.0,
+       "Accel units": 4.026742670434718
+      },
+      "parts_mJ": {
+       "routers": 56.41277661285219,
+       "SRAM dynamic matvec: PE steps": 47.52877050781679,
+       "RRAM MAC: columns (ADC, column supply)": 45.80916779034872,
+       "SRAM correction: PE steps": 28.517310653455674,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 7.469066372377312,
+       "accelerator vec_el_mul": 6.865925655483043,
+       "SRAM: op input reads": 4.938480644855285,
+       "tile buses": 4.2129967833646536,
+       "SRAM: op output writes": 2.7639601871526893,
+       "SRAM dynamic matvec: rhs writes": 0.8152571330609284,
+       "accelerator quantize": 0.8008640706682717,
+       "accelerator dequantize": 0.23652630763610943,
+       "accelerator reduce_tree_n16": 0.12081454886893285,
+       "accelerator gelu": 0.07519480626458414,
+       "accelerator reduce_tree_n64": 0.05857554021729041,
+       "accelerator vec_add": 0.055647069902597844,
+       "SRAM: matvec input reads": 0.05348333868756127,
+       "accelerator reduce_tree_n8": 0.04808266646218739,
+       "accelerator softmax_exp_pwl16_standalone": 0.046735621200426215,
+       "PE input registers": 0.023321167861289103,
+       "accelerator softmax_max_reduce_tree": 0.009040412212925935,
+       "accelerator reduce_tree_n256": 0.007625319047647552,
+       "accelerator reduce_tree_n1024": 0.004988326531998503,
+       "accelerator rsqrt": 0.00020808765486495943,
+       "accelerator softmax_q8_8_reciprocal": 9.190480284990074e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/bert-base/cap_2097152.json"
+     },
+     {
+      "cap": 67108864,
+      "total_mJ": 365.13399252952075,
+      "groups_mJ": {
+       "Array": 177.0451849111276,
+       "Interconnect/Buffer": 179.75848728143941,
+       "Digital module": 0.0,
+       "Accel units": 8.330320336953731
+      },
+      "groups_pct": {
+       "Array": 48.4877301301422,
+       "Interconnect/Buffer": 49.230827849287714,
+       "Digital module": 0.0,
+       "Accel units": 2.2814420205700876
+      },
+      "parts_mJ": {
+       "routers": 175.52216933021347,
+       "SRAM dynamic matvec: PE steps": 47.52877050781679,
+       "RRAM MAC: columns (ADC, column supply)": 45.80916779034872,
+       "SRAM dynamic matvec: rhs writes": 39.964945416433586,
+       "SRAM correction: PE steps": 28.517310653455674,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 7.469066372377312,
+       "accelerator vec_el_mul": 6.865925655483043,
+       "SRAM: op input reads": 4.938480644855285,
+       "tile buses": 4.2129967833646536,
+       "SRAM: op output writes": 2.7639601871526893,
+       "accelerator quantize": 0.8008640706682717,
+       "accelerator dequantize": 0.23652630763610943,
+       "accelerator reduce_tree_n16": 0.12081454886893285,
+       "accelerator gelu": 0.07519480626458414,
+       "accelerator reduce_tree_n64": 0.05857554021729041,
+       "accelerator vec_add": 0.055647069902597844,
+       "SRAM: matvec input reads": 0.05348333868756127,
+       "accelerator reduce_tree_n8": 0.04808266646218739,
+       "accelerator softmax_exp_pwl16_standalone": 0.046735621200426215,
+       "PE input registers": 0.023321167861289103,
+       "accelerator softmax_max_reduce_tree": 0.009040412212925935,
+       "accelerator reduce_tree_n256": 0.007625319047647552,
+       "accelerator reduce_tree_n1024": 0.004988326531998503,
+       "accelerator rsqrt": 0.00020808765486495943,
+       "accelerator softmax_q8_8_reciprocal": 9.190480284990074e-05
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/bert-base/cap_67108864.json"
+     }
+    ],
+    "bert-large": [
+     {
+      "cap": 262144,
+      "total_mJ": 535.871794931351,
+      "groups_mJ": {
+       "Array": 442.9851267777899,
+       "Interconnect/Buffer": 65.65430055319679,
+       "Digital module": 0.0,
+       "Accel units": 27.232367600364462
+      },
+      "groups_pct": {
+       "Array": 82.66625169823305,
+       "Interconnect/Buffer": 12.251867176851055,
+       "Digital module": 0.0,
+       "Accel units": 5.081881124915919
+      },
+      "parts_mJ": {
+       "RRAM MAC: columns (ADC, column supply)": 162.87704103235126,
+       "SRAM dynamic matvec: PE steps": 126.74338802084475,
+       "SRAM correction: PE steps": 101.39485546297261,
+       "routers": 51.72901228587182,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 26.55668043511935,
+       "accelerator vec_el_mul": 23.330783592504556,
+       "SRAM: op input reads": 16.21176562759311,
+       "tile buses": 13.863098486361531,
+       "SRAM: op output writes": 8.850623205031328,
+       "accelerator quantize": 2.1356375217820576,
+       "accelerator dequantize": 0.6307368203629585,
+       "accelerator reduce_tree_n16": 0.32217213031715436,
+       "SRAM dynamic matvec: rhs writes": 0.2081507573772583,
+       "accelerator gelu": 0.20051948337222436,
+       "accelerator reduce_tree_n64": 0.1562014405794411,
+       "accelerator vec_add": 0.14838798646957918,
+       "SRAM: matvec input reads": 0.14262223650016326,
+       "accelerator reduce_tree_n8": 0.12822044389916643,
+       "accelerator softmax_exp_pwl16_standalone": 0.1246283232011365,
+       "PE input registers": 0.06218978096343754,
+       "accelerator softmax_max_reduce_tree": 0.02410776590113583,
+       "accelerator reduce_tree_n256": 0.020334184127060125,
+       "accelerator reduce_tree_n1024": 0.009976653063996989,
+       "accelerator rsqrt": 0.00041617530972991887,
+       "accelerator softmax_q8_8_reciprocal": 0.00024507947426640213
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/bert-large/cap_262144.json"
+     },
+     {
+      "cap": 4194304,
+      "total_mJ": 689.6586005512945,
+      "groups_mJ": {
+       "Array": 443.88711339309134,
+       "Interconnect/Buffer": 218.53911955783883,
+       "Digital module": 0.0,
+       "Accel units": 27.232367600364462
+      },
+      "groups_pct": {
+       "Array": 64.36331150488951,
+       "Interconnect/Buffer": 31.688014821122298,
+       "Digital module": 0.0,
+       "Accel units": 3.9486736739882087
+      },
+      "parts_mJ": {
+       "routers": 204.61383129051384,
+       "RRAM MAC: columns (ADC, column supply)": 162.87704103235126,
+       "SRAM dynamic matvec: PE steps": 126.74338802084475,
+       "SRAM correction: PE steps": 101.39485546297261,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 26.55668043511935,
+       "accelerator vec_el_mul": 23.330783592504556,
+       "SRAM: op input reads": 16.21176562759311,
+       "tile buses": 13.863098486361531,
+       "SRAM: op output writes": 8.850623205031328,
+       "accelerator quantize": 2.1356375217820576,
+       "SRAM dynamic matvec: rhs writes": 1.1101373726787116,
+       "accelerator dequantize": 0.6307368203629585,
+       "accelerator reduce_tree_n16": 0.32217213031715436,
+       "accelerator gelu": 0.20051948337222436,
+       "accelerator reduce_tree_n64": 0.1562014405794411,
+       "accelerator vec_add": 0.14838798646957918,
+       "SRAM: matvec input reads": 0.14262223650016326,
+       "accelerator reduce_tree_n8": 0.12822044389916643,
+       "accelerator softmax_exp_pwl16_standalone": 0.1246283232011365,
+       "PE input registers": 0.06218978096343754,
+       "accelerator softmax_max_reduce_tree": 0.02410776590113583,
+       "accelerator reduce_tree_n256": 0.020334184127060125,
+       "accelerator reduce_tree_n1024": 0.009976653063996989,
+       "accelerator rsqrt": 0.00041617530972991887,
+       "accelerator softmax_q8_8_reciprocal": 0.00024507947426640213
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/bert-large/cap_4194304.json"
+     },
+     {
+      "cap": 134217728,
+      "total_mJ": 1416.5818698079001,
+      "groups_mJ": {
+       "Array": 584.8745597232877,
+       "Interconnect/Buffer": 804.474942484248,
+       "Digital module": 0.0,
+       "Accel units": 27.232367600364462
+      },
+      "groups_pct": {
+       "Array": 41.28773438294826,
+       "Interconnect/Buffer": 56.789865776931144,
+       "Digital module": 0.0,
+       "Accel units": 1.922399840120599
+      },
+      "parts_mJ": {
+       "routers": 790.549654216923,
+       "RRAM MAC: columns (ADC, column supply)": 162.87704103235126,
+       "SRAM dynamic matvec: rhs writes": 142.09758370287508,
+       "SRAM dynamic matvec: PE steps": 126.74338802084475,
+       "SRAM correction: PE steps": 101.39485546297261,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 26.55668043511935,
+       "accelerator vec_el_mul": 23.330783592504556,
+       "SRAM: op input reads": 16.21176562759311,
+       "tile buses": 13.863098486361531,
+       "SRAM: op output writes": 8.850623205031328,
+       "accelerator quantize": 2.1356375217820576,
+       "accelerator dequantize": 0.6307368203629585,
+       "accelerator reduce_tree_n16": 0.32217213031715436,
+       "accelerator gelu": 0.20051948337222436,
+       "accelerator reduce_tree_n64": 0.1562014405794411,
+       "accelerator vec_add": 0.14838798646957918,
+       "SRAM: matvec input reads": 0.14262223650016326,
+       "accelerator reduce_tree_n8": 0.12822044389916643,
+       "accelerator softmax_exp_pwl16_standalone": 0.1246283232011365,
+       "PE input registers": 0.06218978096343754,
+       "accelerator softmax_max_reduce_tree": 0.02410776590113583,
+       "accelerator reduce_tree_n256": 0.020334184127060125,
+       "accelerator reduce_tree_n1024": 0.009976653063996989,
+       "accelerator rsqrt": 0.00041617530972991887,
+       "accelerator softmax_q8_8_reciprocal": 0.00024507947426640213
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/bert-large/cap_134217728.json"
+     }
+    ],
+    "gpt2": [
+     {
+      "cap": 65536,
+      "total_mJ": 431.53334441511885,
+      "groups_mJ": {
+       "Array": 374.3214041963343,
+       "Interconnect/Buffer": 35.25171909844773,
+       "Digital module": 0.0,
+       "Accel units": 21.960221120336698
+      },
+      "groups_pct": {
+       "Array": 86.74217393413085,
+       "Interconnect/Buffer": 8.168944429132434,
+       "Digital module": 0.0,
+       "Accel units": 5.088881636736694
+      },
+      "parts_mJ": {
+       "SRAM dynamic matvec: PE steps": 190.11508203126715,
+       "RRAM MAC: columns (ADC, column supply)": 91.61833558069743,
+       "SRAM correction: PE steps": 57.03462130691135,
+       "routers": 24.26947692556359,
+       "accelerator vec_el_mul": 19.636388672988318,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 14.938132744754624,
+       "SRAM: op input reads": 13.068768327028486,
+       "tile buses": 10.91646451994204,
+       "SRAM: op output writes": 7.3659379381280194,
+       "accelerator quantize_per_token_quant_mant_round": 0.9413620330337429,
+       "accelerator reduce_tree_n16": 0.21478142021143615,
+       "accelerator reduce_tree_n8": 0.19233066584874955,
+       "accelerator softmax_exp_pwl16_standalone": 0.18694248480170486,
+       "SRAM: matvec input reads": 0.15450742287517705,
+       "accelerator vec_add": 0.15080767537464207,
+       "accelerator gelu": 0.14645502269679236,
+       "accelerator absmax_tree": 0.13874947460606157,
+       "accelerator reduce_tree_n64": 0.11715108043458082,
+       "PE input registers": 0.06577765294209745,
+       "accelerator reduce_tree_n32": 0.05730079399500229,
+       "accelerator vec_select": 0.054368877683739596,
+       "accelerator quantize": 0.04449244837045947,
+       "accelerator softmax_max_reduce_tree": 0.03616164885170374,
+       "accelerator reduce_tree_n256": 0.030501276190590208,
+       "SRAM dynamic matvec: rhs writes": 0.026018844672157287,
+       "accelerator reduce_tree_n1024": 0.010392346941663546,
+       "accelerator quantize_per_token_token_scale": 0.0014178727541725986,
+       "accelerator rsqrt": 0.00043351594763533217,
+       "accelerator softmax_q8_8_reciprocal": 0.0001838096056998015
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/gpt2/cap_65536.json"
+     },
+     {
+      "cap": 2097152,
+      "total_mJ": 552.6480632060953,
+      "groups_mJ": {
+       "Array": 375.96059141068025,
+       "Interconnect/Buffer": 154.7272506750784,
+       "Digital module": 0.0,
+       "Accel units": 21.960221120336698
+      },
+      "groups_pct": {
+       "Array": 68.02893494814906,
+       "Interconnect/Buffer": 27.997429282110232,
+       "Digital module": 0.0,
+       "Accel units": 3.973635769740718
+      },
+      "parts_mJ": {
+       "SRAM dynamic matvec: PE steps": 190.11508203126715,
+       "routers": 143.74500850219425,
+       "RRAM MAC: columns (ADC, column supply)": 91.61833558069743,
+       "SRAM correction: PE steps": 57.03462130691135,
+       "accelerator vec_el_mul": 19.636388672988318,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 14.938132744754624,
+       "SRAM: op input reads": 13.068768327028486,
+       "tile buses": 10.91646451994204,
+       "SRAM: op output writes": 7.3659379381280194,
+       "SRAM dynamic matvec: rhs writes": 1.6652060590180664,
+       "accelerator quantize_per_token_quant_mant_round": 0.9413620330337429,
+       "accelerator reduce_tree_n16": 0.21478142021143615,
+       "accelerator reduce_tree_n8": 0.19233066584874955,
+       "accelerator softmax_exp_pwl16_standalone": 0.18694248480170486,
+       "SRAM: matvec input reads": 0.15450742287517705,
+       "accelerator vec_add": 0.15080767537464207,
+       "accelerator gelu": 0.14645502269679236,
+       "accelerator absmax_tree": 0.13874947460606157,
+       "accelerator reduce_tree_n64": 0.11715108043458082,
+       "PE input registers": 0.06577765294209745,
+       "accelerator reduce_tree_n32": 0.05730079399500229,
+       "accelerator vec_select": 0.054368877683739596,
+       "accelerator quantize": 0.04449244837045947,
+       "accelerator softmax_max_reduce_tree": 0.03616164885170374,
+       "accelerator reduce_tree_n256": 0.030501276190590208,
+       "accelerator reduce_tree_n1024": 0.010392346941663546,
+       "accelerator quantize_per_token_token_scale": 0.0014178727541725986,
+       "accelerator rsqrt": 0.00043351594763533217,
+       "accelerator softmax_q8_8_reciprocal": 0.0001838096056998015
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/gpt2/cap_2097152.json"
+     },
+     {
+      "cap": 134217728,
+      "total_mJ": 1212.186829758892,
+      "groups_mJ": {
+       "Array": 534.1551670173966,
+       "Interconnect/Buffer": 656.0714416211584,
+       "Digital module": 0.0,
+       "Accel units": 21.960221120336698
+      },
+      "groups_pct": {
+       "Array": 44.065415817431536,
+       "Interconnect/Buffer": 54.12296401138538,
+       "Digital module": 0.0,
+       "Accel units": 1.8116201711830724
+      },
+      "parts_mJ": {
+       "routers": 645.0891994482744,
+       "SRAM dynamic matvec: PE steps": 190.11508203126715,
+       "SRAM dynamic matvec: rhs writes": 159.85978166573435,
+       "RRAM MAC: columns (ADC, column supply)": 91.61833558069743,
+       "SRAM correction: PE steps": 57.03462130691135,
+       "accelerator vec_el_mul": 19.636388672988318,
+       "RRAM MAC: macros (WL, decoder, mux select, shift-and-add)": 14.938132744754624,
+       "SRAM: op input reads": 13.068768327028486,
+       "tile buses": 10.91646451994204,
+       "SRAM: op output writes": 7.3659379381280194,
+       "accelerator quantize_per_token_quant_mant_round": 0.9413620330337429,
+       "accelerator reduce_tree_n16": 0.21478142021143615,
+       "accelerator reduce_tree_n8": 0.19233066584874955,
+       "accelerator softmax_exp_pwl16_standalone": 0.18694248480170486,
+       "SRAM: matvec input reads": 0.15450742287517705,
+       "accelerator vec_add": 0.15080767537464207,
+       "accelerator gelu": 0.14645502269679236,
+       "accelerator absmax_tree": 0.13874947460606157,
+       "accelerator reduce_tree_n64": 0.11715108043458082,
+       "PE input registers": 0.06577765294209745,
+       "accelerator reduce_tree_n32": 0.05730079399500229,
+       "accelerator vec_select": 0.054368877683739596,
+       "accelerator quantize": 0.04449244837045947,
+       "accelerator softmax_max_reduce_tree": 0.03616164885170374,
+       "accelerator reduce_tree_n256": 0.030501276190590208,
+       "accelerator reduce_tree_n1024": 0.010392346941663546,
+       "accelerator quantize_per_token_token_scale": 0.0014178727541725986,
+       "accelerator rsqrt": 0.00043351594763533217,
+       "accelerator softmax_q8_8_reciprocal": 0.0001838096056998015
+      },
+      "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_tiles/gpt2/cap_134217728.json"
+     }
+    ]
+   }
+  },
+  "grouping": {
+   "Array": "Array computation, read/write and local peripheral energy; includes RSE SRAM macros and their MACs",
+   "Interconnect/Buffer": "Registers, buses and routers",
+   "Digital module": "HFP digital RRAM computation and reads/writes",
+   "Accel units": "Digital functional units"
+  },
+  "gpu": {
+   "configuration": "trt_int8",
+   "source": "dump/gpu_baseline/latency_rtx3090.json",
+   "source_commit": "c085726678b3bdb6a21fcf9f2892bf49e32cb195",
+   "scope": "whole-board energy per inference, including static power",
+   "energy_mJ": {
+    "gpt2": 2652.7445,
+    "bert-large": 2501.4971,
+    "bert-base": 979.9202,
+    "vit-large": 1326.4918,
+    "vit-base": 483.4824,
+    "vgg16": 140.9651,
+    "resnet50": 137.1817,
+    "mobilenet-v2": 81.1856
+   }
+  },
+  "gpu_mobile": {
+   "configuration": "trt_int8",
+   "source": "dump/gpu_baseline/latency_rtx3060_laptop.json",
+   "source_commit": "f414226",
+   "device": "NVIDIA GeForce RTX 3060 Laptop GPU (12 GB, 85 W power limit)",
+   "scope": "whole-board energy per inference, including static power",
+   "energy_mJ": {
+    "resnet50": 30.3828,
+    "mobilenet-v2": 14.4269,
+    "vgg16": 53.4676,
+    "vit-base": 149.5527,
+    "vit-large": 426.3858,
+    "bert-base": 361.5937,
+    "bert-large": 1070.6202,
+    "gpt2": 1125.6551
+   }
+  }
+ }
+}

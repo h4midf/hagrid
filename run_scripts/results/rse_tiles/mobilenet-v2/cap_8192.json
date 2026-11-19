@@ -1,0 +1,61 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "mobilenet-v2",
+  "model": "mobilenet-v2-w3",
+  "cap": 8192,
+  "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_greedy/mobilenet-v2/cap_8192.json",
+  "latency_ns": 5336295.108923718,
+  "macros": 7507,
+  "rram_macros": 1805,
+  "sram_macros": 5702,
+  "added_macros": 0,
+  "slots_per_tile": 96,
+  "tiles": 79,
+  "added_tiles": 0,
+  "mesh": [
+    9,
+    9
+  ],
+  "pes": 939,
+  "routers": 20,
+  "units": {
+    "total": {
+      "quantize": 1382,
+      "vec_el_mul": 60,
+      "vec_add": 76,
+      "dequantize": 1029,
+      "reduce_tree_n8": 46,
+      "reduce_tree_n16": 7,
+      "reduce_tree_n32": 1000,
+      "reduce_tree_n64": 1
+    },
+    "max_per_tile": {
+      "quantize": 93,
+      "vec_el_mul": 5,
+      "vec_add": 5,
+      "dequantize": 63,
+      "reduce_tree_n8": 4,
+      "reduce_tree_n16": 1,
+      "reduce_tree_n32": 63,
+      "reduce_tree_n64": 1
+    },
+    "chip_pool": {
+      "vec_add": 40,
+      "vec_el_mul": 33,
+      "quantize": 1000,
+      "dequantize": 1000,
+      "reduce_tree_n64": 1,
+      "reduce_tree_n32": 999
+    }
+  },
+  "traffic": {
+    "edge_bits": 1045104960,
+    "bus_bits": 1375268256,
+    "flit_hops": 25633987,
+    "correction_bits": 81507456,
+    "flit_hops_by_kind": {
+      "edge_bits": 20506480,
+      "correction_bits": 5127507
+    }
+  }
+}

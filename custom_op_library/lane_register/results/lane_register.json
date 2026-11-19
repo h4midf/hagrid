@@ -1,0 +1,156 @@
+[
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 32
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 221.31,
+    "area_um2_28nm": 77.46,
+    "delay_ps": 26.29,
+    "leakage_uW": 4.2713,
+    "dynamic_mW_est": 0.0463,
+    "total_cells": 128,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 37
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 255.89,
+    "area_um2_28nm": 89.56,
+    "delay_ps": 26.29,
+    "leakage_uW": 4.9387,
+    "dynamic_mW_est": 0.0535,
+    "total_cells": 148,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 40
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 276.64,
+    "area_um2_28nm": 96.82,
+    "delay_ps": 26.29,
+    "leakage_uW": 5.3391,
+    "dynamic_mW_est": 0.0579,
+    "total_cells": 160,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 42
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 290.47,
+    "area_um2_28nm": 101.67,
+    "delay_ps": 26.29,
+    "leakage_uW": 5.6061,
+    "dynamic_mW_est": 0.0608,
+    "total_cells": 168,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 44
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 304.3,
+    "area_um2_28nm": 106.51,
+    "delay_ps": 26.29,
+    "leakage_uW": 5.873,
+    "dynamic_mW_est": 0.0637,
+    "total_cells": 176,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 48
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 331.97,
+    "area_um2_28nm": 116.19,
+    "delay_ps": 26.29,
+    "leakage_uW": 6.407,
+    "dynamic_mW_est": 0.0695,
+    "total_cells": 192,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 49
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 338.88,
+    "area_um2_28nm": 118.61,
+    "delay_ps": 26.29,
+    "leakage_uW": 6.5404,
+    "dynamic_mW_est": 0.0709,
+    "total_cells": 196,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 58
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 401.13,
+    "area_um2_28nm": 140.39,
+    "delay_ps": 26.29,
+    "leakage_uW": 7.7417,
+    "dynamic_mW_est": 0.0839,
+    "total_cells": 232,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 64
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 442.62,
+    "area_um2_28nm": 154.92,
+    "delay_ps": 26.29,
+    "leakage_uW": 8.5426,
+    "dynamic_mW_est": 0.0926,
+    "total_cells": 256,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 96
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 663.94,
+    "area_um2_28nm": 232.38,
+    "delay_ps": 26.29,
+    "leakage_uW": 12.8139,
+    "dynamic_mW_est": 0.1389,
+    "total_cells": 384,
+    "notes": "one shared lane's input operands and result"
+  },
+  {
+    "unit": "lane_register",
+    "params": {
+      "BITS": 97
+    },
+    "method": "register with load enable",
+    "area_um2_45nm": 670.85,
+    "area_um2_28nm": 234.8,
+    "delay_ps": 26.29,
+    "leakage_uW": 12.9474,
+    "dynamic_mW_est": 0.1404,
+    "total_cells": 388,
+    "notes": "one shared lane's input operands and result"
+  }
+]

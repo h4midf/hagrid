@@ -1,0 +1,36 @@
+{
+  "target": "hyflexpim/default",
+  "model": "gpt2",
+  "algorithm": "list_schedule_hyflexpim",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "67d4b831158516be",
+  "points": {
+    "65536": {
+      "cap": 65536,
+      "latency": 500608097.51007867,
+      "arrays": 65448,
+      "analog_arrays": 64272,
+      "digital_arrays": 1176,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/gpt2/cap_65536.json"
+    },
+    "8388608": {
+      "cap": 8388608,
+      "latency": 10256862.003895104,
+      "arrays": 8388384,
+      "analog_arrays": 2096916,
+      "digital_arrays": 6291468,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/gpt2/cap_8388608.json"
+    },
+    "1073741824": {
+      "cap": 1073741824,
+      "latency": 292824.64268000005,
+      "arrays": 856510476,
+      "analog_arrays": 51204096,
+      "digital_arrays": 805306380,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_listsched/gpt2/cap_1073741824.json"
+    }
+  }
+}

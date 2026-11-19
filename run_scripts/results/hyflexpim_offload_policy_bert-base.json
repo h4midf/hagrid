@@ -1,0 +1,31 @@
+{
+  "target": "hyflexpim/default",
+  "model": "bert-base",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "44db34679eec3a7b",
+  "min_feasible_array_cap": 50018,
+  "max_cap": 226928649,
+  "points": {
+    "65536": {
+      "cap": 65536,
+      "latency": 5409775.222466326,
+      "arrays": 64820,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/bert-base/cap_65536.json"
+    },
+    "4194304": {
+      "cap": 4194304,
+      "latency": 609970.6352386405,
+      "arrays": 4192326,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/bert-base/cap_4194304.json"
+    },
+    "268435456": {
+      "cap": 268435456,
+      "latency": 278437.25090000004,
+      "arrays": 226928646,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_greedy/bert-base/cap_268435456.json"
+    }
+  }
+}

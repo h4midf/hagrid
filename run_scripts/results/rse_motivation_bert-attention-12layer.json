@@ -1,0 +1,277 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "bert-attention-12layer",
+  "model": "bert-attention-12layer-w3",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "sram_share_pct": 20,
+  "code_fingerprint": "7ba65a52982e8e8f",
+  "min_feasible_array_cap": 19536,
+  "max_cap": 21233664,
+  "points": {
+    "32768": {
+      "cap": 32768,
+      "greedy": {
+        "latency": 256833703.21606308,
+        "arrays": 32576,
+        "rram_macros": 7200,
+        "rram_stationary_macros": 7200,
+        "sram_macros": 25376,
+        "sram_correction_macros": 8672,
+        "feasible": true,
+        "wall_s": 5.615916013717651,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/greedy/cap_32768.json"
+      },
+      "listsched": {
+        "latency": 1006583373.1539454,
+        "arrays": 32720,
+        "rram_macros": 13536,
+        "rram_stationary_macros": 13536,
+        "sram_macros": 19184,
+        "sram_correction_macros": 15008,
+        "feasible": true,
+        "wall_s": 4.128533840179443,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/listsched/cap_32768.json"
+      },
+      "cpsat": {
+        "latency": 258456534.86866,
+        "arrays": 32064,
+        "rram_macros": 6912,
+        "rram_stationary_macros": 6912,
+        "sram_macros": 25152,
+        "sram_correction_macros": 8448,
+        "feasible": true,
+        "wall_s": 3.826218843460083,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/cpsat/cap_32768.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_rram_stationary_caps": [
+          600
+        ],
+        "segment_sram_correction_caps": [
+          722
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 27732110.0,
+            "bound_ns": 27732110.0,
+            "solve_wall_s": 0.026552000000000003
+          }
+        ]
+      }
+    },
+    "262144": {
+      "cap": 262144,
+      "greedy": {
+        "latency": 65361141.2271859,
+        "arrays": 260352,
+        "rram_macros": 96768,
+        "rram_stationary_macros": 96768,
+        "sram_macros": 163584,
+        "sram_correction_macros": 96768,
+        "feasible": true,
+        "wall_s": 5.864155054092407,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/greedy/cap_262144.json"
+      },
+      "listsched": {
+        "latency": 1003766774.122481,
+        "arrays": 260496,
+        "rram_macros": 126288,
+        "rram_stationary_macros": 126288,
+        "sram_macros": 134208,
+        "sram_correction_macros": 127728,
+        "feasible": true,
+        "wall_s": 4.493434906005859,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/listsched/cap_262144.json"
+      },
+      "cpsat": {
+        "latency": 65062999.70618194,
+        "arrays": 253440,
+        "rram_macros": 93312,
+        "rram_stationary_macros": 93312,
+        "sram_macros": 160128,
+        "sram_correction_macros": 93312,
+        "feasible": true,
+        "wall_s": 3.920243978500366,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/cpsat/cap_262144.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_rram_stationary_caps": [
+          8064
+        ],
+        "segment_sram_correction_caps": [
+          8064
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 5729497.0,
+            "bound_ns": 5729497.0,
+            "solve_wall_s": 0.45061900000000005
+          }
+        ]
+      }
+    },
+    "1048576": {
+      "cap": 1048576,
+      "greedy": {
+        "latency": 32545431.23963214,
+        "arrays": 1036800,
+        "rram_macros": 451584,
+        "rram_stationary_macros": 451584,
+        "sram_macros": 585216,
+        "sram_correction_macros": 451584,
+        "feasible": true,
+        "wall_s": 6.589199066162109,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/greedy/cap_1048576.json"
+      },
+      "listsched": {
+        "latency": 999324174.8169005,
+        "arrays": 1048464,
+        "rram_macros": 227664,
+        "rram_stationary_macros": 227664,
+        "sram_macros": 820800,
+        "sram_correction_macros": 229104,
+        "feasible": true,
+        "wall_s": 4.866312026977539,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/listsched/cap_1048576.json"
+      },
+      "cpsat": {
+        "latency": 32545431.23963214,
+        "arrays": 1032192,
+        "rram_macros": 449280,
+        "rram_stationary_macros": 449280,
+        "sram_macros": 582912,
+        "sram_correction_macros": 449280,
+        "feasible": true,
+        "wall_s": 4.114873886108398,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/cpsat/cap_1048576.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_rram_stationary_caps": [
+          37632
+        ],
+        "segment_sram_correction_caps": [
+          37632
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 2795460.0,
+            "bound_ns": 2795460.0,
+            "solve_wall_s": 0.633055
+          }
+        ]
+      }
+    },
+    "8388608": {
+      "cap": 8388608,
+      "greedy": {
+        "latency": 4702942.035123331,
+        "arrays": 8368128,
+        "rram_macros": 3409920,
+        "rram_stationary_macros": 3409920,
+        "sram_macros": 4958208,
+        "sram_correction_macros": 3409920,
+        "feasible": true,
+        "wall_s": 6.058759927749634,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/greedy/cap_8388608.json"
+      },
+      "listsched": {
+        "latency": 75739718.36324358,
+        "arrays": 8388608,
+        "rram_macros": 359856,
+        "rram_stationary_macros": 359856,
+        "sram_macros": 8028752,
+        "sram_correction_macros": 361040,
+        "feasible": true,
+        "wall_s": 4.1555540561676025,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/listsched/cap_8388608.json"
+      },
+      "cpsat": {
+        "latency": 4665684.12175458,
+        "arrays": 7741440,
+        "rram_macros": 3096576,
+        "rram_stationary_macros": 3096576,
+        "sram_macros": 4644864,
+        "sram_correction_macros": 3096576,
+        "feasible": true,
+        "wall_s": 3.7911858558654785,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/cpsat/cap_8388608.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_rram_stationary_caps": [
+          284160
+        ],
+        "segment_sram_correction_caps": [
+          284160
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 373698.0,
+            "bound_ns": 373698.0,
+            "solve_wall_s": 0.194444
+          }
+        ]
+      }
+    },
+    "33554432": {
+      "cap": 33554432,
+      "greedy": {
+        "latency": 895815.2838836553,
+        "arrays": 21233664,
+        "rram_macros": 3538944,
+        "rram_stationary_macros": 3538944,
+        "sram_macros": 17694720,
+        "sram_correction_macros": 3538944,
+        "feasible": true,
+        "wall_s": 5.641872882843018,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/greedy/cap_33554432.json"
+      },
+      "listsched": {
+        "latency": 895815.2838836553,
+        "arrays": 21233664,
+        "rram_macros": 3538944,
+        "rram_stationary_macros": 3538944,
+        "sram_macros": 17694720,
+        "sram_correction_macros": 3538944,
+        "feasible": true,
+        "wall_s": 3.5300681591033936,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/listsched/cap_33554432.json"
+      },
+      "cpsat": {
+        "latency": 895815.2838836553,
+        "arrays": 21233664,
+        "rram_macros": 3538944,
+        "rram_stationary_macros": 3538944,
+        "sram_macros": 17694720,
+        "sram_correction_macros": 3538944,
+        "feasible": true,
+        "wall_s": 2.8248820304870605,
+        "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_motivation/cpsat/cap_33554432.json",
+        "source": "cpsat",
+        "status": "OPTIMAL",
+        "time_scale": 1,
+        "segment_rram_stationary_caps": [
+          294912
+        ],
+        "segment_sram_correction_caps": [
+          294912
+        ],
+        "segments": [
+          {
+            "status": "OPTIMAL",
+            "objective_ns": 64918.0,
+            "bound_ns": 64918.0,
+            "solve_wall_s": 0.17261100000000001
+          }
+        ]
+      }
+    }
+  }
+}

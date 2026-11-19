@@ -1,0 +1,66 @@
+[
+  {
+    "unit": "relu",
+    "params": {
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "exact (comparator/mux)",
+    "area_um2_45nm": 41.23,
+    "area_um2_28nm": 14.43,
+    "delay_ps": 16.09,
+    "leakage_uW": 1.1021,
+    "dynamic_mW_est": 0.019,
+    "total_cells": 62,
+    "notes": "y = max(x, 0); exact, not an approximation"
+  },
+  {
+    "unit": "relu",
+    "params": {
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "exact (comparator/mux)",
+    "area_um2_45nm": 19.95,
+    "area_um2_28nm": 6.98,
+    "delay_ps": 16.09,
+    "leakage_uW": 0.5333,
+    "dynamic_mW_est": 0.0092,
+    "total_cells": 30,
+    "notes": "y = max(x, 0); exact, not an approximation"
+  },
+  {
+    "unit": "shifted_relu",
+    "params": {
+      "W": 32,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "4-term shifted-ReLU adder network",
+    "area_um2_45nm": 568.44,
+    "area_um2_28nm": 198.95,
+    "delay_ps": 1027.73,
+    "leakage_uW": 13.1826,
+    "dynamic_mW_est": 0.2739,
+    "total_cells": 606,
+    "notes": "HAMMER (IEEE CAL 2023) exp-replacement; own reconstruction, no closed-form in source"
+  },
+  {
+    "unit": "shifted_relu",
+    "params": {
+      "W": 16,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "4-term shifted-ReLU adder network",
+    "area_um2_45nm": 287.55,
+    "area_um2_28nm": 100.64,
+    "delay_ps": 523.34,
+    "leakage_uW": 6.3377,
+    "dynamic_mW_est": 0.1404,
+    "total_cells": 314,
+    "notes": "HAMMER (IEEE CAL 2023) exp-replacement; own reconstruction, no closed-form in source"
+  }
+]

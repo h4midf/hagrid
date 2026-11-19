@@ -1,0 +1,364 @@
+{
+  "rmu_mac": {
+    "generated": "2026-11-09T20:52:01",
+    "script": "rmu_mac.py",
+    "latency_ns": 450.0,
+    "buffer_bias_uA": 0.7,
+    "lsb_mV": 3.90625,
+    "column_start_ns": 300.0,
+    "sample_end_ns": 451.0,
+    "code_at_ns": 840.0,
+    "cases": [
+      {
+        "name": "lowvth_0",
+        "mac_value": "0 cells at Vth 0.3 V",
+        "vbl_column_only_V": 0.00428562,
+        "vbl_combined_at_sample_V": 0.00432111,
+        "sampled_combined_V": 0.0211244,
+        "sampled_ideal_V": 0.0206276,
+        "code_combined": 4.0,
+        "code_ideal_input": 4.0,
+        "ideal_code_from_vbl": 1.09711872,
+        "bitline_loading_mV": 0.03549,
+        "code_difference": 0.0
+      },
+      {
+        "name": "lowvth_32",
+        "mac_value": "32 cells at Vth 0.3 V",
+        "vbl_column_only_V": 0.121182,
+        "vbl_combined_at_sample_V": 0.120227,
+        "sampled_combined_V": 0.120256,
+        "sampled_ideal_V": 0.120826,
+        "code_combined": 29.0,
+        "code_ideal_input": 29.0,
+        "ideal_code_from_vbl": 31.022592,
+        "bitline_loading_mV": -0.9549999999999975,
+        "code_difference": 0.0
+      },
+      {
+        "name": "lowvth_64",
+        "mac_value": "64 cells at Vth 0.3 V",
+        "vbl_column_only_V": 0.239721,
+        "vbl_combined_at_sample_V": 0.237904,
+        "sampled_combined_V": 0.237857,
+        "sampled_ideal_V": 0.23948,
+        "code_combined": 59.0,
+        "code_ideal_input": 59.0,
+        "ideal_code_from_vbl": 61.368576,
+        "bitline_loading_mV": -1.8169999999999853,
+        "code_difference": 0.0
+      },
+      {
+        "name": "lowvth_128",
+        "mac_value": "128 cells at Vth 0.3 V",
+        "vbl_column_only_V": 0.481946,
+        "vbl_combined_at_sample_V": 0.47812,
+        "sampled_combined_V": 0.475636,
+        "sampled_ideal_V": 0.482209,
+        "code_combined": 117.0,
+        "code_ideal_input": 119.0,
+        "ideal_code_from_vbl": 123.378176,
+        "bitline_loading_mV": -3.825999999999996,
+        "code_difference": -2.0
+      },
+      {
+        "name": "random_linear",
+        "mac_value": 91,
+        "vbl_column_only_V": 0.1594,
+        "vbl_combined_at_sample_V": 0.158191,
+        "sampled_combined_V": 0.158165,
+        "sampled_ideal_V": 0.159116,
+        "code_combined": 39.0,
+        "code_ideal_input": 39.0,
+        "ideal_code_from_vbl": 40.8064,
+        "bitline_loading_mV": -1.2089999999999879,
+        "code_difference": 0.0
+      }
+    ],
+    "max_abs_code_difference": 2.0,
+    "max_abs_bitline_loading_mV": 3.825999999999996
+  },
+  "cap_write": {
+    "generated": "2026-11-09T20:58:24",
+    "script": "cap_rw.py",
+    "latency_ns": 50.0,
+    "row": 127,
+    "driver_tg_width_nm": 384.0,
+    "write_window_ns": 50.0,
+    "tolerance_pct": 1.0,
+    "levels_V": [
+      0.0,
+      0.316161,
+      0.575536,
+      0.839155
+    ],
+    "by_level": [
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "v_written": -0.00394421,
+        "v_held": -0.00363053,
+        "neighbor_disturb_mV": 0.0009999999999732445,
+        "t_write_1pct_ns": null,
+        "write_energy_from_reference_fJ": -0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "v_written": 0.314677,
+        "v_held": 0.314625,
+        "neighbor_disturb_mV": 0.006999999999979245,
+        "t_write_1pct_ns": 1.9870000000000032,
+        "write_energy_from_reference_fJ": 10.0284688395
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "v_written": 0.576108,
+        "v_held": 0.575733,
+        "neighbor_disturb_mV": 0.006999999999979245,
+        "t_write_1pct_ns": 17.25800000000001,
+        "write_energy_from_reference_fJ": 33.6110721856
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "v_written": 0.842686,
+        "v_held": 0.841907,
+        "neighbor_disturb_mV": 0.006999999999979245,
+        "t_write_1pct_ns": 2.204000000000011,
+        "write_energy_from_reference_fJ": 72.22607085
+      }
+    ]
+  },
+  "cap_read": {
+    "generated": "2026-11-09T20:58:24",
+    "script": "cap_rw.py",
+    "latency_ns": 801.0,
+    "row": 127,
+    "vref_read_V": 0.064,
+    "lsb_read_mV": 0.5,
+    "conversions": 2,
+    "by_case": [
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.0081735,
+        "vbl_sig": 0.00813874,
+        "signal_mV": -0.03476,
+        "code1": 36.0,
+        "code2": 36.0,
+        "read_value_codes": 0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.00817359,
+        "vbl_sig": 0.0128919,
+        "signal_mV": 4.71831,
+        "code1": 36.0,
+        "code2": 40.0,
+        "read_value_codes": 4.0
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.00817367,
+        "vbl_sig": 0.0168585,
+        "signal_mV": 8.68483,
+        "code1": 36.0,
+        "code2": 44.0,
+        "read_value_codes": 8.0
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "comparator_offset_mV": 0.0,
+        "vbl_ref": 0.00817383,
+        "vbl_sig": 0.0209939,
+        "signal_mV": 12.82007,
+        "code1": 36.0,
+        "code2": 49.0,
+        "read_value_codes": 13.0
+      },
+      {
+        "level": 0,
+        "target_V": 0.0,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817339,
+        "vbl_sig": 0.00813858,
+        "signal_mV": -0.03481000000000144,
+        "code1": 69.0,
+        "code2": 69.0,
+        "read_value_codes": 0.0
+      },
+      {
+        "level": 1,
+        "target_V": 0.316161,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817348,
+        "vbl_sig": 0.0128917,
+        "signal_mV": 4.7182200000000005,
+        "code1": 69.0,
+        "code2": 73.0,
+        "read_value_codes": 4.0
+      },
+      {
+        "level": 2,
+        "target_V": 0.575536,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817356,
+        "vbl_sig": 0.0168584,
+        "signal_mV": 8.68484,
+        "code1": 69.0,
+        "code2": 77.0,
+        "read_value_codes": 8.0
+      },
+      {
+        "level": 3,
+        "target_V": 0.839155,
+        "comparator_offset_mV": 15.0,
+        "vbl_ref": 0.00817373,
+        "vbl_sig": 0.0209938,
+        "signal_mV": 12.82007,
+        "code1": 69.0,
+        "code2": 82.0,
+        "read_value_codes": 13.0
+      }
+    ]
+  },
+  "wmu_mac": {
+    "generated": "2026-11-09T20:55:21",
+    "script": "wmu_mac.py",
+    "conversions": 1,
+    "latency_ns": 400.99999999999994,
+    "c_bitline_over_c_cell": 48.74870358359382,
+    "lsb_mV": 3.90625,
+    "buffer_bias_uA": 0.7,
+    "levels_V": [
+      0.0,
+      0.316161,
+      0.575536,
+      0.839155
+    ],
+    "share_at_ns": 799.0,
+    "sample_at_ns": 849.9999999999999,
+    "cases": [
+      {
+        "name": "top_n1",
+        "n_selected": 1,
+        "sum_level_idx": 3,
+        "sum_stored_V": 0.839155,
+        "vbl_ref": -0.000284198,
+        "vbl_sig": 0.0165345,
+        "vbl_late": 0.0170486,
+        "code1": 4.0,
+        "code2": 5.0,
+        "code_diff": 1.0,
+        "settle_mV": 0.5141,
+        "vbl_per_stored_V": 0.020042421245181165
+      },
+      {
+        "name": "top_n32",
+        "n_selected": 32,
+        "sum_level_idx": 96,
+        "sum_stored_V": 26.85296,
+        "vbl_ref": -0.000284198,
+        "vbl_sig": 0.331824,
+        "vbl_late": 0.331906,
+        "code1": 4.0,
+        "code2": 82.0,
+        "code_diff": 78.0,
+        "settle_mV": 0.08199999999997098,
+        "vbl_per_stored_V": 0.01236765697338394
+      },
+      {
+        "name": "top_n128",
+        "n_selected": 128,
+        "sum_level_idx": 384,
+        "sum_stored_V": 107.41184,
+        "vbl_ref": -0.000284198,
+        "vbl_sig": 0.603542,
+        "vbl_late": 0.603472,
+        "code1": 4.0,
+        "code2": 127.0,
+        "code_diff": 123.0,
+        "settle_mV": -0.0700000000000145,
+        "vbl_per_stored_V": 0.005621598121771306
+      },
+      {
+        "name": "random_n1",
+        "n_selected": 1,
+        "sum_level_idx": 3,
+        "sum_stored_V": 0.839155,
+        "vbl_ref": -0.000315104,
+        "vbl_sig": 0.0165158,
+        "vbl_late": 0.0169644,
+        "code1": 4.0,
+        "code2": 5.0,
+        "code_diff": 1.0,
+        "settle_mV": 0.4486000000000004,
+        "vbl_per_stored_V": 0.020056966829727525
+      },
+      {
+        "name": "random_n8",
+        "n_selected": 8,
+        "sum_level_idx": 15,
+        "sum_stored_V": 4.195775,
+        "vbl_ref": -0.000315104,
+        "vbl_sig": 0.0743033,
+        "vbl_late": 0.0746809,
+        "code1": 4.0,
+        "code2": 17.0,
+        "code_diff": 13.0,
+        "settle_mV": 0.37759999999999183,
+        "vbl_per_stored_V": 0.01778417670156288
+      },
+      {
+        "name": "random_n32",
+        "n_selected": 32,
+        "sum_level_idx": 47,
+        "sum_stored_V": 13.478113,
+        "vbl_ref": -0.000315104,
+        "vbl_sig": 0.168461,
+        "vbl_late": 0.168744,
+        "code1": 4.0,
+        "code2": 41.0,
+        "code_diff": 37.0,
+        "settle_mV": 0.28300000000000547,
+        "vbl_per_stored_V": 0.012522235419750526
+      },
+      {
+        "name": "random_n64",
+        "n_selected": 64,
+        "sum_level_idx": 101,
+        "sum_stored_V": 28.893911,
+        "vbl_ref": -0.000315104,
+        "vbl_sig": 0.256663,
+        "vbl_late": 0.256816,
+        "code1": 4.0,
+        "code2": 64.0,
+        "code_diff": 60.0,
+        "settle_mV": 0.15300000000001424,
+        "vbl_per_stored_V": 0.008893849780322228
+      },
+      {
+        "name": "random_n128",
+        "n_selected": 128,
+        "sum_level_idx": 201,
+        "sum_stored_V": 57.747103,
+        "vbl_ref": -0.000315104,
+        "vbl_sig": 0.325993,
+        "vbl_late": 0.326057,
+        "code1": 4.0,
+        "code2": 81.0,
+        "code_diff": 77.0,
+        "settle_mV": 0.0640000000000085,
+        "vbl_per_stored_V": 0.005650640240775368
+      }
+    ]
+  }
+}

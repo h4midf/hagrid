@@ -1,0 +1,128 @@
+[
+  {
+    "unit": "vec_el_mul_vs_round",
+    "params": {
+      "N": 1,
+      "W": 32,
+      "FRAC": 20,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 8722.14,
+    "area_um2_28nm": 3052.75,
+    "delay_ps": 2192.53,
+    "leakage_uW": 62.2554,
+    "dynamic_mW_est": 1.2801,
+    "total_cells": 3160,
+    "notes": "vector*scalar (broadcast), round to nearest"
+  },
+  {
+    "unit": "vec_el_mul_vv_round",
+    "params": {
+      "N": 1,
+      "W": 32,
+      "FRAC": 20,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 8722.14,
+    "area_um2_28nm": 3052.75,
+    "delay_ps": 2192.53,
+    "leakage_uW": 192.2899,
+    "dynamic_mW_est": 3.9852,
+    "total_cells": 8616,
+    "notes": "vector*vector, round to nearest"
+  },
+  {
+    "unit": "vec_el_mul_vv_round",
+    "params": {
+      "N": 1,
+      "W": 16,
+      "FRAC": 8,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 2322.71,
+    "area_um2_28nm": 812.95,
+    "delay_ps": 1352.24,
+    "leakage_uW": 50.122,
+    "dynamic_mW_est": 1.0814,
+    "total_cells": 2293,
+    "notes": "vector*vector, round to nearest"
+  },
+  {
+    "unit": "vec_el_mul_vv_round",
+    "params": {
+      "N": 2,
+      "W": 32,
+      "FRAC": 20,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 17390.55,
+    "area_um2_28nm": 6086.69,
+    "delay_ps": 2168.93,
+    "leakage_uW": 383.9409,
+    "dynamic_mW_est": 7.9166,
+    "total_cells": 17176,
+    "notes": "vector*vector, round to nearest"
+  },
+  {
+    "unit": "vec_el_mul_vv_round",
+    "params": {
+      "N": 2,
+      "W": 16,
+      "FRAC": 8,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 4643.3,
+    "area_um2_28nm": 1625.15,
+    "delay_ps": 1356.26,
+    "leakage_uW": 100.1948,
+    "dynamic_mW_est": 2.164,
+    "total_cells": 4572,
+    "notes": "vector*vector, round to nearest"
+  },
+  {
+    "unit": "vec_el_mul_vv_round",
+    "params": {
+      "N": 4,
+      "W": 32,
+      "FRAC": 20,
+      "in": "Q12.20",
+      "out": "Q12.20"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 34034.43,
+    "area_um2_28nm": 11912.05,
+    "delay_ps": 2324.7,
+    "leakage_uW": 757.3579,
+    "dynamic_mW_est": 15.355,
+    "total_cells": 33581,
+    "notes": "vector*vector, round to nearest"
+  },
+  {
+    "unit": "vec_el_mul_vv_round",
+    "params": {
+      "N": 4,
+      "W": 16,
+      "FRAC": 8,
+      "in": "Q8.8",
+      "out": "Q8.8"
+    },
+    "method": "rescale multiply",
+    "area_um2_45nm": 9150.67,
+    "area_um2_28nm": 3202.73,
+    "delay_ps": 1406.18,
+    "leakage_uW": 198.3188,
+    "dynamic_mW_est": 4.2491,
+    "total_cells": 9060,
+    "notes": "vector*vector, round to nearest"
+  }
+]

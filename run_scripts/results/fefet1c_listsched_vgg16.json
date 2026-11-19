@@ -1,0 +1,36 @@
+{
+  "target": "1fefet1c/default",
+  "model": "vgg16",
+  "algorithm": "list_schedule_1f1c",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "9d48d65d90e48278",
+  "points": {
+    "65536": {
+      "cap": 65536,
+      "latency": 55429737.32640003,
+      "arrays": 65516,
+      "nonvolatile_arrays": 65516,
+      "volatile_arrays": 31744,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_listsched/vgg16/cap_65536.json"
+    },
+    "524288": {
+      "cap": 524288,
+      "latency": 3759241.0484235026,
+      "arrays": 524256,
+      "nonvolatile_arrays": 524256,
+      "volatile_arrays": 428032,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_listsched/vgg16/cap_524288.json"
+    },
+    "4194304": {
+      "cap": 4194304,
+      "latency": 131840.0,
+      "arrays": 3931392,
+      "nonvolatile_arrays": 3931392,
+      "volatile_arrays": 501760,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/fefet1c_listsched/vgg16/cap_4194304.json"
+    }
+  }
+}

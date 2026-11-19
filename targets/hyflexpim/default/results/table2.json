@@ -1,0 +1,173 @@
+{
+  "node_scaling": {
+    "area_factor": 3.255453661426971,
+    "power_factor": 2.3258250392875857
+  },
+  "analog_module": {
+    "components": {
+      "rram_array": {
+        "area_mm2": 0.04514229077178733,
+        "power_mW": 60.78156102671557,
+        "dynamic_mW": 60.78156102671557,
+        "power_split": "source_total"
+      },
+      "ir": {
+        "area_mm2": 0.0006510907322853942,
+        "power_mW": 0.13257202723939238,
+        "dynamic_mW": 0.13257202723939238,
+        "power_split": "source_total"
+      },
+      "or": {
+        "area_mm2": 0.0013021814645707884,
+        "power_mW": 0.5302881089575695,
+        "dynamic_mW": 0.5302881089575695,
+        "power_split": "source_total"
+      },
+      "wl_drv": {
+        "area_mm2": 0.017709667918162725,
+        "power_mW": 297.70560502881096,
+        "dynamic_mW": 297.70560502881096,
+        "power_split": "source_total"
+      },
+      "adc": {
+        "area_mm2": 0.28394325136118537,
+        "power_mW": 510.9953132606061,
+        "dynamic_mW": 510.9953132606061,
+        "power_split": "spice_per_conversion"
+      },
+      "s_and_a": {
+        "area_mm2": 0.10024620899817423,
+        "power_mW": 56.274338388808445,
+        "dynamic_mW": 54.103502163979655,
+        "leakage_mW": 2.1708362248287916,
+        "power_split": "synthesis"
+      },
+      "s_and_h": {
+        "area_mm2": 6.510907322853943e-05,
+        "power_mW": 0.011629125196437929,
+        "dynamic_mW": 0.011629125196437929,
+        "power_split": "source_total"
+      }
+    },
+    "module_sum": {
+      "area_mm2": 0.44905980031939435,
+      "power_mW": 926.4313069663345
+    },
+    "total": {
+      "modules": 24,
+      "area_mm2": 10.777435207665464,
+      "power_mW": 22234.35136719203
+    }
+  },
+  "digital_module_without_sfu": {
+    "components": {
+      "rram_array": {
+        "area_mm2": 2.864799222055735,
+        "power_mW": 3890.0199057097966,
+        "dynamic_mW": 3890.0199057097966,
+        "power_split": "source_total"
+      },
+      "ir": {
+        "area_mm2": 0.0030926809783556226,
+        "power_mW": 0.7591638292299635,
+        "dynamic_mW": 0.7591638292299635,
+        "power_split": "source_total"
+      },
+      "or": {
+        "area_mm2": 0.0032758002468108896,
+        "power_mW": 1.6673258250392882,
+        "dynamic_mW": 1.6673258250392882,
+        "power_split": "source_total"
+      },
+      "wl_drv": {
+        "area_mm2": 0.1416773433453018,
+        "power_mW": 2381.6448402304877,
+        "dynamic_mW": 2381.6448402304877,
+        "power_split": "source_total"
+      },
+      "s_and_a": {
+        "area_mm2": 0.20049241799634845,
+        "power_mW": 105.78573900711943,
+        "dynamic_mW": 101.44406655746185,
+        "leakage_mW": 4.341672449657583,
+        "power_split": "synthesis"
+      },
+      "s_and_h": {
+        "area_mm2": 0.00013021814645707887,
+        "power_mW": 0.023258250392875858,
+        "dynamic_mW": 0.023258250392875858,
+        "power_split": "source_total"
+      }
+    },
+    "module_sum": {
+      "area_mm2": 3.2134676827690085,
+      "power_mW": 6379.9002328520655
+    },
+    "total": {
+      "modules": 8,
+      "area_mm2": 25.707741462152068,
+      "power_mW": 51039.201862816524
+    }
+  },
+  "digital_module": {
+    "components": {
+      "rram_array": {
+        "area_mm2": 2.864799222055735,
+        "power_mW": 3890.0199057097966,
+        "dynamic_mW": 3890.0199057097966,
+        "power_split": "source_total"
+      },
+      "ir": {
+        "area_mm2": 0.0030926809783556226,
+        "power_mW": 0.7591638292299635,
+        "dynamic_mW": 0.7591638292299635,
+        "power_split": "source_total"
+      },
+      "or": {
+        "area_mm2": 0.0032758002468108896,
+        "power_mW": 1.6673258250392882,
+        "dynamic_mW": 1.6673258250392882,
+        "power_split": "source_total"
+      },
+      "wl_drv": {
+        "area_mm2": 0.1416773433453018,
+        "power_mW": 2381.6448402304877,
+        "dynamic_mW": 2381.6448402304877,
+        "power_split": "source_total"
+      },
+      "s_and_a": {
+        "area_mm2": 0.20049241799634845,
+        "power_mW": 105.78573900711943,
+        "dynamic_mW": 101.44406655746185,
+        "leakage_mW": 4.341672449657583,
+        "power_split": "synthesis"
+      },
+      "s_and_h": {
+        "area_mm2": 0.00013021814645707887,
+        "power_mW": 0.023258250392875858,
+        "dynamic_mW": 0.023258250392875858,
+        "power_split": "source_total"
+      },
+      "sfu": {
+        "area_mm2": 5.332173931427845,
+        "power_mW": 127.20473781336271,
+        "dynamic_mW": 34.07757130932647,
+        "leakage_mW": 93.12716650403624,
+        "power_split": "synthesis",
+        "busy_fraction": 0.0275,
+        "all_busy_mW": 1239.7952861695248,
+        "stage_ps": 933.9363948271407,
+        "meets_clock": true
+      }
+    },
+    "module_sum": {
+      "area_mm2": 8.545641614196853,
+      "power_mW": 6507.1049706654285
+    },
+    "total": {
+      "modules": 8,
+      "area_mm2": 68.36513291357483,
+      "power_mW": 52056.83976532343
+    }
+  }
+}

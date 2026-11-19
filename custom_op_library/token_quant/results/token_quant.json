@@ -1,0 +1,33 @@
+[
+  {
+    "unit": "absmax_reduce_tree",
+    "params": {
+      "N": 256,
+      "W": 32
+    },
+    "method": "direct",
+    "area_um2_45nm": 112018.72,
+    "area_um2_28nm": 39206.55,
+    "delay_ps": 7336.68,
+    "leakage_uW": 2361.4058,
+    "dynamic_mW_est": 56.5729,
+    "total_cells": 114685,
+    "notes": "max |x| over N signed lanes, one pass; unsigned W-bit output"
+  },
+  {
+    "unit": "token_scale",
+    "params": {
+      "W": 32,
+      "MW": 12,
+      "SH_MAX": 31
+    },
+    "method": "direct",
+    "area_um2_45nm": 2990.9,
+    "area_um2_28nm": 1046.82,
+    "delay_ps": 12486.08,
+    "leakage_uW": 66.565,
+    "dynamic_mW_est": 1.3627,
+    "total_cells": 3031,
+    "notes": "m, sh of 127 / M for quant_mant_round; one per row (combinational divide)"
+  }
+]

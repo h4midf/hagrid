@@ -1,0 +1,59 @@
+* Front end of the 1F1C SAR ADC (Laleni et al. 2024, Fig. 9): input buffer + bootstrapped
+* sampling switch. PTM 32nm LP (nmos/pmos) and 32nm HP as low-Vt (nmos_lvt/pmos_lvt).
+
+* ---------------------------------------------------------------- bootstrapped switch
+* Abo & Gray style. Hold (samp=0): CB charged to VDD, switch gate g grounded.
+* Sample (samp=1): CB's bottom plate tied to vin, its top plate drives g -> g = vin + VDD,
+* so the main switch MS has a constant gate overdrive independent of vin.
+.subckt bootsw vin vout samp sampb vdd CB=100f WS=500n
+CB cbt cbb {CB}
+MN1 cbb sampb 0 0 nmos W=200n L=32n
+MP2 cbt g vdd cbt pmos W=200n L=32n
+MN3 g sampb 0 0 nmos W=200n L=32n
+MP4 g sampb cbt cbt pmos W=400n L=32n
+MN5 cbb g vin 0 nmos W=400n L=32n
+MS vin g vout 0 nmos W={WS} L=32n
+.ends
+
+* ---------------------------------------------------------------- input buffer
+* Two-stage Miller op-amp, PMOS input pair, unity-gain feedback (out -> inverting input).
+* NMOS common-source output stage: output can swing close to ground (bitline 0-0.5 V).
+* Bias: ideal current IB into a PMOS diode; tail = 2*IB, second stage = N2*IB.
+* M6 sized N2 x M4 so its Vgs matches M4 at N2*IB (no systematic offset).
+* Miller cap CC with nulling resistor RZ (cancels the right-half-plane zero).
+*   vp : non-inverting input (bitline), out : output (also the inverting input).
+.subckt buffer vp out vdd IB=1u CC=100f RZ=20k N2=8
+IBIAS pb 0 {IB}
+MB pb pb vdd vdd pmos W=1u L=200n
+MT tail pb vdd vdd pmos W=2u L=200n
+M1 n3 out tail vdd pmos W=2u L=200n
+M2 n1 vp  tail vdd pmos W=2u L=200n
+M3 n3 n3 0 0 nmos W=500n L=200n
+M4 n1 n3 0 0 nmos W=500n L=200n
+M6 out n1 0 0 nmos W={500n*N2} L=200n
+M7 out pb vdd vdd pmos W={1u*N2} L=200n
+RZ n1 nz {RZ}
+CC nz out {CC}
+.ends
+
+* Class-AB variant: same first stage; the output PMOS gate (g7) follows n1 through a
+* coupling cap CLS (DC bias from pb through RB, time constant RB*CLS >> one conversion).
+* A fast step drives M6 and M7 together (push-pull), so the output slews without a large
+* standing current. Quiescent output current = N2*IB.
+* M6 is sized N6 x M4 (N6 > N2) so it can pull the output close to ground; the resulting
+* constant systematic offset is a linear (offset) error.
+.subckt buffer_ab vp out vdd IB=1u CC=100f RZ=1 N2=2 N6=8 CLS=200f RB=20meg
+IBIAS pb 0 {IB}
+MB pb pb vdd vdd pmos W=1u L=200n
+MT tail pb vdd vdd pmos W=2u L=200n
+M1 n3 out tail vdd pmos W=2u L=200n
+M2 n1 vp  tail vdd pmos W=2u L=200n
+M3 n3 n3 0 0 nmos W=500n L=200n
+M4 n1 n3 0 0 nmos W=500n L=200n
+M6 out n1 0 0 nmos W={500n*N6} L=200n
+M7 out g7 vdd vdd pmos W={1u*N2} L=200n
+CLS n1 g7 {CLS}
+RB pb g7 {RB}
+RZ n1 nz {RZ}
+CC nz out {CC}
+.ends

@@ -1,0 +1,39 @@
+{
+  "_description": "Area inputs of the default 1F1C macro (one 128 x 128 array with its column readout) that are not in design.json, each with its source in _provenance. The cell array area is not here: it is results/nvsim.json -> array.array_area_um2 (28 nm). Laleni et al. report no area, so the per-column ADC area comes from a measured CIM macro whose column ADC is built to the column pitch.",
+
+  "adc": {
+    "per_array": 128,
+    "source_area_um2": 429,
+    "source_node_nm": 65,
+    "target_node_nm": 28,
+    "deepscale_area_factor": 5.829
+  },
+  "column_frontend": {
+    "per_array": 128,
+    "capacitance_fF": {"buffer_CC": 70, "buffer_CLS": 200, "bootstrap_CB": 25},
+    "mom_density_fF_per_um2": 6.30,
+    "transistors_W_L_nm": [
+      [1000, 200], [2000, 200], [2000, 200], [2000, 200], [500, 200], [500, 200], [3000, 200], [4000, 200],
+      [200, 32], [200, 32], [200, 32], [400, 32], [400, 32], [500, 32]
+    ],
+    "transistor_node_nm": 32,
+    "transistor_layout": {
+      "gate_poly_gap_F": 2.8,
+      "p_n_diffusion_gap_F": 3.5,
+      "poly_extension_F": 1.0,
+      "field_poly_gap_F": 1.6
+    },
+    "transistor_deepscale_area_factor": 1.400
+  },
+
+  "_provenance": {
+    "adc.per_array": "Laleni et al. 2024, Fig. 9 and Sec. IV: one buffer, sample-and-hold and 7-bit SAR ADC per column, 128 columns",
+    "adc.source_area_um2, source_node_nm": "CAP-RAM (Chen et al., IEEE JSSC, arXiv 2107.02388), Sec. III-B: per-column 7-bit charge-injection SAR (ciSAR) ADC, 'compact area (429 um^2)', 6.85 ENOB in transient noise simulation, measured 65-nm LP CMOS prototype; the ADCs are 8.2% of the 0.179 mm^2 macro. A lower bound for 1F1C's ADC: the ciSAR replaces the capacitive DAC with charge-injection transistors and needs no input buffer or sample-and-hold, while Laleni's ADC has a capacitive DAC, a buffer and a bootstrapped sample-and-hold. Chosen over a measured standalone ADC (Murmann survey) because a standalone ADC per column would not fit the ~2 um column pitch",
+    "adc.deepscale_area_factor": "DeepScaleTool (Sarangi and Baas, ISCAS 2021), Area, current node 65, target node 28. Area at 28 nm = source_area_um2 / factor",
+    "column_frontend": "The input buffer and bootstrapped sample-and-hold of each column's ADC (Laleni et al. 2024, Fig. 9, Sec. IV), not in the CAP-RAM ADC area. Circuits from our ADC netlist: spice/adc/sar_full_tb.sp instantiates buffer_ab (CC=70f, N2=4, N6=6, CLS=200f) and bootsw (CB=25f, WS=500n) from spice/adc/sar_frontend.lib. Sizes from spice/adc/run_frontend_sweep.py (results/adc.json frontend_sweep): CB=25f samples as well as 100f; smaller CC/CLS pass only with little margin or in a ringing region, so they stay. Area per column = sum(capacitance_fF) / mom_density_fF_per_um2 + the transistors' layout area (transistor_layout). The bias resistor RB (20 MOhm) and bias current IBIAS are ideal SPICE elements and not counted, so the front end is a lower bound",
+    "column_frontend.mom_density_fF_per_um2": "Shi et al., 'Evolution and Optimization of BEOL MOM Capacitors Across Advanced CMOS Nodes', ESSDERC 2018 (paper/devices/ESSDERC.2018.8486905.pdf), Sec. IV-B: a 1.0 pF APMOM takes ~12.6 x 12.6 um^2 at the 22 nm node (6.30 fF/um^2); 'capacitance density stops increasing beyond 28nm', so the same density holds at 28 nm",
+    "column_frontend.transistors_W_L_nm": "The 14 transistors, in order: buffer_ab MB 1u/200n, MT 2u/200n, M1 2u/200n, M2 2u/200n, M3 0.5u/200n, M4 0.5u/200n, M6 3u/200n (500n x N6=6), M7 4u/200n (1u x N2=4); bootsw MN1, MP2, MN3 200n/32n, MP4 400n/32n, MN5 400n/32n, MS 500n/32n (WS=500n). Sized in the 32 nm PTM model (transistor_node_nm)",
+    "column_frontend.transistor_layout": "NeuroSim's single-transistor layout area (Chen, Peng, Yu, IEEE TCAD 2018; source in targets/1fefet1c/NeuroSim/Inference_pytorch/NeuroSIM/formula.cpp CalculatePassGateArea, bulk, no folding; design-rule constants in constant.h: MIN_GAP_BET_GATE_POLY 2.8, MIN_GAP_BET_P_AND_N_DIFFS 3.5, MIN_POLY_EXT_DIFF 1.0, MIN_GAP_BET_FIELD_POLY 1.6, in units of the feature size F). Area = width x height, width = 2 (L + gate_poly_gap_F F), height = W + p_n_diffusion_gap_F F + 2 (poly_extension_F + field_poly_gap_F / 2) F, at F = transistor_node_nm. NeuroSim uses the minimum gate length (poly width = F); L replaces it here for the 200 nm buffer devices (our adaptation). NeuroSim's area model was checked against a 40 nm RRAM CIM macro layout by Lu et al., 'NeuroSim validation with 40nm RRAM compute-in-memory macro', AICAS 2021",
+    "column_frontend.transistor_deepscale_area_factor": "DeepScaleTool, Area, current node 32 (the transistors' node), target node 28 (same factor as organization.json 'scaling'): layout area at 28 nm = area at 32 nm / factor"
+  }
+}

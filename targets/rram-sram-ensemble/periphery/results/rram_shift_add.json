@@ -1,0 +1,33 @@
+[
+  {
+    "unit": "rram_shift_add",
+    "params": {
+      "ACC": 9
+    },
+    "method": "shift-and-add of one read-out circuit",
+    "area_um2_45nm": 35.11,
+    "area_um2_28nm": 12.29,
+    "delay_ps": 264.39,
+    "leakage_uW": 0.7808,
+    "dynamic_mW_est": 0.0161,
+    "total_cells": 36,
+    "notes": "combinational",
+    "chip_65nm": {
+      "unit": {
+        "area_um2": 52.95667101686325,
+        "dynamic_mW": 0.003245879434050826,
+        "leakage_mW": 4.674014295224371e-07,
+        "power_mW": 0.0032463468354803483,
+        "clock_GHz": 0.1,
+        "factors": {
+          "area": 1.5083073488141057,
+          "energy": 2.0160741826402644,
+          "power": 1.9847481050617652
+        }
+      },
+      "units": 8,
+      "area_um2": 423.653368134906,
+      "power_mW": 0.025970774683842787
+    }
+  }
+]

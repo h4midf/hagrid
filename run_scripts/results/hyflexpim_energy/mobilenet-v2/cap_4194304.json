@@ -1,0 +1,51 @@
+{
+  "target": "hyflexpim/default",
+  "model": "mobilenet-v2",
+  "cap": 4194304,
+  "node_nm": 65,
+  "tiles_file": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_tiles/mobilenet-v2/cap_4194304.json",
+  "latency_ns": 51041.79104999999,
+  "event_energies": {
+    "analog_array_cycle_pJ": 80.7158510704882,
+    "adc_conversion_pJ": {
+      "slc": 0.6261981818181819,
+      "mlc": 0.7797169696969697
+    },
+    "digital_row_pJ": 136.97489094614548,
+    "inner_bus_bit_pJ": 0.03533154356556663,
+    "global_bus_bit_pJ": 0.3179838920900996
+  },
+  "total_mJ": 2.188720590595938,
+  "parts_mJ": {
+    "analog array cycles": 1.6745956189892042,
+    "analog ADC conversions": 0.2818708450630593,
+    "digital row writes": 0.08811090666966856,
+    "routers": 0.05781665569856921,
+    "accelerator vec_el_mul": 0.03515380194659539,
+    "digital row reads": 0.02592474449976961,
+    "accelerator quantize": 0.021028173289007676,
+    "accelerator vec_add": 0.0022374484494732307,
+    "accelerator dequantize": 0.000739643790450901,
+    "accelerator reduce_tree_n8": 0.0006750067315872059,
+    "inner buses": 0.0004155082113267662,
+    "accelerator reduce_tree_n16": 0.00013833787403741703,
+    "accelerator reduce_tree_n64": 1.0056538115354773e-05,
+    "accelerator reduce_tree_n32": 3.842845072851109e-06
+  },
+  "parts_pct": {
+    "analog array cycles": 76.51025106558944,
+    "analog ADC conversions": 12.878338435437866,
+    "digital row writes": 4.025680895416532,
+    "routers": 2.641573161370364,
+    "accelerator vec_el_mul": 1.6061347482011776,
+    "digital row reads": 1.1844702613553293,
+    "accelerator quantize": 0.9607518373682495,
+    "accelerator vec_add": 0.10222631701308321,
+    "accelerator dequantize": 0.03379343136025934,
+    "accelerator reduce_tree_n8": 0.030840242216728868,
+    "inner buses": 0.018984068277697927,
+    "accelerator reduce_tree_n16": 0.006320490364635846,
+    "accelerator reduce_tree_n64": 0.00045947107906617774,
+    "accelerator reduce_tree_n32": 0.0001755749495555662
+  }
+}

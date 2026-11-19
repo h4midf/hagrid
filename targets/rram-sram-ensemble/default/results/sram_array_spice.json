@@ -1,0 +1,26 @@
+{
+  "word_line_pulse_ns": 4,
+  "energy_pJ_per_read": {
+    "selected_columns": 0.33489004012799994,
+    "unselected_columns": 0.5052761855999999,
+    "word_line": 0.056047559999999996,
+    "precharge_line": 0.2107044,
+    "sense_clock": 0.0728514,
+    "column_select": 0.07315308,
+    "row_predecode": 0.006476999999999999
+  },
+  "read_pJ": 1.2593996657279998,
+  "read_rate_MHz": 75.0,
+  "leakage_mW": 2.3285268479999996e-05,
+  "power_mW": 0.09447826019807999,
+  "energy_pJ_per_write": {
+    "written_columns": 0.331206912,
+    "half_selected_columns": 0.5052761855999999,
+    "word_line": 0.056047559999999996,
+    "precharge_line": 0.2107044,
+    "column_select": 0.07315308,
+    "row_predecode": 0.006476999999999999,
+    "write_enable": 0.042493079999999996
+  },
+  "write_pJ": 1.2253582176
+}

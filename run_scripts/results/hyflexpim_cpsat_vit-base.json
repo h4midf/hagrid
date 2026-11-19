@@ -1,0 +1,118 @@
+{
+  "target": "hyflexpim/default",
+  "model": "vit-base",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "code_fingerprint": "da0db8e61e027ec1",
+  "min_feasible_array_cap": 50014,
+  "max_cap": 39656106,
+  "points": {
+    "65536": {
+      "cap": 65536,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 2245509.802723249,
+      "greedy_arrays": 65204,
+      "greedy_wall_s": 10.670282125473022,
+      "segment_stationary_caps": [
+        4930,
+        0
+      ],
+      "status": "OPTIMAL",
+      "latency": 2331253.3368124347,
+      "arrays": 64508,
+      "analog_arrays": 58356,
+      "analog_stationary_arrays": 58356,
+      "digital_arrays": 6152,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 256978.211,
+          "bound_ns": 256978.211,
+          "solve_wall_s": 88.028278
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 8292.0,
+          "bound_ns": 8292.0,
+          "solve_wall_s": 0.0023420000000000003
+        }
+      ],
+      "solve_wall_s": 88.03062,
+      "wall_s": 96.77745389938354,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/vit-base/cap_65536.json"
+    },
+    "2097152": {
+      "cap": 2097152,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 471525.60853474616,
+      "greedy_arrays": 2085448,
+      "greedy_wall_s": 10.997447967529297,
+      "segment_stationary_caps": [
+        157615,
+        0
+      ],
+      "status": "OPTIMAL",
+      "latency": 379074.8044700002,
+      "arrays": 2064004,
+      "analog_arrays": 1867392,
+      "analog_stationary_arrays": 1867392,
+      "digital_arrays": 196612,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 28978.211,
+          "bound_ns": 28978.211,
+          "solve_wall_s": 8.660454
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 8292.0,
+          "bound_ns": 8292.0,
+          "solve_wall_s": 0.0018390000000000001
+        }
+      ],
+      "solve_wall_s": 8.662293,
+      "wall_s": 13.68405032157898,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/vit-base/cap_2097152.json"
+    },
+    "67108864": {
+      "cap": 67108864,
+      "time_limit_s": 600.0,
+      "workers": 16,
+      "greedy_latency": 287608.70674,
+      "greedy_arrays": 39656104,
+      "greedy_wall_s": 10.708795070648193,
+      "segment_stationary_caps": [
+        822672,
+        0
+      ],
+      "status": "OPTIMAL",
+      "latency": 287608.70674,
+      "arrays": 56433320,
+      "analog_arrays": 9850788,
+      "analog_stationary_arrays": 9850788,
+      "digital_arrays": 46582532,
+      "feasible": true,
+      "segments": [
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 20150.211,
+          "bound_ns": 20150.211,
+          "solve_wall_s": 36.919847000000004
+        },
+        {
+          "status": "OPTIMAL",
+          "objective_ns": 8292.0,
+          "bound_ns": 8292.0,
+          "solve_wall_s": 0.0017180000000000001
+        }
+      ],
+      "solve_wall_s": 36.921565,
+      "wall_s": 39.67087006568909,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/hyflexpim_cpsat/vit-base/cap_67108864.json"
+    }
+  }
+}

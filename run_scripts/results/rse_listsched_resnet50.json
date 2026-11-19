@@ -1,0 +1,38 @@
+{
+  "target": "rram-sram-ensemble/default",
+  "app": "resnet50",
+  "model": "resnet50-w3",
+  "algorithm": "list_schedule_rse",
+  "policy": "matmul_matvec_i8_rest_digital",
+  "sram_share_pct": 0.3,
+  "code_fingerprint": "78662e57553d669e",
+  "points": {
+    "16384": {
+      "cap": 16384,
+      "latency": 2519380.2036354146,
+      "arrays": 16379,
+      "rram_macros": 11685,
+      "sram_macros": 4694,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_listsched/resnet50/cap_16384.json"
+    },
+    "131072": {
+      "cap": 131072,
+      "latency": 2517812.4105776325,
+      "arrays": 131067,
+      "rram_macros": 92025,
+      "sram_macros": 39042,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_listsched/resnet50/cap_131072.json"
+    },
+    "2097152": {
+      "cap": 2097152,
+      "latency": 56649.73872,
+      "arrays": 1419450,
+      "rram_macros": 1007168,
+      "sram_macros": 412282,
+      "feasible": true,
+      "mapping": "/Users/hamidfarzaneh/Programming/1fet1c/1fet1c_compiler/run_scripts/results/rse_listsched/resnet50/cap_2097152.json"
+    }
+  }
+}
